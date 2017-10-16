@@ -4,7 +4,7 @@
 
 namespace	my
 {
-  class TextObject : Node
+  class TextObject : public Node
   {
   public:
     TextObject();

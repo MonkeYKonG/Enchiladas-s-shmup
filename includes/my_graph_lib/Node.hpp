@@ -14,7 +14,7 @@
 
 namespace my
 {
-  class Node : sf::Drawable, sf::Transformable
+  class Node : public sf::Drawable, public sf::Transformable
   {
   public:
     typedef std::shared_ptr<Node>	NodePtr;

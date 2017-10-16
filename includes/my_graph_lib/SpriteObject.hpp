@@ -4,7 +4,7 @@
 
 namespace	my
 {
-  class SpriteObject : Node
+  class		SpriteObject : public Node
   {
   public:
     SpriteObject();
