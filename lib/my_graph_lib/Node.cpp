@@ -8,16 +8,16 @@
 #include "Node.hpp"
 
 namespace my {
-  Node::NodeList	Node::GetChilds()
+  Node::NodeList	Node::GetChilds() const
   {
     return (m_childs);
   }
 
-  bool			Node::IsVisible()
+  bool			Node::IsVisible() const
   {
     return (m_visible);
   }
-  bool			Node::IsIntersect()
+  bool			Node::IsIntersect() const
   {
     return (false);
   }
