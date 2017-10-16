@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/alexis/eclipse-workspace/Enchiladas-s-schmup/lib/my_graph_lib/Node.cpp
+Node.hpp
+/home/alexis/eclipse-workspace/Enchiladas-s-schmup/lib/my_graph_lib/Node.hpp
+
+includes/my_graph_lib/Node.hpp
+list
+-
+memory
+-
+SFML/Graphics.hpp
+includes/my_graph_lib/SFML/Graphics.hpp
+
