@@ -7,8 +7,8 @@ add_library(my_graph_lib
   TextObject.cpp
   AnimatedObject.cpp
   MoovableObject.cpp
-  HybridSprite.cpp
-  HybridText.cpp)
+  HybridObject.cpp
+  ResourcesLoader.cpp)
 
 target_link_libraries(my_graph_lib 
   sfml-graphics-s
