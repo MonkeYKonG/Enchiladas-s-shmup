@@ -1,11 +1,12 @@
 #pragma once
 
-#include "AnimatedSprite.hpp"
-#include "MoovableSprite.hpp"
+#include "AnimatedObject.hpp"
+#include "MoovableObject.hpp"
+#include "SpriteObject.hpp"
 
 namespace	my
 {
-  class		HybridSprite : public AnimatedSprite, public MoovableSprite
+  class		HybridSprite : public AnimatedObject, public MoovableObject, public SpriteObject
   {
   public:
     HybridSprite();
