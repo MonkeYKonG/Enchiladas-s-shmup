@@ -8,7 +8,9 @@ add_library(my_graph_lib
   AnimatedObject.cpp
   MoovableObject.cpp
   HybridObject.cpp
-  ResourcesLoader.cpp)
+  ResourcesLoader.cpp
+  Scene.cpp
+  GameManager.cpp)
 
 target_link_libraries(my_graph_lib 
   sfml-graphics-s
