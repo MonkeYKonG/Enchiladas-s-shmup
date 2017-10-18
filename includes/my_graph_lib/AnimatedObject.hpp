@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <SFML/Graphics.hpp>
+#include <stdexcept>
 #include "IUpdatableObject.hh"
 
 namespace	my
@@ -11,18 +12,18 @@ namespace	my
   public:
     typedef std::vector<sf::IntRect>	Animation;
 
-    AnimatedObject();
-    virtual ~AnimatedObject(){}
+    AnimatedObject() noexcept;
+    virtual ~AnimatedObject() noexcept {}
 
     virtual void		    Update();
 
-    const sf::IntRect&			    GetCurentTile() const;
-    const Animation&                GetCurentAnimation() const;
-    const std::vector<Animation>&	GetAnimations() const;
+    const sf::IntRect&			    GetCurentTile() const noexcept;
+    const Animation&                GetCurentAnimation() const noexcept;
+    const std::vector<Animation>&	GetAnimations() const noexcept;
 
-    void			                SetAnimations(const std::vector<Animation> & animations);
-    void			                SetAnimIndex(int index);
-    void			                SetAnimTileIndex(int tileIndex);
+    void			                SetAnimations(const std::vector<Animation> & animations) noexcept;
+    void			                SetAnimIndex(int index) throw (std::out_of_range);
+    void			                SetAnimTileIndex(int tileIndex) throw (std::out_of_range);
 
   protected:
     bool			         m_onAnimation;

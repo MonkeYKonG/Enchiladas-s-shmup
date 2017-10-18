@@ -8,23 +8,24 @@ namespace               my
   class		            MoovableObject : public IUpdatableObject
   {
   public:
-    MoovableObject();
-    virtual ~MoovableObject(){}
+    MoovableObject() noexcept;
+    virtual ~MoovableObject() noexcept {}
 
-    virtual void	    Update();
+    virtual void	    Update() = 0;
 
-    bool		        IsOnDeplacement() const;
-    float		        GetSpeed() const;
-    const sf::Vector2f& GetDirection() const;
-    int			        GetFrameRate() const;
-    int			        GetDeplacementRepetition() const;
-    int			        GetRepetitionMax() const;
+    bool		        IsOnDeplacement() const noexcept;
+    float		        GetSpeed() const noexcept;
+    const sf::Vector2f& GetDirection() const noexcept;
+    int			        GetFrameRate() const noexcept;
+    int			        GetDeplacementRepetition() const noexcept;
+    int			        GetRepetitionMax() const noexcept;
 
-    void		        SetSpeed(float speed);
-    void		        SetDirection(const sf::Vector2f & direction);
-    void		        SetFrameRate(int frameRate);
-    void		        SetDeplacementRepetition(int deplacementRepetition);
-    void		        SetRepetitionMax(int repetitionMax);
+    void                SetOnDeplacement(bool onDeplacement) noexcept;
+    void		        SetSpeed(float speed) noexcept;
+    void		        SetDirection(const sf::Vector2f & direction) noexcept;
+    void		        SetFrameRate(int frameRate) noexcept;
+    void		        SetDeplacementRepetition(int deplacementRepetition) noexcept;
+    void		        SetRepetitionMax(int repetitionMax) noexcept;
 
   protected:
     bool		  m_onDeplacement;

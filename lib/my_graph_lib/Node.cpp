@@ -9,7 +9,7 @@
 #include "MessagesException.hpp"
 
 namespace my {
-  Node::Node()
+  Node::Node() noexcept
     : m_visible(true)
   {}
 

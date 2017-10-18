@@ -32,7 +32,7 @@ namespace my
     void		SetVisible(bool visible) noexcept;
 
   protected:
-    Node();
+    Node() noexcept;
     virtual void	draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
     NodeList	m_childs;
