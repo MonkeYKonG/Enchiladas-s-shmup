@@ -10,7 +10,9 @@ add_library(my_graph_lib
   HybridObject.cpp
   ResourcesLoader.cpp
   Scene.cpp
-  GameManager.cpp)
+  GameManager.cpp
+  XMLNode.cpp
+  XMLParser.cpp)
 
 target_link_libraries(my_graph_lib 
   sfml-graphics-s

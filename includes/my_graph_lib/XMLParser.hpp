@@ -12,6 +12,5 @@ namespace	my
 	private:
 		XMLParser();
 		~XMLParser();
-		
 	};
 }

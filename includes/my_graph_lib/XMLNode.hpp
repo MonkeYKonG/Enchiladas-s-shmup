@@ -1,34 +1,37 @@
 #pragma once
 
 #include <list>
+#include <vector>
 #include <memory>
+#include <utility>
 
 namespace my
 {
 	class XMLNode
 	{
 	public:
-		typedef std::list<std::shared_ptr<XMLNode> > NodeList;
-		typedef std::paire<std::string, std::string> NodeContent;
-		typedef std::vector<NodeContent>			 NodeList;
+		typedef std::vector<std::shared_ptr<XMLNode> >	NodeList;
+		typedef std::pair<std::string, std::string>  	NodeContent;
+		typedef std::vector<NodeContent>			 	ContentList;
 
 		~XMLNode();
 
+		static std::shared_ptr<XMLNode> create(const ContentList & contents);
+
 		const NodeList &GetChilds() const;
-		XMLNodePtr GetChild(int index) const;
-		XMLNodePtr GetChild(const std::string & key) const;
-		const NodeList &GetContents() const;
-		const NodeContent &GetContent(const std::string & key);
-		void AddChild(XMLNodePtr newChild);
-		void RemoveChild(int index);
-		void RemoveChild(const std::string & key);
+		std::shared_ptr<XMLNode> GetChild(int index) const;
+		std::shared_ptr<XMLNode> GetChild(const std::string & key) const;
+		const std::string &GetName() const;
+		const ContentList &GetContents() const;
+		const NodeContent &GetContent(const std::string & key) const;
+		void AddChild(std::shared_ptr<XMLNode> newChild);
 		
 	private:
-		XMLNode();
+		XMLNode(const ContentList & contents);
 
 		NodeList 	m_childs;
 		std::string m_name;
-		NodeList	m_contents;
+		ContentList	m_contents;
 	};
 
 	typedef std::shared_ptr<XMLNode> XMLNodePtr;

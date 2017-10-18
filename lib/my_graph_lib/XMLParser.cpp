@@ -5,7 +5,7 @@ namespace	my
 {
 	XMLNodePtr	XMLParser::Load(const std::string &fileName)
 	{
-		std::ifstream fs(filename);
+		std::ifstream fs(fileName);
 
 		if (fs)
 			;
