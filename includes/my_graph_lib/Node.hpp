@@ -21,7 +21,7 @@ namespace my
     typedef std::shared_ptr<Node>	NodePtr;
     typedef std::list<NodePtr>		NodeList;
 
-    virtual ~Node(){};
+    virtual ~Node() noexcept {};
 
     NodeList		GetChilds() const noexcept;
     bool		    IsVisible() const noexcept;
