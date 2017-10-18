@@ -2,25 +2,25 @@
 
 namespace	my
 {
-	XMLNode::XMLNode(const ContentList & contents)
+	XMLNode::XMLNode(const ContentList & contents) noexcept
 	{}
 
-	XMLNodePtr XMLNode::create(const ContentList & contents)
+	XMLNode::XMLNodePtr XMLNode::create(const ContentList & contents) noexcept
 	{
 		return (XMLNodePtr(new XMLNode(contents)));
 	}
 
-	const XMLNode::NodeList &XMLNode::GetChilds() const
+	const XMLNode::NodeList &XMLNode::GetChilds() const noexcept
 	{
 		return (m_childs);
 	}
 
-	XMLNodePtr XMLNode::GetChild(int index) const
+	XMLNode::XMLNodePtr XMLNode::GetChild(int index) const throw (std::out_of_range)
 	{
 		return (m_childs[index]);
 	}
 
-	XMLNodePtr XMLNode::GetChild(const std::string & key) const
+	XMLNode::XMLNodePtr XMLNode::GetChild(const std::string & key) const throw (std::out_of_range)
 	{
 		for (unsigned i = 0; i < m_childs.size(); ++i)
 			if (m_childs[i]->GetName() == key)
@@ -28,24 +28,24 @@ namespace	my
 		return (XMLNodePtr(0));
 	}
 
-	const std::string &XMLNode::GetName() const
+	const std::string &XMLNode::GetName() const noexcept
 	{
 		return (m_name);
 	}
 
-	const XMLNode::ContentList &XMLNode::GetContents() const
+	const XMLNode::ContentList &XMLNode::GetContents() const noexcept
 	{
 		return (m_contents);
 	}
 
-	const XMLNode::NodeContent &XMLNode::GetContent(const std::string & key) const
+	const XMLNode::NodeContent &XMLNode::GetContent(const std::string & key) const throw (std::out_of_range)
 	{
 		for (unsigned i = 0; i < m_contents.size(); ++i)
 			if (m_contents[i].first == key)
 				return (m_contents[i]);
 	}
 
-	void XMLNode::AddChild(XMLNodePtr newChild)
+	void XMLNode::AddChild(XMLNode::XMLNodePtr newChild) throw (std::invalid_argument)
 	{
 		m_childs.push_back(newChild);
 	}

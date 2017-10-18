@@ -3,7 +3,7 @@
 
 namespace	my
 {
-	XMLNodePtr	XMLParser::Load(const std::string &fileName)
+	XMLNode::XMLNodePtr	XMLParser::Load(const std::string &fileName) throw (std::invalid_argument)
 	{
 		std::ifstream fs(fileName);
 

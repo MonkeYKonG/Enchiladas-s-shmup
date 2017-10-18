@@ -2,41 +2,41 @@
 
 namespace	my
 {
-  TextObject::TextObject()
+  TextObject::TextObject() noexcept
   {}
 
-  void		TextObject::SetFont(const sf::Font & font)
+  void		TextObject::SetFont(const sf::Font & font) noexcept
   {
-    m_text.setFont(font);
+	m_text.setFont(font);
   }
 
-  void		TextObject::SetText(const std::string & text)
+  void		TextObject::SetText(const std::string & text) noexcept
   {
-    m_text.setString(text);
+	m_text.setString(text);
   }
 
-  void		TextObject::SetSize(int size)
+  void		TextObject::SetSize(int size) noexcept
   {
-
+	m_text.setCharacterSize(size);
   }
 
-  void		TextObject::SetColor(const sf::Color & color)
+  void		TextObject::SetColor(const sf::Color & color) noexcept
   {
-    m_text.setFillColor(color);
+	m_text.setFillColor(color);
   }
 
-  void		TextObject::SetRotate(float rotate)
+  void		TextObject::SetRotate(float rotate) noexcept
   {
-    m_text.setRotation(rotate);
+	m_text.setRotation(rotate);
   }
 
-  void		TextObject::SetScale(float scaleX, float scaleY)
+  void		TextObject::SetScale(float scaleX, float scaleY) noexcept
   {
-    m_text.setScale(scaleX, scaleY);
+	m_text.setScale(scaleX, scaleY);
   }
 
-  sf::Text	TextObject::GetText() const
+  const sf::Text	&TextObject::GetText() const noexcept
   {
-    return (m_text);
+	return (m_text);
   }
 }

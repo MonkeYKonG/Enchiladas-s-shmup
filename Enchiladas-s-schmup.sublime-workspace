@@ -1,0 +1,384 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"n",
+				"noexcept"
+			],
+			[
+				"Spr",
+				"SpriteObject"
+			],
+			[
+				"Get",
+				"GetCurentAnimation"
+			],
+			[
+				"Inv",
+				"InvalidIndex"
+			],
+			[
+				"m_anim",
+				"m_animIndex"
+			],
+			[
+				"Ani",
+				"AnimatedObject"
+			],
+			[
+				"Inva",
+				"InvalidIndex"
+			],
+			[
+				"m_",
+				"m_animTileIndex"
+			],
+			[
+				"Anim",
+				"AnimInvalidIndex"
+			],
+			[
+				"m_ani",
+				"m_animIndex"
+			],
+			[
+				"m_a",
+				"m_animIndex"
+			],
+			[
+				"Set",
+				"SetAnimTileIndex"
+			],
+			[
+				"Anima",
+				"AnimatedObject"
+			],
+			[
+				"var",
+				"varName"
+			],
+			[
+				"function",
+				"functionPrototype"
+			],
+			[
+				"funct",
+				"functionPrototype"
+			],
+			[
+				"m_c",
+				"m_childs"
+			],
+			[
+				"XML",
+				"XMLNodePtr"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "lib/my_graph_lib/Node.cpp",
+			"settings":
+			{
+				"buffer_size": 1246,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/C++/C++ Single File.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/C++/C++ Single File.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Default/Syntax Tests.sublime-build",
+					""
+				],
+				[
+					"Packages/Default/Syntax Tests.sublime-build",
+					"All Syntaxes"
+				],
+				[
+					"Packages/Default/Syntax Tests.sublime-build",
+					"Performance"
+				],
+				[
+					"Packages/Default/Syntax Tests.sublime-build",
+					"Regex Compatibility"
+				]
+			],
+			[
+				"Packages/Default/Syntax Tests.sublime-build",
+				"All Syntaxes"
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib"
+	],
+	"file_history":
+	[
+		"/home/alexis/.config/sublime-text-3/Packages/User/cmake.sublime-build",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib/AnimatedObject.cpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib/GameManager.cpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib/HybridObject.cpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib/MessagesException.cpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib/MoovableObject.cpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib/Node.cpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib/ResourcesLoader.cpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib/Scene.cpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib/SpriteObject.cpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib/TextObject.cpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib/XMLNode.cpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib/XMLParser.cpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/AnimatedObject.hpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/GameManager.hpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/HybridObject.hpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/IUpdatableObject.hh",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/MessagesException.hpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/MoovableObject.hpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/Node.hpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/ResourcesLoader.hpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/Scene.hpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/SceneReturnValue.hh",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/SpriteObject.hpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/StateReturn.hh",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/TextObject.hpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/WindowBuffer.hh",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/XMLNode.hpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/XMLParser.hpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib/CMakeLists.txt",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/CMakeLists.txt",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib/HybridSprite.cpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib/HybridText.cpp",
+		"/home/alexis/Rendu/Modimo/lambda_deployment/admin/www/index.html",
+		"/home/alexis/Rendu/Modimo/lambda_deployment/admin/www/js/app.js",
+		"/home/alexis/Rendu/Modimo/lambda_deployment/admin/www/js/components/Login/login.view.html",
+		"/home/alexis/Rendu/Modimo/lambda_deployment/admin/www/js/components/Login/login.controller.js",
+		"/home/alexis/Rendu/Modimo/admin/.editorconfig",
+		"/home/alexis/Rendu/Modimo/admin/www/manifest.json",
+		"/home/alexis/Rendu/Modimo/admin/www/index.html"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"sprite",
+			"mod",
+			"LoginCtrl"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"text"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "lib/my_graph_lib/Node.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1246,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								85,
+								85
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 123.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/User/cmake.sublime-build",
+	"project": "Enchiladas-s-schmup.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

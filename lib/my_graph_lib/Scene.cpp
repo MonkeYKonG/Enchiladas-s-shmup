@@ -2,7 +2,7 @@
 
 namespace	my
 {
-	void Scene::PollEvents(sf::RenderWindow & window)
+	void Scene::PollEvents(sf::RenderWindow & window) noexcept
 	{
 		sf::Event event;
 

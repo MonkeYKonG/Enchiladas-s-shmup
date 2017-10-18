@@ -7,18 +7,18 @@ namespace	my
   class		SpriteObject : public Node
   {
   public:
-    SpriteObject();
-    virtual ~SpriteObject(){}
+	SpriteObject() noexcept;
+	virtual ~SpriteObject() noexcept {}
 
-    void	SetTexture(const sf::Texture &texture);
-    void	SetSize(int size);
-    void	SetColor(const sf::Color &color);
-    void	SetRotate(float rotate);
-    void	SetScale(float scaleX, float scaleY);
+	void	SetTexture(const sf::Texture & texture) noexcept;
+	void	SetColor(const sf::Color & color) noexcept;
+	void	SetRotate(float rotate) noexcept;
+	void	SetScale(float scaleX, float scaleY) noexcept;
+	void    SetScale(const sf::Vector2f & scale) noexcept;
 
-    sf::Sprite	GetSprite() const;
+	const sf::Sprite &GetSprite() const noexcept;
 
   protected:
-    sf::Sprite	m_sprite;
+	sf::Sprite	m_sprite;
   };
 }

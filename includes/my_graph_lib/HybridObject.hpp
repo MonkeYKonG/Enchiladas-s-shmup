@@ -8,9 +8,9 @@ namespace	my
   class		HybridObject : public AnimatedObject, public MoovableObject
   {
   public:
-    HybridObject();
-    virtual ~HybridObject(){}
+	HybridObject();
+	virtual ~HybridObject(){}
 
-    virtual void Update();
+	virtual void Update();
   };
 }

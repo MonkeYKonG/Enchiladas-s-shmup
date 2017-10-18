@@ -1,5 +1,6 @@
 #pragma once
 
+#include <stdexcept>
 #include <list>
 #include "WindowBuffer.hh"
 
@@ -8,16 +9,16 @@ namespace	my
 	class 	GameManager
 	{
 	public:
-		virtual ~GameManager() {}
+		virtual ~GameManager() noexcept {}
 
-		void			Loop();
-		void			AddWindow(WindowBufferPtr newWindow);
-		void			CloseWindow(int index);
+		void			Loop() throw (std::exception);
+		void			AddWindow(WindowBuffer::WindowBufferPtr newWindow) noexcept;
+		void			CloseWindow(int index) throw (std::out_of_range);
 		
 	protected:
-		virtual void	Update();
-		virtual void	Draw();
+		virtual void	Update() throw (std::exception);
+		virtual void	Draw() noexcept;
 
-		std::list<WindowBufferPtr>	m_windows;
+		std::list<WindowBuffer::WindowBufferPtr>	m_windows;
 	};
 }

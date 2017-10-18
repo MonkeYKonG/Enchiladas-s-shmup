@@ -7,7 +7,7 @@ namespace	my
 	class 	XMLParser
 	{
 	public:
-		static XMLNodePtr Load(const std::string & fileName);
+		static XMLNode::XMLNodePtr Load(const std::string & fileName) throw (std::invalid_argument);
 
 	private:
 		XMLParser();

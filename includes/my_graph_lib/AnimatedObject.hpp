@@ -9,33 +9,33 @@ namespace	my
 {
   class		AnimatedObject : public IUpdatableObject
   {
-    public:
-        typedef std::vector<sf::IntRect>	Animation;
+	public:
+		typedef std::vector<sf::IntRect>	Animation;
 
-        AnimatedObject() noexcept;
-        virtual ~AnimatedObject() noexcept {}
+		AnimatedObject() noexcept;
+		virtual ~AnimatedObject() noexcept {}
 
-        virtual void		    Update();
+		virtual void		    Update();
 
-        bool                            IsOnAnimation() const noexcept;
-        const sf::IntRect&			    GetCurentTile() const throw (std::out_of_range);
-        const Animation&                GetCurentAnimation() const throw (std::out_of_range);
-        const std::vector<Animation>&	GetAnimations() const noexcept;
+		bool                            IsOnAnimation() const noexcept;
+		const sf::IntRect&			    GetCurentTile() const throw (std::out_of_range);
+		const Animation&                GetCurentAnimation() const throw (std::out_of_range);
+		const std::vector<Animation>&	GetAnimations() const noexcept;
 
-        void                            SetOnAnimation(bool onAnimation) noexcept;
-        void			                SetAnimations(const std::vector<Animation> & animations) noexcept;
-        void			                SetAnimIndex(int index, int tileIndex = 0) throw (std::out_of_range);
-        void			                SetAnimTileIndex(int tileIndex) throw (std::out_of_range);
+		void                            SetOnAnimation(bool onAnimation) noexcept;
+		void			                SetAnimations(const std::vector<Animation> & animations) noexcept;
+		void			                SetAnimIndex(int index, int tileIndex = 0) throw (std::out_of_range);
+		void			                SetAnimTileIndex(int tileIndex) throw (std::out_of_range);
 
-    protected:
-        bool			         m_onAnimation;
-        std::vector<Animation>	 m_animations;
-        int			          	 m_animIndex;
-        int				         m_animTileIndex;
+	protected:
+		bool			         m_onAnimation;
+		std::vector<Animation>	 m_animations;
+		int			          	 m_animIndex;
+		int				         m_animTileIndex;
 
-    private:
-        bool AnimInvalidIndex(int animIndex) const noexcept;
-        bool AnimInvalidIndex() const noexcept;
-        bool InvalidIndexs(int tileIndex) const noexcept;
-    };
+	private:
+		bool AnimInvalidIndex(int animIndex) const noexcept;
+		bool AnimInvalidIndex() const noexcept;
+		bool InvalidIndexs(int tileIndex) const noexcept;
+	};
 }
