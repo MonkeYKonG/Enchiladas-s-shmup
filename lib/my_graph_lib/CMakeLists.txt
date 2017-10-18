@@ -12,7 +12,8 @@ add_library(my_graph_lib
   Scene.cpp
   GameManager.cpp
   XMLNode.cpp
-  XMLParser.cpp)
+  XMLParser.cpp
+  MessagesException.cpp)
 
 target_link_libraries(my_graph_lib 
   sfml-graphics-s

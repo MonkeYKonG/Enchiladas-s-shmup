@@ -6,34 +6,41 @@
  */
 
 #include "Node.hpp"
+#include "MessagesException.hpp"
 
 namespace my {
-  Node::NodeList	Node::GetChilds() const
+  Node::Node()
+    : m_visible(true)
+  {}
+
+  Node::NodeList	Node::GetChilds() const noexcept
   {
     return (m_childs);
   }
 
-  bool			Node::IsVisible() const
+  bool			Node::IsVisible() const noexcept
   {
     return (m_visible);
   }
-  bool			Node::IsIntersect() const
-  {
-    return (false);
-  }
 
-  void			Node::AddChild(NodePtr newChild)
+  void			Node::AddChild(NodePtr newChild) throw (std::invalid_argument)
   {
+    if (!newChild)
+        throw (std::invalid_argument(MessagesException::NullPtr("Node::AddChild(NodePtr newChild)", "newChild")));
     m_childs.push_back(newChild);
   }
 
-  void			Node::AddChilds(NodeList newChilds)
+  void			Node::AddChilds(NodeList newChilds) throw (std::invalid_argument)
   {
     for (auto it = newChilds.begin(); it != newChilds.end(); ++it)
-      m_childs.push_back(*it);
+    {
+        if (!(*it))
+            throw (std::invalid_argument(MessagesException::NullPtr("Node::AddChilds(NodeList newChilds)", "newChild::iterator")));
+        m_childs.push_back(*it);
+    }
   }
 
-  void			Node::SetVisible(bool visible)
+  void			Node::SetVisible(bool visible) noexcept
   {
     m_visible = visible;
   }

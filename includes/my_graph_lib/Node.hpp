@@ -10,6 +10,7 @@
 
 #include <list>
 #include <memory>
+#include <stdexcept>
 #include "SFML/Graphics.hpp"
 
 namespace my
@@ -18,22 +19,23 @@ namespace my
   {
   public:
     typedef std::shared_ptr<Node>	NodePtr;
-    typedef std::list<NodePtr>			NodeList;
+    typedef std::list<NodePtr>		NodeList;
 
     virtual ~Node(){};
 
-    NodeList		GetChilds() const;
-    bool		IsVisible() const;
-    bool		IsIntersect() const;
+    NodeList		GetChilds() const noexcept;
+    bool		    IsVisible() const noexcept;
+    virtual bool	IsIntersect() const noexcept = 0;
 
-    void		AddChild(NodePtr newChild);
-    void		AddChilds(NodeList newChilds);
-    void		SetVisible(bool visible);
+    void		AddChild(NodePtr newChild) throw (std::invalid_argument);
+    void		AddChilds(NodeList newChilds) throw (std::invalid_argument);
+    void		SetVisible(bool visible) noexcept;
 
   protected:
+    Node();
     virtual void	draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
-    NodeList		m_childs;
+    NodeList	m_childs;
     bool		m_visible;
   };
 } /* namespace my */
