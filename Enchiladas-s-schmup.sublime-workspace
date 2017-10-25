@@ -4,12 +4,68 @@
 		"selected_items":
 		[
 			[
-				"beacon",
-				"beaconEnd"
+				"To",
+				"ToStringRec"
 			],
 			[
 				"BEA",
-				"BEACON_END"
+				"BEACON_BEGIN"
+			],
+			[
+				"ne",
+				"nextValue"
+			],
+			[
+				"next",
+				"nextValue"
+			],
+			[
+				"BE",
+				"BEACON_BEGIN"
+			],
+			[
+				"Get",
+				"GetNextValue"
+			],
+			[
+				"XML",
+				"XMLParser"
+			],
+			[
+				"nex",
+				"nextString"
+			],
+			[
+				"GET",
+				"GetNextString"
+			],
+			[
+				"GetN",
+				"GetNextWord"
+			],
+			[
+				"is",
+				"isspace"
+			],
+			[
+				"beaco",
+				"beaconName"
+			],
+			[
+				"bea",
+				"beaconName"
+			],
+			[
+				"GetBea",
+				"GetBeaconName"
+			],
+			[
+				"inva",
+				"invalid_argument"
+			],
+			[
+				"beacon",
+				"beaconEnd"
 			],
 			[
 				"XMLP",
@@ -18,14 +74,6 @@
 			[
 				"m_file",
 				"m_fileContent"
-			],
-			[
-				"XML",
-				"XMLNodePtr"
-			],
-			[
-				"bea",
-				"beaconString"
 			],
 			[
 				"B",
@@ -42,10 +90,6 @@
 			[
 				"Pas",
 				"ParseRec"
-			],
-			[
-				"BE",
-				"BEACON_BEGIN"
 			],
 			[
 				"m_li",
@@ -94,10 +138,6 @@
 			[
 				"Spr",
 				"SpriteObject"
-			],
-			[
-				"Get",
-				"GetCurentAnimation"
 			],
 			[
 				"Inv",
@@ -160,58 +200,10 @@
 	"buffers":
 	[
 		{
-			"file": "sources/main.cpp",
+			"file": "sources/CMakeLists.txt",
 			"settings":
 			{
-				"buffer_size": 597,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "#include <fstream>\n#include <cctype>\n#include \"XMLParser.hpp\"\n#include \"MessagesException.hpp\"\n\n#include <iostream>\n\nnamespace\tmy\n{\n\tXMLParser::XMLParser(std::ifstream & fs, const std::string & fileName) noexcept\n\t\t: m_fs(fs), m_fileName(fileName), m_index(0)\n\t{}\t\n\n\tvoid XMLParser::JumpSpace() noexcept\n\t{\n\t\twhile (m_index < m_fileContent.size() && std::isspace(m_fileContent[m_index]))\n\t\t\tm_index++;\n\t}\n\n\t/*void XMLParser::AddBeacon(const std::string & text, unsigned &index) throw (std::invalid_argument)\n\t{\n\t\tunsigned beaconEnd = text.find(BEACON_END, index);\n\n\t\tif (beaconEnd == std::string::npos)\n\t\t\tthrow (std::invalid_argument(\"syntax error\"));\n\t\tbeaconEnd++;\n\t\tstd::cout << text.substr(index++, beaconEnd - index) << std::endl;\n\t\tindex = beaconEnd;\t\n\t}\n\n\tvoid XMLParser::AddValue(const std::string & text, unsigned &index) throw (std::invalid_argument)\n\t{\n\t\tunsigned valueEnd = text.find(BEACON_BEGIN, index);\n\n\t\tif (valueEnd == std::string::npos)\n\t\t\tvalueEnd = text.size();\n\t\tstd::cout << text.substr(index, valueEnd - index) << std::endl;\n\t\tindex = valueEnd;\n\t}\n\n\tvoid XMLParser::AddData(const std::string & text, unsigned &index) throw (std::invalid_argument)\n\t{\n\t\ttry\n\t\t{\n\t\t\tif (text[index] == BEACON_BEGIN)\n\t\t\t\tAddBeacon(text, index);\n\t\t\telse if (text[index] == BEACON_COMMENT)\n\t\t\t\tindex = text.find('\\n', index);\n\t\t\telse\n\t\t\t\tAddValue(text, index);\n\t\t}\n\t\tcatch (const std::invalid_argument & e)\n\t\t{\n\t\t\tthrow (e);\n\t\t}\n\t}*/\n\n\tconst std::vector<std::string> XMLParser::GetBeacon(std::string & name, std::vector<std::string> & args) throw (std::invalid_argument)\n\t{\n\t\tunsigned beaconEnd;\n\t\t\n\t\tif (m_fileContent[m_index] != BEACON_BEGIN)\n\t\t\tthrow (std::invalid_argument(\"syntax error: invalid beacon opening\"));\n\t\tif ((beaconEnd = m_fileContent.find(BEACON_END, m_index)) == std::string::npos)\n\t\t\tthrow (Std::invalid_argument(\"Syntax error: miss beacon ending\"));\n\t\tm_index ++;\n\t\tJumpSpace();\n\t\ttry\n\t\t{\n\t\t\t\tm_name = getNextArg();\n\t\t\t\twhile (m_index < beaconEnd)\n\t\t\t\t{\n\t\t\t\t\targs.push_back(getNextArg());\n\t\t\t\t\tJumpSpace();\n\t\t\t\t}\n\t}\t}\n\t\tstd::cout << \"beacon content: \" << m_fileContent.substr(m_index, beaconEnd - m_index) << std::endl;\n\t\tm_index++;\n\t\tJumpSpace();\n\t\treturn (args);\n\t}\n\n\tXMLNode::XMLNodePtr XMLParser::Parse() throw (std::invalid_argument)\n\t{\n\t\tif (!std::getline(m_fs, m_fileContent, static_cast<char>(4)))\n\t\t\tthrow (std::invalid_argument(\"can't read file file.\"));\n\t\ttry\n\t\t{\n\t\t\treturn (ParseRec());\n\t\t}\n\t\tcatch (const std::invalid_argument & e)\n\t\t{\n\t\t\tthrow (e);\n\t\t}\n\t}\n\n\tXMLNode::XMLNodePtr XMLParser::ParseRec() throw (std::invalid_argument)\n\t{\n\t\tstd::string name;\n\t\tstd::vector<std::string> args;\n\n\t\tJumpSpace();\n\t\tstd::cout << m_fileContent.substr(m_index) << std::endl;\n\t\t\n\n\t\t/*while (std::getline(m_fs, beaconString))\n\t\t{\n\t\t\tindex = 0;\n\t\t\tJumpSpace(beaconString, index);\n\t\t\ttry\n\t\t\t{\n\t\t\t\twhile (index < beaconString.size())\n\t\t\t\t\tAddData(beaconString, index);\n\t\t\t}\n\t\t\tcatch (const std::invalid_argument & e)\n\t\t\t{\n\t\t\t\tthrow (e);\n\t\t\t}\n\t\t\tlineNum++;\n\t\t}*/\n\n\t}\n\n\tXMLNode::XMLNodePtr\tXMLParser::Load(const std::string &fileName) throw (std::invalid_argument)\n\t{\n\t\tstd::ifstream fs(fileName);\n\t\tXMLParser parser(fs, fileName);\n\n\t\tif (!fs)\n\t\t\tthrow (std::invalid_argument(MessagesException::FileNotFound(\"XMLParser::Load(const std::string & fileName)\", fileName)));\n\t\treturn (parser.Parse());\n\t}\n}",
-			"file": "lib/my_graph_lib/XMLParser.cpp",
-			"file_size": 3311,
-			"file_write_time": 131533969431930084,
-			"settings":
-			{
-				"buffer_size": 3317,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "includes/my_graph_lib/XMLNode.hpp",
-			"settings":
-			{
-				"buffer_size": 1336,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "includes/my_graph_lib/XMLParser.hpp",
-			"settings":
-			{
-				"buffer_size": 1382,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "includes/my_graph_lib/MessagesException.hpp",
-			"settings":
-			{
-				"buffer_size": 747,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/test.xml",
-			"settings":
-			{
-				"buffer_size": 162,
+				"buffer_size": 183,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -309,7 +301,10 @@
 	"expanded_folders":
 	[
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/menu_lib",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/resources",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/sources"
@@ -317,19 +312,21 @@
 	"file_history":
 	[
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib/CMakeLists.txt",
-		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/sources/CMakeLists.txt",
-		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/sources/main.cpp",
-		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib/XMLParser.cpp",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/CMakeLists.txt",
-		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib/MessagesException.cpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/menu_lib/CMakeLists.txt",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib/XMLParser.cpp",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib/XMLNode.cpp",
-		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/XMLNode.hpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/sources/main.cpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/resources/test.xml",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/MessagesException.hpp",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/XMLParser.hpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/XMLNode.hpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/sources/CMakeLists.txt",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib/MessagesException.cpp",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib/Scene.cpp",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib/GameManager.cpp",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/Scene.hpp",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/WindowBuffer.hh",
-		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/MessagesException.hpp",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/GameManager.hpp",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/SceneReturnValue.hh",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/StateReturn.hh",
@@ -376,6 +373,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"std::cout",
+			"beaconName",
 			"\n\t\t",
 			"();\n",
 			"AddValue",
@@ -389,6 +388,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"//std::cout",
+			"nextWord",
 			"text"
 		],
 		"reverse": false,
@@ -400,61 +401,32 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "sources/main.cpp",
+					"file": "sources/CMakeLists.txt",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 597,
+						"buffer_size": 183,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								540,
-								540
+								181,
+								181
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "lib/my_graph_lib/XMLParser.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3317,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1916,
-								2035
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 780.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -463,124 +435,8 @@
 			]
 		},
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 2,
-					"file": "includes/my_graph_lib/XMLNode.hpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1336,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								467,
-								467
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "includes/my_graph_lib/XMLParser.hpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1382,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								559,
-								559
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 90.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "includes/my_graph_lib/MessagesException.hpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 747,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								643,
-								643
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 1099.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "resources/test.xml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 162,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								91,
-								91
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/XML/XML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -634,7 +490,7 @@
 	"project": "Enchiladas-s-schmup.sublime-project",
 	"replace":
 	{
-		"height": 42.0
+		"height": 68.0
 	},
 	"save_all_on_build": true,
 	"select_file":

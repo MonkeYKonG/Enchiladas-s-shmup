@@ -29,8 +29,6 @@ namespace	my
 		if (nextWord.empty())
 			throw (std::invalid_argument("syntax error unexpedted char"));
 		JumpSpace();
-		//std::cout << "get next word: " << nextWord << std::endl;
-		//std::cout << "index: " << m_index << " " << m_fileContent[m_index] << std::endl;
 		return (nextWord);
 	}
 
@@ -50,7 +48,6 @@ namespace	my
 			throw (std::invalid_argument("Syntax error unexpedted char"));
 		m_index++;
 		JumpSpace();
-		//std::cout << "next string: " << nextString << std::endl;
 		return (nextString);
 	}
 
@@ -71,7 +68,6 @@ namespace	my
 			throw (std::invalid_argument("Syntax error empty node value"));
 		while (std::isspace(nextValue.back()))
 			nextValue.pop_back();
-		//std::cout << "next value: " << nextValue << std::endl;
 		return (nextValue);
 	}
 
@@ -103,7 +99,6 @@ namespace	my
 			throw (std::invalid_argument("syntax error: invalid beacon opening"));
 		if ((beaconEnd = m_fileContent.find(BEACON_END, m_index)) == std::string::npos)
 			throw (std::invalid_argument("Syntax error: miss beacon ending"));
-		//std::cout << "beacon content: " << m_fileContent.substr(m_index, beaconEnd - m_index + 1) << std::endl;
 		m_index ++;
 		JumpSpace();
 		try
@@ -141,7 +136,6 @@ namespace	my
 		XMLNode::XMLNodePtr node;
 
 		JumpSpace();
-		//std::cout << m_fileContent.substr(m_index) << std::endl;
 		try
 		{
 			GetBeaconContent(name, args);

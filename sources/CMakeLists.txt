@@ -3,5 +3,6 @@ link_directories(${schmup_SOURCE_DIR}/lib)
 
 add_executable(schmup
   main.cpp)
-target_link_libraries(schmup 
-	my_graph_lib)
+target_link_libraries(schmup
+	my_graph_lib
+	menu_lib)
