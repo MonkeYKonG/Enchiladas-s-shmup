@@ -7,8 +7,21 @@
 //============================================================================
 
 #include <iostream>
+#include "my_graph_lib/XMLParser.hpp"
 
 int main(void) {
-	std::cout << "bonjour le monde" << std::endl;
-	return 0;
+	my::XMLNode::XMLNodePtr node;
+
+	try
+	{
+		node = my::XMLParser::Load("resources/test.xml");
+		std::cout << node->ToString() << std::endl;
+	}
+	catch (const std::exception & e)
+	{
+		std::cerr << "An error occured: " <<  e.what() << std::endl;
+		return (1);
+	}
+
+	return (0);
 }

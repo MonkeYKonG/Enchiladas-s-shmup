@@ -1,0 +1,8 @@
+<enemy>
+	<name>bonjour le monde</name>
+	<life>salut les enfants</life>
+	<patern>
+		<circle speed="12"></circle>
+		<square speed="22"></square>
+	</patern>
+</enemy>
