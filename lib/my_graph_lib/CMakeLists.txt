@@ -15,7 +15,7 @@ add_library(my_graph_lib
   XMLParser.cpp
   MessagesException.cpp)
 
-target_link_libraries(my_graph_lib 
-  sfml-graphics-s
-  sfml-window-s
-  sfml-system-s)
+target_link_libraries(my_graph_lib
+  sfml-graphics
+  sfml-window
+  sfml-system)

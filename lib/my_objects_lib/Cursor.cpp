@@ -4,7 +4,9 @@ namespace	my
 {
 	Cursor::Cursor()
 	: m_direction(LEFT)
-	{}
+	{
+		m_visible = false;
+	}
 
 	Cursor::~Cursor()
 	{}
@@ -22,10 +24,17 @@ namespace	my
 	void	Cursor::SetTarget(Node::NodePtr target) noexcept
 	{
 		m_target = target;
+		if (target)
+		{
+			m_visible = true;
+			// calcule de la direction
+			// calcule de la vitesse
+		}
 	}
 
 	void 	Cursor::SetDirection(Direction direction) noexcept
 	{
 		m_direction = direction;
+		//Modification de l'animation
 	}
 }

@@ -22,7 +22,7 @@ namespace	my
 
   void		TextObject::SetColor(const sf::Color & color) noexcept
   {
-	m_text.setFillColor(color);
+	m_text.setColor(color);
   }
 
   void		TextObject::SetRotate(float rotate) noexcept
