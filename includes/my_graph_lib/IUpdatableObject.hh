@@ -1,7 +1,14 @@
 #pragma once
 
-class	IUpdatableObject
+#include "memory"
+
+namespace	my
 {
-public:
-  virtual void Update() = 0;
-};
+	class	IUpdatableObject
+	{
+	public:
+		typedef std::shared_ptr<IUpdatableObject> IUpdatableObjectPtr;
+
+		virtual void Update() = 0;
+	};
+}

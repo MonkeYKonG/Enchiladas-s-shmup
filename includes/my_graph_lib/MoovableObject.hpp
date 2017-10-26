@@ -8,6 +8,8 @@ namespace               my
   class		            MoovableObject : public IUpdatableObject
   {
   public:
+  	typedef std::shared_ptr<MoovableObject> MoovableObjectPtr;
+  	
 	MoovableObject() noexcept;
 	virtual ~MoovableObject() noexcept {}
 

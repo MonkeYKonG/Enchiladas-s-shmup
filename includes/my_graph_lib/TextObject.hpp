@@ -7,6 +7,8 @@ namespace	my
   class TextObject : public Node
   {
   public:
+  	typedef std::shared_ptr<TextObject> TextObjectPtr;
+  	
 	TextObject() noexcept;
 	virtual ~TextObject() noexcept {}
 

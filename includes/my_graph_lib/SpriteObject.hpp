@@ -7,6 +7,8 @@ namespace	my
   class		SpriteObject : public Node
   {
   public:
+  	typedef std::shared_ptr<SpriteObject> SpriteObjectPtr;
+  	
 	SpriteObject() noexcept;
 	virtual ~SpriteObject() noexcept {}
 

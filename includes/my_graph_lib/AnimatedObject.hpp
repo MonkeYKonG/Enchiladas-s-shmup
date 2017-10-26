@@ -10,6 +10,7 @@ namespace	my
   class		AnimatedObject : public IUpdatableObject
   {
 	public:
+		typedef std::shared_ptr<AnimatedObject> AnimatedObjectPtr;
 		typedef std::vector<sf::IntRect>	Animation;
 
 		AnimatedObject() noexcept;

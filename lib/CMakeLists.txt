@@ -1,1 +1,1 @@
-subdirs(my_graph_lib menu_lib)
+subdirs(my_graph_lib my_objects_lib my_menu_lib)
