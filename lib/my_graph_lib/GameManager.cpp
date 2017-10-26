@@ -21,10 +21,24 @@ namespace	my
 
 	void	GameManager::Update() throw (std::exception)
 	{
+		std::list<WindowBuffer::WindowBufferPtr>::iterator it;
 		try
 		{
-			for (auto it = m_windows.begin(); it != m_windows.end(); ++it)
-				(void)(*it)->scenes[(*it)->curScene]->Update((*it)->window);
+			it = m_windows.begin();
+			while (it != m_windows.end())
+			{
+				switch ((*it)->scenes[(*it)->curScene]->Update((*it)->window).value)
+				{
+				case CLOSE:
+					it = m_windows.erase(it);
+					break;
+
+				default:
+					it++;
+					break;
+				}
+			}
+
 		}
 		catch (const std::exception &e)
 		{

@@ -12,6 +12,9 @@ namespace	my
 	SpriteObject() noexcept;
 	virtual ~SpriteObject() noexcept {}
 
+	virtual bool IsIntersect(const sf::Vector2f & point) const noexcept;
+	virtual bool IsIntersect(const sf::FloatRect & square) const noexcept;
+
 	void	SetTexture(const sf::Texture & texture) noexcept;
 	void	SetColor(const sf::Color & color) noexcept;
 	void	SetRotate(float rotate) noexcept;

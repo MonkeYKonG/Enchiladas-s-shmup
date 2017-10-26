@@ -14,7 +14,7 @@ namespace	my
 
 		virtual ~Scene() noexcept {}
 		
-		virtual const SceneReturnValue& Update(const sf::RenderWindow & window) throw (std::exception) = 0;
+		virtual const SceneReturnValue Update(sf::RenderWindow & window) throw (std::exception) = 0;
 		virtual void Initialize() noexcept = 0;
 		virtual void Reset() noexcept = 0;
 
