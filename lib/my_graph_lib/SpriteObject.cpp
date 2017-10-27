@@ -44,4 +44,13 @@ namespace	my
   {
 	return (m_sprite);
   }
+
+  void SpriteObject::draw(sf::RenderTarget & target, sf::RenderStates states) const noexcept
+  {
+    if (!m_visible)
+      return;
+    Node::draw(target, states);
+    states.transform *= getTransform();
+    target.draw(m_sprite, states);
+  }
 }

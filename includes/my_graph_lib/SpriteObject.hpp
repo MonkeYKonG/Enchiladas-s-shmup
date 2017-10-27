@@ -24,6 +24,8 @@ namespace	my
 	const sf::Sprite &GetSprite() const noexcept;
 
   protected:
+  	virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const noexcept;
+
 	sf::Sprite	m_sprite;
   };
 }

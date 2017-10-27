@@ -16,6 +16,7 @@ namespace	my
 		void			CloseWindow(int index) throw (std::out_of_range);
 		
 	protected:
+		virtual void	Initialize() throw (std::invalid_argument);
 		virtual void	Update() throw (std::exception);
 		virtual void	Draw() noexcept;
 

@@ -1,4 +1,5 @@
 #include "MainMenu.hpp"
+#include "my_graph_lib/ResourcesLoader.hpp"
 
 namespace	my
 {
@@ -32,7 +33,9 @@ namespace	my
 
 	void	MainMenu::Initialize() noexcept
 	{
-		
+		m_test.SetTexture(ResourcesLoader::GetTexture("Asteroid2"));
+		m_text.SetText("bonjour le monde");
+		m_text.SetFont(ResourcesLoader::GetFont("Default"));
 	}
 
 	void	MainMenu::Reset() noexcept
@@ -42,6 +45,8 @@ namespace	my
 
 	void	MainMenu::draw(sf::RenderTarget & target, sf::RenderStates states) const noexcept
 	{
-
+		states.transform *= getTransform();
+		target.draw(m_test, states);
+		target.draw(m_text, states);
 	}
 }

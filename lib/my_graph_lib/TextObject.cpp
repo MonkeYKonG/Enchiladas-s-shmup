@@ -7,36 +7,55 @@ namespace	my
 
   void		TextObject::SetFont(const sf::Font & font) noexcept
   {
-	m_text.setFont(font);
+      m_text.setFont(font);
   }
 
   void		TextObject::SetText(const std::string & text) noexcept
   {
-	m_text.setString(text);
+     m_text.setString(text);
   }
 
   void		TextObject::SetSize(int size) noexcept
   {
-	m_text.setCharacterSize(size);
+	   m_text.setCharacterSize(size);
   }
 
   void		TextObject::SetColor(const sf::Color & color) noexcept
   {
-	m_text.setColor(color);
+	   m_text.setColor(color);
   }
 
   void		TextObject::SetRotate(float rotate) noexcept
   {
-	m_text.setRotation(rotate);
+	   m_text.setRotation(rotate);
   }
 
   void		TextObject::SetScale(float scaleX, float scaleY) noexcept
   {
-	m_text.setScale(scaleX, scaleY);
+	   m_text.setScale(scaleX, scaleY);
   }
 
   const sf::Text	&TextObject::GetText() const noexcept
   {
-	return (m_text);
+	   return (m_text);
+  }
+
+  bool  TextObject::IsIntersect(const sf::Vector2f & point) const noexcept
+  {
+    return (m_text.getGlobalBounds().contains(point));
+  }
+
+  bool  TextObject::IsIntersect(const sf::FloatRect & square) const noexcept
+  {
+    return (m_text.getGlobalBounds().intersects(square));
+  }
+
+  void  TextObject::draw(sf::RenderTarget & target, sf::RenderStates states) const noexcept
+  {
+    if (!m_visible)
+      return;
+    Node::draw(target, states);
+    states.transform *= getTransform();
+    target.draw(m_text);
   }
 }

@@ -2,6 +2,7 @@
 
 #include "my_graph_lib/Scene.hpp"
 #include "my_graph_lib/SpriteObject.hpp"
+#include "my_graph_lib/TextObject.hpp"
 
 namespace	my
 {
@@ -19,5 +20,6 @@ namespace	my
 		void draw(sf::RenderTarget & target, sf::RenderStates states) const noexcept;
 
 		SpriteObject m_test;
+		TextObject m_text;
 	};
 }

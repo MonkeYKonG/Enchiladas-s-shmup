@@ -7,6 +7,7 @@ namespace	my
 	{
 		try
 		{
+			Initialize();
 			while(!m_windows.empty())
 			{
 				Update();
@@ -16,6 +17,14 @@ namespace	my
 		catch (const std::exception &e)
 		{
 			throw (e);
+		}
+	}
+
+	void	GameManager::Initialize() throw (std::invalid_argument)
+	{
+		for (auto it = m_windows.begin(); it != m_windows.end(); ++it)
+		{
+			(*it)->scenes[(*it)->curScene]->Initialize();
 		}
 	}
 
