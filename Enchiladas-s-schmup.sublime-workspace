@@ -4,6 +4,46 @@
 		"selected_items":
 		[
 			[
+				"Ini",
+				"Initialize"
+			],
+			[
+				"win",
+				"windowName"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"windo",
+				"windowName"
+			],
+			[
+				"Ge",
+				"GetValue"
+			],
+			[
+				"Get",
+				"GetChild"
+			],
+			[
+				"vid",
+				"videoModePtr"
+			],
+			[
+				"in",
+				"initRoot"
+			],
+			[
+				"XML",
+				"XMLNodePtr"
+			],
+			[
+				"Init",
+				"InitializeWindow"
+			],
+			[
 				"m_te",
 				"m_text"
 			],
@@ -38,10 +78,6 @@
 			[
 				"scene",
 				"sceneReturn"
-			],
-			[
-				"win",
-				"windowPtr"
 			],
 			[
 				"My",
@@ -112,14 +148,6 @@
 				"BEACON_BEGIN"
 			],
 			[
-				"Get",
-				"GetNextValue"
-			],
-			[
-				"XML",
-				"XMLParser"
-			],
-			[
 				"nex",
 				"nextString"
 			],
@@ -166,10 +194,6 @@
 			[
 				"B",
 				"BEACON_BEGIN"
-			],
-			[
-				"in",
-				"invalid_argument"
 			],
 			[
 				"XMLN",
@@ -280,55 +304,53 @@
 	"buffers":
 	[
 		{
-			"file": "lib/my_menu_lib/MainMenu.cpp",
+			"file": "lib/my_graph_lib/GameManager.cpp",
 			"settings":
 			{
-				"buffer_size": 1110,
+				"buffer_size": 1802,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "lib/my_graph_lib/ResourcesLoader.cpp",
+			"file": "lib/my_graph_lib/XMLNode.cpp",
 			"settings":
 			{
-				"buffer_size": 1262,
+				"buffer_size": 2608,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/xmls/main.xml",
+			"settings":
+			{
+				"buffer_size": 152,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "includes/my_graph_lib/GameManager.hpp",
+			"settings":
+			{
+				"buffer_size": 657,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "lib/my_graph_lib/TextObject.cpp",
+			"file": "includes/my_graph_lib/XMLNode.hpp",
 			"settings":
 			{
-				"buffer_size": 1279,
-				"encoding": "UTF-8",
+				"buffer_size": 1587,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "includes/my_graph_lib/TextObject.hpp",
+			"file": "includes/my_graph_lib/WindowBuffer.hh",
 			"settings":
 			{
-				"buffer_size": 861,
+				"buffer_size": 227,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "includes/my_menu_lib/MainMenu.hpp",
-			"settings":
-			{
-				"buffer_size": 496,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "includes/my_graph_lib/Node.hpp",
-			"settings":
-			{
-				"buffer_size": 1051,
 				"line_ending": "Unix"
 			}
 		}
@@ -436,25 +458,29 @@
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/resources",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/resources/fonts",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/resources/textures",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/resources/xmls",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/sources"
 	],
 	"file_history":
 	[
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/sources/main.cpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/resources/xmls/main.xml",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_menu_lib/MainMenu.hpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/Node.hpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/TextObject.hpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib/TextObject.cpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib/ResourcesLoader.cpp",
+		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_menu_lib/MainMenu.cpp",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/SpriteObject.hpp",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/GameManager.hpp",
-		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/sources/main.cpp",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/ResourcesLoader.hpp",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib/GameManager.cpp",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib/Node.cpp",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib/SpriteObject.cpp",
-		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib/ResourcesLoader.cpp",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/WindowBuffer.hh",
-		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/Node.hpp",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/StateReturn.hh",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib/Scene.cpp",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/Scene.hpp",
-		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_menu_lib/MainMenu.cpp",
-		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib/TextObject.cpp",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/sources/CMakeLists.txt",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_graph_lib/CMakeLists.txt",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_menu_lib/CMakeLists.txt",
@@ -467,7 +493,6 @@
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_objects_lib/Direction.hpp",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/lib/my_objects_lib/CMakeLists.txt",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/IUpdatableObject.hh",
-		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/TextObject.hpp",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/MoovableObject.hpp",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/HybridObject.hpp",
 		"/home/alexis/Perso/Jeux/Enchiladas-s-shmup/includes/my_graph_lib/AnimatedObject.hpp",
@@ -512,6 +537,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"(*it)",
 			";\n",
 			"HybridObject",
 			"std::cout",
@@ -529,6 +555,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"m_window",
 			"TextObject",
 			"SpriteObject",
 			"MoovableObject",
@@ -551,19 +578,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "lib/my_menu_lib/MainMenu.cpp",
+					"file": "lib/my_graph_lib/GameManager.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1110,
+						"buffer_size": 1802,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								67,
-								67
+								888,
+								888
 							]
 						],
 						"settings":
@@ -572,27 +599,27 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1.0,
+						"translation.y": 225.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "lib/my_graph_lib/ResourcesLoader.cpp",
+					"file": "lib/my_graph_lib/XMLNode.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1262,
+						"buffer_size": 2608,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1257,
-								1257
+								218,
+								218
 							]
 						],
 						"settings":
@@ -600,35 +627,33 @@
 							"syntax": "Packages/C++/C++.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 18.0,
-						"translation.y": 180.0,
+						"translation.x": 0.0,
+						"translation.y": 90.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "lib/my_graph_lib/TextObject.cpp",
+					"file": "resources/xmls/main.xml",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1279,
+						"buffer_size": 152,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								25,
-								25
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/XML/XML.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -640,52 +665,82 @@
 			]
 		},
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 3,
-					"file": "includes/my_graph_lib/TextObject.hpp",
+					"file": "includes/my_graph_lib/GameManager.hpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 861,
+						"buffer_size": 657,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								369,
-								369
+								409,
+								409
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 0.0,
+						"translation.x": 64.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "includes/my_menu_lib/MainMenu.hpp",
+					"file": "includes/my_graph_lib/XMLNode.hpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 496,
+						"buffer_size": 1587,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								490,
-								490
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 180.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "includes/my_graph_lib/WindowBuffer.hh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 227,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								162,
+								162
 							]
 						],
 						"settings":
@@ -697,34 +752,6 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "includes/my_graph_lib/Node.hpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1051,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								511,
-								659
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 34.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
 					"type": "text"
 				}
 			]
@@ -780,7 +807,7 @@
 	"project": "Enchiladas-s-schmup.sublime-project",
 	"replace":
 	{
-		"height": 42.0
+		"height": 68.0
 	},
 	"save_all_on_build": true,
 	"select_file":

@@ -17,13 +17,6 @@ int main(void) {
 
 	try
 	{
-		windowPtr = my::WindowBuffer::WindowBufferPtr(new my::WindowBuffer());
-		windowPtr->windowSize = sf::Vector2u(800, 600);
-		windowPtr->bitsPerPixel = 64;
-		windowPtr->window.create(sf::VideoMode(800, 600, 64), "my window");
-		windowPtr->scenes.push_back(my::Scene::ScenePtr(new my::MainMenu()));
-		windowPtr->curScene = 0;
-		gm.AddWindow(windowPtr);
 		gm.Loop();
 	}
 	catch (const std::exception & e)
