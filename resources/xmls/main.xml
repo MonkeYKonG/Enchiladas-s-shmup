@@ -9,6 +9,12 @@
 	</screen>
 	<scenes>
 		<1 class="MainMenu">
+			<background>menu_background.png</background>
+			<panel>
+				<title>Salut les gens</title>
+				<background>panel_background.png</background>
+				<border>panel_border.png</border>
+			</panel>
 		</1>
 	</scenes>
 </window>

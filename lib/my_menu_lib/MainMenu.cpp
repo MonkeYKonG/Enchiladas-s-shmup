@@ -3,6 +3,8 @@
 
 namespace	my
 {
+	const std::string	MainMenu::SCENE_BACKGROUND_NODE = "background";
+	
 	MainMenu::MainMenu()
 	{}
 
@@ -31,22 +33,52 @@ namespace	my
 		}
 	}
 
-	void	MainMenu::Initialize(XMLNode::XMLNodePtr sceneRoot) noexcept
+	void	MainMenu::Initialize(XMLNode::XMLNodePtr sceneRoot) throw (std::out_of_range, std::invalid_argument)
 	{
-		m_test.SetTexture(ResourcesLoader::GetTexture("Asteroid2"));
-		m_text.SetText("bonjour le monde");
-		m_text.SetFont(ResourcesLoader::GetFont("Default"));
+		m_root = sceneRoot;
+
+		try
+		{
+			for (unsigned i = 0; i < m_root->GetChilds().size(); ++i)
+			{
+				if (m_root->GetChilds()[i]->GetName() == SCENE_BACKGROUND_NODE)
+				{
+					m_background = SpriteObject::SpriteObjectPtr(new SpriteObject());
+					m_background->SetTexture(ResourcesLoader::GetTexture(m_root->GetChilds()[i]->GetValue()));
+				}
+			}
+		}
+		catch (const std::out_of_range & e)
+		{
+			throw (e);
+		}
+		catch (const std::invalid_argument & e)
+		{
+			throw (e);
+		}
 	}
 
-	void	MainMenu::Reset() noexcept
+	void	MainMenu::Reset() throw (std::out_of_range, std::invalid_argument)
 	{
-
+		m_background = 0;
+		try
+		{
+			Initialize(m_root);
+		}
+		catch (const std::out_of_range & e)
+		{
+			throw (e);
+		}
+		catch (const std::invalid_argument & e)
+		{
+			throw (e);
+		}
 	}
 
 	void	MainMenu::draw(sf::RenderTarget & target, sf::RenderStates states) const noexcept
 	{
 		states.transform *= getTransform();
-		target.draw(m_test, states);
-		target.draw(m_text, states);
+		if (m_background)
+			target.draw(*m_background, states);
 	}
 }

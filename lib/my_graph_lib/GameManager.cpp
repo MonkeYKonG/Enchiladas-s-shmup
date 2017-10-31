@@ -6,19 +6,28 @@
 
 namespace	my
 {
+	const std::string GameManager::MAIN_XML_PATH = "resources/xmls/main.xml";
+	const std::string GameManager::SCREEN_NODE = "screen";
+	const std::string GameManager::SCREEN_VIDEOMODE_NODE = "videoMode";
+	const std::string GameManager::SCREEN_VIDEOMODE_WIDTH_NODE = "width";
+	const std::string GameManager::SCREEN_VIDEOMODE_HEIGHT_NODE = "height";
+	const std::string GameManager::SCREEN_VIDEOMODE_BPP_NODE = "bitsPerPixel";
+	const std::string GameManager::SCREEN_TITLE_NODE = "title";
+	const std::string GameManager::SCENES_NODE = "scenes";
+
 	void	GameManager::InitializeWindow(XMLNode::XMLNodePtr windowRoot) throw (std::out_of_range, std::invalid_argument)
 	{
 		sf::VideoMode vm;
 		std::string windowName;
-		XMLNode::XMLNodePtr videoModePtr;
+		XMLNode::XMLNodePtr videoModeNode;
 
 		try
 		{
-			videoModePtr = windowRoot->GetChild("videoMode");
-			vm.width = std::stoul(videoModePtr->GetChild("width")->GetValue());
-			vm.height = std::stoul(videoModePtr->GetChild("height")->GetValue());
-			vm.bitsPerPixel = std::stoul(videoModePtr->GetChild("bitsPerPixel")->GetValue());
-			windowName = windowRoot->GetChild("title")->GetValue();
+			videoModeNode = windowRoot->GetChild(SCREEN_VIDEOMODE_NODE);
+			vm.width = std::stoul(videoModeNode->GetChild(SCREEN_VIDEOMODE_WIDTH_NODE)->GetValue());
+			vm.height = std::stoul(videoModeNode->GetChild(SCREEN_VIDEOMODE_HEIGHT_NODE)->GetValue());
+			vm.bitsPerPixel = std::stoul(videoModeNode->GetChild(SCREEN_VIDEOMODE_BPP_NODE)->GetValue());
+			windowName = windowRoot->GetChild(SCREEN_TITLE_NODE)->GetValue();
 			m_window.create(vm, windowName);
 		}
 		catch (const std::out_of_range & e)
@@ -31,17 +40,21 @@ namespace	my
 		}
 	}
 
-	void	GameManager::Initialize() throw (std::invalid_argument)
+	void	GameManager::Initialize() throw (std::out_of_range, std::invalid_argument)
 	{
 		XMLNode::XMLNodePtr initRoot;
 
 		try
 		{
-			initRoot = XMLParser::Load("resources/xmls/main.xml");
-			InitializeWindow(initRoot->GetChild("screen"));
-			InitializeScenes(initRoot->GetChild("scenes"));
+			initRoot = XMLParser::Load(MAIN_XML_PATH);
+			InitializeWindow(initRoot->GetChild(SCREEN_NODE));
+			InitializeScenes(initRoot->GetChild(SCENES_NODE));
 		}
-		catch (const std::exception & e)
+		catch (const std::out_of_range & e)
+		{
+			throw (e);
+		}
+		catch (const std::invalid_argument & e)
 		{
 			throw (e);
 		}
@@ -76,7 +89,7 @@ namespace	my
 		m_window.display();
 	}
 
-	void	GameManager::Loop() throw (std::exception)
+	void	GameManager::Loop() throw (std::out_of_range, std::invalid_argument)
 	{
 		try
 		{
@@ -87,7 +100,11 @@ namespace	my
 				Draw();
 			}
 		}
-		catch (const std::exception &e)
+		catch (const std::out_of_range &e)
+		{
+			throw (e);
+		}
+		catch (const std::invalid_argument & e)
 		{
 			throw (e);
 		}

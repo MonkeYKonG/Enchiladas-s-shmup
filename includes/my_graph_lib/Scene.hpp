@@ -1,6 +1,6 @@
 #pragma once
 
-#include <exception>
+#include <stdexcept>
 #include <memory>
 #include <SFML/Graphics.hpp>
 #include "SceneReturnValue.hh"
@@ -16,8 +16,8 @@ namespace	my
 		virtual ~Scene() noexcept {}
 		
 		virtual const SceneReturnValue Update(sf::RenderWindow & window) throw (std::exception) = 0;
-		virtual void Initialize(XMLNode::XMLNodePtr sceneRoot) noexcept = 0;
-		virtual void Reset() noexcept = 0;
+		virtual void Initialize(XMLNode::XMLNodePtr sceneRoot) throw (std::out_of_range, std::invalid_argument) = 0;
+		virtual void Reset() throw(std::out_of_range, std::invalid_argument) = 0;
 
 	protected:
 		virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const = 0;
