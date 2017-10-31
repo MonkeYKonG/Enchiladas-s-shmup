@@ -7,13 +7,10 @@
 //============================================================================
 
 #include <iostream>
-#include "my_graph_lib/XMLParser.hpp"
-#include "my_graph_lib/GameManager.hpp"
-#include "my_menu_lib/MainMenu.hpp"
+#include "schmup/SchmupGameManager.hpp"
 
 int main(void) {
-	my::GameManager gm;
-	my::WindowBuffer::WindowBufferPtr windowPtr;
+	my::schmup::SchmupGameManager gm;
 
 	try
 	{

@@ -1,11 +1,12 @@
 #include "GameManager.hpp"
 #include "MessagesException.hpp"
 #include "XMLParser.hpp"
+#include "my_menu_lib/MainMenu.hpp"
 #include <iostream>
 
 namespace	my
 {
-	void	GameManager::InitializeWindow(XMLNode::XMLNodePtr windowRoot) throw (std::invalid_argument)
+	void	GameManager::InitializeWindow(XMLNode::XMLNodePtr windowRoot) throw (std::out_of_range, std::invalid_argument)
 	{
 		sf::VideoMode vm;
 		std::string windowName;
@@ -18,8 +19,7 @@ namespace	my
 			vm.height = std::stoul(videoModePtr->GetChild("height")->GetValue());
 			vm.bitsPerPixel = std::stoul(videoModePtr->GetChild("bitsPerPixel")->GetValue());
 			windowName = windowRoot->GetChild("title")->GetValue();
-			m_window = WindowBuffer::WindowBufferPtr(new WindowBuffer());
-			m_window->create(vm, windowName);
+			m_window.create(vm, windowName);
 		}
 		catch (const std::out_of_range & e)
 		{
@@ -38,7 +38,8 @@ namespace	my
 		try
 		{
 			initRoot = XMLParser::Load("resources/xmls/main.xml");
-			InitializeWindow(initRoot);
+			InitializeWindow(initRoot->GetChild("screen"));
+			InitializeScenes(initRoot->GetChild("scenes"));
 		}
 		catch (const std::exception & e)
 		{
@@ -50,10 +51,12 @@ namespace	my
 	{
 		try
 		{
-			switch (m_window->scenes[m_window->curScene]->Update(*m_window).value)
+			if (m_window.scenes.empty())
+				throw (std::invalid_argument("scenes not initialized"));
+			switch (m_window.scenes[m_window.curScene]->Update(m_window).value)
 			{
 			case CLOSE:
-				m_window->close();
+				m_window.close();
 				break;
 
 			default:
@@ -68,9 +71,9 @@ namespace	my
 
 	void	GameManager::Draw() noexcept
 	{
-		m_window->clear();
-		m_window->draw(*(m_window->scenes[m_window->curScene]));
-		m_window->display();
+		m_window.clear();
+		m_window.draw(*(m_window.scenes[m_window.curScene]));
+		m_window.display();
 	}
 
 	void	GameManager::Loop() throw (std::exception)
@@ -78,7 +81,7 @@ namespace	my
 		try
 		{
 			Initialize();
-			while(m_window && m_window->isOpen())
+			while(m_window.isOpen())
 			{
 				Update();
 				Draw();

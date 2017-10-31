@@ -13,7 +13,7 @@ namespace	my
 		~MainMenu();
 
 		const SceneReturnValue	Update(sf::RenderWindow & window) throw (std::exception);
-		void Initialize() noexcept;
+		void Initialize(XMLNode::XMLNodePtr sceneRoot) noexcept;
 		void Reset() noexcept;
 
 	private:

@@ -31,7 +31,7 @@ namespace	my
 		}
 	}
 
-	void	MainMenu::Initialize() noexcept
+	void	MainMenu::Initialize(XMLNode::XMLNodePtr sceneRoot) noexcept
 	{
 		m_test.SetTexture(ResourcesLoader::GetTexture("Asteroid2"));
 		m_text.SetText("bonjour le monde");

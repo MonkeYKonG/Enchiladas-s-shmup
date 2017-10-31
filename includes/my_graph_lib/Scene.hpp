@@ -4,6 +4,7 @@
 #include <memory>
 #include <SFML/Graphics.hpp>
 #include "SceneReturnValue.hh"
+#include "XMLNode.hpp"
 
 namespace	my
 {
@@ -15,7 +16,7 @@ namespace	my
 		virtual ~Scene() noexcept {}
 		
 		virtual const SceneReturnValue Update(sf::RenderWindow & window) throw (std::exception) = 0;
-		virtual void Initialize() noexcept = 0;
+		virtual void Initialize(XMLNode::XMLNodePtr sceneRoot) noexcept = 0;
 		virtual void Reset() noexcept = 0;
 
 	protected:
