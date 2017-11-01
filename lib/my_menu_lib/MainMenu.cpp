@@ -1,12 +1,15 @@
 #include "MainMenu.hpp"
-#include "my_graph_lib/ResourcesLoader.hpp"
+#include "my_objects_lib/ObjectPool.hpp"
 
 namespace	my
 {
 	const std::string	MainMenu::SCENE_BACKGROUND_NODE = "background";
-	
+	const std::string	MainMenu::SCENE_PANEL_NODE = "panel";
+
 	MainMenu::MainMenu()
-	{}
+	{
+		InitializeFunctions();
+	}
 
 	MainMenu::~MainMenu()
 	{}
@@ -33,19 +36,50 @@ namespace	my
 		}
 	}
 
+	void	MainMenu::InitializeFunctions() noexcept
+	{
+		m_initializationFunctions.push_back(InitFunctionPair(SCENE_BACKGROUND_NODE, &MainMenu::InitializeBackground));
+		m_initializationFunctions.push_back(InitFunctionPair(SCENE_PANEL_NODE, &MainMenu::InitializePanel));
+	}
+
+	void	MainMenu::InitializeBackground(XMLNode::XMLNodePtr backgroundNode) throw (std::out_of_range, std::invalid_argument)
+	{
+		if (!(m_background = ObjectPool::CreateSprite(backgroundNode)))
+			throw (std::invalid_argument("InitializeBackground: can't create background: invalid node"));
+		// set background to center of screen
+	}
+
+	void	MainMenu::InitializePanel(XMLNode::XMLNodePtr panelNode) throw (std::out_of_range, std::invalid_argument)
+	{
+		Panel::PanelPtr newPanel;
+
+		if (!(newPanel = ObjectPool::CreatePanel(panelNode)))
+			throw (std::invalid_argument("InitializePanel: can't create panel: invalid node"));
+		m_panels.push_back(newPanel);
+		// normaly panel is fully declared
+	}
+
 	void	MainMenu::Initialize(XMLNode::XMLNodePtr sceneRoot) throw (std::out_of_range, std::invalid_argument)
 	{
-		m_root = sceneRoot;
+		unsigned j;
 
+		m_root = sceneRoot;
 		try
 		{
 			for (unsigned i = 0; i < m_root->GetChilds().size(); ++i)
 			{
-				if (m_root->GetChilds()[i]->GetName() == SCENE_BACKGROUND_NODE)
+				j = 0;
+				while (j < m_initializationFunctions.size())
 				{
-					m_background = SpriteObject::SpriteObjectPtr(new SpriteObject());
-					m_background->SetTexture(ResourcesLoader::GetTexture(m_root->GetChilds()[i]->GetValue()));
+					if (m_root->GetChilds()[i]->GetName() == m_initializationFunctions[j].first)
+					{
+						(this->*m_initializationFunctions[j].second)(m_root->GetChilds()[i]);
+						break;
+					}
+					j++;
 				}
+				if (j >= m_initializationFunctions.size())
+					throw (std::invalid_argument("unknow object"));
 			}
 		}
 		catch (const std::out_of_range & e)
@@ -80,5 +114,7 @@ namespace	my
 		states.transform *= getTransform();
 		if (m_background)
 			target.draw(*m_background, states);
+		for (unsigned i = 0; i < m_panels.size(); ++i)
+			target.draw(*m_panels[i], states);
 	}
 }

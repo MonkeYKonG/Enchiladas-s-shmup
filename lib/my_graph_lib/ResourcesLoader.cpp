@@ -14,7 +14,7 @@ namespace	my
 
 		if (m_textures.find(id) != m_textures.end())
 			return (m_textures.at(id));
-		if (!img.loadFromFile(RESOURCES_PATH + TEXTURES_PATH + id + ".png"))
+		if (!img.loadFromFile(RESOURCES_PATH + TEXTURES_PATH + id))
 			throw (std::invalid_argument("loading texture file not found"));
 		m_textures[id] = sf::Texture();
 		m_textures.at(id).loadFromImage(img);

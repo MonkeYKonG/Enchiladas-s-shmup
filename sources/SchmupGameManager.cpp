@@ -1,11 +1,15 @@
 #include "SchmupGameManager.hpp"
 #include "my_menu_lib/MainMenu.hpp"
+#include "ScenePool.hpp"
 #include <iostream>
 
 namespace	my
 {
 	namespace schmup
 	{
+		const std::string	SchmupGameManager::SCENE_CLASS_ARGUMENT = "class";
+		const std::string	SchmupGameManager::SCENE_MAINMENU_CLASS = "MainMenu";
+
 		SchmupGameManager::SchmupGameManager()
 		{}
 
@@ -22,11 +26,11 @@ namespace	my
 			{
 				for (unsigned i = 0; i < scenesRoot->GetChilds().size(); ++i)
 				{
-					if ((stkClass = scenesRoot->GetChilds()[i]->GetContent("class").second) == "MainMenu")
-						m_window.scenes.push_back(Scene::ScenePtr(new MainMenu()));
-					else
+					Scene::ScenePtr newScene = ScenePool::CreateScene(scenesRoot->GetChilds()[i]->GetContent(SCENE_CLASS_ARGUMENT).second);
+					if (!newScene)
 						throw (std::invalid_argument("unknow scene class"));
-					m_window.scenes.back()->Initialize(scenesRoot->GetChilds()[i]);
+					newScene->Initialize(scenesRoot->GetChilds()[i]);
+					m_window.scenes.push_back(newScene);
 				}
 			}
 			catch (const std::out_of_range & e)

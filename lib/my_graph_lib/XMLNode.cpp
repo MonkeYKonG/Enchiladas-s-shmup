@@ -27,6 +27,8 @@ namespace	my
 
 	XMLNode::XMLNodePtr XMLNode::GetChild(int index) const throw (std::out_of_range)
 	{
+		if (index < 0 || index >= m_childs.size())
+			throw (std::out_of_range("GetChild: index is out of range"));
 		return (m_childs[index]);
 	}
 
@@ -35,7 +37,15 @@ namespace	my
 		for (unsigned i = 0; i < m_childs.size(); ++i)
 			if (m_childs[i]->GetName() == key)
 				return (m_childs[i]);
-		return (XMLNodePtr(0));
+		throw (std::out_of_range("GetChild: invalid key"));
+	}
+
+	bool	XMLNode::ChildExist(const std::string & key) const noexcept
+	{
+		for (unsigned i = 0; i < m_childs.size(); ++i)
+			if (m_childs[i]->GetName() == key)
+				return (true);
+		return (false);	
 	}
 
 	const std::string &XMLNode::GetName() const noexcept
@@ -58,10 +68,21 @@ namespace	my
 		for (unsigned i = 0; i < m_contents.size(); ++i)
 			if (m_contents[i].first == key)
 				return (m_contents[i]);
+		throw (std::out_of_range("GetContent: invalid key"));
+	}
+
+	bool XMLNode::ContentExist(const std::string & key) const noexcept
+	{
+		for (unsigned i = 0; i < m_contents.size(); ++i)
+			if (m_contents[i].first == key)
+				return (true);
+		return (false);
 	}
 
 	void XMLNode::AddChild(XMLNode::XMLNodePtr newChild) throw (std::invalid_argument)
 	{
+		if (!newChild)
+			throw (std::invalid_argument("AddChild: null ptr"));
 		m_childs.push_back(newChild);
 	}
 

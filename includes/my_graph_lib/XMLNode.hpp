@@ -24,10 +24,12 @@ namespace my
 		const NodeList &GetChilds() const noexcept;
 		XMLNodePtr GetChild(int index) const throw (std::out_of_range);
 		XMLNodePtr GetChild(const std::string & key) const throw (std::out_of_range);
+		bool ChildExist(const std::string & key) const noexcept;
 		const std::string &GetName() const noexcept;
 		const std::string &GetValue() const noexcept;
 		const ContentList &GetContents() const noexcept;
 		const NodeContent &GetContent(const std::string & key) const throw (std::out_of_range);
+		bool ContentExist(const std::string & key) const noexcept;
 		void AddChild(XMLNodePtr newChild) throw (std::invalid_argument);
 		void SetName(const std::string & name) noexcept;
 		void SetValue(const std::string & value) noexcept;

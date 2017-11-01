@@ -15,7 +15,8 @@ namespace	my
 		Panel();
 		~Panel();
 
-		virtual bool IsIntersect() const noexcept;
+		virtual bool IsIntersect(const sf::Vector2f & point) const noexcept;
+		virtual bool IsIntersect(const sf::FloatRect & square) const noexcept;
 		SpriteObject::SpriteObjectPtr GetBackground() const noexcept;
 		SpriteObject::SpriteObjectPtr GetBorder() const noexcept;
 		TextObject::TextObjectPtr GetTitle() const noexcept;

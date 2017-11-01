@@ -29,6 +29,7 @@ namespace	my
 			vm.bitsPerPixel = std::stoul(videoModeNode->GetChild(SCREEN_VIDEOMODE_BPP_NODE)->GetValue());
 			windowName = windowRoot->GetChild(SCREEN_TITLE_NODE)->GetValue();
 			m_window.create(vm, windowName);
+			m_window.setFramerateLimit(60);
 		}
 		catch (const std::out_of_range & e)
 		{
@@ -85,7 +86,8 @@ namespace	my
 	void	GameManager::Draw() noexcept
 	{
 		m_window.clear();
-		m_window.draw(*(m_window.scenes[m_window.curScene]));
+		if (m_window.scenes.size())
+			m_window.draw(*(m_window.scenes[m_window.curScene]));
 		m_window.display();
 	}
 

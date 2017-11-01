@@ -9,7 +9,7 @@
 	</screen>
 	<scenes>
 		<1 class="MainMenu">
-			<background>menu_background.png</background>
+			<background>menu_background.jpg</background>
 			<panel>
 				<title>Salut les gens</title>
 				<background>panel_background.png</background>

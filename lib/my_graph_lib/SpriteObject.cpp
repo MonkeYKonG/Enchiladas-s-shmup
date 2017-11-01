@@ -17,7 +17,7 @@ namespace	my
 
   void		SpriteObject::SetTexture(const sf::Texture & texture) noexcept
   {
-	m_sprite.setTexture(texture);
+    m_sprite.setTexture(texture);
   }
 
   void		SpriteObject::SetColor(const sf::Color & color) noexcept
@@ -27,22 +27,27 @@ namespace	my
 
   void	    SpriteObject::SetRotate(float rotate) noexcept
   {
-	m_sprite.setRotation(rotate);
+    m_sprite.setRotation(rotate);
   }
 
   void      SpriteObject::SetScale(float scaleX, float scaleY) noexcept
   {
-	m_sprite.setScale(scaleX, scaleY);
+    m_sprite.setScale(scaleX, scaleY);
   }
 
   void      SpriteObject::SetScale(const sf::Vector2f &scale) noexcept
   {
-	m_sprite.setScale(scale);
+    m_sprite.setScale(scale);
+  }
+
+  void    SpriteObject::SetOrigin(float origX, float origY) noexcept
+  {
+    m_sprite.setOrigin(origX, origY);
   }
 
   const sf::Sprite	&SpriteObject::GetSprite() const noexcept
   {
-	return (m_sprite);
+    return (m_sprite);
   }
 
   void SpriteObject::draw(sf::RenderTarget & target, sf::RenderStates states) const noexcept

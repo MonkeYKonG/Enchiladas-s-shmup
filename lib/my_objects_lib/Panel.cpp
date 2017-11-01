@@ -8,7 +8,12 @@ namespace my
 	Panel::~Panel()
 	{}
 
-	bool	Panel::IsIntersect() const noexcept
+	bool	Panel::IsIntersect(const sf::Vector2f & point) const noexcept
+	{
+		return (false);
+	}
+
+	bool	Panel::IsIntersect(const sf::FloatRect & square) const noexcept
 	{
 		return (false);
 	}

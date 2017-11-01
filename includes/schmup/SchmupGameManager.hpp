@@ -13,6 +13,9 @@ namespace	my
 			~SchmupGameManager();
 
 		private:
+			static const std::string SCENE_CLASS_ARGUMENT;
+			static const std::string SCENE_MAINMENU_CLASS;
+
 			void	InitializeScenes(XMLNode::XMLNodePtr scenesRoot) throw (std::out_of_range, std::invalid_argument);
 		};
 	}
