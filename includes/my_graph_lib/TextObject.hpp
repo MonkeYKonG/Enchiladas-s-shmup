@@ -22,6 +22,7 @@ namespace	my
 	void	SetRotate(float rotate) noexcept;
 	void	SetScale(float scaleX, float scaleY) noexcept;
 	void    SetScale(const sf::Vector2f & scale) noexcept;
+	void	SetOrigin(float origX, float origxY) noexcept;
 
 	const sf::Text	&GetText() const noexcept;
 

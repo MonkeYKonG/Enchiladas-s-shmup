@@ -21,6 +21,7 @@ namespace	my
 	void	SetScale(float scaleX, float scaleY) noexcept;
 	void    SetScale(const sf::Vector2f & scale) noexcept;
 	void	SetOrigin(float origX, float origY) noexcept;
+	void	SetSubrect(const sf::IntRect & subrect) noexcept;
 
 	const sf::Sprite &GetSprite() const noexcept;
 

@@ -11,6 +11,7 @@ namespace	my
 	public:
 		static SpriteObject::SpriteObjectPtr CreateSprite(XMLNode::XMLNodePtr spriteNode) throw (std::out_of_range, std::invalid_argument);
 		static TextObject::TextObjectPtr CreateText(XMLNode::XMLNodePtr textNode) throw (std::out_of_range, std::invalid_argument);
+		static Border::BorderPtr CreateBorder(XMLNode::XMLNodePtr borderNode) throw (std::out_of_range, std::invalid_argument);
 		static Panel::PanelPtr CreatePanel(XMLNode::XMLNodePtr panelNode) throw (std::out_of_range, std::invalid_argument);
 	
 	private:
@@ -30,10 +31,22 @@ namespace	my
 		static const std::string	TEXT_COLOR_NODE_NAME;
 		static const std::string	TEXT_CHARSIZE_NODE_NAME;
 
+		static const std::string	BORDER_OUTLINE_NODE_NAME;
+		static const std::string	BORDER_CORNER_NODE_NAME;
+
 		static const std::string	COLOR_RED_CONTENT_NAME;
 		static const std::string	COLOR_GREEN_CONTENT_NAME;
 		static const std::string	COLOR_BLUE_CONTENT_NAME;
 		static const std::string	COLOR_ALPHA_CONTENT_NAME;
+
+		static const std::string	OBJECT_TEXTURE_NODE_NAME;
+
+		static const std::string	HEIGHT_NODE_CONTENT;
+		static const std::string	WIDTH_NODE_CONTENT;
+		static const std::string	X_NODE_CONTENT;
+		static const std::string	Y_NODE_CONTENT;
+		static const std::string	TILE_HEIGHT_NODE_CONTENT;
+		static const std::string	TILE_WIDTH_NODE_CONTENT;
 
 		ObjectPool();
 		~ObjectPool();

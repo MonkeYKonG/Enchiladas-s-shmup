@@ -23,7 +23,7 @@ namespace my
 		return (m_background);
 	}
 
-	SpriteObject::SpriteObjectPtr	Panel::GetBorder() const noexcept
+	Border::BorderPtr	Panel::GetBorder() const noexcept
 	{
 		return (m_border);
 	}
@@ -43,7 +43,7 @@ namespace my
 		m_background = background;
 	}
 
-	void	Panel::SetBorder(SpriteObject::SpriteObjectPtr border) noexcept
+	void	Panel::SetBorder(Border::BorderPtr border) noexcept
 	{
 		m_border = border;
 	}
@@ -51,6 +51,9 @@ namespace my
 	void	Panel::SetTitle(TextObject::TextObjectPtr title) noexcept
 	{
 		m_title = title;
+		m_title->SetOrigin(m_title->GetText().getGlobalBounds().width / 2, m_title->GetText().getGlobalBounds().height / 2);
+		if (m_background)
+			m_title->setPosition(0, -m_background->GetSprite().getGlobalBounds().height / 2 + m_title->GetText().getGlobalBounds().height);
 	}
 
 	void	Panel::SetUpdatableList(const UpdatableList & updatableList) noexcept
@@ -61,5 +64,19 @@ namespace my
 	void	Panel::Update(const sf::Vector2f & mousePos) noexcept
 	{
 
+	}
+
+	void	Panel::draw(sf::RenderTarget & target, sf::RenderStates states) const noexcept
+	{
+		if (!m_visible)
+			return;
+		Node::draw(target, states);
+		states.transform *= getTransform();
+		if (m_background)
+			target.draw(*m_background, states);
+		if (m_border)
+			target.draw(*m_border, states);
+		if (m_title)
+			target.draw(*m_title, states);
 	}
 }

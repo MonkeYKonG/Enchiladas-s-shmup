@@ -1,4 +1,5 @@
 #include "ObjectPool.hpp"
+#include "Border.hpp"
 #include "my_graph_lib/ResourcesLoader.hpp"
 
 namespace	my
@@ -18,10 +19,22 @@ namespace	my
 	const std::string 	ObjectPool::TEXT_COLOR_NODE_NAME = "color";
 	const std::string 	ObjectPool::TEXT_CHARSIZE_NODE_NAME = "charSize";
 
+	const std::string	ObjectPool::BORDER_OUTLINE_NODE_NAME = "outline";
+	const std::string	ObjectPool::BORDER_CORNER_NODE_NAME = "corner";
+
 	const std::string 	ObjectPool::COLOR_RED_CONTENT_NAME = "red";
 	const std::string 	ObjectPool::COLOR_GREEN_CONTENT_NAME = "green";
 	const std::string 	ObjectPool::COLOR_BLUE_CONTENT_NAME = "blue";
 	const std::string 	ObjectPool::COLOR_ALPHA_CONTENT_NAME = "alpha";
+
+	const std::string	ObjectPool::OBJECT_TEXTURE_NODE_NAME = "texture";
+
+	const std::string 	ObjectPool::HEIGHT_NODE_CONTENT = "height";
+	const std::string 	ObjectPool::WIDTH_NODE_CONTENT = "width";
+	const std::string 	ObjectPool::X_NODE_CONTENT = "x";
+	const std::string 	ObjectPool::Y_NODE_CONTENT = "y";
+	const std::string 	ObjectPool::TILE_WIDTH_NODE_CONTENT = "tileX";
+	const std::string 	ObjectPool::TILE_HEIGHT_NODE_CONTENT = "tileY";
 
 	sf::Color 	ObjectPool::CreateColor(XMLNode::XMLNodePtr colorNode) throw (std::out_of_range, std::invalid_argument)
 	{
@@ -45,6 +58,7 @@ namespace	my
 		{
 			throw (e);
 		}
+		return (newColor);
 	}
 
 	SpriteObject::SpriteObjectPtr ObjectPool::CreateBackground(XMLNode::XMLNodePtr backgroundNode) throw (std::out_of_range, std::invalid_argument)
@@ -58,6 +72,8 @@ namespace	my
 		{
 			newBackground->SetTexture(ResourcesLoader::GetTexture(backgroundNode->GetValue()));
 			newBackground->SetOrigin(newBackground->GetSprite().getGlobalBounds().width / 2, newBackground->GetSprite().getGlobalBounds().height / 2);
+			if (backgroundNode->ContentExist(X_NODE_CONTENT) && backgroundNode->ContentExist(Y_NODE_CONTENT))
+				newBackground->setPosition(std::stoul(backgroundNode->GetContent(X_NODE_CONTENT).second), std::stoul(backgroundNode->GetContent(Y_NODE_CONTENT).second));
 		}
 		catch (const std::out_of_range & e)
 		{
@@ -92,7 +108,7 @@ namespace	my
 		{
 			throw (e);
 		}
-		return (0);
+		throw (std::invalid_argument("CreateSprite: can't createSpite: invalid node name: " + spriteNode->GetName()));
 	}
 
 	TextObject::TextObjectPtr ObjectPool::CreateText(XMLNode::XMLNodePtr textNode) throw (std::out_of_range, std::invalid_argument)
@@ -109,7 +125,7 @@ namespace	my
 			if (textNode->ChildExist(TEXT_SPRITE_NODE_NAME))
 				newText->SetText(textNode->GetChild(TEXT_SPRITE_NODE_NAME)->GetValue());
 			if (textNode->ChildExist(TEXT_COLOR_NODE_NAME))
-				newText->SetColor(ObjectPool::CreateColor(textNode->GetChild(TEXT_COLOR_NODE_NAME)));
+			 	newText->SetColor(ObjectPool::CreateColor(textNode->GetChild(TEXT_COLOR_NODE_NAME)));
 			if (textNode->ChildExist(TEXT_CHARSIZE_NODE_NAME))
 				newText->SetSize(std::stoul(textNode->GetChild(TEXT_CHARSIZE_NODE_NAME)->GetValue()));
 		}
@@ -121,6 +137,35 @@ namespace	my
 		{
 			throw (e);
 		}
+		return (newText);
+	}
+
+	Border::BorderPtr ObjectPool::CreateBorder(XMLNode::XMLNodePtr borderNode) throw (std::out_of_range, std::invalid_argument)
+	{
+		Border::BorderPtr newBorder;
+
+		if (!borderNode)
+			throw (std::invalid_argument("CreateBorder: null ptr"));
+		newBorder = Border::BorderPtr(new Border());
+		try
+		{
+			newBorder->SetSize(sf::Vector2u(std::stoul(borderNode->GetContent(WIDTH_NODE_CONTENT).second), std::stoul(borderNode->GetContent(HEIGHT_NODE_CONTENT).second)));
+			newBorder->SetTileSize(sf::Vector2u(std::stoul(borderNode->GetContent(TILE_HEIGHT_NODE_CONTENT).second), std::stoul(borderNode->GetContent(TILE_WIDTH_NODE_CONTENT).second)));
+			newBorder->SetTextureKey(borderNode->GetChild(OBJECT_TEXTURE_NODE_NAME)->GetValue());
+			newBorder->SetCornerSubrect(sf::IntRect(std::stoul(borderNode->GetChild(BORDER_CORNER_NODE_NAME)->GetContent(X_NODE_CONTENT).second), std::stoul(borderNode->GetChild(BORDER_CORNER_NODE_NAME)->GetContent(Y_NODE_CONTENT).second), newBorder->GetTileSize().x, newBorder->GetTileSize().y));
+			newBorder->SetOutlineSubrect(sf::IntRect(std::stoul(borderNode->GetChild(BORDER_OUTLINE_NODE_NAME)->GetContent(X_NODE_CONTENT).second), std::stoul(borderNode->GetChild(BORDER_OUTLINE_NODE_NAME)->GetContent(Y_NODE_CONTENT).second), newBorder->GetTileSize().x, newBorder->GetTileSize().y));
+			newBorder->InitializeChilds();
+			newBorder->setOrigin(newBorder->GetSize().x / 2, newBorder->GetSize().y / 2);
+		}
+		catch (const std::out_of_range & e)
+		{
+			throw (e);
+		}
+		catch (const std::invalid_argument & e)
+		{
+			throw (e);
+		}
+		return (newBorder);
 	}
 
 	Panel::PanelPtr	ObjectPool::CreatePanel(XMLNode::XMLNodePtr panelNode) throw (std::out_of_range, std::invalid_argument)
@@ -133,11 +178,13 @@ namespace	my
 		try
 		{
 			if (panelNode->ChildExist(PANEL_BACKGROUND_NODE_NAME))
-				newPanel->SetBackground(ObjectPool::CreateSprite(panelNode->GetChild(PANEL_BACKGROUND_NODE_NAME)));
+			 	newPanel->SetBackground(ObjectPool::CreateSprite(panelNode->GetChild(PANEL_BACKGROUND_NODE_NAME)));
 			if (panelNode->ChildExist(PANEL_TITLE_NODE_NAME))
-				newPanel->SetTitle(ObjectPool::CreateText(panelNode->GetChild(PANEL_TITLE_NODE_NAME)));
+			  	newPanel->SetTitle(ObjectPool::CreateText(panelNode->GetChild(PANEL_TITLE_NODE_NAME)));
 			if (panelNode->ChildExist(PANEL_BORDER_NODE_NAME))
-				newPanel->SetBorder(ObjectPool::CreateSprite(panelNode->GetChild(PANEL_BORDER_NODE_NAME)));
+			 	newPanel->SetBorder(ObjectPool::CreateBorder(panelNode->GetChild(PANEL_BORDER_NODE_NAME)));
+			 if (panelNode->ContentExist(X_NODE_CONTENT) && panelNode->ContentExist(Y_NODE_CONTENT))
+			 	newPanel->setPosition(std::stoul(panelNode->GetContent(X_NODE_CONTENT).second), std::stoul(panelNode->GetContent(Y_NODE_CONTENT).second));
 		}
 		catch (const std::out_of_range & e)
 		{
@@ -147,5 +194,6 @@ namespace	my
 		{
 			throw (e);
 		}
+		return (newPanel);
 	}
 }

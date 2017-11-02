@@ -9,11 +9,25 @@
 	</screen>
 	<scenes>
 		<1 class="MainMenu">
-			<background>menu_background.jpg</background>
-			<panel>
-				<title>Salut les gens</title>
+			<background x="840" y="525">menu_background.jpg</background>
+			<panel x="840" y="525">
+				<title>
+					<text>Salut les gens</text>
+					<font>Default</font>
+					<color red="12" green="178" blue="16"></color>
+				</title>
 				<background>panel_background.png</background>
-				<border>panel_border.png</border>
+				<border width="544" height="704" tileX="32" tileY="32">
+					<texture>panel_border.png</texture>
+					<corner x="0" y="0"></corner>
+					<outline x="64" y="0"></outline>
+				</border>
+			</panel>
+			<panel x="10" y="10">
+				<title>
+					<text>Je suis un panel!</text>
+					<font>Default</font>
+				</title>
 			</panel>
 		</1>
 	</scenes>

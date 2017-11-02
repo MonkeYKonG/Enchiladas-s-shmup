@@ -35,6 +35,11 @@ namespace	my
 	   m_text.setScale(scaleX, scaleY);
   }
 
+  void    TextObject::SetOrigin(float origX, float origY) noexcept
+  {
+      m_text.setOrigin(origX, origY);
+  }
+
   const sf::Text	&TextObject::GetText() const noexcept
   {
 	   return (m_text);
@@ -56,6 +61,6 @@ namespace	my
       return;
     Node::draw(target, states);
     states.transform *= getTransform();
-    target.draw(m_text);
+    target.draw(m_text, states);
   }
 }

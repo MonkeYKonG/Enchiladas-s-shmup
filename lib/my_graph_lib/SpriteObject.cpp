@@ -45,6 +45,11 @@ namespace	my
     m_sprite.setOrigin(origX, origY);
   }
 
+  void    SpriteObject::SetSubrect(const sf::IntRect & subrect) noexcept
+  {
+    m_sprite.setTextureRect(subrect);
+  }
+
   const sf::Sprite	&SpriteObject::GetSprite() const noexcept
   {
     return (m_sprite);

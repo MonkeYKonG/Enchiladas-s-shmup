@@ -3,6 +3,7 @@
 #include "my_graph_lib/SpriteObject.hpp"
 #include "my_graph_lib/TextObject.hpp"
 #include "my_graph_lib/IUpdatableObject.hh"
+#include "Border.hpp"
 
 namespace	my
 {
@@ -18,18 +19,20 @@ namespace	my
 		virtual bool IsIntersect(const sf::Vector2f & point) const noexcept;
 		virtual bool IsIntersect(const sf::FloatRect & square) const noexcept;
 		SpriteObject::SpriteObjectPtr GetBackground() const noexcept;
-		SpriteObject::SpriteObjectPtr GetBorder() const noexcept;
+		Border::BorderPtr GetBorder() const noexcept;
 		TextObject::TextObjectPtr GetTitle() const noexcept;
 		const UpdatableList & GetUpdatableObjects() const noexcept;
 		void SetBackground(SpriteObject::SpriteObjectPtr background) noexcept;
-		void SetBorder(SpriteObject::SpriteObjectPtr border) noexcept;
+		void SetBorder(Border::BorderPtr border) noexcept;
 		void SetTitle(TextObject::TextObjectPtr title) noexcept;
 		void SetUpdatableList(const UpdatableList & updatableList) noexcept;
 		void Update(const sf::Vector2f & mousePos) noexcept;
 	
 	private:
+		virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const noexcept;
+
 		SpriteObject::SpriteObjectPtr m_background;
-		SpriteObject::SpriteObjectPtr m_border;
+		Border::BorderPtr m_border;
 		TextObject::TextObjectPtr m_title;
 		UpdatableList m_updatableObjects;
 	};
