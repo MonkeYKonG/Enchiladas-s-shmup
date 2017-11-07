@@ -6,7 +6,7 @@
 
 namespace	my
 {
-	class Cursor : public SpriteObject, public HybridObject
+	class Cursor : public SpriteObject//, public HybridObject
 	{
 	public:
 		typedef std::shared_ptr<Cursor> CursorPtr;
@@ -21,6 +21,6 @@ namespace	my
 		
 	private:
 		Node::NodePtr	m_target;
-		Direction		m_direction;	
+		Direction		m_direction;
 	};
 }

@@ -3,10 +3,8 @@
 namespace	my
 {
 	Cursor::Cursor()
-	: m_direction(LEFT)
-	{
-		m_visible = false;
-	}
+		: m_direction(LEFT)
+	{}
 
 	Cursor::~Cursor()
 	{}

@@ -3,6 +3,7 @@
 #include "my_graph_lib/SpriteObject.hpp"
 #include "my_graph_lib/XMLNode.hpp"
 #include "my_objects_lib/Panel.hpp"
+#include "Cursor.hpp"
 
 namespace	my
 {
@@ -13,6 +14,7 @@ namespace	my
 		static TextObject::TextObjectPtr CreateText(XMLNode::XMLNodePtr textNode) throw (std::out_of_range, std::invalid_argument);
 		static Border::BorderPtr CreateBorder(XMLNode::XMLNodePtr borderNode) throw (std::out_of_range, std::invalid_argument);
 		static Panel::PanelPtr CreatePanel(XMLNode::XMLNodePtr panelNode) throw (std::out_of_range, std::invalid_argument);
+		static Cursor::CursorPtr CreateCursor(XMLNode::XMLNodePtr cursorNode) throw (std::out_of_range, std::invalid_argument);
 	
 	private:
 		typedef SpriteObject::SpriteObjectPtr (*CreateSpriteFunctions)(XMLNode::XMLNodePtr spriteNode);

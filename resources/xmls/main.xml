@@ -8,8 +8,11 @@
 		<title>Ma fenetre</title>
 	</screen>
 	<scenes>
-		<1 class="MainMenu">
-			<background x="840" y="525">menu_background.jpg</background>
+		<scene1 class="MainMenu">
+      <cursor>
+        <texture>cursor.png</texture>
+      </cursor>
+      <background x="840" y="525">menu_background.jpg</background>
 			<panel x="840" y="525">
 				<title>
 					<text>Salut les gens</text>
@@ -29,6 +32,6 @@
 					<font>Default</font>
 				</title>
 			</panel>
-		</1>
+		</scene1>
 	</scenes>
 </window>

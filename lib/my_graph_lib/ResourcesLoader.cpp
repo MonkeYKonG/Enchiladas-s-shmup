@@ -2,7 +2,11 @@
 
 namespace	my
 {
+#ifdef __linux__
 	const std::string ResourcesLoader::RESOURCES_PATH = "resources/";
+#elif _WIN32
+	const std::string ResourcesLoader::RESOURCES_PATH = "../../../resources/";
+#endif
 	const std::string ResourcesLoader::TEXTURES_PATH = "textures/";
 	const std::string ResourcesLoader::FONTS_PATH = "fonts/";
 	std::map<std::string, sf::Texture> ResourcesLoader::m_textures = std::map<std::string, sf::Texture>();

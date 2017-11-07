@@ -8,6 +8,5 @@ namespace	my
 	void	HybridObject::Update()
 	{
 		AnimatedObject::Update();
-		MoovableObject::Update();
 	}
 }

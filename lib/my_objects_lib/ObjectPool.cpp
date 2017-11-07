@@ -196,4 +196,28 @@ namespace	my
 		}
 		return (newPanel);
 	}
+
+	Cursor::CursorPtr ObjectPool::CreateCursor(XMLNode::XMLNodePtr cursorNode) throw (std::out_of_range, std::invalid_argument)
+	{
+		Cursor::CursorPtr newCursor;
+
+		if (!cursorNode)
+			throw (std::invalid_argument("CreateCursor: null node"));
+		newCursor = Cursor::CursorPtr(new Cursor());
+		try
+		{
+			//if (cursorNode->ChildExist(OBJECT_TEXTURE_NODE_NAME))
+				newCursor->SetTexture(ResourcesLoader::GetTexture(cursorNode->GetChild(OBJECT_TEXTURE_NODE_NAME)->GetValue()));
+			// Set animaitions here
+		}
+		catch (const std::out_of_range & e)
+		{
+			throw (e);
+		}
+		catch (const std::invalid_argument & e)
+		{
+			throw (e);
+		}
+		return (newCursor);
+	}
 }

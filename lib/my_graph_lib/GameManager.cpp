@@ -6,7 +6,11 @@
 
 namespace	my
 {
+#ifdef __linux__
 	const std::string GameManager::MAIN_XML_PATH = "resources/xmls/main.xml";
+#elif _WIN32
+	const std::string GameManager::MAIN_XML_PATH = "../../../resources/xmls/main.xml";
+#endif
 	const std::string GameManager::SCREEN_NODE = "screen";
 	const std::string GameManager::SCREEN_VIDEOMODE_NODE = "videoMode";
 	const std::string GameManager::SCREEN_VIDEOMODE_WIDTH_NODE = "width";
@@ -68,11 +72,7 @@ namespace	my
 		{
 			if (m_window.scenes.empty())
 				throw (std::invalid_argument("scenes not initialized"));
-			Scene::ScenePtr ptr = m_window.scenes[m_window.curScene];
-			SceneReturnValue value = ptr->Update(m_window);
-			//switch (m_window.scenes[m_window.curScene]->Update(m_window).value)
-			std::cout << value.value << std::endl;
-			switch (ptr->Update(m_window).value)
+			switch (m_window.scenes[m_window.curScene]->Update(m_window).value)
 			{
 			case CLOSE:
 				m_window.close();
