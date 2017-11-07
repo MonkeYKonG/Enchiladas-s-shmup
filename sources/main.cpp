@@ -18,7 +18,9 @@ int main(void) {
 	}
 	catch (const std::exception & e)
 	{
+		int a;
 		std::cerr << "An error occured: " <<  e.what() << std::endl;
+		std::cin >> a;
 		return (1);
 	}
 

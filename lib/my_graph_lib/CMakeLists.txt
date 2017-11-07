@@ -16,6 +16,6 @@ add_library(my_graph_lib
   MessagesException.cpp)
 
 target_link_libraries(my_graph_lib
-  sfml-graphics
-  sfml-window
-  sfml-system)
+  sfml-graphics-d
+  sfml-window-d
+  sfml-system-d)

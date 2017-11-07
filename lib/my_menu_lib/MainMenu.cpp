@@ -18,6 +18,10 @@ namespace	my
 	{
 		SceneReturnValue returnValue;
 
+		returnValue.value = NOTHING;
+		returnValue.newSceneIndex = -1;
+		returnValue.doInitialize = false;
+		returnValue.doReset = false;
 		PollEvents(window);
 		for (unsigned i = 0; i < m_events.size(); ++i)
 		{
@@ -34,6 +38,7 @@ namespace	my
 				return (returnValue);	
 			}
 		}
+		return (returnValue);
 	}
 
 	void	MainMenu::InitializeFunctions() noexcept

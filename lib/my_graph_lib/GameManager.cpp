@@ -30,6 +30,7 @@ namespace	my
 			windowName = windowRoot->GetChild(SCREEN_TITLE_NODE)->GetValue();
 			m_window.create(vm, windowName);
 			m_window.setFramerateLimit(60);
+			m_window.curScene = 0;
 		}
 		catch (const std::out_of_range & e)
 		{
@@ -67,7 +68,11 @@ namespace	my
 		{
 			if (m_window.scenes.empty())
 				throw (std::invalid_argument("scenes not initialized"));
-			switch (m_window.scenes[m_window.curScene]->Update(m_window).value)
+			Scene::ScenePtr ptr = m_window.scenes[m_window.curScene];
+			SceneReturnValue value = ptr->Update(m_window);
+			//switch (m_window.scenes[m_window.curScene]->Update(m_window).value)
+			std::cout << value.value << std::endl;
+			switch (ptr->Update(m_window).value)
 			{
 			case CLOSE:
 				m_window.close();

@@ -15,7 +15,7 @@ namespace	my
 		if (m_textures.find(id) != m_textures.end())
 			return (m_textures.at(id));
 		if (!img.loadFromFile(RESOURCES_PATH + TEXTURES_PATH + id))
-			throw (std::invalid_argument("loading texture file not found"));
+			throw (std::invalid_argument("loading texture file not found: " + RESOURCES_PATH + TEXTURES_PATH + id));
 		m_textures[id] = sf::Texture();
 		m_textures.at(id).loadFromImage(img);
 		return (m_textures.at(id));
@@ -31,7 +31,8 @@ namespace	my
 		if (m_fonts.find(id) != m_fonts.end())
 			return (m_fonts.at(id));
 		m_fonts[id] = sf::Font();
-		m_fonts.at(id).loadFromFile(RESOURCES_PATH + FONTS_PATH + id + ".ttf");
+		if (!m_fonts.at(id).loadFromFile(RESOURCES_PATH + FONTS_PATH + id + ".ttf"))
+			throw (std::invalid_argument("loading font file not found: " + RESOURCES_PATH + FONTS_PATH + id + ".ttf"));
 		return (m_fonts.at(id));
 	}
 }
