@@ -4,6 +4,7 @@
 #include "my_graph_lib/XMLNode.hpp"
 #include "my_objects_lib/Panel.hpp"
 #include "Cursor.hpp"
+#include "Button.hpp"
 
 namespace	my
 {
@@ -15,6 +16,7 @@ namespace	my
 		static Border::BorderPtr CreateBorder(XMLNode::XMLNodePtr borderNode) throw (std::out_of_range, std::invalid_argument);
 		static Panel::PanelPtr CreatePanel(XMLNode::XMLNodePtr panelNode) throw (std::out_of_range, std::invalid_argument);
 		static Cursor::CursorPtr CreateCursor(XMLNode::XMLNodePtr cursorNode) throw (std::out_of_range, std::invalid_argument);
+		static Button::ButtonPtr CreateButton(XMLNode::XMLNodePtr buttonNode) throw (std::out_of_range, std::invalid_argument);
 	
 	private:
 		typedef SpriteObject::SpriteObjectPtr (*CreateSpriteFunctions)(XMLNode::XMLNodePtr spriteNode);

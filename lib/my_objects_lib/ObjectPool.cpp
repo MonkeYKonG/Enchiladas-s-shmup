@@ -220,4 +220,26 @@ namespace	my
 		}
 		return (newCursor);
 	}
+
+	Button::ButtonPtr my::ObjectPool::CreateButton(XMLNode::XMLNodePtr buttonNode) throw(std::out_of_range, std::invalid_argument)
+	{
+		Button::ButtonPtr	newButton;
+
+		if (!buttonNode)
+			throw (std::invalid_argument("CreateButton: null node"));
+		newButton = Button::ButtonPtr(new Button());
+		try
+		{
+			
+		}
+		catch (const std::out_of_range & e)
+		{
+			throw (e);
+		}
+		catch (const std::invalid_argument & e)
+		{
+			throw (e);
+		}
+		return (newButton);
+	}
 }
