@@ -25,6 +25,13 @@
 					<corner x="0" y="0"></corner>
 					<outline x="64" y="0"></outline>
 				</border>
+        <button class="sprite">
+          <texture>button.png</texture>
+        </button>
+        <button class="text">
+          <text>bouton de test</text>
+          <font>Default</font>
+        </button>
 			</panel>
 			<panel x="10" y="10">
 				<title>

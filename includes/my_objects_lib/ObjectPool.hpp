@@ -20,8 +20,9 @@ namespace	my
 		typedef SpriteObject::SpriteObjectPtr (*CreateSpriteFunctions)(XMLNode::XMLNodePtr spriteNode);
 		typedef std::pair<const std::string, CreateSpriteFunctions> CreateSpriteFunctionsIndexs;
 
-		static const unsigned		SPRITE_OBJECT_CLASS_NBR = 1;
+		static const unsigned		SPRITE_OBJECT_CLASS_NBR = 2;
 		static const std::string	SPRITE_BACKGROUND_CLASS_NAME;
+		static const std::string	SPRITE_BUTTON_CLASS_NAME;
 		static const CreateSpriteFunctionsIndexs CREATE_SPRITE_INDEXS[SPRITE_OBJECT_CLASS_NBR];
 
 		static const std::string	PANEL_BACKGROUND_NODE_NAME;
@@ -56,5 +57,6 @@ namespace	my
 		static sf::Color CreateColor(XMLNode::XMLNodePtr colorNode) throw (std::out_of_range, std::invalid_argument);
 
 		static SpriteObject::SpriteObjectPtr CreateBackground(XMLNode::XMLNodePtr backgroundNode) throw (std::out_of_range, std::invalid_argument);
+		static SpriteObject::SpriteObjectPtr CreateSpriteButton(XMLNode::XMLNodePtr spriteButtonNode) throw (std::out_of_range, std::invalid_argument);
 	};
 }
