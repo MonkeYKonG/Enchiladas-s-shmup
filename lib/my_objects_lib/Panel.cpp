@@ -33,6 +33,16 @@ namespace my
 		return (m_title);
 	}
 
+	const Panel::SpriteButtons &Panel::GetSpriteButtons() const noexcept
+	{
+		return (m_spriteButtons);
+	}
+
+	const Panel::TextButtons &Panel::GetTextButtons() const noexcept
+	{
+		return (m_textButtons);
+	}
+
 	void	Panel::SetBackground(SpriteObject::SpriteObjectPtr background) noexcept
 	{
 		m_background = background;
@@ -49,6 +59,28 @@ namespace my
 		m_title->SetOrigin(m_title->GetText().getGlobalBounds().width / 2, m_title->GetText().getGlobalBounds().height / 2);
 		if (m_background)
 			m_title->setPosition(0, -m_background->GetSprite().getGlobalBounds().height / 2 + m_title->GetText().getGlobalBounds().height);
+	}
+
+	void	Panel::SetSpriteButtons(const Panel::SpriteButtons & buttons) noexcept
+	{
+		m_spriteButtons = buttons;
+	}
+
+	void	Panel::AddSpriteButton(const Panel::SpriteButton & newButton) noexcept
+	{
+		m_spriteButtons.push_back(newButton);
+	}
+
+	void	Panel::SetTextButtons(const Panel::TextButtons & buttons) noexcept
+	{
+		for (unsigned i = 0; i < buttons.size(); ++i)
+			AddTextButton(buttons[i]);
+	}
+
+	void	Panel::AddTextButton(const Panel::TextButton & newButton) noexcept
+	{
+		m_textButtons.push_back(newButton);
+		newButton->SetOrigin(newButton->GetText().getGlobalBounds().width / 2, newButton->GetText().getGlobalBounds().height / 2);
 	}
 
 	void	Panel::Update(const sf::Vector2f & mousePos) noexcept
@@ -68,5 +100,9 @@ namespace my
 			target.draw(*m_border, states);
 		if (m_title)
 			target.draw(*m_title, states);
+		for (unsigned i = 0; i < m_spriteButtons.size(); ++i)
+			target.draw(*m_spriteButtons[i], states);
+		for (unsigned i = 0; i < m_textButtons.size(); ++i)
+			target.draw(*m_textButtons[i], states);
 	}
 }

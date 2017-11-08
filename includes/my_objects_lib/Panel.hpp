@@ -10,6 +10,10 @@ namespace	my
 	{
 	public:
 		typedef std::shared_ptr<Panel> PanelPtr;
+		typedef SpriteObject::SpriteObjectPtr SpriteButton;
+		typedef TextObject::TextObjectPtr TextButton;
+		typedef std::vector<SpriteButton> SpriteButtons;
+		typedef std::vector<TextButton> TextButtons;
 
 		Panel();
 		~Panel();
@@ -19,9 +23,15 @@ namespace	my
 		SpriteObject::SpriteObjectPtr GetBackground() const noexcept;
 		Border::BorderPtr GetBorder() const noexcept;
 		TextObject::TextObjectPtr GetTitle() const noexcept;
+		const SpriteButtons &GetSpriteButtons() const noexcept;
+		const TextButtons &GetTextButtons() const noexcept;
 		void SetBackground(SpriteObject::SpriteObjectPtr background) noexcept;
 		void SetBorder(Border::BorderPtr border) noexcept;
 		void SetTitle(TextObject::TextObjectPtr title) noexcept;
+		void SetSpriteButtons(const SpriteButtons & buttons) noexcept;
+		void AddSpriteButton(const SpriteButton & newButton) noexcept;
+		void SetTextButtons(const TextButtons & buttons) noexcept;
+		void AddTextButton(const TextButton & newButton) noexcept;
 		void Update(const sf::Vector2f & mousePos) noexcept;
 	
 	private:
@@ -30,5 +40,7 @@ namespace	my
 		SpriteObject::SpriteObjectPtr m_background;
 		Border::BorderPtr m_border;
 		TextObject::TextObjectPtr m_title;
+		SpriteButtons	m_spriteButtons;
+		TextButtons		m_textButtons;
 	};
 }

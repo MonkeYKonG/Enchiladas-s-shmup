@@ -15,6 +15,9 @@ namespace	my
 	const std::string	ObjectPool::PANEL_BACKGROUND_NODE_NAME = "background";
 	const std::string 	ObjectPool::PANEL_TITLE_NODE_NAME = "title";
 	const std::string 	ObjectPool::PANEL_BORDER_NODE_NAME = "border";
+	const std::string 	ObjectPool::PANEL_BUTTONS_NODE_NAME = "buttons";
+	const std::string 	ObjectPool::PANEL_SPRITE_BUTTONS_NODE_CONTENT_VALUE = "sprite";
+	const std::string 	ObjectPool::PANEL_TEXT_BUTTONS_NODE_CONTENT_VALUE = "text";
 
 	const std::string 	ObjectPool::TEXT_FONT_NODE_NAME = "font";
 	const std::string 	ObjectPool::TEXT_SPRITE_NODE_NAME = "text";
@@ -37,6 +40,7 @@ namespace	my
 	const std::string 	ObjectPool::Y_NODE_CONTENT = "y";
 	const std::string 	ObjectPool::TILE_WIDTH_NODE_CONTENT = "tileX";
 	const std::string 	ObjectPool::TILE_HEIGHT_NODE_CONTENT = "tileY";
+	const std::string 	ObjectPool::CLASS_NODE_CONTENT = "class";
 
 	sf::Color 	ObjectPool::CreateColor(XMLNode::XMLNodePtr colorNode) throw (std::out_of_range, std::invalid_argument)
 	{
@@ -198,6 +202,7 @@ namespace	my
 
 	Panel::PanelPtr	ObjectPool::CreatePanel(XMLNode::XMLNodePtr panelNode) throw (std::out_of_range, std::invalid_argument)
 	{
+		XMLNode::XMLNodePtr childStk;
 		Panel::PanelPtr newPanel;
 
 		if (!panelNode)
@@ -211,7 +216,18 @@ namespace	my
 			  	newPanel->SetTitle(ObjectPool::CreateText(panelNode->GetChild(PANEL_TITLE_NODE_NAME)));
 			if (panelNode->ChildExist(PANEL_BORDER_NODE_NAME))
 			 	newPanel->SetBorder(ObjectPool::CreateBorder(panelNode->GetChild(PANEL_BORDER_NODE_NAME)));
-			 if (panelNode->ContentExist(X_NODE_CONTENT) && panelNode->ContentExist(Y_NODE_CONTENT))
+			if (panelNode->ChildExist(PANEL_BUTTONS_NODE_NAME))
+			{
+				childStk = panelNode->GetChild(PANEL_BUTTONS_NODE_NAME);
+				for (unsigned i = 0; i < childStk->GetChilds().size(); ++i)
+				{
+					if (childStk->GetChilds()[i]->GetContent(CLASS_NODE_CONTENT).second == PANEL_SPRITE_BUTTONS_NODE_CONTENT_VALUE)
+						newPanel->AddSpriteButton(CreateSpriteButton(childStk->GetChilds()[i]));
+					else if (childStk->GetChilds()[i]->GetContent(CLASS_NODE_CONTENT).second == PANEL_TEXT_BUTTONS_NODE_CONTENT_VALUE)
+						newPanel->AddTextButton(CreateText(childStk->GetChilds()[i]));
+				}
+			}
+			if (panelNode->ContentExist(X_NODE_CONTENT) && panelNode->ContentExist(Y_NODE_CONTENT))
 			 	newPanel->setPosition(std::stoul(panelNode->GetContent(X_NODE_CONTENT).second), std::stoul(panelNode->GetContent(Y_NODE_CONTENT).second));
 		}
 		catch (const std::out_of_range & e)

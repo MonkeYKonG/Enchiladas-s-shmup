@@ -28,6 +28,9 @@ namespace	my
 		static const std::string	PANEL_BACKGROUND_NODE_NAME;
 		static const std::string	PANEL_TITLE_NODE_NAME;
 		static const std::string	PANEL_BORDER_NODE_NAME;
+		static const std::string	PANEL_BUTTONS_NODE_NAME;
+		static const std::string	PANEL_SPRITE_BUTTONS_NODE_CONTENT_VALUE;
+		static const std::string	PANEL_TEXT_BUTTONS_NODE_CONTENT_VALUE;
 
 		static const std::string	TEXT_FONT_NODE_NAME;
 		static const std::string	TEXT_SPRITE_NODE_NAME;
@@ -50,6 +53,7 @@ namespace	my
 		static const std::string	Y_NODE_CONTENT;
 		static const std::string	TILE_HEIGHT_NODE_CONTENT;
 		static const std::string	TILE_WIDTH_NODE_CONTENT;
+		static const std::string	CLASS_NODE_CONTENT;
 
 		ObjectPool();
 		~ObjectPool();
