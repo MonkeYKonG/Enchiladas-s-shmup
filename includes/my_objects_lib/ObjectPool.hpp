@@ -45,6 +45,10 @@ namespace	my
 		static const std::string	COLOR_BLUE_CONTENT_NAME;
 		static const std::string	COLOR_ALPHA_CONTENT_NAME;
 
+		static const std::string	ANIMATION_RECTS_NODE_NAME;
+		static const std::string	ANIMATION_FRAMERATE_NODE_NAME;
+		static const std::string	ANIMATION_LOOP_NODE_NAME;
+
 		static const std::string	OBJECT_TEXTURE_NODE_NAME;
 		static const std::string	OBJECT_ANIMATIONS_NODE_NAME;
 
@@ -55,10 +59,12 @@ namespace	my
 		static const std::string	TILE_HEIGHT_NODE_CONTENT;
 		static const std::string	TILE_WIDTH_NODE_CONTENT;
 		static const std::string	CLASS_NODE_CONTENT;
+		static const std::string	KEY_NODE_CONTENT;
 
 		ObjectPool();
 		~ObjectPool();
 
+		static bool CreateBoolean(XMLNode::XMLNodePtr boolNode) throw (std::out_of_range, std::invalid_argument);
 		static sf::Color CreateColor(XMLNode::XMLNodePtr colorNode) throw (std::out_of_range, std::invalid_argument);
 		static AnimatedObject::Animation CreateAnimation(XMLNode::XMLNodePtr animationNode) throw (std::out_of_range, std::invalid_argument);
 

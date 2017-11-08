@@ -32,7 +32,12 @@ namespace	my
 	const std::string 	ObjectPool::COLOR_BLUE_CONTENT_NAME = "blue";
 	const std::string 	ObjectPool::COLOR_ALPHA_CONTENT_NAME = "alpha";
 
+	const std::string	ObjectPool::ANIMATION_RECTS_NODE_NAME = "rects";
+	const std::string	ObjectPool::ANIMATION_FRAMERATE_NODE_NAME = "framerate";
+	const std::string	ObjectPool::ANIMATION_LOOP_NODE_NAME = "loop";
+
 	const std::string	ObjectPool::OBJECT_TEXTURE_NODE_NAME = "texture";
+	const std::string	ObjectPool::OBJECT_ANIMATIONS_NODE_NAME = "animations";
 
 	const std::string 	ObjectPool::HEIGHT_NODE_CONTENT = "height";
 	const std::string 	ObjectPool::WIDTH_NODE_CONTENT = "width";
@@ -41,6 +46,29 @@ namespace	my
 	const std::string 	ObjectPool::TILE_WIDTH_NODE_CONTENT = "tileX";
 	const std::string 	ObjectPool::TILE_HEIGHT_NODE_CONTENT = "tileY";
 	const std::string 	ObjectPool::CLASS_NODE_CONTENT = "class";
+	const std::string 	ObjectPool::KEY_NODE_CONTENT = "key";
+
+	bool		ObjectPool::CreateBoolean(XMLNode::XMLNodePtr boolNode) throw (std::out_of_range, std::invalid_argument)
+	{
+		if (!boolNode)
+			throw (std::invalid_argument("CreateBoolean: null node"));
+		try
+		{
+			if (boolNode->GetValue() == "true")
+				return (true);
+			if (boolNode->GetValue() == "false")
+				return (false);
+		}
+		catch (const std::out_of_range & e)
+		{
+			throw (e);
+		}
+		catch (const std::invalid_argument & e)
+		{
+			throw (e);
+		}
+		throw (std::invalid_argument("CreateBool: invalid value: " + boolNode->GetValue()));
+	}
 
 	sf::Color 	ObjectPool::CreateColor(XMLNode::XMLNodePtr colorNode) throw (std::out_of_range, std::invalid_argument)
 	{
@@ -69,13 +97,21 @@ namespace	my
 
 	AnimatedObject::Animation	ObjectPool::CreateAnimation(XMLNode::XMLNodePtr animationNode)
 	{
+		XMLNode::XMLNodePtr childStk;
 		AnimatedObject::Animation newAnimation;
 
 		if (!animationNode)
 			throw (std::invalid_argument("CreateAnimation: null node"));
 		try
 		{
-
+			newAnimation.key = animationNode->GetContent(KEY_NODE_CONTENT).second;
+			childStk = animationNode->GetChild(ANIMATION_RECTS_NODE_NAME);
+			for (unsigned i = 0; i < childStk->GetChilds().size(); ++i)
+				newAnimation.rects.push_back(sf::IntRect(std::stoul(childStk->GetChilds()[i]->GetContent(X_NODE_CONTENT).second), std::stoul(childStk->GetChilds()[i]->GetContent(Y_NODE_CONTENT).second), std::stoul(childStk->GetChilds()[i]->GetContent(TILE_WIDTH_NODE_CONTENT).second), std::stoul(childStk->GetChilds()[i]->GetContent(TILE_HEIGHT_NODE_CONTENT).second)));
+			if (animationNode->ChildExist(ANIMATION_FRAMERATE_NODE_NAME))
+				newAnimation.framerateMax = std::stoul(animationNode->GetChild(ANIMATION_FRAMERATE_NODE_NAME)->GetValue());
+			if (animationNode->ChildExist(ANIMATION_LOOP_NODE_NAME))
+				newAnimation.loop = CreateBoolean(animationNode->GetChild(ANIMATION_LOOP_NODE_NAME));
 		}
 		catch (const std::out_of_range & e)
 		{
@@ -127,7 +163,7 @@ namespace	my
 			if (spriteButtonNode->ChildExist(OBJECT_ANIMATIONS_NODE_NAME))
 			{
 				childStk = spriteButtonNode->GetChild(OBJECT_ANIMATIONS_NODE_NAME);
-				for (unsigned i = 0; i < childStk->GetChilds().size; ++i)
+				for (unsigned i = 0; i < childStk->GetChilds().size(); ++i)
 					newSpriteButton->AddAnimation(CreateAnimation(childStk->GetChilds()[i]));
 			}
 			//Set animations
