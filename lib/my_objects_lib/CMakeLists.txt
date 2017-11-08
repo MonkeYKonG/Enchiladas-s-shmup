@@ -5,7 +5,6 @@ add_library(my_objects_lib
 	Border.cpp
 	Cursor.cpp
 	MousePointer.cpp
-	Button.cpp
 	Panel.cpp
 	ObjectPool.cpp)
 
