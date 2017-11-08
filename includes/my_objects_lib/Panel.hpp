@@ -2,7 +2,6 @@
 
 #include "my_graph_lib/SpriteObject.hpp"
 #include "my_graph_lib/TextObject.hpp"
-#include "my_graph_lib/IUpdatableObject.hh"
 #include "Border.hpp"
 
 namespace	my
@@ -11,7 +10,6 @@ namespace	my
 	{
 	public:
 		typedef std::shared_ptr<Panel> PanelPtr;
-		typedef std::list<IUpdatableObject::IUpdatableObjectPtr> UpdatableList;
 
 		Panel();
 		~Panel();
@@ -21,11 +19,9 @@ namespace	my
 		SpriteObject::SpriteObjectPtr GetBackground() const noexcept;
 		Border::BorderPtr GetBorder() const noexcept;
 		TextObject::TextObjectPtr GetTitle() const noexcept;
-		const UpdatableList & GetUpdatableObjects() const noexcept;
 		void SetBackground(SpriteObject::SpriteObjectPtr background) noexcept;
 		void SetBorder(Border::BorderPtr border) noexcept;
 		void SetTitle(TextObject::TextObjectPtr title) noexcept;
-		void SetUpdatableList(const UpdatableList & updatableList) noexcept;
 		void Update(const sf::Vector2f & mousePos) noexcept;
 	
 	private:
@@ -34,6 +30,5 @@ namespace	my
 		SpriteObject::SpriteObjectPtr m_background;
 		Border::BorderPtr m_border;
 		TextObject::TextObjectPtr m_title;
-		UpdatableList m_updatableObjects;
 	};
 }

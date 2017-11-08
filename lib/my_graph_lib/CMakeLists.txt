@@ -7,7 +7,6 @@ add_library(my_graph_lib
   TextObject.cpp
   AnimatedObject.cpp
   MoovableObject.cpp
-  HybridObject.cpp
   ResourcesLoader.cpp
   Scene.cpp
   GameManager.cpp

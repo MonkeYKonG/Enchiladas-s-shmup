@@ -1,11 +1,11 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include "IUpdatableObject.hh"
+#include <memory>
 
 namespace               my
 {
-  class		            MoovableObject : public IUpdatableObject
+  class		            MoovableObject
   {
   public:
   	typedef std::shared_ptr<MoovableObject> MoovableObjectPtr;
@@ -13,7 +13,7 @@ namespace               my
 	MoovableObject() noexcept;
 	virtual ~MoovableObject() noexcept {}
 
-	virtual void	    Update() = 0;
+	virtual void	    UpdateMovement() = 0;
 
 	bool		        IsOnDeplacement() const noexcept;
 	float		        GetSpeed() const noexcept;

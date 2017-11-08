@@ -36,6 +36,11 @@ namespace	my
 		return (m_repetitionMax);
 	}
 
+	void	MoovableObject::SetOnDeplacement(bool onDeplacement) noexcept
+	{
+		m_onDeplacement = onDeplacement;
+	}
+
 	void	MoovableObject::SetSpeed(float speed) noexcept
 	{
 		m_speed = speed;

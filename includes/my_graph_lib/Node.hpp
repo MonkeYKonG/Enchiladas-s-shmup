@@ -5,23 +5,25 @@
  *      Author: alexis
  */
 
-#ifndef LIB_MY_GRAPH_LIB_NODE_HPP_
-#define LIB_MY_GRAPH_LIB_NODE_HPP_
+#pragma once
 
 #include <list>
 #include <memory>
 #include <stdexcept>
 #include "SFML/Graphics.hpp"
+#include "MoovableObject.hpp"
 
 namespace my
 {
-  class Node : public sf::Drawable, public sf::Transformable
+  class Node : public sf::Drawable, public sf::Transformable, public MoovableObject
   {
   public:
 	typedef std::shared_ptr<Node>	NodePtr;
 	typedef std::list<NodePtr>		NodeList;
 
 	virtual ~Node() noexcept {};
+
+	virtual void UpdateMovement() noexcept;
 
 	NodeList		GetChilds() const noexcept;
 	bool		    IsVisible() const noexcept;
@@ -40,5 +42,3 @@ namespace my
 	bool		m_visible;
   };
 } /* namespace my */
-
-#endif /* LIB_MY_GRAPH_LIB_NODE_HPP_ */

@@ -1,10 +1,11 @@
 #pragma once
 
 #include "Node.hpp"
+#include "AnimatedObject.hpp"
 
 namespace	my
 {
-  class		SpriteObject : public Node
+  class		SpriteObject : public Node, public AnimatedObject
   {
   public:
   	typedef std::shared_ptr<SpriteObject> SpriteObjectPtr;

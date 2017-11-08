@@ -13,6 +13,11 @@ namespace my {
 	: m_visible(true)
 	{}
 
+	void	Node::UpdateMovement() noexcept
+	{
+
+	}
+
 	Node::NodeList	Node::GetChilds() const noexcept
 	{
 		return (m_childs);

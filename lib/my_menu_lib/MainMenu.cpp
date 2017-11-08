@@ -80,7 +80,6 @@ namespace	my
 		{
 			for (unsigned i = 0; i < m_root->GetChilds().size(); ++i)
 			{
-				std::cout << m_root->GetChilds()[i]->GetName();
 				j = 0;
 				while (j < m_initializationFunctions.size())
 				{

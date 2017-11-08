@@ -3,11 +3,11 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 #include <stdexcept>
-#include "IUpdatableObject.hh"
+#include <memory>
 
 namespace	my
 {
-  class		AnimatedObject : public IUpdatableObject
+  class		AnimatedObject
   {
 	public:
 		typedef std::shared_ptr<AnimatedObject> AnimatedObjectPtr;
@@ -16,7 +16,7 @@ namespace	my
 		AnimatedObject() noexcept;
 		virtual ~AnimatedObject() noexcept {}
 
-		virtual void		    Update();
+		virtual void		    UpdateAnimation();
 
 		bool                            IsOnAnimation() const noexcept;
 		const sf::IntRect&			    GetCurentTile() const throw (std::out_of_range);

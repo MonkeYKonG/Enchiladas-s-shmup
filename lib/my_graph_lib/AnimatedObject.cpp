@@ -6,7 +6,7 @@ namespace	my
 	AnimatedObject::AnimatedObject() noexcept
 	{}
 
-	void	AnimatedObject::Update()
+	void	AnimatedObject::UpdateAnimation()
 	{}
 
 	bool	AnimatedObject::IsOnAnimation() const noexcept

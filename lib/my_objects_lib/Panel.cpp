@@ -33,11 +33,6 @@ namespace my
 		return (m_title);
 	}
 
-	const Panel::UpdatableList	&Panel::GetUpdatableObjects() const noexcept
-	{
-		return (m_updatableObjects);
-	}
-
 	void	Panel::SetBackground(SpriteObject::SpriteObjectPtr background) noexcept
 	{
 		m_background = background;
@@ -54,11 +49,6 @@ namespace my
 		m_title->SetOrigin(m_title->GetText().getGlobalBounds().width / 2, m_title->GetText().getGlobalBounds().height / 2);
 		if (m_background)
 			m_title->setPosition(0, -m_background->GetSprite().getGlobalBounds().height / 2 + m_title->GetText().getGlobalBounds().height);
-	}
-
-	void	Panel::SetUpdatableList(const UpdatableList & updatableList) noexcept
-	{
-		m_updatableObjects = updatableList;
 	}
 
 	void	Panel::Update(const sf::Vector2f & mousePos) noexcept

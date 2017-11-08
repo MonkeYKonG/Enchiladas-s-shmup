@@ -1,12 +1,11 @@
 #pragma once
 
 #include "my_graph_lib/SpriteObject.hpp"
-#include "my_graph_lib/HybridObject.hpp"
 #include "Direction.hpp"
 
 namespace	my
 {
-	class Cursor : public SpriteObject//, public HybridObject
+	class Cursor : public SpriteObject
 	{
 	public:
 		typedef std::shared_ptr<Cursor> CursorPtr;
