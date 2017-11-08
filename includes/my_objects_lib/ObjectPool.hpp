@@ -46,6 +46,7 @@ namespace	my
 		static const std::string	COLOR_ALPHA_CONTENT_NAME;
 
 		static const std::string	OBJECT_TEXTURE_NODE_NAME;
+		static const std::string	OBJECT_ANIMATIONS_NODE_NAME;
 
 		static const std::string	HEIGHT_NODE_CONTENT;
 		static const std::string	WIDTH_NODE_CONTENT;
@@ -59,6 +60,7 @@ namespace	my
 		~ObjectPool();
 
 		static sf::Color CreateColor(XMLNode::XMLNodePtr colorNode) throw (std::out_of_range, std::invalid_argument);
+		static AnimatedObject::Animation CreateAnimation(XMLNode::XMLNodePtr animationNode) throw (std::out_of_range, std::invalid_argument);
 
 		static SpriteObject::SpriteObjectPtr CreateBackground(XMLNode::XMLNodePtr backgroundNode) throw (std::out_of_range, std::invalid_argument);
 		static SpriteObject::SpriteObjectPtr CreateSpriteButton(XMLNode::XMLNodePtr spriteButtonNode) throw (std::out_of_range, std::invalid_argument);

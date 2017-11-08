@@ -67,6 +67,11 @@ namespace	my
 		m_animations = animations;
 	}
 
+	void	AnimatedObject::AddAnimation(const AnimatedObject::Animation & animation) noexcept
+	{
+		m_animations.push_back(animation);
+	}
+
 	void	AnimatedObject::SetAnimIndex(int index, int tileIndex) throw (std::out_of_range)
 	{
 		if (AnimInvalidIndex(index))

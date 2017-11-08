@@ -38,6 +38,7 @@ namespace	my
 
 		void                            SetOnAnimation(bool onAnimation) noexcept;
 		void			                SetAnimations(const Animations & animations) noexcept;
+		void							AddAnimation(const Animation & animation) noexcept;
 		void			                SetAnimIndex(int index, int tileIndex = 0) throw (std::out_of_range);
 		void			                SetAnimTileIndex(int tileIndex) throw (std::out_of_range);
 		void							SetCurFrameRate(unsigned curFramerate) noexcept;

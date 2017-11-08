@@ -67,6 +67,27 @@ namespace	my
 		return (newColor);
 	}
 
+	AnimatedObject::Animation	ObjectPool::CreateAnimation(XMLNode::XMLNodePtr animationNode)
+	{
+		AnimatedObject::Animation newAnimation;
+
+		if (!animationNode)
+			throw (std::invalid_argument("CreateAnimation: null node"));
+		try
+		{
+
+		}
+		catch (const std::out_of_range & e)
+		{
+			throw (e);
+		}
+		catch (const std::invalid_argument & e)
+		{
+			throw (e);
+		}
+		return (newAnimation);
+	}
+
 	SpriteObject::SpriteObjectPtr ObjectPool::CreateBackground(XMLNode::XMLNodePtr backgroundNode) throw (std::out_of_range, std::invalid_argument)
 	{
 		SpriteObject::SpriteObjectPtr	newBackground;
@@ -94,6 +115,7 @@ namespace	my
 
 	SpriteObject::SpriteObjectPtr	ObjectPool::CreateSpriteButton(XMLNode::XMLNodePtr spriteButtonNode) throw (std::out_of_range, std::invalid_argument)
 	{
+		XMLNode::XMLNodePtr childStk;
 		SpriteObject::SpriteObjectPtr	newSpriteButton;
 
 		if (!spriteButtonNode)
@@ -102,6 +124,12 @@ namespace	my
 		try
 		{
 			newSpriteButton->SetTexture(ResourcesLoader::GetTexture(spriteButtonNode->GetChild(OBJECT_TEXTURE_NODE_NAME)->GetValue()));
+			if (spriteButtonNode->ChildExist(OBJECT_ANIMATIONS_NODE_NAME))
+			{
+				childStk = spriteButtonNode->GetChild(OBJECT_ANIMATIONS_NODE_NAME);
+				for (unsigned i = 0; i < childStk->GetChilds().size; ++i)
+					newSpriteButton->AddAnimation(CreateAnimation(childStk->GetChilds()[i]));
+			}
 			//Set animations
 			newSpriteButton->SetOrigin(newSpriteButton->GetSprite().getGlobalBounds().width / 2, newSpriteButton->GetSprite().getGlobalBounds().height / 2);
 			if (spriteButtonNode->ContentExist(X_NODE_CONTENT) && spriteButtonNode->ContentExist(Y_NODE_CONTENT))

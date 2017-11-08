@@ -73,6 +73,7 @@ namespace my
 
 	void	Panel::SetTextButtons(const Panel::TextButtons & buttons) noexcept
 	{
+		m_textButtons.clear();
 		for (unsigned i = 0; i < buttons.size(); ++i)
 			AddTextButton(buttons[i]);
 	}

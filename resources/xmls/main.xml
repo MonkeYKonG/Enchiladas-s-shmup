@@ -8,7 +8,7 @@
 		<title>Ma fenetre</title>
 	</screen>
 	<scenes>
-		<scene1 class="MainMenu">
+		<scene class="MainMenu">
       <cursor>
         <texture>cursor.png</texture>
       </cursor>
@@ -28,6 +28,29 @@
         <buttons>
           <button class="sprite">
             <texture>button.png</texture>
+            <animations>
+              <animation key="default">
+                <framerateMax>0</framerateMax>
+                <loop>false</loop>
+                <rects>
+                  <rect x="0" y="0" tileX="32" tileY="32"></rect>
+                </rects>
+              </animation>
+              <animation key="onMouseOver">
+                <framerateMax>0</framerateMax>
+                <loop>false</loop>
+                <rects>
+                  <rect x="0" y="32" tileX="32" tileY="32"></rect>
+                </rects>
+              </animation>
+              <animation key="onClick">
+                <framerateMax>0</framerateMax>
+                <loop>false</loop>
+                <rects>
+                  <rect x="0" y="64" tileX="32" tileY="32"></rect>
+                </rects>
+              </animation>
+            </animations>
           </button>
           <button class="text">
             <text>bouton de test</text>
@@ -41,6 +64,6 @@
 					<font>Default</font>
 				</title>
 			</panel>
-		</scene1>
+		</scene>
 	</scenes>
 </window>
