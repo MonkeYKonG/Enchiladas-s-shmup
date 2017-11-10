@@ -4,6 +4,7 @@
 #include "my_graph_lib/XMLNode.hpp"
 #include "my_objects_lib/Panel.hpp"
 #include "Cursor.hpp"
+#include "SpriteButton.hpp"
 
 namespace	my
 {
@@ -15,14 +16,14 @@ namespace	my
 		static Border::BorderPtr CreateBorder(XMLNode::XMLNodePtr borderNode) throw (std::out_of_range, std::invalid_argument);
 		static Panel::PanelPtr CreatePanel(XMLNode::XMLNodePtr panelNode) throw (std::out_of_range, std::invalid_argument);
 		static Cursor::CursorPtr CreateCursor(XMLNode::XMLNodePtr cursorNode) throw (std::out_of_range, std::invalid_argument);
+		static SpriteButton::SpriteButtonPtr CreateSpriteButton(XMLNode::XMLNodePtr spriteButtonNode) throw (std::out_of_range, std::invalid_argument);
 	
 	private:
 		typedef SpriteObject::SpriteObjectPtr (*CreateSpriteFunctions)(XMLNode::XMLNodePtr spriteNode);
 		typedef std::pair<const std::string, CreateSpriteFunctions> CreateSpriteFunctionsIndexs;
 
-		static const unsigned		SPRITE_OBJECT_CLASS_NBR = 2;
+		static const unsigned		SPRITE_OBJECT_CLASS_NBR = 1;
 		static const std::string	SPRITE_BACKGROUND_CLASS_NAME;
-		static const std::string	SPRITE_BUTTON_CLASS_NAME;
 		static const CreateSpriteFunctionsIndexs CREATE_SPRITE_INDEXS[SPRITE_OBJECT_CLASS_NBR];
 
 		static const std::string	PANEL_BACKGROUND_NODE_NAME;
@@ -69,6 +70,5 @@ namespace	my
 		static AnimatedObject::Animation CreateAnimation(XMLNode::XMLNodePtr animationNode) throw (std::out_of_range, std::invalid_argument);
 
 		static SpriteObject::SpriteObjectPtr CreateBackground(XMLNode::XMLNodePtr backgroundNode) throw (std::out_of_range, std::invalid_argument);
-		static SpriteObject::SpriteObjectPtr CreateSpriteButton(XMLNode::XMLNodePtr spriteButtonNode) throw (std::out_of_range, std::invalid_argument);
 	};
 }
