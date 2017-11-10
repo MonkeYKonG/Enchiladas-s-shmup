@@ -15,6 +15,22 @@ namespace	my
     return m_sprite.getGlobalBounds().intersects(square);
   }
 
+  void		SpriteObject::UpdateAnimation() throw (std::out_of_range)
+  {
+	  try
+	  {
+		  AnimatedObject::UpdateAnimation();
+	  }
+	  catch (const std::out_of_range & e)
+	  {
+		  throw (e);
+	  }
+	  if (m_onAnimation)
+	  {
+		  m_sprite.setTextureRect(GetCurentRect());
+	  }
+  }
+
   void		SpriteObject::SetTexture(const sf::Texture & texture) noexcept
   {
     m_sprite.setTexture(texture);

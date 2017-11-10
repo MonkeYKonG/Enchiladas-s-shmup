@@ -15,7 +15,11 @@ namespace my {
 
 	void	Node::UpdateMovement() noexcept
 	{
-
+		if (!m_onDeplacement)
+			return;
+		MoovableObject::UpdateMovement();
+		if (m_canMove)
+			move(m_direction * m_speed);
 	}
 
 	Node::NodeList	Node::GetChilds() const noexcept
