@@ -84,6 +84,7 @@ namespace	my
 		}
 		catch (const std::exception &e)
 		{
+			m_window.close();
 			throw (e);
 		}
 	}

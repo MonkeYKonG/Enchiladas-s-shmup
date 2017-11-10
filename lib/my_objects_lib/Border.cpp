@@ -148,10 +148,7 @@ namespace	my
 	void	Border::UpdateTiles() noexcept
 	{
 		for (unsigned i = 0; i < m_tiles.size(); ++i)
-		{
-			m_tiles[i]->UpdateAnimation();
-			m_tiles[i]->UpdateMovement();
-		}
+			m_tiles[i]->Update();
 	}
 
 	void	Border::draw(sf::RenderTarget & target, sf::RenderStates states) const noexcept

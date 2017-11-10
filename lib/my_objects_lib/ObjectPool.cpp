@@ -33,7 +33,7 @@ namespace	my
 	const std::string 	ObjectPool::COLOR_ALPHA_CONTENT_NAME = "alpha";
 
 	const std::string	ObjectPool::ANIMATION_RECTS_NODE_NAME = "rects";
-	const std::string	ObjectPool::ANIMATION_FRAMERATE_NODE_NAME = "framerate";
+	const std::string	ObjectPool::ANIMATION_FRAMERATE_NODE_NAME = "framerateMax";
 	const std::string	ObjectPool::ANIMATION_LOOP_NODE_NAME = "loop";
 
 	const std::string	ObjectPool::OBJECT_TEXTURE_NODE_NAME = "texture";
@@ -166,7 +166,6 @@ namespace	my
 				for (unsigned i = 0; i < childStk->GetChilds().size(); ++i)
 					newSpriteButton->AddAnimation(CreateAnimation(childStk->GetChilds()[i]));
 			}
-			//Set animations
 			newSpriteButton->SetOrigin(newSpriteButton->GetSprite().getGlobalBounds().width / 2, newSpriteButton->GetSprite().getGlobalBounds().height / 2);
 			if (spriteButtonNode->ContentExist(X_NODE_CONTENT) && spriteButtonNode->ContentExist(Y_NODE_CONTENT))
 				newSpriteButton->setPosition(std::stoul(spriteButtonNode->GetContent(X_NODE_CONTENT).second), std::stoul(spriteButtonNode->GetContent(Y_NODE_CONTENT).second));
@@ -307,6 +306,7 @@ namespace	my
 
 	Cursor::CursorPtr ObjectPool::CreateCursor(XMLNode::XMLNodePtr cursorNode) throw (std::out_of_range, std::invalid_argument)
 	{
+		XMLNode::XMLNodePtr childStk;
 		Cursor::CursorPtr newCursor;
 
 		if (!cursorNode)
@@ -314,9 +314,13 @@ namespace	my
 		newCursor = Cursor::CursorPtr(new Cursor());
 		try
 		{
-			//if (cursorNode->ChildExist(OBJECT_TEXTURE_NODE_NAME))
-				newCursor->SetTexture(ResourcesLoader::GetTexture(cursorNode->GetChild(OBJECT_TEXTURE_NODE_NAME)->GetValue()));
-			// Set animaitions here
+			newCursor->SetTexture(ResourcesLoader::GetTexture(cursorNode->GetChild(OBJECT_TEXTURE_NODE_NAME)->GetValue()));
+			if (cursorNode->ChildExist(OBJECT_ANIMATIONS_NODE_NAME))
+			{
+				childStk = cursorNode->GetChild(OBJECT_ANIMATIONS_NODE_NAME);
+				for (unsigned i = 0; i < childStk->GetChilds().size(); ++i)
+					newCursor->AddAnimation(CreateAnimation(childStk->GetChilds()[i]));
+			}
 		}
 		catch (const std::out_of_range & e)
 		{

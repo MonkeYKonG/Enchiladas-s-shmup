@@ -90,40 +90,33 @@ namespace my
 	{
 		if (!m_background)
 			return;
-		m_background->UpdateAnimation();
-		m_background->UpdateMovement();
+		m_background->Update();
 	}
 
 	void	Panel::UpdateBorder() noexcept
 	{
 		if (!m_border)
 			return;
-		m_border->UpdateMovement();
-		m_border->UpdateTiles();
+		m_border->Update();
 	}
 
 	void	Panel::UpdateTitle() noexcept
 	{
 		if (!m_title)
 			return;
-		m_title->UpdateMovement();
+		m_title->Update();
 	}
 
 	void	Panel::UpdateSpriteButtons() noexcept
 	{
 		for (unsigned i = 0; i < m_spriteButtons.size(); ++i)
-		{
-			m_spriteButtons[i]->UpdateAnimation();
-			m_spriteButtons[i]->UpdateMovement();
-		}
+			m_spriteButtons[i]->Update();
 	}
 
 	void	Panel::UpdateTextButtons() noexcept
 	{
 		for (unsigned i = 0; i < m_textButtons.size(); ++i)
-		{
-			m_textButtons[i]->UpdateMovement();
-		}
+			m_textButtons[i]->Update();
 	}
 
 	void	Panel::UpdateButtons() noexcept

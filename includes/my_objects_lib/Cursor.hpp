@@ -11,15 +11,14 @@ namespace	my
 		typedef std::shared_ptr<Cursor> CursorPtr;
 
 		Cursor();
-		~Cursor();
+		virtual ~Cursor();
 
-		Node::NodePtr GetTarget() const noexcept;
-		Direction GetDirection() const noexcept;
-		void SetTarget(Node::NodePtr target) noexcept;
-		void SetDirection(Direction direction) noexcept;
+		void Update(const sf::Vector2f & mousePos) throw (std::out_of_range);
 		
 	private:
-		Node::NodePtr	m_target;
-		Direction		m_direction;
+		static const std::string	LEFT_CLICK_ANIM_NAME;
+		static const std::string	RIGHT_CLICK_ANIM_NAME;
+
+		virtual void Update() throw (std::out_of_range);
 	};
 }

@@ -9,6 +9,8 @@
 #include "MessagesException.hpp"
 
 namespace my {
+	const std::string Node::MOOVING_ANIM_NAME = "move";
+
 	Node::Node() noexcept
 	: m_visible(true)
 	{}
@@ -20,6 +22,11 @@ namespace my {
 		MoovableObject::UpdateMovement();
 		if (m_canMove)
 			move(m_direction * m_speed);
+	}
+
+	void	Node::Update()
+	{
+		UpdateMovement();
 	}
 
 	Node::NodeList	Node::GetChilds() const noexcept

@@ -13,14 +13,13 @@ namespace               my
 	MoovableObject() noexcept;
 	virtual ~MoovableObject() noexcept {}
 
-	virtual void	    UpdateMovement();
 	void				ResetDeplacement();
 	void				ClearDeplacement();
 
 	bool		        IsOnDeplacement() const noexcept;
 	bool				CanMove() const noexcept;
 	float		        GetSpeed() const noexcept;
-	const sf::Vector2f& GetDirection() const noexcept;
+	const sf::Vector2f	&GetDirection() const noexcept;
 	int			        GetFrameRate() const noexcept;
 	int					GetDeplacememtRate() const noexcept;
 	int			        GetDeplacementRepetition() const noexcept;
@@ -37,6 +36,8 @@ namespace               my
 	void				SetTarget(sf::Vector2f *target) noexcept;
 
   protected:
+	  virtual void	    UpdateMovement();
+
 	bool		  m_onDeplacement;
 	bool			m_canMove;
 	float		  m_speed;

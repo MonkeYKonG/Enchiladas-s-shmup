@@ -3,6 +3,8 @@
 
 namespace	my
 {
+	const std::string AnimatedObject::DEFAULT_ANIM_NAME = "default";
+
 	AnimatedObject::AnimatedObject() noexcept
 		: m_onAnimation(false), m_animIndex(-1), m_animTileIndex(-1), m_curFramerate(0)
 	{}
@@ -11,8 +13,8 @@ namespace	my
 	{
 		if (!m_onAnimation)
 			return;
-		if (InvalidIndexs(m_animIndex))
-			throw (std::out_of_range("AnimatedObject: UpdateAnimation: indexs is out of range"));
+		if (InvalidIndexs())
+			throw (std::out_of_range("AnimatedObject: UpdateAnimation: indexs is out of range: animIndex: " + std::to_string(m_animIndex) + " tileIndex: " + std::to_string(m_animTileIndex)));
 		if (m_curFramerate++ >= m_animations[m_animIndex].framerateMax)
 		{
 			m_curFramerate = 0;
@@ -29,6 +31,14 @@ namespace	my
 	bool	AnimatedObject::IsOnAnimation() const noexcept
 	{
 		return (m_onAnimation);
+	}
+
+	bool	AnimatedObject::AnimationExist(const std::string & key) const noexcept
+	{
+		for (unsigned i = 0; i < m_animations.size(); ++i)
+			if (m_animations[i].key == key)
+				return (true);
+		return (false);
 	}
 
 	const sf::IntRect&	AnimatedObject::GetCurentRect() const throw (std::out_of_range)
@@ -87,6 +97,17 @@ namespace	my
 		}
 	}
 
+	void	AnimatedObject::SetAnimIndex(const std::string & key, int tileIndex)
+	{
+		for (unsigned i = 0; i < m_animations.size(); ++i)
+			if (m_animations[i].key == key)
+			{
+				SetAnimIndex(i, tileIndex);
+				return;
+			}
+		throw (std::out_of_range("AnimatedObject: SetAnimIndex: invalid key"));
+	}
+
 	void	AnimatedObject::SetAnimTileIndex(int tileIndex) throw (std::out_of_range)
 	{
 		if (InvalidIndexs(tileIndex))
@@ -112,5 +133,10 @@ namespace	my
 	bool	AnimatedObject::InvalidIndexs(int tileIndex) const noexcept
 	{
 		return (AnimInvalidIndex() || tileIndex < 0 || tileIndex >= m_animations[m_animIndex].rects.size());
+	}
+
+	bool	AnimatedObject::InvalidIndexs() const noexcept
+	{
+		return (InvalidIndexs(m_animTileIndex));
 	}
 }

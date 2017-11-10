@@ -17,6 +17,10 @@ namespace	my
 
   void		SpriteObject::UpdateAnimation() throw (std::out_of_range)
   {
+	  if (m_onAnimation)
+	  {
+		  m_sprite.setTextureRect(GetCurentRect());
+	  }
 	  try
 	  {
 		  AnimatedObject::UpdateAnimation();
@@ -25,9 +29,18 @@ namespace	my
 	  {
 		  throw (e);
 	  }
-	  if (m_onAnimation)
+  }
+
+  void	SpriteObject::Update() throw (std::invalid_argument)
+  {
+	  Node::Update();
+	  try
 	  {
-		  m_sprite.setTextureRect(GetCurentRect());
+		  UpdateAnimation();
+	  }
+	  catch (const std::out_of_range & e)
+	  {
+		  throw (e);
 	  }
   }
 

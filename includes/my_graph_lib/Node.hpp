@@ -23,7 +23,7 @@ namespace my
 
 	virtual ~Node() noexcept {};
 
-	virtual void UpdateMovement() noexcept;
+	virtual void Update();
 
 	NodeList		GetChilds() const noexcept;
 	bool		    IsVisible() const noexcept;
@@ -35,8 +35,11 @@ namespace my
 	void		SetVisible(bool visible) noexcept;
 
   protected:
+	  static const std::string	MOOVING_ANIM_NAME;
+
 	Node() noexcept;
 	virtual void	draw(sf::RenderTarget &target, sf::RenderStates states) const;
+	virtual void UpdateMovement() noexcept;
 
 	NodeList	m_childs;
 	bool		m_visible;

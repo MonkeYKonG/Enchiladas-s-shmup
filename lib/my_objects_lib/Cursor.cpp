@@ -2,37 +2,52 @@
 
 namespace	my
 {
+	const std::string	Cursor::LEFT_CLICK_ANIM_NAME = "left_click";
+	const std::string	Cursor::RIGHT_CLICK_ANIM_NAME = "right_click";
+
 	Cursor::Cursor()
-		: m_direction(LEFT)
 	{}
 
 	Cursor::~Cursor()
 	{}
 
-	Node::NodePtr Cursor::GetTarget() const noexcept
+	void	Cursor::Update() throw (std::out_of_range)
 	{
-		return (m_target);
-	}
-
-	Direction Cursor::GetDirection() const noexcept
-	{
-		return (m_direction);
-	}
-
-	void	Cursor::SetTarget(Node::NodePtr target) noexcept
-	{
-		m_target = target;
-		if (target)
+		try
 		{
-			m_visible = true;
-			// calcule de la direction
-			// calcule de la vitesse
+			if (!m_animations.empty())
+			{
+				if (!m_onAnimation && AnimationExist(DEFAULT_ANIM_NAME))
+					SetAnimIndex(DEFAULT_ANIM_NAME);
+				if (AnimationExist(LEFT_CLICK_ANIM_NAME) && sf::Mouse::isButtonPressed(sf::Mouse::Left))
+					SetAnimIndex(LEFT_CLICK_ANIM_NAME);
+				else if (AnimationExist(RIGHT_CLICK_ANIM_NAME) && sf::Mouse::isButtonPressed(sf::Mouse::Right))
+					SetAnimIndex(RIGHT_CLICK_ANIM_NAME);
+				m_onAnimation = true;
+			}
+			SpriteObject::Update();
+		}
+		catch (const std::out_of_range & e)
+		{
+			throw (e);
 		}
 	}
 
-	void 	Cursor::SetDirection(Direction direction) noexcept
+	void	Cursor::Update(const sf::Vector2f & mousePos) throw (std::out_of_range)
 	{
-		m_direction = direction;
-		//Modification de l'animation
+		try
+		{
+			if (!m_onAnimation && AnimationExist(MOOVING_ANIM_NAME) && mousePos != getPosition())
+			{
+				m_onAnimation = true;
+				SetAnimIndex(MOOVING_ANIM_NAME);	
+			}
+			setPosition(mousePos);
+			Update();
+		}
+		catch (const std::out_of_range & e)
+		{
+			throw (e);
+		}
 	}
 }
