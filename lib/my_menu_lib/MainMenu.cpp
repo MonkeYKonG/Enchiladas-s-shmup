@@ -17,6 +17,29 @@ namespace	my
 	MainMenu::~MainMenu()
 	{}
 
+	void	MainMenu::UpdateObjects(sf::RenderWindow & window) noexcept
+	{
+		sf::Vector2f	mousePos(sf::Mouse::getPosition(window));
+
+		mousePos = getTransform().getInverse().transformPoint(mousePos);
+		if (m_background)
+		{
+			m_background->UpdateAnimation();
+			m_background->UpdateMovement();
+		}
+		if (m_cursor)
+		{
+			m_cursor->UpdateAnimation();
+			m_cursor->UpdateMovement();
+			m_cursor->setPosition(mousePos);
+		}
+		for (unsigned i = 0; i < m_panels.size(); ++i)
+		{
+			m_panels[i]->UpdateMovement();
+			m_panels[i]->Update(mousePos);
+		}
+	}
+
 	const SceneReturnValue	MainMenu::Update(sf::RenderWindow & window) throw (std::exception)
 	{
 		SceneReturnValue returnValue;
@@ -37,7 +60,7 @@ namespace	my
 				return (returnValue);	
 			}
 		}
-		m_cursor->setPosition(sf::Vector2f(sf::Mouse::getPosition(window)));
+		UpdateObjects(window);
 		return (returnValue);
 	}
 

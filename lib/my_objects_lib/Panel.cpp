@@ -1,5 +1,7 @@
 #include "Panel.hpp"
 
+#include <iostream>
+
 namespace my
 {
 	Panel::Panel()
@@ -84,9 +86,61 @@ namespace my
 		newButton->SetOrigin(newButton->GetText().getGlobalBounds().width / 2, newButton->GetText().getGlobalBounds().height / 2);
 	}
 
+	void	Panel::UpdateBackground() noexcept
+	{
+		if (!m_background)
+			return;
+		m_background->UpdateAnimation();
+		m_background->UpdateMovement();
+	}
+
+	void	Panel::UpdateBorder() noexcept
+	{
+		if (!m_border)
+			return;
+		m_border->UpdateMovement();
+		m_border->UpdateTiles();
+	}
+
+	void	Panel::UpdateTitle() noexcept
+	{
+		if (!m_title)
+			return;
+		m_title->UpdateMovement();
+	}
+
+	void	Panel::UpdateSpriteButtons() noexcept
+	{
+		for (unsigned i = 0; i < m_spriteButtons.size(); ++i)
+		{
+			m_spriteButtons[i]->UpdateAnimation();
+			m_spriteButtons[i]->UpdateMovement();
+		}
+	}
+
+	void	Panel::UpdateTextButtons() noexcept
+	{
+		for (unsigned i = 0; i < m_textButtons.size(); ++i)
+		{
+			m_textButtons[i]->UpdateMovement();
+		}
+	}
+
+	void	Panel::UpdateButtons() noexcept
+	{
+		UpdateSpriteButtons();
+		UpdateTextButtons();
+	}
+
 	void	Panel::Update(const sf::Vector2f & mousePos) noexcept
 	{
+		sf::Vector2f tranfromedMousePos;
 
+		tranfromedMousePos = getTransform().getInverse().transformPoint(mousePos);
+		UpdateBackground();
+		UpdateBorder();
+		UpdateTitle();
+		UpdateButtons();
 	}
 
 	void	Panel::draw(sf::RenderTarget & target, sf::RenderStates states) const noexcept

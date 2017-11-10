@@ -50,6 +50,11 @@ namespace	my
 		return (m_outlineSubrect);
 	}
 
+	const Border::TileList	&Border::GetTiles() const noexcept
+	{
+		return (m_tiles);
+	}
+
 	void	Border::SetTextureKey(const std::string & textureKey) noexcept
 	{
 		m_textureKey = textureKey;
@@ -121,22 +126,41 @@ namespace	my
 		{
 			for (unsigned i = 1; i < m_size.x / m_tileSize.x; ++i)
 			{
-				AddChild(AddOutline(sf::Vector2f(m_tileSize.x * i, 0)));
-				AddChild(AddOutline(sf::Vector2f(m_tileSize.x * i, m_size.y - m_tileSize.y)));
+				m_tiles.push_back(AddOutline(sf::Vector2f(m_tileSize.x * i, 0)));
+				m_tiles.push_back(AddOutline(sf::Vector2f(m_tileSize.x * i, m_size.y - m_tileSize.y)));
 			}
 			for (unsigned i = 1; i < m_size.y / m_tileSize.y; ++i)
 			{
-				AddChild(AddOutline(sf::Vector2f(0, m_tileSize.y * i)));
-				AddChild(AddOutline(sf::Vector2f(m_size.x - m_tileSize.x, m_tileSize.y * i)));
+				m_tiles.push_back(AddOutline(sf::Vector2f(0, m_tileSize.y * i)));
+				m_tiles.push_back(AddOutline(sf::Vector2f(m_size.x - m_tileSize.x, m_tileSize.y * i)));
 			}
-			AddChild(AddCorner(sf::Vector2f(0, 0)));
-			AddChild(AddCorner(sf::Vector2f(m_size.x - m_tileSize.x, 0)));
-			AddChild(AddCorner(sf::Vector2f(0, m_size.y - m_tileSize.y)));
-			AddChild(AddCorner(sf::Vector2f(m_size.x - m_tileSize.x, m_size.y - m_tileSize.y)));
+			m_tiles.push_back(AddCorner(sf::Vector2f(0, 0)));
+			m_tiles.push_back(AddCorner(sf::Vector2f(m_size.x - m_tileSize.x, 0)));
+			m_tiles.push_back(AddCorner(sf::Vector2f(0, m_size.y - m_tileSize.y)));
+			m_tiles.push_back(AddCorner(sf::Vector2f(m_size.x - m_tileSize.x, m_size.y - m_tileSize.y)));
 		}
 		catch (const std::invalid_argument & e) 
 		{
 			throw (e);
 		}
+	}
+
+	void	Border::UpdateTiles() noexcept
+	{
+		for (unsigned i = 0; i < m_tiles.size(); ++i)
+		{
+			m_tiles[i]->UpdateAnimation();
+			m_tiles[i]->UpdateMovement();
+		}
+	}
+
+	void	Border::draw(sf::RenderTarget & target, sf::RenderStates states) const noexcept
+	{
+		if (!m_visible)
+			return;
+		Node::draw(target, states);
+		states.transform *= getTransform();
+		for (unsigned i = 0; i < m_tiles.size(); ++i)
+			target.draw(*m_tiles[i], states);
 	}
 }

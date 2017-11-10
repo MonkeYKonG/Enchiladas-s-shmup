@@ -8,6 +8,8 @@ namespace	my
 	{
 	public:
 		typedef std::shared_ptr<Border> BorderPtr;
+		typedef SpriteObject::SpriteObjectPtr Tile;
+		typedef std::vector<Tile> TileList;
 
 		Border();
 		~Border();
@@ -20,6 +22,7 @@ namespace	my
 		const sf::Vector2u 	&GetTileSize() const noexcept;
 		const sf::IntRect 	&GetCornerSubrect() const noexcept;
 		const sf::IntRect 	&GetOutlineSubrect() const noexcept;
+		const TileList		&GetTiles() const noexcept;
 		void	SetTextureKey(const std::string & textureKey) noexcept;
 		void	SetSize(const sf::Vector2u & size) noexcept;
 		void	SetTileSize(const sf::Vector2u & tileSize) noexcept;
@@ -27,15 +30,19 @@ namespace	my
 		void	SetOutlineSubrect(const sf::IntRect & outlineSubrect) noexcept;
 
 		void	InitializeChilds() throw (std::invalid_argument);
+		void	UpdateTiles() noexcept;
 		
 	private:
-		SpriteObject::SpriteObjectPtr AddCorner(const sf::Vector2f & position) throw (std::invalid_argument);
-		SpriteObject::SpriteObjectPtr AddOutline(const sf::Vector2f & position) throw (std::invalid_argument);
+		virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const noexcept;
+
+		Tile AddCorner(const sf::Vector2f & position) throw (std::invalid_argument);
+		Tile AddOutline(const sf::Vector2f & position) throw (std::invalid_argument);
 
 		std::string		m_textureKey;
 		sf::Vector2u	m_size;
 		sf::Vector2u 	m_tileSize;
 		sf::IntRect		m_cornerSubrect;
 		sf::IntRect 	m_outlineSubrect;
+		TileList		m_tiles;
 	};
 }
