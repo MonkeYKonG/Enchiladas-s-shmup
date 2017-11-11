@@ -6,11 +6,7 @@
 
 namespace	my
 {
-#ifdef __linux__
-	const std::string GameManager::MAIN_XML_PATH = "resources/xmls/main.xml";
-#elif _WIN32
-	const std::string GameManager::MAIN_XML_PATH = "../../../resources/xmls/main.xml";
-#endif
+	const std::string GameManager::MAIN_XML_PATH = "main.xml";
 	const std::string GameManager::SCREEN_NODE = "screen";
 	const std::string GameManager::SCREEN_VIDEOMODE_NODE = "videoMode";
 	const std::string GameManager::SCREEN_VIDEOMODE_WIDTH_NODE = "width";

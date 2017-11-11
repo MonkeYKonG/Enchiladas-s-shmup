@@ -1,0 +1,24 @@
+<cursor>
+  <texture>cursor.png</texture>
+  <animations>
+    <animation key="default">
+      <framerateMax>20</framerateMax>
+      <loop>false</loop>
+      <rects>
+        <rect x="0" y="0" tileX="100" tileY="100"></rect>
+        <rect x="100" y="0" tileX="100" tileY="100"></rect>
+        <rect x="200" y="0" tileX="100" tileY="100"></rect>
+      </rects>
+    </animation>
+    <animation key="left_click">
+      <rects>
+        <rect x="0" y="100" tileX="100" tileY="100"></rect>
+      </rects>
+    </animation>
+    <animation key="right_click">
+      <rects>
+        <rect x="0" y="200" tileX="100" tileY="100"></rect>
+      </rects>
+    </animation>
+  </animations>
+</cursor>

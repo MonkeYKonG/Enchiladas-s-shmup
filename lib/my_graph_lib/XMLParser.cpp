@@ -7,6 +7,13 @@
 
 namespace	my
 {
+	XMLParser::CONSTANTS XMLParser::XML_CONSTANTS = XMLParser::CONSTANTS();
+#ifdef __linix__
+	const std::string XMLParser::XML_RESOURCES_PATH = "resources/xmls/";
+#elif _WIN32
+	const std::string XMLParser::XML_RESOURCES_PATH = "../../../resources/xmls/";
+#endif
+
 	XMLParser::XMLParser(std::ifstream & fs, const std::string & fileName) noexcept
 		: m_fs(fs), m_fileName(fileName), m_index(0)
 	{}	
@@ -115,10 +122,81 @@ namespace	my
 		JumpSpace();
 	}
 
+	void XMLParser::AddConstants() throw (std::invalid_argument)
+	{
+		std::string name;
+		XMLNode::ContentList args;
+		unsigned beaconEnd;
+
+		try
+		{
+			while (m_fileContent[m_index] == BEACON_BEGIN && m_fileContent[m_index + 1] == BEACON_CONSTANT)
+			{
+				m_index += 2;
+				JumpSpace();
+				if ((beaconEnd = m_fileContent.find(BEACON_CONSTANT, m_index)) == std::string::npos || m_fileContent[beaconEnd + 1] != BEACON_END)
+					throw (std::invalid_argument("syntax error: invalid beacon ending"));
+				name = GetNextWord();
+				while (m_index < beaconEnd)
+					args.push_back(GetNextArg());
+				m_index += 2;
+				JumpSpace();
+				if (name.empty() || args.empty())
+					throw (std::invalid_argument("XMLParser: AddConstants: empty node"));
+				if (XML_CONSTANTS.find(name) == XML_CONSTANTS.end())
+				{
+					XML_CONSTANTS[name] = CONSTANT();
+					for (unsigned i = 0; i < args.size(); ++i)
+					{
+						if (XML_CONSTANTS.at(name).find(args[i].first) == XML_CONSTANTS.at(name).end())
+							XML_CONSTANTS.at(name)[args[i].first] = args[i].second;
+						else
+							throw (std::invalid_argument("XMLParser: AddConstants: " + name + "." + args[i].first + " already exist"));
+					}
+				}
+				else
+					throw (std::invalid_argument("XMLParser: AddContents: " + name + " already exist"));
+			}
+		}
+		catch (const std::invalid_argument & e)
+		{
+			throw (e);
+		}
+	}
+
+	XMLNode::XMLNodePtr XMLParser::CheckLink() throw (std::invalid_argument)
+	{
+		unsigned beaconEnd;
+		std::string fileName;
+
+		try
+		{
+			if (m_fileContent[m_index] == BEACON_BEGIN && m_fileContent[m_index + 1] == BEACON_LINK)
+			{
+				m_index += 2;
+				JumpSpace();
+				if ((beaconEnd = m_fileContent.find(BEACON_LINK, m_index)) == std::string::npos || m_fileContent[beaconEnd + 1] != BEACON_END)
+					throw (std::invalid_argument("XMLParser: CheckLink: invalid beacon ending"));
+				fileName = m_fileContent.substr(m_index, beaconEnd - m_index);
+				while (std::isspace(fileName.back()))
+					fileName.pop_back();
+				m_index = beaconEnd + 2;
+				JumpSpace();
+				return (XMLParser::Load(fileName));
+			}
+		}
+		catch (const std::invalid_argument & e)
+		{
+			throw (e);
+		}
+		return (0);
+	}
+
 	XMLNode::XMLNodePtr XMLParser::Parse() throw (std::invalid_argument)
 	{
 		if (!std::getline(m_fs, m_fileContent, static_cast<char>(4)))
 			throw (std::invalid_argument("can't read file file."));
+		m_fs.close();
 		try
 		{
 			return (ParseRec());
@@ -138,6 +216,9 @@ namespace	my
 		JumpSpace();
 		try
 		{
+			AddConstants();
+			if ((node = CheckLink()))
+				return (node);
 			GetBeaconContent(name, args);
 			node = XMLNode::create(name, args);
 			m_beacons.push(name);
@@ -188,7 +269,7 @@ namespace	my
 
 	XMLNode::XMLNodePtr	XMLParser::Load(const std::string &fileName) throw (std::invalid_argument)
 	{
-		std::ifstream fs(fileName);
+		std::ifstream fs(XML_RESOURCES_PATH + fileName);
 		XMLParser parser(fs, fileName);
 
 		if (!fs)

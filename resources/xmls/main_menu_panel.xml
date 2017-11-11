@@ -1,0 +1,45 @@
+<panel x="840" y="525">
+  <title>
+    <text>Salut les gens</text>
+    <font>Default</font>
+    <color red="12" green="178" blue="16"></color>
+  </title>
+  <background>panel_background.png</background>
+  <border width="544" height="704" tileX="32" tileY="32">
+    <texture>panel_border.png</texture>
+    <corner x="0" y="0"></corner>
+    <outline x="64" y="0"></outline>
+  </border>
+  <buttons>
+    <button class="sprite">
+      <texture>button.png</texture>
+      <animations>
+        <animation key="default">
+          <framerateMax>0</framerateMax>
+          <loop>false</loop>
+          <rects>
+            <rect x="0" y="0" tileX="201" tileY="72"></rect>
+          </rects>
+        </animation>
+        <animation key="on_mouse_over">
+          <framerateMax>0</framerateMax>
+          <loop>false</loop>
+          <rects>
+            <rect x="0" y="72" tileX="201" tileY="72"></rect>
+          </rects>
+        </animation>
+        <animation key="on_click">
+          <framerateMax>0</framerateMax>
+          <loop>false</loop>
+          <rects>
+            <rect x="0" y="144" tileX="201" tileY="72"></rect>
+          </rects>
+        </animation>
+      </animations>
+    </button>
+    <button class="text">
+      <text>bouton de test</text>
+      <font>Default</font>
+    </button>
+  </buttons>
+</panel>
