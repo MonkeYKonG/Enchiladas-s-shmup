@@ -3,6 +3,7 @@
 #include "my_graph_lib/SpriteObject.hpp"
 #include "my_graph_lib/TextObject.hpp"
 #include "Border.hpp"
+#include "SpriteButton.hpp"
 
 namespace	my
 {
@@ -10,7 +11,7 @@ namespace	my
 	{
 	public:
 		typedef std::shared_ptr<Panel> PanelPtr;
-		typedef SpriteObject::SpriteObjectPtr SpriteButton;
+		typedef SpriteButton::SpriteButtonPtr SpriteButton;
 		typedef TextObject::TextObjectPtr TextButton;
 		typedef std::vector<SpriteButton> SpriteButtons;
 		typedef std::vector<TextButton> TextButtons;
@@ -41,9 +42,9 @@ namespace	my
 		void UpdateBackground() noexcept;
 		void UpdateBorder() noexcept;
 		void UpdateTitle() noexcept;
-		void UpdateButtons() noexcept;
-		void UpdateSpriteButtons() noexcept;
-		void UpdateTextButtons() noexcept;
+		void UpdateButtons(const sf::Vector2f & mousePos) noexcept;
+		void UpdateSpriteButtons(const sf::Vector2f & mousePos) noexcept;
+		void UpdateTextButtons(const sf::Vector2f & mousePos) noexcept;
 
 		SpriteObject::SpriteObjectPtr m_background;
 		Border::BorderPtr m_border;

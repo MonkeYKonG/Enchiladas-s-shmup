@@ -13,7 +13,7 @@
         <texture>cursor.png</texture>
         <animations>
           <animation key="default">
-            <framerateMax>60</framerateMax>
+            <framerateMax>20</framerateMax>
             <loop>false</loop>
             <rects>
               <rect x="0" y="0" tileX="100" tileY="100"></rect>
@@ -54,21 +54,21 @@
                 <framerateMax>0</framerateMax>
                 <loop>false</loop>
                 <rects>
-                  <rect x="0" y="0" tileX="32" tileY="32"></rect>
+                  <rect x="0" y="0" tileX="201" tileY="72"></rect>
                 </rects>
               </animation>
-              <animation key="onMouseOver">
+              <animation key="on_mouse_over">
                 <framerateMax>0</framerateMax>
                 <loop>false</loop>
                 <rects>
-                  <rect x="0" y="32" tileX="32" tileY="32"></rect>
+                  <rect x="0" y="72" tileX="201" tileY="72"></rect>
                 </rects>
               </animation>
-              <animation key="onClick">
+              <animation key="on_click">
                 <framerateMax>0</framerateMax>
                 <loop>false</loop>
                 <rects>
-                  <rect x="0" y="64" tileX="32" tileY="32"></rect>
+                  <rect x="0" y="144" tileX="201" tileY="72"></rect>
                 </rects>
               </animation>
             </animations>

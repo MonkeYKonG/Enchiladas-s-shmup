@@ -1,10 +1,30 @@
 #include "SpriteButton.hpp"
 
+const std::string	my::SpriteButton::ON_CLICK_ANIM_NAME = "on_click";
+const std::string	my::SpriteButton::ON_MOUSE_OVER_ANIM_NAME = "on_mouse_over";
+
 my::SpriteButton::SpriteButton()
+	: m_isMouseOvered(false), m_isClicked(false)
 {}
 
 my::SpriteButton::~SpriteButton()
 {}
+
+void my::SpriteButton::Update(const sf::Vector2f & mousePos) throw(std::out_of_range)
+{
+	sf::Vector2f transformedMousePos;
+
+	transformedMousePos = getTransform().getInverse().transformPoint(mousePos);
+	try
+	{
+		UpdateMouse(transformedMousePos);
+		Update();
+	}
+	catch (const std::out_of_range & e)
+	{
+		throw (e);
+	}
+}
 
 void	my::SpriteButton::Update() throw (std::out_of_range)
 {
@@ -17,4 +37,40 @@ void	my::SpriteButton::Update() throw (std::out_of_range)
 		throw (e);
 	}
 	m_sprite.setOrigin(m_sprite.getGlobalBounds().width / 2, m_sprite.getGlobalBounds().height / 2);
+}
+
+void	my::SpriteButton::UpdateMouse(const sf::Vector2f & mousePos)
+{
+	m_isMouseOvered = false;
+	m_isClicked = false;
+	if (IsIntersect(mousePos))
+	{
+		m_isMouseOvered = true;
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+			m_isClicked = true;
+	}
+}
+
+void my::SpriteButton::UpdateAnimation() throw(std::out_of_range)
+{
+	if (m_animations.empty() || m_onAnimation)
+		return;
+	m_onAnimation = true;
+	if (m_isMouseOvered)
+	{
+		if (m_isClicked && AnimationExist(ON_CLICK_ANIM_NAME))
+			SetAnimIndex(ON_CLICK_ANIM_NAME);
+		else if (AnimationExist(ON_MOUSE_OVER_ANIM_NAME))
+			SetAnimIndex(ON_MOUSE_OVER_ANIM_NAME);
+	}
+	else if (AnimationExist(DEFAULT_ANIM_NAME))
+		SetAnimIndex(DEFAULT_ANIM_NAME);
+	try
+	{
+		SpriteObject::UpdateAnimation();
+	}
+	catch (const std::out_of_range & e)
+	{
+		throw (e);
+	}
 }

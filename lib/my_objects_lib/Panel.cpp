@@ -1,7 +1,5 @@
 #include "Panel.hpp"
 
-#include <iostream>
-
 namespace my
 {
 	Panel::Panel()
@@ -107,22 +105,22 @@ namespace my
 		m_title->Update();
 	}
 
-	void	Panel::UpdateSpriteButtons() noexcept
+	void	Panel::UpdateSpriteButtons(const sf::Vector2f & mousePos) noexcept
 	{
 		for (unsigned i = 0; i < m_spriteButtons.size(); ++i)
-			m_spriteButtons[i]->Update();
+			m_spriteButtons[i]->Update(mousePos);
 	}
 
-	void	Panel::UpdateTextButtons() noexcept
+	void	Panel::UpdateTextButtons(const sf::Vector2f & mousePos) noexcept
 	{
 		for (unsigned i = 0; i < m_textButtons.size(); ++i)
 			m_textButtons[i]->Update();
 	}
 
-	void	Panel::UpdateButtons() noexcept
+	void	Panel::UpdateButtons(const sf::Vector2f & mousePos) noexcept
 	{
-		UpdateSpriteButtons();
-		UpdateTextButtons();
+		UpdateSpriteButtons(mousePos);
+		UpdateTextButtons(mousePos);
 	}
 
 	void	Panel::Update(const sf::Vector2f & mousePos) noexcept
@@ -133,7 +131,7 @@ namespace my
 		UpdateBackground();
 		UpdateBorder();
 		UpdateTitle();
-		UpdateButtons();
+		UpdateButtons(tranfromedMousePos);
 	}
 
 	void	Panel::draw(sf::RenderTarget & target, sf::RenderStates states) const noexcept
