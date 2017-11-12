@@ -26,11 +26,16 @@ namespace	my
 		static const char BEACON_COMMENT = '#';
 		static const char BEACON_ATTRIBUTE = '=';
 		static const char BEACON_STR_DELIM = '"';
+		static const unsigned BEACON_CONSTANTS_DELIM_SIZE = 2;
+		static const char BEACON_CONSTANTS_DELIM_BEGIN[BEACON_CONSTANTS_DELIM_SIZE + 1];
+		static const char BEACON_CONSTANTS_DELIM_END[BEACON_CONSTANTS_DELIM_SIZE + 1];
 		static CONSTANTS XML_CONSTANTS;
 
 		static const std::string XML_RESOURCES_PATH;
 
 		XMLParser(std::ifstream & m_fs, const std::string & fileName) noexcept;
+		void TranslateConstants(std::string & value) throw (std::invalid_argument);
+		void EvaluateOperation(std::string & value) throw (std::invalid_argument);
 		void JumpSpace() noexcept;
 		const std::string GetNextWord() throw (std::invalid_argument);
 		const std::string GetNextString() throw (std::invalid_argument);

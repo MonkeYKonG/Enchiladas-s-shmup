@@ -1,6 +1,6 @@
 <screen>
   <videoMode>
-    <width>1680</width>
+    <width>$(window.width)$</width>
     <height>1050</height>
     <bitsPerPixel>32</bitsPerPixel>
   </videoMode>

@@ -7,6 +7,8 @@
 
 namespace	my
 {
+	const char XMLParser::BEACON_CONSTANTS_DELIM_BEGIN[XMLParser::BEACON_CONSTANTS_DELIM_SIZE + 1] = "$(";
+	const char XMLParser::BEACON_CONSTANTS_DELIM_END[XMLParser::BEACON_CONSTANTS_DELIM_SIZE + 1] = ")$";
 	XMLParser::CONSTANTS XMLParser::XML_CONSTANTS = XMLParser::CONSTANTS();
 #ifdef __linix__
 	const std::string XMLParser::XML_RESOURCES_PATH = "resources/xmls/";
@@ -16,7 +18,36 @@ namespace	my
 
 	XMLParser::XMLParser(std::ifstream & fs, const std::string & fileName) noexcept
 		: m_fs(fs), m_fileName(fileName), m_index(0)
-	{}	
+	{}
+
+	void	XMLParser::TranslateConstants(std::string & value) throw (std::invalid_argument)
+	{
+		unsigned ndx = 0;
+		unsigned begin, end, delimNdx;
+		std::string stk;
+
+		while ((begin = value.find(BEACON_CONSTANTS_DELIM_BEGIN, ndx)) != static_cast<unsigned>(std::string::npos) && (end = value.find(BEACON_CONSTANTS_DELIM_END, begin + BEACON_CONSTANTS_DELIM_SIZE)) != static_cast<unsigned>(std::string::npos))
+		{
+			ndx = begin + BEACON_CONSTANTS_DELIM_SIZE;
+			stk = value.substr(ndx, end - ndx);
+			if ((delimNdx = stk.find('.')) == std::string::npos)
+				throw (std::invalid_argument("XMLParser: TranslateConstants: syntax error no demlimiter"));
+			try
+			{
+				value = value.substr(0, begin) + XML_CONSTANTS.at(stk.substr(0, delimNdx)).at(stk.substr(delimNdx + 1)) + value.substr(end + BEACON_CONSTANTS_DELIM_SIZE);
+			}
+			catch (const std::out_of_range & e)
+			{
+				throw (e);
+			}
+			ndx = end + BEACON_CONSTANTS_DELIM_SIZE;
+		}
+	}
+
+	void	XMLParser::EvaluateOperation(std::string & value) throw (std::invalid_argument)
+	{
+		// get string then call recusive function to convert operation into number
+	}
 
 	void XMLParser::JumpSpace() noexcept
 	{
@@ -75,6 +106,15 @@ namespace	my
 			throw (std::invalid_argument("Syntax error empty node value"));
 		while (std::isspace(nextValue.back()))
 			nextValue.pop_back();
+		try
+		{
+			TranslateConstants(nextValue);
+			EvaluateOperation(nextValue);
+		}
+		catch (const std::invalid_argument & e)
+		{
+			throw (e);
+		}
 		return (nextValue);
 	}
 
