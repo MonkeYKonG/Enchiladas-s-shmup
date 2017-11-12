@@ -1,23 +1,24 @@
+<?cursor texture="cursor.png" tileX="100" tileY="100"?>
 <cursor>
-  <texture>cursor.png</texture>
+  <texture>$(cursor.texture)$</texture>
   <animations>
     <animation key="default">
       <framerateMax>20</framerateMax>
       <loop>false</loop>
       <rects>
-        <rect x="0" y="0" tileX="100" tileY="100"></rect>
-        <rect x="100" y="0" tileX="100" tileY="100"></rect>
-        <rect x="200" y="0" tileX="100" tileY="100"></rect>
+        <rect x="0" y="0" tileX="$(cursor.tileX)$" tileY="$(cursor.tileY)$"></rect>
+        <rect x="$(cursor.tileX)$" y="0" tileX="$(cursor.tileX)$" tileY="$(cursor.tileY)$"></rect>
+        <rect x="%($(cursor.tileX)$ * 2)%" y="0" tileX="$(cursor.tileX)$" tileY="$(cursor.tileY)$"></rect>
       </rects>
     </animation>
     <animation key="left_click">
       <rects>
-        <rect x="0" y="100" tileX="100" tileY="100"></rect>
+        <rect x="0" y="$(cursor.tileY)$" tileX="$(cursor.tileX)$" tileY="$(cursor.tileY)$"></rect>
       </rects>
     </animation>
     <animation key="right_click">
       <rects>
-        <rect x="0" y="200" tileX="100" tileY="100"></rect>
+        <rect x="0" y="%($(cursor.tileY)$ * 2%)" tileX="$(cursor.tileX)$" tileY="$(cursor.tileY)$"></rect>
       </rects>
     </animation>
   </animations>

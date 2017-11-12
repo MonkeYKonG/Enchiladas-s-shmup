@@ -1,4 +1,3 @@
-<?window width="1680" height="1050" bpp="32"?>
 <window>
 	<% screen.xml %>
 	<scenes>

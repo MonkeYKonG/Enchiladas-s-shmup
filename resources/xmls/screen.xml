@@ -1,8 +1,9 @@
+<?window width="1680" height="1050" bpp="32" name="Ma fenetre"?>
 <screen>
   <videoMode>
     <width>$(window.width)$</width>
-    <height>1050</height>
-    <bitsPerPixel>32</bitsPerPixel>
+    <height>$(window.height)$</height>
+    <bitsPerPixel>$(window.bpp)$</bitsPerPixel>
   </videoMode>
-  <title>Ma fenetre</title>
+  <title>$(window.name)$</title>
 </screen>
