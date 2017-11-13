@@ -18,7 +18,7 @@
     </animation>
     <animation key="right_click">
       <rects>
-        <rect x="0" y="%($(cursor.tileY)$ * 2%)" tileX="$(cursor.tileX)$" tileY="$(cursor.tileY)$"></rect>
+        <rect x="0" y="%($(cursor.tileY)$ * 2)%" tileX="$(cursor.tileX)$" tileY="$(cursor.tileY)$"></rect>
       </rects>
     </animation>
   </animations>

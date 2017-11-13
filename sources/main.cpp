@@ -9,6 +9,8 @@
 #include <iostream>
 #include "schmup/SchmupGameManager.hpp"
 
+#include "my_graph_lib/OperationEvaluator.hpp"
+
 int main(void) {
 	my::schmup::SchmupGameManager gm;
 
@@ -23,6 +25,5 @@ int main(void) {
 		std::cin >> a;
 		return (1);
 	}
-
 	return (0);
 }

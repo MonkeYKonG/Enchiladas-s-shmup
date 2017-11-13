@@ -2,6 +2,7 @@
 #include <cctype>
 #include "XMLParser.hpp"
 #include "MessagesException.hpp"
+#include "OperationEvaluator.hpp"
 
 #include <iostream>
 
@@ -9,6 +10,8 @@ namespace	my
 {
 	const char XMLParser::BEACON_CONSTANTS_DELIM_BEGIN[XMLParser::BEACON_CONSTANTS_DELIM_SIZE + 1] = "$(";
 	const char XMLParser::BEACON_CONSTANTS_DELIM_END[XMLParser::BEACON_CONSTANTS_DELIM_SIZE + 1] = ")$";
+	const char XMLParser::BEACON_OPERATION_DELIM_BEGIN[XMLParser::BEACON_OPERATION_DELIM_SIZE + 1] = "%(";
+	const char XMLParser::BEACON_OPERATION_DELIM_END[XMLParser::BEACON_OPERATION_DELIM_SIZE + 1] = ")%";
 	XMLParser::CONSTANTS XMLParser::XML_CONSTANTS = XMLParser::CONSTANTS();
 #ifdef __linix__
 	const std::string XMLParser::XML_RESOURCES_PATH = "resources/xmls/";
@@ -34,19 +37,37 @@ namespace	my
 				throw (std::invalid_argument("XMLParser: TranslateConstants: syntax error no demlimiter"));
 			try
 			{
-				value = value.substr(0, begin) + XML_CONSTANTS.at(stk.substr(0, delimNdx)).at(stk.substr(delimNdx + 1)) + value.substr(end + BEACON_CONSTANTS_DELIM_SIZE);
+				ndx = end + BEACON_CONSTANTS_DELIM_SIZE;
+				value = value.substr(0, begin) + XML_CONSTANTS.at(stk.substr(0, delimNdx)).at(stk.substr(delimNdx + 1)) + value.substr(ndx);
 			}
 			catch (const std::out_of_range & e)
 			{
 				throw (e);
 			}
-			ndx = end + BEACON_CONSTANTS_DELIM_SIZE;
 		}
 	}
 
 	void	XMLParser::EvaluateOperation(std::string & value) throw (std::invalid_argument)
 	{
-		// get string then call recusive function to convert operation into number
+		unsigned ndx = 0;
+		unsigned begin, end, delimNdx;
+		std::string stk;
+
+		while ((begin = value.find(BEACON_OPERATION_DELIM_BEGIN, ndx)) != static_cast<unsigned>(std::string::npos) && (end = value.find(BEACON_OPERATION_DELIM_END, begin + BEACON_OPERATION_DELIM_SIZE)) != static_cast<unsigned>(std::string::npos))
+		{
+			ndx = begin + BEACON_OPERATION_DELIM_SIZE;
+			stk = value.substr(ndx, end - ndx);
+			try
+			{
+				stk = std::to_string(OperationEvaluator<int>::ParseOperation(stk));
+				ndx = end + BEACON_OPERATION_DELIM_SIZE;
+				value = value.substr(0, begin) + stk + value.substr(ndx);
+			}
+			catch (const std::invalid_argument & e)
+			{
+				throw (e);
+			}
+		}
 	}
 
 	void XMLParser::JumpSpace() noexcept
@@ -130,6 +151,8 @@ namespace	my
 			m_index++;
 			JumpSpace();
 			arg.second = GetNextString();
+			TranslateConstants(arg.second);
+			EvaluateOperation(arg.second);
 		}
 		catch (const std::invalid_argument & e)
 		{
@@ -243,7 +266,7 @@ namespace	my
 		}
 		catch (const std::invalid_argument & e)
 		{
-			throw (e);
+			throw (std::invalid_argument("On file '" + m_fileName + "': line  : character " + std::to_string(m_index) + ": " + e.what()));
 		}
 	}
 
@@ -314,6 +337,13 @@ namespace	my
 
 		if (!fs)
 			throw (std::invalid_argument(MessagesException::FileNotFound("XMLParser::Load(const std::string & fileName)", fileName)));
-		return (parser.Parse());
+		try
+		{
+			return (parser.Parse());
+		}
+		catch (const std::invalid_argument & e)
+		{
+			throw (e);
+		}
 	}
 }

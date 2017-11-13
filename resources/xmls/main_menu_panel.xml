@@ -1,4 +1,5 @@
-<panel x="840" y="525">
+<?mainMenuPanel borderTileX="32" BorderTileY="32" ?>
+<panel x="%($(window.width)$ / 2)%" y="%($(window.height)$ / 2)%">
   <title>
     <text>Salut les gens</text>
     <font>Default</font>
