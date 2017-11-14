@@ -14,9 +14,6 @@ namespace	my
 		InitializeFunctions();
 	}
 
-	MainMenu::~MainMenu()
-	{}
-
 	void	MainMenu::UpdateObjects(sf::RenderWindow & window) throw (std::out_of_range)
 	{
 		sf::Vector2f	mousePos(sf::Mouse::getPosition(window));

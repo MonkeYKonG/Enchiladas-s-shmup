@@ -12,11 +12,11 @@ namespace	my
 	{
 	public:
 		MainMenu();
-		~MainMenu();
+		virtual ~MainMenu() {}
 
-		const SceneReturnValue	Update(sf::RenderWindow & window) throw (std::exception);
-		void Initialize(XMLNode::XMLNodePtr sceneRoot) throw (std::out_of_range, std::invalid_argument);
-		void Reset() throw (std::out_of_range, std::invalid_argument);
+		virtual const SceneReturnValue	Update(sf::RenderWindow & window) throw (std::exception);
+		virtual void Initialize(XMLNode::XMLNodePtr sceneRoot) throw (std::out_of_range, std::invalid_argument);
+		virtual void Reset() throw (std::out_of_range, std::invalid_argument);
 
 	private:
 		typedef void (MainMenu::*InitializationFunction)(XMLNode::XMLNodePtr);
