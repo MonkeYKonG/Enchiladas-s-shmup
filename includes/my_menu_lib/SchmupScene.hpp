@@ -16,6 +16,10 @@ namespace my
 		virtual void Reset() throw(std::out_of_range, std::invalid_argument);
 
 	protected:
+		static const std::string SCENE_PLAYER_NODE;
+
+		void InitializePlayer(XMLNode::XMLNodePtr playerNode) throw (std::out_of_range, std::invalid_argument);
+
 		virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const noexcept;
 
 		Player::PlayerPtr m_player;

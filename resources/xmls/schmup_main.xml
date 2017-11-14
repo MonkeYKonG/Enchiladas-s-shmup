@@ -1,0 +1,15 @@
+<scene class="Schmup">
+  <% cursor.xml %>
+  <background x="%($(window.width)$ / 2)%" y="%($(window.height)$ / 2)%">
+    <texture>schmup_background.jpg</texture>
+  </background>
+    <player>
+      <texture>player.png</texture>
+      <inputs>
+        <input input="Up" direction="UP"></input>
+        <input input="Down" direction="DOWN"></input>
+        <input input="Left" direction="LEFT"></input>
+        <input input="Right" direction="RIGHT"></input>
+      </inputs>
+    </player>
+</scene>

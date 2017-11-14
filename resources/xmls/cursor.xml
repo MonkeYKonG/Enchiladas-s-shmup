@@ -1,4 +1,3 @@
-<?cursor texture="cursor.png" tileX="100" tileY="100"?>
 <cursor>
   <texture>$(cursor.texture)$</texture>
   <animations>

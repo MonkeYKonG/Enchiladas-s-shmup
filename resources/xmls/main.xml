@@ -1,6 +1,8 @@
+<?cursor texture="cursor.png" tileX="100" tileY="100"?>
 <window>
 	<% screen.xml %>
 	<scenes>
+    <% schmup_main.xml %>
 		<% main_menu.xml %>
 	</scenes>
 </window>

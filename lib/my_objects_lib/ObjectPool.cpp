@@ -50,7 +50,7 @@ namespace	my
 	const std::string 	ObjectPool::INPUT_NODE_CONTENT = "input";
 	const std::string 	ObjectPool::DIRECTION_NODE_CONTENT = "direction";
 
-	void my::ObjectPool::SetSpriteDefaults(XMLNode::XMLNodePtr spriteNode, SpriteObject * sprite) throw(std::out_of_range, std::invalid_argument)
+	void ObjectPool::SetSpriteDefaults(XMLNode::XMLNodePtr spriteNode, SpriteObject * sprite) throw(std::out_of_range, std::invalid_argument)
 	{
 		XMLNode::XMLNodePtr childStk;
 
@@ -67,6 +67,8 @@ namespace	my
 				for (unsigned i = 0; i < childStk->GetChilds().size(); ++i)
 					sprite->AddAnimation(CreateAnimation(childStk->GetChilds()[i]));
 			}
+			if (spriteNode->ContentExist(X_NODE_CONTENT) && spriteNode->ContentExist(Y_NODE_CONTENT))
+				sprite->setPosition(std::stoul(spriteNode->GetContent(X_NODE_CONTENT).second), std::stoul(spriteNode->GetContent(Y_NODE_CONTENT).second));
 		}
 		catch (const std::out_of_range & e)
 		{
@@ -185,8 +187,6 @@ namespace	my
 		{
 			SetSpriteDefaults(backgroundNode, &(*newBackground));
 			newBackground->SetOrigin(newBackground->GetSprite().getGlobalBounds().width / 2, newBackground->GetSprite().getGlobalBounds().height / 2);
-			if (backgroundNode->ContentExist(X_NODE_CONTENT) && backgroundNode->ContentExist(Y_NODE_CONTENT))
-				newBackground->setPosition(std::stoul(backgroundNode->GetContent(X_NODE_CONTENT).second), std::stoul(backgroundNode->GetContent(Y_NODE_CONTENT).second));
 		}
 		catch (const std::out_of_range & e)
 		{

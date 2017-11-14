@@ -1,6 +1,6 @@
 <scene class="MainMenu">
   <% cursor.xml %>
-  <background x="840" y="525">
+  <background x="%($(window.width)$ / 2)%" y="%($(window.height)$ / 2)%">
     <texture>menu_background.jpg</texture>
   </background>
   <% main_menu_panel.xml %>
