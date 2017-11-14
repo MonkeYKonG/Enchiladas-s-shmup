@@ -54,7 +54,14 @@ namespace	my
 				return (returnValue);	
 			}
 		}
-		UpdateObjects(window);
+		try
+		{
+			UpdateObjects(window);
+		}
+		catch (const std::exception & e)
+		{
+			throw (e);
+		}
 		return (returnValue);
 	}
 
@@ -67,25 +74,56 @@ namespace	my
 
 	void	MainMenu::InitializeCursor(XMLNode::XMLNodePtr cursorNode) throw (std::out_of_range, std::invalid_argument)
 	{
-		if (!(m_cursor = ObjectPool::CreateCursor(cursorNode)))
-			throw (std::invalid_argument("InitializeCursor: can't create crusor: invalid node"));
+		try
+		{
+			if (!(m_cursor = ObjectPool::CreateCursor(cursorNode)))
+				throw (std::invalid_argument("InitializeCursor: can't create crusor: invalid node"));
+		}
+		catch (const std::out_of_range & e)
+		{
+			throw (e);
+		}
+		catch (const std::invalid_argument & e)
+		{
+			throw (e);
+		}
 	}
 
 	void	MainMenu::InitializeBackground(XMLNode::XMLNodePtr backgroundNode) throw (std::out_of_range, std::invalid_argument)
 	{
-		if (!(m_background = ObjectPool::CreateSprite(backgroundNode)))
-			throw (std::invalid_argument("InitializeBackground: can't create background: invalid node"));
-		// set background to center of screen
+		try
+		{
+			if (!(m_background = ObjectPool::CreateSprite(backgroundNode)))
+				throw (std::invalid_argument("InitializeBackground: can't create background: invalid node"));
+		}
+		catch (const std::out_of_range & e)
+		{
+			throw (e);
+		}
+		catch (const std::invalid_argument & e)
+		{
+			throw (e);
+		}
 	}
 
 	void	MainMenu::InitializePanel(XMLNode::XMLNodePtr panelNode) throw (std::out_of_range, std::invalid_argument)
 	{
 		Panel::PanelPtr newPanel;
 
-		if (!(newPanel = ObjectPool::CreatePanel(panelNode)))
-			throw (std::invalid_argument("InitializePanel: can't create panel: invalid node"));
+		try
+		{
+			if (!(newPanel = ObjectPool::CreatePanel(panelNode)))
+				throw (std::invalid_argument("InitializePanel: can't create panel: invalid node"));
+		}
+		catch (const std::out_of_range & e)
+		{
+			throw (e);
+		}
+		catch (const std::invalid_argument & e)
+		{
+			throw (e);
+		}
 		m_panels.push_back(newPanel);
-		// normaly panel is fully declared
 	}
 
 	void	MainMenu::Initialize(XMLNode::XMLNodePtr sceneRoot) throw (std::out_of_range, std::invalid_argument)

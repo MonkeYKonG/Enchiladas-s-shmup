@@ -18,7 +18,7 @@ namespace	my
 		virtual void Initialize(XMLNode::XMLNodePtr sceneRoot) throw (std::out_of_range, std::invalid_argument);
 		virtual void Reset() throw (std::out_of_range, std::invalid_argument);
 
-	private:
+	protected:
 		typedef void (MainMenu::*InitializationFunction)(XMLNode::XMLNodePtr);
 		typedef std::pair<std::string, InitializationFunction> InitFunctionPair;
 

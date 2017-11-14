@@ -1,19 +1,27 @@
 #include "ScenePool.hpp"
 #include "my_menu_lib/MainMenu.hpp"
+#include "my_menu_lib/SchmupScene.hpp"
 
 namespace	my
 {
 	namespace	schmup
 	{
 		const std::string ScenePool::MAINMENU_CLASS_NAME = "MainMenu";
-		const ScenePool::FunctionsIndexs ScenePool::CLASS_NAMES[1] = 
+		const std::string ScenePool::SCHMUP_CLASS_NAME = "Schmup";
+		const ScenePool::FunctionsIndexs ScenePool::CLASS_NAMES[ScenePool::CLASS_NAMES_NBR] = 
 		{ 
-			ScenePool::FunctionsIndexs(ScenePool::MAINMENU_CLASS_NAME, &ScenePool::CreateMainMenu)
+			ScenePool::FunctionsIndexs(ScenePool::MAINMENU_CLASS_NAME, &ScenePool::CreateMainMenu),
+			ScenePool::FunctionsIndexs(ScenePool::SCHMUP_CLASS_NAME, &ScenePool::CreateSchmup)
 		};
 
 		Scene::ScenePtr ScenePool::CreateMainMenu()
 		{
 			return (Scene::ScenePtr(new MainMenu()));
+		}
+
+		Scene::ScenePtr my::schmup::ScenePool::CreateSchmup()
+		{
+			return (Scene::ScenePtr(new SchmupScene()));
 		}
 
 		Scene::ScenePtr	ScenePool::CreateScene(const std::string & className)

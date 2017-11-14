@@ -15,14 +15,16 @@ namespace	my
 			typedef Scene::ScenePtr (*createSceneFunction)();
 			typedef std::pair<const std::string, createSceneFunction> FunctionsIndexs;
 
-			static const unsigned			CLASS_NAMES_NBR = 1;
+			static const unsigned			CLASS_NAMES_NBR = 2;
 			static const std::string		MAINMENU_CLASS_NAME;
+			static const std::string		SCHMUP_CLASS_NAME;
 			static const FunctionsIndexs	CLASS_NAMES[CLASS_NAMES_NBR];
 
 			ScenePool();
 			~ScenePool();
 			
 			static Scene::ScenePtr CreateMainMenu();
+			static Scene::ScenePtr CreateSchmup();
 		};
 	}
 }
