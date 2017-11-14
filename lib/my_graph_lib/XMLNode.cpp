@@ -1,5 +1,7 @@
 #include "XMLNode.hpp"
 
+#include <iostream>
+
 namespace	my
 {
 	XMLNode::XMLNode() noexcept
@@ -35,8 +37,10 @@ namespace	my
 	XMLNode::XMLNodePtr XMLNode::GetChild(const std::string & key) const throw (std::out_of_range)
 	{
 		for (unsigned i = 0; i < m_childs.size(); ++i)
+		{
 			if (m_childs[i]->GetName() == key)
 				return (m_childs[i]);
+		}
 		throw (std::out_of_range("GetChild: invalid key"));
 	}
 

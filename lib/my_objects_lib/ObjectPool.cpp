@@ -37,6 +37,8 @@ namespace	my
 	const std::string	ObjectPool::OBJECT_TEXTURE_NODE_NAME = "texture";
 	const std::string	ObjectPool::OBJECT_ANIMATIONS_NODE_NAME = "animations";
 
+	const std::string	ObjectPool::PLAYER_INPUTS_NODE_NAME = "inputs";
+
 	const std::string 	ObjectPool::HEIGHT_NODE_CONTENT = "height";
 	const std::string 	ObjectPool::WIDTH_NODE_CONTENT = "width";
 	const std::string 	ObjectPool::X_NODE_CONTENT = "x";
@@ -45,6 +47,36 @@ namespace	my
 	const std::string 	ObjectPool::TILE_HEIGHT_NODE_CONTENT = "tileY";
 	const std::string 	ObjectPool::CLASS_NODE_CONTENT = "class";
 	const std::string 	ObjectPool::KEY_NODE_CONTENT = "key";
+	const std::string 	ObjectPool::INPUT_NODE_CONTENT = "input";
+	const std::string 	ObjectPool::DIRECTION_NODE_CONTENT = "direction";
+
+	void my::ObjectPool::SetSpriteDefaults(XMLNode::XMLNodePtr spriteNode, SpriteObject * sprite) throw(std::out_of_range, std::invalid_argument)
+	{
+		XMLNode::XMLNodePtr childStk;
+
+		if (!sprite)
+			throw (std::invalid_argument("ObjectPool: SetSpriteDefaults: null sprite"));
+		if (!spriteNode)
+			throw (std::invalid_argument("ObjectPool: SetSpriteDefaults: null node"));
+		try
+		{
+			sprite->SetTexture(ResourcesLoader::GetTexture(spriteNode->GetChild(OBJECT_TEXTURE_NODE_NAME)->GetValue()));
+			if (spriteNode->ChildExist(OBJECT_ANIMATIONS_NODE_NAME))
+			{
+				childStk = spriteNode->GetChild(OBJECT_ANIMATIONS_NODE_NAME);
+				for (unsigned i = 0; i < childStk->GetChilds().size(); ++i)
+					sprite->AddAnimation(CreateAnimation(childStk->GetChilds()[i]));
+			}
+		}
+		catch (const std::out_of_range & e)
+		{
+			throw (e);
+		}
+		catch (const std::invalid_argument & e)
+		{
+			throw (e);
+		}
+	}
 
 	bool		ObjectPool::CreateBoolean(XMLNode::XMLNodePtr boolNode) throw (std::out_of_range, std::invalid_argument)
 	{
@@ -122,6 +154,26 @@ namespace	my
 		return (newAnimation);
 	}
 
+	Player::InputPair ObjectPool::CreateInput(XMLNode::XMLNodePtr inputNode) throw(std::out_of_range, std::invalid_argument)
+	{
+		Player::InputPair newInput;
+
+		try
+		{
+			newInput.first = StrToInput(inputNode->GetContent(INPUT_NODE_CONTENT).second);
+			newInput.second = StrToDirection(inputNode->GetContent(DIRECTION_NODE_CONTENT).second);
+		}
+		catch (const std::out_of_range & e)
+		{
+			throw (e);
+		}
+		catch (const std::invalid_argument & e)
+		{
+			throw (e);
+		}
+		return (newInput);
+	}
+
 	SpriteObject::SpriteObjectPtr ObjectPool::CreateBackground(XMLNode::XMLNodePtr backgroundNode) throw (std::out_of_range, std::invalid_argument)
 	{
 		SpriteObject::SpriteObjectPtr	newBackground;
@@ -131,7 +183,7 @@ namespace	my
 		newBackground = SpriteObject::SpriteObjectPtr(new SpriteObject());
 		try
 		{
-			newBackground->SetTexture(ResourcesLoader::GetTexture(backgroundNode->GetValue()));
+			SetSpriteDefaults(backgroundNode, &(*newBackground));
 			newBackground->SetOrigin(newBackground->GetSprite().getGlobalBounds().width / 2, newBackground->GetSprite().getGlobalBounds().height / 2);
 			if (backgroundNode->ContentExist(X_NODE_CONTENT) && backgroundNode->ContentExist(Y_NODE_CONTENT))
 				newBackground->setPosition(std::stoul(backgroundNode->GetContent(X_NODE_CONTENT).second), std::stoul(backgroundNode->GetContent(Y_NODE_CONTENT).second));
@@ -280,13 +332,7 @@ namespace	my
 		newCursor = Cursor::CursorPtr(new Cursor());
 		try
 		{
-			newCursor->SetTexture(ResourcesLoader::GetTexture(cursorNode->GetChild(OBJECT_TEXTURE_NODE_NAME)->GetValue()));
-			if (cursorNode->ChildExist(OBJECT_ANIMATIONS_NODE_NAME))
-			{
-				childStk = cursorNode->GetChild(OBJECT_ANIMATIONS_NODE_NAME);
-				for (unsigned i = 0; i < childStk->GetChilds().size(); ++i)
-					newCursor->AddAnimation(CreateAnimation(childStk->GetChilds()[i]));
-			}
+			SetSpriteDefaults(cursorNode, newCursor.get());
 		}
 		catch (const std::out_of_range & e)
 		{
@@ -309,14 +355,7 @@ namespace	my
 		newSpriteButton = SpriteButton::SpriteButtonPtr(new SpriteButton());
 		try
 		{
-			newSpriteButton->SetTexture(ResourcesLoader::GetTexture(spriteButtonNode->GetChild(OBJECT_TEXTURE_NODE_NAME)->GetValue()));
-			if (spriteButtonNode->ChildExist(OBJECT_ANIMATIONS_NODE_NAME))
-			{
-				childStk = spriteButtonNode->GetChild(OBJECT_ANIMATIONS_NODE_NAME);
-				for (unsigned i = 0; i < childStk->GetChilds().size(); ++i)
-					newSpriteButton->AddAnimation(CreateAnimation(childStk->GetChilds()[i]));
-			}
-
+			SetSpriteDefaults(spriteButtonNode, newSpriteButton.get());
 		}
 		catch (const std::out_of_range & e)
 		{
@@ -327,5 +366,42 @@ namespace	my
 			throw (e);
 		}
 		return (newSpriteButton);
+	}
+
+	Player::PlayerPtr ObjectPool::CreatePlayer(XMLNode::XMLNodePtr playerNode) throw(std::out_of_range, std::invalid_argument)
+	{
+		XMLNode::XMLNodePtr childStk;
+		Player::PlayerPtr newPlayer;
+
+		newPlayer = Player::PlayerPtr(new Player());
+		try
+		{
+			SetSpriteDefaults(playerNode, newPlayer.get());
+			if (playerNode->ChildExist(PLAYER_INPUTS_NODE_NAME))
+			{
+				childStk = playerNode->GetChild(PLAYER_INPUTS_NODE_NAME);
+				for (unsigned i = 0; i < childStk->GetChilds().size(); ++i)
+					newPlayer->AddInputs(CreateInput(childStk->GetChilds()[i]));
+			}
+		}
+		catch (const std::out_of_range & e)
+		{
+			throw (e);
+		}
+		catch (const std::invalid_argument & e)
+		{
+			throw (e);
+		}
+		return (newPlayer);
+	}
+
+	sf::Keyboard::Key ObjectPool::StrToInput(const std::string & str) throw(std::invalid_argument)
+	{
+		return sf::Keyboard::Key();
+	}
+
+	Direction ObjectPool::StrToDirection(const std::string & str) throw(std::invalid_argument)
+	{
+		return Direction();
 	}
 }

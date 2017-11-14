@@ -1,5 +1,7 @@
 <scene class="MainMenu">
   <% cursor.xml %>
-  <background x="840" y="525">menu_background.jpg</background>
+  <background x="840" y="525">
+    <texture>menu_background.jpg</texture>
+  </background>
   <% main_menu_panel.xml %>
 </scene>

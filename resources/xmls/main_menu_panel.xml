@@ -5,7 +5,9 @@
     <font>Default</font>
     <color red="12" green="178" blue="16"></color>
   </title>
-  <background>panel_background.png</background>
+  <background>
+    <texture>panel_background.png</texture>
+  </background>
   <border width="544" height="704" tileX="32" tileY="32">
     <texture>panel_border.png</texture>
     <corner x="0" y="0"></corner>

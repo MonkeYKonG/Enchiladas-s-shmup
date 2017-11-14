@@ -23,6 +23,7 @@ namespace	my
 			return;
 		if (++m_frameRate < m_deplacementRate)
 			return;
+		m_frameRate = 0;
 		if (m_target)
 			m_direction = NormalizeVector(*m_target);
 		if (m_repetitionMax != -1 && ++m_deplacementRepetition >= m_repetitionMax)

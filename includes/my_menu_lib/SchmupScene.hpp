@@ -1,6 +1,7 @@
 #pragma once
 
 #include "MainMenu.hpp"
+#include "my_objects_lib/Player.hpp"
 
 namespace my
 {
@@ -16,5 +17,7 @@ namespace my
 
 	protected:
 		virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const noexcept;
+
+		Player::PlayerPtr m_player;
 	};
 }

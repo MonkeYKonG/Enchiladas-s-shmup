@@ -5,6 +5,7 @@
 #include "my_objects_lib/Panel.hpp"
 #include "Cursor.hpp"
 #include "SpriteButton.hpp"
+#include "Player.hpp"
 
 namespace	my
 {
@@ -17,6 +18,10 @@ namespace	my
 		static Panel::PanelPtr CreatePanel(XMLNode::XMLNodePtr panelNode) throw (std::out_of_range, std::invalid_argument);
 		static Cursor::CursorPtr CreateCursor(XMLNode::XMLNodePtr cursorNode) throw (std::out_of_range, std::invalid_argument);
 		static SpriteButton::SpriteButtonPtr CreateSpriteButton(XMLNode::XMLNodePtr spriteButtonNode) throw (std::out_of_range, std::invalid_argument);
+		static Player::PlayerPtr CreatePlayer(XMLNode::XMLNodePtr playerNode) throw (std::out_of_range, std::invalid_argument);
+
+		static sf::Keyboard::Key StrToInput(const std::string & str) throw (std::invalid_argument);
+		static Direction StrToDirection(const std::string & str) throw (std::invalid_argument);
 	
 	private:
 		typedef SpriteObject::SpriteObjectPtr (*CreateSpriteFunctions)(XMLNode::XMLNodePtr spriteNode);
@@ -53,6 +58,8 @@ namespace	my
 		static const std::string	OBJECT_TEXTURE_NODE_NAME;
 		static const std::string	OBJECT_ANIMATIONS_NODE_NAME;
 
+		static const std::string	PLAYER_INPUTS_NODE_NAME;
+
 		static const std::string	HEIGHT_NODE_CONTENT;
 		static const std::string	WIDTH_NODE_CONTENT;
 		static const std::string	X_NODE_CONTENT;
@@ -61,13 +68,18 @@ namespace	my
 		static const std::string	TILE_WIDTH_NODE_CONTENT;
 		static const std::string	CLASS_NODE_CONTENT;
 		static const std::string	KEY_NODE_CONTENT;
+		static const std::string	INPUT_NODE_CONTENT;
+		static const std::string	DIRECTION_NODE_CONTENT;
 
 		ObjectPool();
-		~ObjectPool();
+		~ObjectPool() {}
+
+		static void SetSpriteDefaults(XMLNode::XMLNodePtr spriteNode, SpriteObject * sprite) throw (std::out_of_range, std::invalid_argument);
 
 		static bool CreateBoolean(XMLNode::XMLNodePtr boolNode) throw (std::out_of_range, std::invalid_argument);
 		static sf::Color CreateColor(XMLNode::XMLNodePtr colorNode) throw (std::out_of_range, std::invalid_argument);
 		static AnimatedObject::Animation CreateAnimation(XMLNode::XMLNodePtr animationNode) throw (std::out_of_range, std::invalid_argument);
+		static Player::InputPair CreateInput(XMLNode::XMLNodePtr inputNode) throw (std::out_of_range, std::invalid_argument);
 
 		static SpriteObject::SpriteObjectPtr CreateBackground(XMLNode::XMLNodePtr backgroundNode) throw (std::out_of_range, std::invalid_argument);
 	};
