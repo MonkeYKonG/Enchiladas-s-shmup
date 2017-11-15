@@ -11,5 +11,14 @@
         <input input="Left" direction="LEFT"></input>
         <input input="Right" direction="RIGHT"></input>
       </inputs>
+      <deplacements speed="10">
+      </deplacements>
+      <animations>
+        <animation key="default">
+          <rects>
+            <rect x="129" y="175" tileX="80" tileY="98"></rect>
+          </rects>
+        </animation>
+      </animations>
     </player>
 </scene>

@@ -39,6 +39,7 @@ namespace	my
 
 	const std::string	ObjectPool::OBJECT_TEXTURE_NODE_NAME = "texture";
 	const std::string	ObjectPool::OBJECT_ANIMATIONS_NODE_NAME = "animations";
+	const std::string	ObjectPool::OBJECT_DEPLACEMENTS_NODE_NAME = "deplacements";
 
 	const std::string	ObjectPool::PLAYER_INPUTS_NODE_NAME = "inputs";
 
@@ -52,6 +53,36 @@ namespace	my
 	const std::string 	ObjectPool::KEY_NODE_CONTENT = "key";
 	const std::string 	ObjectPool::INPUT_NODE_CONTENT = "input";
 	const std::string 	ObjectPool::DIRECTION_NODE_CONTENT = "direction";
+	const std::string	ObjectPool::SPEED_NODE_CONTENT = "speed";
+
+	void ObjectPool::SetNodeDefaults(XMLNode::XMLNodePtr nodeNode, Node * node) throw(std::out_of_range, std::invalid_argument)
+	{
+		XMLNode::XMLNodePtr childStk;
+
+		if (!node)
+			throw (std::invalid_argument("ObjectPool: SetNodeDefaults: null node ptr"));
+		if (!nodeNode)
+			throw (std::invalid_argument("ObjectPool: SetNodeDefaults: null node"));
+		try
+		{
+			if (nodeNode->ContentExist(X_NODE_CONTENT) && nodeNode->ContentExist(Y_NODE_CONTENT))
+				node->setPosition(std::stoul(nodeNode->GetContent(X_NODE_CONTENT).second), std::stoul(nodeNode->GetContent(Y_NODE_CONTENT).second));
+			if (nodeNode->ChildExist(OBJECT_DEPLACEMENTS_NODE_NAME))
+			{
+				childStk = nodeNode->GetChild(OBJECT_DEPLACEMENTS_NODE_NAME);
+				if (childStk->ContentExist(SPEED_NODE_CONTENT))
+					node->SetSpeed(std::stof(childStk->GetContent(SPEED_NODE_CONTENT).second));
+			}
+		}
+		catch (const std::out_of_range & e)
+		{
+			throw (e);
+		}
+		catch (const std::invalid_argument & e)
+		{
+			throw (e);
+		}
+	}
 
 	void ObjectPool::SetSpriteDefaults(XMLNode::XMLNodePtr spriteNode, SpriteObject * sprite) throw(std::out_of_range, std::invalid_argument)
 	{
@@ -63,6 +94,7 @@ namespace	my
 			throw (std::invalid_argument("ObjectPool: SetSpriteDefaults: null node"));
 		try
 		{
+			SetNodeDefaults(spriteNode, sprite);
 			sprite->SetTexture(ResourcesLoader::GetTexture(spriteNode->GetChild(OBJECT_TEXTURE_NODE_NAME)->GetValue()));
 			if (spriteNode->ChildExist(OBJECT_ANIMATIONS_NODE_NAME))
 			{
@@ -70,8 +102,6 @@ namespace	my
 				for (unsigned i = 0; i < childStk->GetChilds().size(); ++i)
 					sprite->AddAnimation(CreateAnimation(childStk->GetChilds()[i]));
 			}
-			if (spriteNode->ContentExist(X_NODE_CONTENT) && spriteNode->ContentExist(Y_NODE_CONTENT))
-				sprite->setPosition(std::stoul(spriteNode->GetContent(X_NODE_CONTENT).second), std::stoul(spriteNode->GetContent(Y_NODE_CONTENT).second));
 		}
 		catch (const std::out_of_range & e)
 		{

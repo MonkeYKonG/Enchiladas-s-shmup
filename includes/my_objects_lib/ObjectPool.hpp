@@ -63,6 +63,7 @@ namespace	my
 
 		static const std::string	OBJECT_TEXTURE_NODE_NAME;
 		static const std::string	OBJECT_ANIMATIONS_NODE_NAME;
+		static const std::string	OBJECT_DEPLACEMENTS_NODE_NAME;
 
 		static const std::string	PLAYER_INPUTS_NODE_NAME;
 
@@ -76,6 +77,7 @@ namespace	my
 		static const std::string	KEY_NODE_CONTENT;
 		static const std::string	INPUT_NODE_CONTENT;
 		static const std::string	DIRECTION_NODE_CONTENT;
+		static const std::string	SPEED_NODE_CONTENT;
 
 		ObjectPool();
 		~ObjectPool() {}
@@ -83,6 +85,7 @@ namespace	my
 		static void InitializeKeysMap() noexcept;
 		static void InitializeDirectionsMap() noexcept;
 
+		static void SetNodeDefaults(XMLNode::XMLNodePtr nodeNode, Node * node) throw (std::out_of_range, std::invalid_argument);
 		static void SetSpriteDefaults(XMLNode::XMLNodePtr spriteNode, SpriteObject * sprite) throw (std::out_of_range, std::invalid_argument);
 
 		static bool CreateBoolean(XMLNode::XMLNodePtr boolNode) throw (std::out_of_range, std::invalid_argument);

@@ -1,3 +1,4 @@
+#include "..\..\includes\my_objects_lib\Player.hpp"
 #include "Player.hpp"
 
 my::Player::Player()
@@ -46,6 +47,23 @@ void my::Player::UpdateMovement() noexcept
 	m_direction = direction = NormalizeVector(direction);
 	m_onDeplacement = true;
 	SpriteObject::UpdateMovement();
+}
+
+void my::Player::UpdateAnimation() throw(std::out_of_range)
+{
+	try
+	{
+		if (!m_onAnimation && AnimationExist(DEFAULT_ANIM_NAME))
+		{
+			m_onAnimation = true;
+			SetAnimIndex(DEFAULT_ANIM_NAME);
+		}
+		SpriteObject::UpdateAnimation();
+	}
+	catch (const std::out_of_range & e)
+	{
+		throw (e);
+	}
 }
 
 void my::Player::CheckForInput() noexcept

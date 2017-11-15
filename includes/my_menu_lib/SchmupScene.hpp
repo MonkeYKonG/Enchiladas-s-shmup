@@ -19,9 +19,14 @@ namespace my
 		static const std::string SCENE_PLAYER_NODE;
 
 		void InitializePlayer(XMLNode::XMLNodePtr playerNode) throw (std::out_of_range, std::invalid_argument);
+		void UpdatePlayer() throw (std::out_of_range);
+		void UpdateShoots() throw (std::out_of_range);
+		void UpdateObjects() throw (std::out_of_range);
 
 		virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const noexcept;
 
 		Player::PlayerPtr m_player;
+		Shooter::ShootList m_playerShoots;
+		Shooter::ShootList m_enemiesShoots;
 	};
 }

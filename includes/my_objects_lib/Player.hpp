@@ -2,10 +2,11 @@
 
 #include "my_graph_lib/SpriteObject.hpp"
 #include "Direction.hpp"
+#include "Shooter.hpp"
 
 namespace my
 {
-	class Player : public SpriteObject
+	class Player : public SpriteObject, public Shooter
 	{
 	public:
 		typedef std::shared_ptr<Player> PlayerPtr;
@@ -25,6 +26,7 @@ namespace my
 		static const unsigned CUR_DEPL_SIZE = 4;
 
 		virtual void UpdateMovement() noexcept;
+		virtual void UpdateAnimation() throw (std::out_of_range);
 		virtual void CheckForInput() noexcept;
 
 		InputsList	m_inputs;
