@@ -1,4 +1,6 @@
 #include "..\..\includes\my_objects_lib\Shooter.hpp"
+#include "..\..\includes\my_objects_lib\Shooter.hpp"
+#include "..\..\includes\my_objects_lib\Shooter.hpp"
 #include "Shooter.hpp"
 #include "ObjectPool.hpp"
 
@@ -51,6 +53,11 @@ const std::string & my::Shooter::GetShootKey() const noexcept
 	return (m_shootKey);
 }
 
+const unsigned my::Shooter::GetShootFramerateMax() const noexcept
+{
+	return (m_shootFramerateMax);
+}
+
 void	my::Shooter::SetCanShoot(bool canShoot) noexcept
 {
 	if (canShoot && m_shootFramerate >= m_shootFramerateMax)
@@ -77,4 +84,9 @@ void	my::Shooter::AddShootNode(const std::string & key, XMLNode::XMLNodePtr newS
 void my::Shooter::SetShootKey(const std::string & key) noexcept
 {
 	m_shootKey = key;
+}
+
+void my::Shooter::SetShootFramerateMax(unsigned shootFramerateMax) noexcept
+{
+	m_shootFramerateMax = shootFramerateMax;
 }

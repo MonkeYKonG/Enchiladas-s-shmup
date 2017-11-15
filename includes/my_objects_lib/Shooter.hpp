@@ -19,11 +19,13 @@ namespace my
 		const ShootList GetShootList() const throw (std::out_of_range, std::invalid_argument);
 		const ShootNodes &GetShootNodes() const noexcept;
 		const std::string &GetShootKey() const noexcept;
+		const unsigned GetShootFramerateMax() const noexcept;
 
 		void SetCanShoot(bool canShoot) noexcept;
 		void SetShootNodes(const ShootNodes & shootNodes) noexcept;
 		void AddShootNode(const std::string & str, XMLNode::XMLNodePtr newShootNode) throw (std::invalid_argument);
 		void SetShootKey(const std::string & key) noexcept;
+		void SetShootFramerateMax(unsigned shootFramerateMax) noexcept;
 
 	protected:
 		Shooter();

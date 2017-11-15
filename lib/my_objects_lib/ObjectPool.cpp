@@ -58,6 +58,8 @@ namespace	my
 	const std::string 	ObjectPool::INPUT_NODE_CONTENT = "input";
 	const std::string 	ObjectPool::DIRECTION_NODE_CONTENT = "direction";
 	const std::string	ObjectPool::SPEED_NODE_CONTENT = "speed";
+	const std::string	ObjectPool::FRAMERATE_MAX_NODE_CONTENT = "framerateMax";
+	const std::string	ObjectPool::TRAVEL_TIME_NODE_CONTENT = "travelTime";
 
 	void ObjectPool::SetNodeDefaults(XMLNode::XMLNodePtr nodeNode, Node * node) throw(std::out_of_range, std::invalid_argument)
 	{
@@ -127,6 +129,8 @@ namespace	my
 			throw (std::invalid_argument("ObjectPool: SetShooterDefaults: null node"));
 		try
 		{
+			if (shooterNode->ContentExist(FRAMERATE_MAX_NODE_CONTENT))
+				shooter->SetShootFramerateMax(std::stoul(shooterNode->GetContent(FRAMERATE_MAX_NODE_CONTENT).second));
 			for (unsigned i = 0; i < shooterNode->GetChilds().size(); ++i)
 				shooter->AddShootNode(shooterNode->GetChilds()[i]->GetContent(KEY_NODE_CONTENT).second, shooterNode->GetChilds()[i]);
 		}
@@ -517,6 +521,7 @@ namespace	my
 		try
 		{
 			SetSpriteDefaults(bulletNode, newBullet.get());
+			newBullet->SetTravelTime(std::stoul(bulletNode->GetContent(TRAVEL_TIME_NODE_CONTENT).second));
 			newBullet->SetOnDeplacement(true);
 		}
 		catch (const std::out_of_range & e)

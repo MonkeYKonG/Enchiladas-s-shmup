@@ -23,9 +23,9 @@
           </rects>
         </animation>
       </animations>
-      <shoots>
+      <shoots framerateMax="10">
         <shoot key="default">
-          <bullet>
+          <bullet travelTime="20">
             <texture>bullet.png</texture>
             <deplacements speed="18">
               <direction x="0" y="-1"></direction>

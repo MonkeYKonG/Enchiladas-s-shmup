@@ -103,15 +103,27 @@ void	my::SchmupScene::UpdatePlayer() throw (std::out_of_range)
 
 void	my::SchmupScene::UpdateShoots() throw (std::out_of_range)
 {
+	Shooter::ShootList::iterator it;
+
 	try
 	{
-		for (unsigned i = 0; i < m_playerShoots.size(); ++i)
+		it = m_playerShoots.begin();
+		while (it != m_playerShoots.end())
 		{
-			m_playerShoots[i]->Update();
+			(*it)->Update();
+			if ((*it)->IsFinish())
+				it = m_playerShoots.erase(it);
+			else
+				it++;
 		}
-		for (unsigned i = 0; i < m_enemiesShoots.size(); ++i)
+		it = m_enemiesShoots.begin();
+		while (it != m_enemiesShoots.end())
 		{
-			m_enemiesShoots[i]->Update();
+			(*it)->Update();
+			if ((*it)->IsFinish())
+				it = m_enemiesShoots.erase(it);
+			else
+				it++;
 		}
 	}
 	catch (const std::out_of_range & e)

@@ -83,6 +83,8 @@ namespace	my
 		static const std::string	INPUT_NODE_CONTENT;
 		static const std::string	DIRECTION_NODE_CONTENT;
 		static const std::string	SPEED_NODE_CONTENT;
+		static const std::string	FRAMERATE_MAX_NODE_CONTENT;
+		static const std::string	TRAVEL_TIME_NODE_CONTENT;
 
 		ObjectPool();
 		~ObjectPool() {}

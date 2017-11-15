@@ -12,6 +12,9 @@ namespace my
 		Bullet();
 		virtual ~Bullet() {}
 
+		virtual void Update() throw (std::out_of_range);
+
+		bool IsFinish() const noexcept;
 		unsigned GetTravelTime() const noexcept;
 
 		void SetTravelTime(unsigned travelTime) noexcept;
