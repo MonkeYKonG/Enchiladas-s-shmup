@@ -62,6 +62,8 @@ namespace	my
 		static const std::string	ANIMATION_FRAMERATE_NODE_NAME;
 		static const std::string	ANIMATION_LOOP_NODE_NAME;
 
+		static const std::string	DEPLACEMENT_DIRECTION_NODE_NAME;
+
 		static const std::string	OBJECT_TEXTURE_NODE_NAME;
 		static const std::string	OBJECT_ANIMATIONS_NODE_NAME;
 		static const std::string	OBJECT_DEPLACEMENTS_NODE_NAME;
@@ -94,6 +96,7 @@ namespace	my
 
 		static bool CreateBoolean(XMLNode::XMLNodePtr boolNode) throw (std::out_of_range, std::invalid_argument);
 		static sf::Color CreateColor(XMLNode::XMLNodePtr colorNode) throw (std::out_of_range, std::invalid_argument);
+		static sf::Vector2f CreateVector2f(XMLNode::XMLNodePtr vector2fNode) throw (std::out_of_range, std::invalid_argument);
 		static AnimatedObject::Animation CreateAnimation(XMLNode::XMLNodePtr animationNode) throw (std::out_of_range, std::invalid_argument);
 		static Player::InputDeplacement CreateInputDeplacement(XMLNode::XMLNodePtr inputDeplacementNode) throw (std::out_of_range, std::invalid_argument);
 		static Player::InputShoot CreateInputShoot(XMLNode::XMLNodePtr inputShootNode) throw (std::out_of_range, std::invalid_argument);

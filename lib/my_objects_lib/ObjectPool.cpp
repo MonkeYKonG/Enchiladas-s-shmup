@@ -37,6 +37,8 @@ namespace	my
 	const std::string	ObjectPool::ANIMATION_FRAMERATE_NODE_NAME = "framerateMax";
 	const std::string	ObjectPool::ANIMATION_LOOP_NODE_NAME = "loop";
 
+	const std::string	ObjectPool::DEPLACEMENT_DIRECTION_NODE_NAME = "direction";
+
 	const std::string	ObjectPool::OBJECT_TEXTURE_NODE_NAME = "texture";
 	const std::string	ObjectPool::OBJECT_ANIMATIONS_NODE_NAME = "animations";
 	const std::string	ObjectPool::OBJECT_DEPLACEMENTS_NODE_NAME = "deplacements";
@@ -74,6 +76,8 @@ namespace	my
 				childStk = nodeNode->GetChild(OBJECT_DEPLACEMENTS_NODE_NAME);
 				if (childStk->ContentExist(SPEED_NODE_CONTENT))
 					node->SetSpeed(std::stof(childStk->GetContent(SPEED_NODE_CONTENT).second));
+				if (childStk->ChildExist(DEPLACEMENT_DIRECTION_NODE_NAME))
+					node->SetDirection(CreateVector2f(childStk->GetChild(DEPLACEMENT_DIRECTION_NODE_NAME)));
 			}
 		}
 		catch (const std::out_of_range & e)
@@ -181,6 +185,28 @@ namespace	my
 			throw (e);
 		}
 		return (newColor);
+	}
+
+	sf::Vector2f	ObjectPool::CreateVector2f(XMLNode::XMLNodePtr vector2fNode) throw (std::out_of_range, std::invalid_argument)
+	{
+		sf::Vector2f newVector;
+
+		if (!vector2fNode)
+			throw (std::invalid_argument("ObjectPool: CreateVector2f: null node"));
+		try
+		{
+			newVector.x = std::stof(vector2fNode->GetContent(X_NODE_CONTENT).second);
+			newVector.y = std::stof(vector2fNode->GetContent(Y_NODE_CONTENT).second);
+		}
+		catch (const std::out_of_range & e)
+		{
+			throw (e);
+		}
+		catch (const std::invalid_argument & e)
+		{
+			throw (e);
+		}
+		return (newVector);
 	}
 
 	AnimatedObject::Animation	ObjectPool::CreateAnimation(XMLNode::XMLNodePtr animationNode)
@@ -491,6 +517,7 @@ namespace	my
 		try
 		{
 			SetSpriteDefaults(bulletNode, newBullet.get());
+			newBullet->SetOnDeplacement(true);
 		}
 		catch (const std::out_of_range & e)
 		{

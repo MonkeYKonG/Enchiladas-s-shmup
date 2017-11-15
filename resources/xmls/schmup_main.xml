@@ -14,7 +14,7 @@
       <inputsShoot>
         <input input="Space" key="default"></input>
       </inputsShoot>
-      <deplacements speed="10">
+      <deplacements speed="12">
       </deplacements>
       <animations>
         <animation key="default">
@@ -27,6 +27,9 @@
         <shoot key="default">
           <bullet>
             <texture>bullet.png</texture>
+            <deplacements speed="18">
+              <direction x="0" y="-1"></direction>
+            </deplacements>
           </bullet>
         </shoot>
       </shoots>
