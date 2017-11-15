@@ -87,7 +87,11 @@ void	my::SchmupScene::UpdatePlayer() throw (std::out_of_range)
 			{
 				newShoots = m_player->GetShootList();
 				for (unsigned i = 0; i < newShoots.size(); ++i)
+				{
+					newShoots[i]->setPosition(m_player->getPosition());
 					m_playerShoots.push_back(newShoots[i]);
+				}
+				m_player->SetCanShoot(false);
 			}
 		}
 	}
@@ -103,11 +107,11 @@ void	my::SchmupScene::UpdateShoots() throw (std::out_of_range)
 	{
 		for (unsigned i = 0; i < m_playerShoots.size(); ++i)
 		{
-			//m_playerShoots->Update();
+			m_playerShoots[i]->Update();
 		}
 		for (unsigned i = 0; i < m_enemiesShoots.size(); ++i)
 		{
-			//m_enemiesShoots->Update();
+			m_enemiesShoots[i]->Update();
 		}
 	}
 	catch (const std::out_of_range & e)
@@ -137,4 +141,8 @@ void my::SchmupScene::draw(sf::RenderTarget & target, sf::RenderStates states) c
 	states.transform *= getTransform();
 	if (m_player)
 		target.draw(*m_player, states);
+	for (unsigned i = 0; i < m_playerShoots.size(); ++i)
+		target.draw(*m_playerShoots[i], states);
+	for (unsigned i = 0; i < m_enemiesShoots.size(); ++i)
+		target.draw(*m_enemiesShoots[i], states);
 }

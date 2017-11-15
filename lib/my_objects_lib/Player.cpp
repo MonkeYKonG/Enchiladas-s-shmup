@@ -1,4 +1,7 @@
 #include "..\..\includes\my_objects_lib\Player.hpp"
+#include "..\..\includes\my_objects_lib\Player.hpp"
+#include "..\..\includes\my_objects_lib\Player.hpp"
+#include "..\..\includes\my_objects_lib\Player.hpp"
 #include "Player.hpp"
 
 my::Player::Player()
@@ -8,6 +11,7 @@ void	my::Player::Update() throw (std::out_of_range)
 {
 	try
 	{
+		Shooter::Update();
 		CheckForInput();
 		SpriteObject::Update();
 	}
@@ -17,19 +21,34 @@ void	my::Player::Update() throw (std::out_of_range)
 	}
 }
 
-const my::Player::InputsList & my::Player::GetInputsList() const noexcept
+const my::Player::InputsDeplacementList & my::Player::GetInputsDeplacementList() const noexcept
 {
-	return (m_inputs);
+	return (m_inputsDeplacement);
 }
 
-void my::Player::AddInputs(const Player::InputPair & newInput) noexcept
+const my::Player::InputsShootList & my::Player::GetInputsShootList() const noexcept
 {
-	m_inputs.push_back(newInput);
+	return (m_inputsShoot);
 }
 
-void my::Player::SetInputs(const Player::InputsList & inputs) noexcept
+void my::Player::AddInputDeplacement(const Player::InputDeplacement & newInput) noexcept
 {
-	m_inputs = inputs;
+	m_inputsDeplacement.push_back(newInput);
+}
+
+void my::Player::SetInputsDeplacement(const Player::InputsDeplacementList & inputs) noexcept
+{
+	m_inputsDeplacement = inputs;
+}
+
+void my::Player::AddInputShoot(const InputShoot & newInput) noexcept
+{
+	m_inputsShoot.push_back(newInput);
+}
+
+void my::Player::SetInputsShoot(const InputsShootList & inputs) noexcept
+{
+	m_inputsShoot = inputs;
 }
 
 void my::Player::UpdateMovement() noexcept
@@ -70,7 +89,13 @@ void my::Player::CheckForInput() noexcept
 {
 	for (unsigned i = 0; i < CUR_DEPL_SIZE; ++i)
 		m_curentDeplacement[i] = false;
-	for (unsigned i = 0; i < m_inputs.size(); ++i)
-		if (sf::Keyboard::isKeyPressed(m_inputs[i].first))
-			m_curentDeplacement[m_inputs[i].second] = true;
+	for (unsigned i = 0; i < m_inputsDeplacement.size(); ++i)
+		if (sf::Keyboard::isKeyPressed(m_inputsDeplacement[i].first))
+			m_curentDeplacement[m_inputsDeplacement[i].second] = true;
+	for (unsigned i = 0; i < m_inputsShoot.size(); ++i)
+		if (!m_canShoot && sf::Keyboard::isKeyPressed(m_inputsShoot[i].first))
+		{
+			m_shootKey = m_inputsShoot[i].second;
+			SetCanShoot(true);
+		}
 }

@@ -40,8 +40,10 @@ namespace	my
 	const std::string	ObjectPool::OBJECT_TEXTURE_NODE_NAME = "texture";
 	const std::string	ObjectPool::OBJECT_ANIMATIONS_NODE_NAME = "animations";
 	const std::string	ObjectPool::OBJECT_DEPLACEMENTS_NODE_NAME = "deplacements";
+	const std::string	ObjectPool::OBJECT_SHOOTS_NODE_NAME = "shoots";
 
-	const std::string	ObjectPool::PLAYER_INPUTS_NODE_NAME = "inputs";
+	const std::string	ObjectPool::PLAYER_INPUTS_DEPLACEMENT_NODE_NAME = "inputsDeplacement";
+	const std::string	ObjectPool::PLAYER_INPUTS_SHOOT_NODE_NAME = "inputsShoot";
 
 	const std::string 	ObjectPool::HEIGHT_NODE_CONTENT = "height";
 	const std::string 	ObjectPool::WIDTH_NODE_CONTENT = "width";
@@ -102,6 +104,27 @@ namespace	my
 				for (unsigned i = 0; i < childStk->GetChilds().size(); ++i)
 					sprite->AddAnimation(CreateAnimation(childStk->GetChilds()[i]));
 			}
+		}
+		catch (const std::out_of_range & e)
+		{
+			throw (e);
+		}
+		catch (const std::invalid_argument & e)
+		{
+			throw (e);
+		}
+	}
+
+	void ObjectPool::SetShooterDefaults(XMLNode::XMLNodePtr shooterNode, Shooter * shooter) throw (std::out_of_range, std::invalid_argument)
+	{
+		if (!shooter)
+			throw (std::invalid_argument("ObjectPool: SetShooterDefaults: null shooter"));
+		if (!shooterNode)
+			throw (std::invalid_argument("ObjectPool: SetShooterDefaults: null node"));
+		try
+		{
+			for (unsigned i = 0; i < shooterNode->GetChilds().size(); ++i)
+				shooter->AddShootNode(shooterNode->GetChilds()[i]->GetContent(KEY_NODE_CONTENT).second, shooterNode->GetChilds()[i]);
 		}
 		catch (const std::out_of_range & e)
 		{
@@ -189,14 +212,34 @@ namespace	my
 		return (newAnimation);
 	}
 
-	Player::InputPair ObjectPool::CreateInput(XMLNode::XMLNodePtr inputNode) throw(std::out_of_range, std::invalid_argument)
+	Player::InputDeplacement ObjectPool::CreateInputDeplacement(XMLNode::XMLNodePtr inputNode) throw(std::out_of_range, std::invalid_argument)
 	{
-		Player::InputPair newInput;
+		Player::InputDeplacement newInput;
 
 		try
 		{
 			newInput.first = StrToInput(inputNode->GetContent(INPUT_NODE_CONTENT).second);
 			newInput.second = StrToDirection(inputNode->GetContent(DIRECTION_NODE_CONTENT).second);
+		}
+		catch (const std::out_of_range & e)
+		{
+			throw (e);
+		}
+		catch (const std::invalid_argument & e)
+		{
+			throw (e);
+		}
+		return (newInput);
+	}
+
+	Player::InputShoot ObjectPool::CreateInputShoot(XMLNode::XMLNodePtr inputNode) throw (std::out_of_range, std::invalid_argument)
+	{
+		Player::InputShoot newInput;
+
+		try
+		{
+			newInput.first = StrToInput(inputNode->GetContent(INPUT_NODE_CONTENT).second);
+			newInput.second = inputNode->GetContent(KEY_NODE_CONTENT).second;
 		}
 		catch (const std::out_of_range & e)
 		{
@@ -410,11 +453,21 @@ namespace	my
 		try
 		{
 			SetSpriteDefaults(playerNode, newPlayer.get());
-			if (playerNode->ChildExist(PLAYER_INPUTS_NODE_NAME))
+			if (playerNode->ChildExist(PLAYER_INPUTS_DEPLACEMENT_NODE_NAME))
 			{
-				childStk = playerNode->GetChild(PLAYER_INPUTS_NODE_NAME);
+				childStk = playerNode->GetChild(PLAYER_INPUTS_DEPLACEMENT_NODE_NAME);
 				for (unsigned i = 0; i < childStk->GetChilds().size(); ++i)
-					newPlayer->AddInputs(CreateInput(childStk->GetChilds()[i]));
+					newPlayer->AddInputDeplacement(CreateInputDeplacement(childStk->GetChilds()[i]));
+			}
+			if (playerNode->ChildExist(PLAYER_INPUTS_SHOOT_NODE_NAME))
+			{
+				childStk = playerNode->GetChild(PLAYER_INPUTS_SHOOT_NODE_NAME);
+				for (unsigned i = 0; i < childStk->GetChilds().size(); ++i)
+					newPlayer->AddInputShoot(CreateInputShoot(childStk->GetChilds()[i]));
+			}
+			if (playerNode->ChildExist(OBJECT_SHOOTS_NODE_NAME))
+			{
+				SetShooterDefaults(playerNode->GetChild(OBJECT_SHOOTS_NODE_NAME), newPlayer.get());
 			}
 		}
 		catch (const std::out_of_range & e)
@@ -426,6 +479,28 @@ namespace	my
 			throw (e);
 		}
 		return (newPlayer);
+	}
+
+	Bullet::BulletPtr ObjectPool::CreateBullet(XMLNode::XMLNodePtr bulletNode) throw (std::out_of_range, std::invalid_argument)
+	{
+		Bullet::BulletPtr newBullet;
+
+		if (!bulletNode)
+			throw (std::invalid_argument("ObjectPool: CreateBullet: null node"));
+		newBullet = Bullet::BulletPtr(new Bullet());
+		try
+		{
+			SetSpriteDefaults(bulletNode, newBullet.get());
+		}
+		catch (const std::out_of_range & e)
+		{
+			throw (e);
+		}
+		catch (const std::invalid_argument & e)
+		{
+			throw (e);
+		}
+		return (newBullet);
 	}
 
 	void ObjectPool::InitializeKeysMap() noexcept

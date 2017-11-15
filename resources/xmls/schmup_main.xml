@@ -5,12 +5,15 @@
   </background>
     <player>
       <texture>player.png</texture>
-      <inputs>
+      <inputsDeplacement>
         <input input="Up" direction="UP"></input>
         <input input="Down" direction="DOWN"></input>
         <input input="Left" direction="LEFT"></input>
         <input input="Right" direction="RIGHT"></input>
-      </inputs>
+      </inputsDeplacement>
+      <inputsShoot>
+        <input input="Space" key="default"></input>
+      </inputsShoot>
       <deplacements speed="10">
       </deplacements>
       <animations>
@@ -20,5 +23,12 @@
           </rects>
         </animation>
       </animations>
+      <shoots>
+        <shoot key="default">
+          <bullet>
+            <texture>bullet.png</texture>
+          </bullet>
+        </shoot>
+      </shoots>
     </player>
 </scene>
