@@ -1,3 +1,4 @@
+#include "..\..\includes\my_objects_lib\Bullet.hpp"
 #include "Bullet.hpp"
 
 my::Bullet::Bullet()
@@ -31,4 +32,22 @@ unsigned my::Bullet::GetTravelTime() const noexcept
 void my::Bullet::SetTravelTime(unsigned travelTime) noexcept
 {
 	m_travelTime = travelTime;
+}
+
+void my::Bullet::UpdateAnimation() throw(std::out_of_range)
+{
+	try
+	{
+		if (!m_onAnimation)
+		{
+			if (AnimationExist(DEFAULT_ANIM_NAME))
+				SetAnimIndex(DEFAULT_ANIM_NAME);
+			m_onAnimation = true;
+		}
+		SpriteObject::UpdateAnimation();
+	}
+	catch (const std::out_of_range & e)
+	{
+		throw (e);
+	}
 }

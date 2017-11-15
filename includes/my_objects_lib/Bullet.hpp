@@ -20,6 +20,8 @@ namespace my
 		void SetTravelTime(unsigned travelTime) noexcept;
 
 	protected:
+		virtual void UpdateAnimation() throw (std::out_of_range);
+
 		unsigned	m_travelTime;
 
 	private:

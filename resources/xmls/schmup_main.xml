@@ -30,6 +30,18 @@
             <deplacements speed="18">
               <direction x="0" y="-1"></direction>
             </deplacements>
+            <animations>
+              <animation key="default">
+                <framerate>5</framerate>
+                <loop>true</loop>
+                <rects>
+                  <rect x="0" y="0" tileX="32" tileY="32"></rect>
+                  <rect x="32" y="0" tileX="32" tileY="32"></rect>
+                  <rect x="64" y="0" tileX="32" tileY="32"></rect>
+                  <rect x="96" y="0" tileX="32" tileY="32"></rect>
+                </rects>
+              </animation>
+            </animations>
           </bullet>
         </shoot>
       </shoots>
