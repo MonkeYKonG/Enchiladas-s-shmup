@@ -4,6 +4,9 @@
 
 namespace	my
 {
+	ObjectPool::KeysMap ObjectPool::keysMap = ObjectPool::KeysMap();
+	ObjectPool::DirectionsMap ObjectPool::directionsMap = ObjectPool::DirectionsMap();
+
 	const std::string	ObjectPool::SPRITE_BACKGROUND_CLASS_NAME = "background";
 	const ObjectPool::CreateSpriteFunctionsIndexs ObjectPool::CREATE_SPRITE_INDEXS[ObjectPool::SPRITE_OBJECT_CLASS_NBR] =
 	{
@@ -395,13 +398,144 @@ namespace	my
 		return (newPlayer);
 	}
 
+	void ObjectPool::InitializeKeysMap() noexcept
+	{
+		keysMap["A"] = sf::Keyboard::A;
+		keysMap["B"] = sf::Keyboard::B;
+		keysMap["C"] = sf::Keyboard::C;
+		keysMap["D"] = sf::Keyboard::D;
+		keysMap["E"] = sf::Keyboard::E;
+		keysMap["F"] = sf::Keyboard::F;
+		keysMap["G"] = sf::Keyboard::G;
+		keysMap["H"] = sf::Keyboard::H;
+		keysMap["I"] = sf::Keyboard::I;
+		keysMap["J"] = sf::Keyboard::J;
+		keysMap["K"] = sf::Keyboard::K;
+		keysMap["L"] = sf::Keyboard::L;
+		keysMap["M"] = sf::Keyboard::M;
+		keysMap["N"] = sf::Keyboard::N;
+		keysMap["O"] = sf::Keyboard::O;
+		keysMap["P"] = sf::Keyboard::P;
+		keysMap["Q"] = sf::Keyboard::Q;
+		keysMap["R"] = sf::Keyboard::R;
+		keysMap["S"] = sf::Keyboard::S;
+		keysMap["T"] = sf::Keyboard::T;
+		keysMap["U"] = sf::Keyboard::U;
+		keysMap["V"] = sf::Keyboard::V;
+		keysMap["W"] = sf::Keyboard::W;
+		keysMap["X"] = sf::Keyboard::X;
+		keysMap["Y"] = sf::Keyboard::Y;
+		keysMap["Z"] = sf::Keyboard::Z;
+		keysMap["Num0"] = sf::Keyboard::Num0;
+		keysMap["Num1"] = sf::Keyboard::Num1;
+		keysMap["Num2"] = sf::Keyboard::Num2;
+		keysMap["Num3"] = sf::Keyboard::Num3;
+		keysMap["Num4"] = sf::Keyboard::Num4;
+		keysMap["Num5"] = sf::Keyboard::Num5;
+		keysMap["Num6"] = sf::Keyboard::Num6;
+		keysMap["Num7"] = sf::Keyboard::Num7;
+		keysMap["Num8"] = sf::Keyboard::Num8;
+		keysMap["Num9"] = sf::Keyboard::Num9;
+		keysMap["Escape"] = sf::Keyboard::Escape;
+		keysMap["LControl"] = sf::Keyboard::LControl;
+		keysMap["LShift"] = sf::Keyboard::LShift;
+		keysMap["LAlt"] = sf::Keyboard::LAlt;
+		keysMap["LSystem"] = sf::Keyboard::LSystem;
+		keysMap["RControl"] = sf::Keyboard::RControl;
+		keysMap["RShift"] = sf::Keyboard::RShift;
+		keysMap["RAlt"] = sf::Keyboard::RAlt;
+		keysMap["RSystem"] = sf::Keyboard::RSystem;
+		keysMap["Menu"] = sf::Keyboard::Menu;
+		keysMap["LBracket"] = sf::Keyboard::LBracket;
+		keysMap["RBracket"] = sf::Keyboard::RBracket;
+		keysMap["SemiColon"] = sf::Keyboard::SemiColon;
+		keysMap["Comma"] = sf::Keyboard::Comma;
+		keysMap["Period"] = sf::Keyboard::Period;
+		keysMap["Quote"] = sf::Keyboard::Quote;
+		keysMap["Slash"] = sf::Keyboard::Slash;
+		keysMap["BackSlash"] = sf::Keyboard::BackSlash;
+		keysMap["Tilde"] = sf::Keyboard::Tilde;
+		keysMap["Equal"] = sf::Keyboard::Equal;
+		keysMap["Dash"] = sf::Keyboard::Dash;
+		keysMap["Space"] = sf::Keyboard::Space;
+		keysMap["Return"] = sf::Keyboard::Return;
+		keysMap["BackSpace"] = sf::Keyboard::BackSpace;
+		keysMap["Tab"] = sf::Keyboard::Tab;
+		keysMap["PageUp"] = sf::Keyboard::PageUp;
+		keysMap["PageDown"] = sf::Keyboard::PageDown;
+		keysMap["End"] = sf::Keyboard::End;
+		keysMap["Hone"] = sf::Keyboard::Home;
+		keysMap["Insert"] = sf::Keyboard::Insert;
+		keysMap["Delete"] = sf::Keyboard::Delete;
+		keysMap["Add"] = sf::Keyboard::Add;
+		keysMap["Subtract"] = sf::Keyboard::Subtract;
+		keysMap["Multiply"] = sf::Keyboard::Multiply;
+		keysMap["Divide"] = sf::Keyboard::Divide;
+		keysMap["Left"] = sf::Keyboard::Left;
+		keysMap["Right"] = sf::Keyboard::Right;
+		keysMap["Up"] = sf::Keyboard::Up;
+		keysMap["Down"] = sf::Keyboard::Down;
+		keysMap["Numpad0"] = sf::Keyboard::Numpad0;
+		keysMap["Numpad1"] = sf::Keyboard::Numpad1;
+		keysMap["Numpad2"] = sf::Keyboard::Numpad2;
+		keysMap["Numpad3"] = sf::Keyboard::Numpad3;
+		keysMap["Numpad4"] = sf::Keyboard::Numpad4;
+		keysMap["Numpad5"] = sf::Keyboard::Numpad5;
+		keysMap["Numpad6"] = sf::Keyboard::Numpad6;
+		keysMap["Numpad7"] = sf::Keyboard::Numpad7;
+		keysMap["Numpad8"] = sf::Keyboard::Numpad8;
+		keysMap["Numpad9"] = sf::Keyboard::Numpad9;
+		keysMap["F1"] = sf::Keyboard::F1;
+		keysMap["F2"] = sf::Keyboard::F2;
+		keysMap["F3"] = sf::Keyboard::F3;
+		keysMap["F4"] = sf::Keyboard::F4;
+		keysMap["F5"] = sf::Keyboard::F5;
+		keysMap["F6"] = sf::Keyboard::F6;
+		keysMap["F7"] = sf::Keyboard::F7;
+		keysMap["F8"] = sf::Keyboard::F8;
+		keysMap["F9"] = sf::Keyboard::F9;
+		keysMap["F10"] = sf::Keyboard::F10;
+		keysMap["F11"] = sf::Keyboard::F11;
+		keysMap["F12"] = sf::Keyboard::F12;
+		keysMap["F13"] = sf::Keyboard::F13;
+		keysMap["F14"] = sf::Keyboard::F14;
+		keysMap["F15"] = sf::Keyboard::F15;
+		keysMap["Pause"] = sf::Keyboard::Pause;
+	}
+
+	void ObjectPool::InitializeDirectionsMap() noexcept
+	{
+		directionsMap["UP"] = Direction::UP;
+		directionsMap["DOWN"] = Direction::DOWN;
+		directionsMap["LEFT"] = Direction::LEFT;
+		directionsMap["RIGHT"] = Direction::RIGHT;
+	}
+
 	sf::Keyboard::Key ObjectPool::StrToInput(const std::string & str) throw(std::invalid_argument)
 	{
-		return sf::Keyboard::Key();
+		if (keysMap.empty())
+			InitializeKeysMap();
+		try
+		{
+			return (keysMap.at(str));
+		}
+		catch (const std::out_of_range & e)
+		{
+			throw (e);
+		}
 	}
 
 	Direction ObjectPool::StrToDirection(const std::string & str) throw(std::invalid_argument)
 	{
-		return Direction();
+		if (directionsMap.empty())
+			InitializeDirectionsMap();
+		try
+		{
+			return (directionsMap.at(str));
+		}
+		catch (const std::out_of_range & e)
+		{
+			throw (e);
+		}
 	}
 }

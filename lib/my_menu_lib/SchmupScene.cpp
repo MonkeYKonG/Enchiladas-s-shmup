@@ -15,6 +15,7 @@ const my::SceneReturnValue my::SchmupScene::Update(sf::RenderWindow & window) th
 		returnValue = MainMenu::Update(window);
 		if (returnValue.value == STATE_RETURN::CLOSE)
 			return (returnValue);
+		m_player->Update();
 	}
 	catch (const std::exception & e)
 	{

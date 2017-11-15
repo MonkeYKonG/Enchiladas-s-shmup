@@ -26,6 +26,12 @@ namespace	my
 	private:
 		typedef SpriteObject::SpriteObjectPtr (*CreateSpriteFunctions)(XMLNode::XMLNodePtr spriteNode);
 		typedef std::pair<const std::string, CreateSpriteFunctions> CreateSpriteFunctionsIndexs;
+		typedef std::map<const std::string, sf::Keyboard::Key> KeysMap;
+		typedef std::map<const std::string, Direction> DirectionsMap;
+
+		static KeysMap	keysMap;
+		static DirectionsMap directionsMap;
+		
 
 		static const unsigned		SPRITE_OBJECT_CLASS_NBR = 1;
 		static const std::string	SPRITE_BACKGROUND_CLASS_NAME;
@@ -73,6 +79,9 @@ namespace	my
 
 		ObjectPool();
 		~ObjectPool() {}
+
+		static void InitializeKeysMap() noexcept;
+		static void InitializeDirectionsMap() noexcept;
 
 		static void SetSpriteDefaults(XMLNode::XMLNodePtr spriteNode, SpriteObject * sprite) throw (std::out_of_range, std::invalid_argument);
 
