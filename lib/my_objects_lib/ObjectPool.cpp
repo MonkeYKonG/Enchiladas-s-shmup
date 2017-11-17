@@ -511,6 +511,32 @@ namespace	my
 		return (newPlayer);
 	}
 
+	Enemy::EnemyPtr my::ObjectPool::CreateEnemy(XMLNode::XMLNodePtr enemyNode) throw(std::out_of_range, std::invalid_argument)
+	{
+		Enemy::EnemyPtr newEnemy;
+
+		if (!enemyNode)
+			throw (std::invalid_argument("ObjectPool: CreateEnemy: null node"));
+		newEnemy = Enemy::EnemyPtr(new Enemy());
+		try
+		{
+			SetSpriteDefaults(enemyNode, newEnemy.get());
+			if (enemyNode->ChildExist(OBJECT_SHOOTS_NODE_NAME))
+			{
+				SetShooterDefaults(enemyNode->GetChild(OBJECT_SHOOTS_NODE_NAME), newEnemy.get());
+			}
+		}
+		catch (const std::out_of_range & e)
+		{
+			throw (e);
+		}
+		catch (const std::invalid_argument & e)
+		{
+			throw (e);
+		}
+		return (newEnemy);
+	}
+
 	Bullet::BulletPtr ObjectPool::CreateBullet(XMLNode::XMLNodePtr bulletNode) throw (std::out_of_range, std::invalid_argument)
 	{
 		Bullet::BulletPtr newBullet;

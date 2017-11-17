@@ -6,6 +6,7 @@
 #include "Cursor.hpp"
 #include "SpriteButton.hpp"
 #include "Player.hpp"
+#include "Enemy.hpp"
 
 namespace	my
 {
@@ -19,6 +20,7 @@ namespace	my
 		static Cursor::CursorPtr CreateCursor(XMLNode::XMLNodePtr cursorNode) throw (std::out_of_range, std::invalid_argument);
 		static SpriteButton::SpriteButtonPtr CreateSpriteButton(XMLNode::XMLNodePtr spriteButtonNode) throw (std::out_of_range, std::invalid_argument);
 		static Player::PlayerPtr CreatePlayer(XMLNode::XMLNodePtr playerNode) throw (std::out_of_range, std::invalid_argument);
+		static Enemy::EnemyPtr CreateEnemy(XMLNode::XMLNodePtr enemyNode) throw (std::out_of_range, std::invalid_argument);
 		static Bullet::BulletPtr CreateBullet(XMLNode::XMLNodePtr bulletNode) throw (std::out_of_range, std::invalid_argument);
 
 		static sf::Keyboard::Key StrToInput(const std::string & str) throw (std::invalid_argument);

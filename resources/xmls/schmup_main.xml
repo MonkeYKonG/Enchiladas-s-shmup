@@ -46,4 +46,10 @@
         </shoot>
       </shoots>
     </player>
+    <enemies>
+      <testEnemy>
+        <texture>enemy.png</texture>
+        <deplacement speed="10"></deplacement>
+      </testEnemy>
+    </enemies>
 </scene>

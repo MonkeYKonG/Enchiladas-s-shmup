@@ -2,6 +2,8 @@
 #include "my_objects_lib/ObjectPool.hpp"
 
 const std::string my::SchmupScene::SCENE_PLAYER_NODE = "player";
+const std::string my::SchmupScene::SCENE_STAGES_NODE = "stages";
+const std::string my::SchmupScene::SCENE_ENEMIES_NODE = "enemies";
 
 my::SchmupScene::SchmupScene()
 {}
@@ -29,6 +31,8 @@ void my::SchmupScene::Initialize(XMLNode::XMLNodePtr sceneRoot) throw(std::out_o
 	try
 	{
 		m_initializationFunctions.push_back(MainMenu::InitFunctionPair(SCENE_PLAYER_NODE, static_cast<InitializationFunction>(&SchmupScene::InitializePlayer)));
+		m_initializationFunctions.push_back(MainMenu::InitFunctionPair(SCENE_STAGES_NODE, static_cast<InitializationFunction>(&SchmupScene::InitializeEnemiesPoolStage)));
+		m_initializationFunctions.push_back(MainMenu::InitFunctionPair(SCENE_ENEMIES_NODE, static_cast<InitializationFunction>(&SchmupScene::InitializeEnemiesPoolEnemies)));
 		MainMenu::Initialize(sceneRoot);
 	}
 	catch (const std::out_of_range & e)
@@ -63,6 +67,43 @@ void	my::SchmupScene::InitializePlayer(XMLNode::XMLNodePtr playerNode) throw (st
 	{
 		if (!(m_player = ObjectPool::CreatePlayer(playerNode)))
 			throw (std::invalid_argument("SchmupScene: InitializePlayer: can't create player"));
+	}
+	catch (const std::out_of_range & e)
+	{
+		throw (e);
+	}
+	catch (const std::invalid_argument & e)
+	{
+		throw (e);
+	}
+}
+
+void	my::SchmupScene::InitializeEnemiesPoolStage(XMLNode::XMLNodePtr stagesNode) throw (std::out_of_range, std::invalid_argument)
+{
+	if (!stagesNode)
+		throw (std::invalid_argument("SchmupScene: InitializeEnemiesPool: null stages node"));
+	try
+	{
+		
+	}
+	catch (const std::out_of_range & e)
+	{
+		throw (e);
+	}
+	catch (const std::invalid_argument & e)
+	{
+		throw (e);
+	}
+}
+
+void	my::SchmupScene::InitializeEnemiesPoolEnemies(XMLNode::XMLNodePtr enemiesNode) throw (std::out_of_range, std::invalid_argument)
+{
+
+	if (!enemiesNode)
+		throw (std::invalid_argument("SchmupScene: InitializeEnemiesPool: null enemies node"));
+	try
+	{
+
 	}
 	catch (const std::out_of_range & e)
 	{
