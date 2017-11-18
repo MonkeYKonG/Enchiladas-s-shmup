@@ -6,7 +6,7 @@
 
 namespace my
 {
-	class Player : public SpriteObject, public Shooter
+	class Player : public SpriteObject, public Shooter, public AliveObject
 	{
 	public:
 		typedef std::shared_ptr<Player> PlayerPtr;

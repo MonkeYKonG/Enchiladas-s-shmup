@@ -1,10 +1,11 @@
 #pragma once
 
 #include "my_graph_lib/SpriteObject.hpp"
+#include "AliveObject.hpp"
 
 namespace my
 {
-	class Bullet : public SpriteObject
+	class Bullet : public SpriteObject, public AliveObject
 	{
 	public:
 		typedef std::shared_ptr<Bullet> BulletPtr;

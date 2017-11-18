@@ -2,7 +2,6 @@
 
 #include "my_graph_lib/SpriteObject.hpp"
 #include "Shooter.hpp"
-#include "AliveObject.hpp"
 
 namespace my
 {

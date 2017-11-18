@@ -1,4 +1,5 @@
 #include "AliveObject.hpp"
+#include <string>
 
 my::AliveObject::AliveObject()
 	: m_isAlive(true), m_HP(0), m_maxHP(0)
@@ -17,6 +18,25 @@ unsigned	my::AliveObject::GetCurHP() const noexcept
 unsigned	my::AliveObject::GetMaxHP() const noexcept
 {
 	return (m_maxHP);
+}
+
+void	my::AliveObject::SetCurHP(unsigned curHP) throw (std::invalid_argument)
+{
+	try
+	{
+		if (curHP > m_maxHP)
+			throw (std::invalid_argument("setting HP higher than maxHP"));
+		m_HP = curHP;
+	}
+	catch (const std::invalid_argument & e)
+	{
+		throw  (std::invalid_argument("AliveObject::SetCurHP\n" + std::string(e.what())));
+	}
+}
+
+void	my::AliveObject::SetMaxHP(unsigned maxHP) noexcept
+{
+	m_maxHP = maxHP;
 }
 
 void	my::AliveObject::TakeDamage(unsigned damage) noexcept
