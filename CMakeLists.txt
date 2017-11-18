@@ -1,7 +1,10 @@
-cmake_minimum_required (VERSION 2.6)
+cmake_minimum_required (VERSION 2.8.11)
 project (schmup)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_AUTOMOC ON)
 
 if (MSVC)
 # Visual C++ is not always sure whether he is really C++
