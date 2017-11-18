@@ -7,12 +7,22 @@ namespace	my
 
   bool    SpriteObject::IsIntersect(const sf::Vector2f & point) const noexcept
   {
-    return m_sprite.getGlobalBounds().contains(point);
+    return GetHitBox().contains(point);
   }
 
   bool    SpriteObject::IsIntersect(const sf::FloatRect & square) const noexcept
   {
-    return m_sprite.getGlobalBounds().intersects(square);
+    return GetHitBox().intersects(square);
+  }
+
+  const sf::FloatRect SpriteObject::GetHitBox() const noexcept
+  {
+	  sf::FloatRect hitBox;
+
+	  hitBox = m_sprite.getGlobalBounds();
+	  hitBox.left = getPosition().x;
+	  hitBox.top = getPosition().y;
+	  return (hitBox);
   }
 
   void		SpriteObject::UpdateAnimation() throw (std::out_of_range)

@@ -210,6 +210,40 @@ void	my::SchmupScene::UpdateShoots() throw (std::out_of_range)
 	}
 }
 
+void	my::SchmupScene::UpdateColisions() throw (std::out_of_range)
+{
+	Shooter::ShootList::iterator itShoot;
+	EnemiesPool::EnemiesList::iterator itEnemy;
+
+	try
+	{
+		itShoot = m_playerShoots.begin();
+		while (itShoot != m_playerShoots.end())
+		{
+			itEnemy = m_enemies.begin();
+			while (itEnemy != m_enemies.end())
+			{
+				if ((*itEnemy)->IsIntersect((*itShoot)->GetHitBox()))
+					itEnemy = m_enemies.erase(itEnemy);
+				else
+					itEnemy++;
+			}
+			itShoot++;
+		}
+		itShoot = m_enemiesShoots.begin();
+		while (itShoot != m_enemiesShoots.end())
+		{
+			if (m_player->IsIntersect((*itShoot)->GetHitBox()))
+				;
+			itShoot++;
+		}
+	}
+	catch (const std::out_of_range & e)
+	{
+		throw (e);
+	}
+}
+
 void	my::SchmupScene::UpdateObjects() throw (std::out_of_range)
 {
 	try
@@ -218,7 +252,7 @@ void	my::SchmupScene::UpdateObjects() throw (std::out_of_range)
 		UpdatePlayer();
 		UpdateEnemies();
 		UpdateShoots();
-		//UpdateColisions();
+		UpdateColisions();
 	}
 	catch (const std::out_of_range & e)
 	{

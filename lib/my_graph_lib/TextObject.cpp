@@ -47,12 +47,22 @@ namespace	my
 
   bool  TextObject::IsIntersect(const sf::Vector2f & point) const noexcept
   {
-    return (m_text.getGlobalBounds().contains(point));
+    return (GetHitBox().contains(point));
   }
 
   bool  TextObject::IsIntersect(const sf::FloatRect & square) const noexcept
   {
-    return (m_text.getGlobalBounds().intersects(square));
+    return (GetHitBox().intersects(square));
+  }
+
+  const sf::FloatRect TextObject::GetHitBox() const noexcept
+  {
+	  sf::FloatRect hitbox;
+
+	  hitbox = m_text.getGlobalBounds();
+	  hitbox.left = getPosition().x;
+	  hitbox.top = getPosition().y;
+	  return (hitbox);
   }
 
   void  TextObject::draw(sf::RenderTarget & target, sf::RenderStates states) const noexcept

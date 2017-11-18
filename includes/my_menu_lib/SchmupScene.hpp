@@ -28,6 +28,7 @@ namespace my
 		void UpdateEnemiesPool() throw (std::out_of_range);
 		void UpdateEnemies() throw (std::out_of_range);
 		void UpdateShoots() throw (std::out_of_range);
+		void UpdateColisions() throw (std::out_of_range);
 		void UpdateObjects() throw (std::out_of_range);
 
 		virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const noexcept;

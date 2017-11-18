@@ -18,6 +18,11 @@ namespace my
 		return (false);
 	}
 
+	const sf::FloatRect		Panel::GetHitBox() const noexcept
+	{
+		return (sf::FloatRect());
+	}
+
 	SpriteObject::SpriteObjectPtr	Panel::GetBackground() const noexcept
 	{
 		return (m_background);

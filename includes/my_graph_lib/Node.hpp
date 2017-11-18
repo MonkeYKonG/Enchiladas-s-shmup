@@ -29,6 +29,7 @@ namespace my
 	bool		    IsVisible() const noexcept;
 	virtual bool	IsIntersect(const sf::Vector2f & point) const noexcept = 0;
 	virtual bool	IsIntersect(const sf::FloatRect & square) const noexcept = 0;
+	virtual const sf::FloatRect GetHitBox() const noexcept = 0;
 
 	void		AddChild(NodePtr newChild) throw (std::invalid_argument);
 	void		AddChilds(NodeList newChilds) throw (std::invalid_argument);

@@ -15,6 +15,7 @@ namespace	my
 
 	virtual bool IsIntersect(const sf::Vector2f & point) const noexcept;
 	virtual bool IsIntersect(const sf::FloatRect & square) const noexcept;
+	virtual const sf::FloatRect GetHitBox() const noexcept;
 
 	virtual void Update() throw (std::out_of_range);
 

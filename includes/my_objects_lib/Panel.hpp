@@ -21,6 +21,7 @@ namespace	my
 
 		virtual bool IsIntersect(const sf::Vector2f & point) const noexcept;
 		virtual bool IsIntersect(const sf::FloatRect & square) const noexcept;
+		virtual const sf::FloatRect GetHitBox() const noexcept;
 
 		SpriteObject::SpriteObjectPtr GetBackground() const noexcept;
 		Border::BorderPtr GetBorder() const noexcept;

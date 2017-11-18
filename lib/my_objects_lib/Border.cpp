@@ -25,6 +25,11 @@ namespace	my
 		return (false);
 	}
 
+	const sf::FloatRect Border::GetHitBox() const noexcept
+	{
+		return (sf::FloatRect(getPosition(), sf::Vector2f(m_size)));
+	}
+
 	const std::string	&Border::GetTextureKey() const noexcept
 	{
 		return (m_textureKey);

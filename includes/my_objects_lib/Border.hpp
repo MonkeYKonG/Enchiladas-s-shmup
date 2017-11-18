@@ -16,6 +16,7 @@ namespace	my
 
 		bool IsIntersect(const sf::Vector2f & point) const noexcept;
 		bool IsIntersect(const sf::FloatRect & square) const noexcept;
+		const sf::FloatRect GetHitBox() const noexcept;
 
 		const std::string 	&GetTextureKey() const noexcept;
 		const sf::Vector2u	&GetSize() const noexcept;
