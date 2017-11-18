@@ -25,6 +25,8 @@ namespace my
 		void InitializeEnemiesPoolStage(XMLNode::XMLNodePtr stagesNode) throw (std::out_of_range, std::invalid_argument);
 		void InitializeEnemiesPoolEnemies(XMLNode::XMLNodePtr enemiesNode) throw (std::out_of_range, std::invalid_argument);
 		void UpdatePlayer() throw (std::out_of_range);
+		void UpdateEnemiesPool() throw (std::out_of_range);
+		void UpdateEnemies() throw (std::out_of_range);
 		void UpdateShoots() throw (std::out_of_range);
 		void UpdateObjects() throw (std::out_of_range);
 
@@ -32,6 +34,7 @@ namespace my
 
 		EnemiesPool	m_enemiesPool;
 		Player::PlayerPtr m_player;
+		EnemiesPool::EnemiesList m_enemies;
 		Shooter::ShootList m_playerShoots;
 		Shooter::ShootList m_enemiesShoots;
 	};

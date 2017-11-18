@@ -115,6 +115,22 @@ void	my::SchmupScene::InitializeEnemiesPoolEnemies(XMLNode::XMLNodePtr enemiesNo
 	}
 }
 
+void	my::SchmupScene::UpdateEnemiesPool() throw (std::out_of_range)
+{
+	EnemiesPool::EnemiesList newEnemies;
+
+	try
+	{
+		newEnemies = m_enemiesPool.Update(m_enemies.empty());
+		for (unsigned i = 0; i < newEnemies.size(); ++i)
+			m_enemies.push_back(newEnemies[i]);
+	}
+	catch (const std::invalid_argument & e)
+	{
+		throw (e);
+	}
+}
+
 void	my::SchmupScene::UpdatePlayer() throw (std::out_of_range)
 {
 	Shooter::ShootList newShoots;
@@ -134,6 +150,27 @@ void	my::SchmupScene::UpdatePlayer() throw (std::out_of_range)
 				}
 				m_player->SetCanShoot(false);
 			}
+		}
+	}
+	catch (const std::out_of_range & e)
+	{
+		throw (e);
+	}
+}
+
+void	my::SchmupScene::UpdateEnemies() throw (std::out_of_range)
+{
+	EnemiesPool::EnemiesList::iterator it;
+	try
+	{
+		it = m_enemies.begin();
+		while (it != m_enemies.end())
+		{
+			(*it)->Update();
+			if ((*it)->IsFinish())
+				it = m_enemies.erase(it);
+			else
+				it++;
 		}
 	}
 	catch (const std::out_of_range & e)
@@ -177,8 +214,9 @@ void	my::SchmupScene::UpdateObjects() throw (std::out_of_range)
 {
 	try
 	{
+		UpdateEnemiesPool();
 		UpdatePlayer();
-		//UpdateEnemies();
+		UpdateEnemies();
 		UpdateShoots();
 		//UpdateColisions();
 	}
@@ -194,6 +232,8 @@ void my::SchmupScene::draw(sf::RenderTarget & target, sf::RenderStates states) c
 	states.transform *= getTransform();
 	if (m_player)
 		target.draw(*m_player, states);
+	for (unsigned i = 0; i < m_enemies.size(); ++i)
+		target.draw(*m_enemies[i], states);
 	for (unsigned i = 0; i < m_playerShoots.size(); ++i)
 		target.draw(*m_playerShoots[i], states);
 	for (unsigned i = 0; i < m_enemiesShoots.size(); ++i)

@@ -17,8 +17,7 @@ namespace my
 		void InitializeStage(XMLNode::XMLNodePtr stageNode) throw (std::out_of_range, std::invalid_argument);
 		void InitializeEnemies(XMLNode::XMLNodePtr enemiesNode) throw (std::out_of_range, std::invalid_argument);
 
-		void Update(bool isClean) noexcept;
-		const EnemiesList GetEnemies() throw (std::out_of_range, std::invalid_argument);
+		const EnemiesList Update(bool isClean) throw (std::out_of_range, std::invalid_argument);
 
 	private:
 		struct EnemiesWave
@@ -36,5 +35,6 @@ namespace my
 		XMLNode::XMLNodePtr m_enemiesNode;
 		WavesList m_waves;
 		unsigned m_curWave;
+		unsigned m_waveFramerate;
 	};
 }

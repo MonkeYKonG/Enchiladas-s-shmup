@@ -1,4 +1,3 @@
-#include "..\..\includes\my_objects_lib\Bullet.hpp"
 #include "Bullet.hpp"
 
 my::Bullet::Bullet()

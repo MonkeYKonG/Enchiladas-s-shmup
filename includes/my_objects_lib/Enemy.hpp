@@ -13,7 +13,15 @@ namespace my
 		Enemy();
 		virtual ~Enemy() {}
 
-	protected:
+		virtual void Update() throw (std::out_of_range);
 
+		bool IsFinish() const noexcept;
+
+		void SetIsFinish(bool isFinish) noexcept;
+
+	protected:
+		virtual void UpdateAnimation() throw (std::out_of_range);
+
+		bool m_isFinish;
 	};
 }

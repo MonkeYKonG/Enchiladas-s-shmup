@@ -511,7 +511,7 @@ namespace	my
 		return (newPlayer);
 	}
 
-	Enemy::EnemyPtr my::ObjectPool::CreateEnemy(XMLNode::XMLNodePtr enemyNode) throw(std::out_of_range, std::invalid_argument)
+	Enemy::EnemyPtr ObjectPool::CreateEnemy(XMLNode::XMLNodePtr enemyNode) throw(std::out_of_range, std::invalid_argument)
 	{
 		Enemy::EnemyPtr newEnemy;
 

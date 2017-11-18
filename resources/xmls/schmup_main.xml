@@ -48,13 +48,29 @@
     </player>
     <enemies>
       <testEnemy>
-        <texture>enemy.png</texture>
-        <deplacement speed="10"></deplacement>
+        <texture>player.png</texture>
+        <deplacements speed="5">
+          <direction x="-1" y="0"></direction>
+        </deplacements>
+        <animations>
+          <animation key="default">
+            <framerate>5</framerate>
+            <loop>true</loop>
+            <rects>
+              <rect x="129" y="175" tileX="80" tileY="98"></rect>
+            </rects>
+          </animation>
+        </animations>
       </testEnemy>
     </enemies>
     <stages>
       <stage1>
         <wave needClean="true" timeToBegin="60">
+          <testEnemy x="300" y="300"></testEnemy>
+          <testEnemy x="600" y="300"></testEnemy>
+          <testEnemy x="300" y="600"></testEnemy>
+        </wave>
+        <wave needClean="false" timeToBegin="60">
           <testEnemy x="300" y="300"></testEnemy>
           <testEnemy x="600" y="300"></testEnemy>
           <testEnemy x="300" y="600"></testEnemy>

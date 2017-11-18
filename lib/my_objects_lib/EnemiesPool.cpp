@@ -4,7 +4,7 @@
 #include <iostream>
 
 my::EnemiesPool::EnemiesPool()
-	: m_curWave(0)
+	: m_curWave(0), m_waveFramerate(0)
 {}
 
 my::EnemiesPool::~EnemiesPool()
@@ -35,24 +35,7 @@ void my::EnemiesPool::InitializeStage(XMLNode::XMLNodePtr stageNode) throw (std:
 				m_waves.back().timeToBegin = std::stoul(childStk->GetContent("timeToBegin").second);
 			for (unsigned j = 0; j < childStk->GetChilds().size(); ++j)
 			{
-				std::cout << childStk->GetChilds()[j]->GetName() << std::endl;
-				std::cout << std::stol(childStk->GetChilds()[j]->GetContent("x").second) << std::endl;
-				std::cout << std::stol(childStk->GetChilds()[j]->GetContent("y").second) << std::endl;
-				m_waves.back().enemiesList.push_back(
-					EnemiesWave::WaveEnemy(
-						m_enemiesNode->GetChild(
-							childStk->GetChilds()[j]->GetName()
-						), 
-						sf::Vector2f(
-							std::stof(
-								childStk->GetChilds()[j]->GetContent("x").second
-							), 
-							std::stof(
-								childStk->GetChilds()[j]->GetContent("y").second
-							)
-						)
-					)
-				);
+				m_waves.back().enemiesList.push_back(EnemiesWave::WaveEnemy(m_enemiesNode->GetChild(childStk->GetChilds()[j]->GetName()), sf::Vector2f(std::stof(childStk->GetChilds()[j]->GetContent("x").second), std::stof(childStk->GetChilds()[j]->GetContent("y").second))));
 			}
 		}
 	}
@@ -84,12 +67,39 @@ void my::EnemiesPool::InitializeEnemies(XMLNode::XMLNodePtr enemiesNode) throw (
 	}
 }
 
-void my::EnemiesPool::Update(bool isClean) noexcept
+const my::EnemiesPool::EnemiesList my::EnemiesPool::Update(bool isClean) throw (std::out_of_range, std::invalid_argument)
 {
+	EnemiesList enemiesList;
+	Enemy::EnemyPtr newEnemy;
 
-}
-
-const my::EnemiesPool::EnemiesList my::EnemiesPool::GetEnemies() throw (std::out_of_range, std::invalid_argument)
-{
-	return (EnemiesList());
+	try
+	{
+		if (m_curWave >= m_waves.size())
+			return (enemiesList);
+		if ((m_waves[m_curWave].needCleaning && isClean) || !m_waves[m_curWave].needCleaning)
+		{
+			if (m_waveFramerate < m_waves[m_curWave].timeToBegin)
+				m_waveFramerate++;
+			else
+			{
+				m_waveFramerate = 0;
+				for (unsigned i = 0; i < m_waves[m_curWave].enemiesList.size(); ++i)
+				{
+					newEnemy = ObjectPool::CreateEnemy(m_waves[m_curWave].enemiesList[i].first);
+					newEnemy->setPosition(m_waves[m_curWave].enemiesList[i].second);
+					enemiesList.push_back(newEnemy);
+				}
+				m_curWave++;
+			}
+		}
+	}
+	catch (const std::out_of_range & e)
+	{
+		throw (e);
+	}
+	catch (const std::invalid_argument & e)
+	{
+		throw (e);
+	}
+	return (enemiesList);
 }
