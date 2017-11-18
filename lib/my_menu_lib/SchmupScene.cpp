@@ -84,7 +84,7 @@ void	my::SchmupScene::InitializeEnemiesPoolStage(XMLNode::XMLNodePtr stagesNode)
 		throw (std::invalid_argument("SchmupScene: InitializeEnemiesPool: null stages node"));
 	try
 	{
-		
+		m_enemiesPool.InitializeStage(stagesNode->GetChilds()[0]);
 	}
 	catch (const std::out_of_range & e)
 	{
@@ -103,7 +103,7 @@ void	my::SchmupScene::InitializeEnemiesPoolEnemies(XMLNode::XMLNodePtr enemiesNo
 		throw (std::invalid_argument("SchmupScene: InitializeEnemiesPool: null enemies node"));
 	try
 	{
-
+		m_enemiesPool.InitializeEnemies(enemiesNode);
 	}
 	catch (const std::out_of_range & e)
 	{
