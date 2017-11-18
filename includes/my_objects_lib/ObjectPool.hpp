@@ -87,6 +87,7 @@ namespace	my
 		static const std::string	SPEED_NODE_CONTENT;
 		static const std::string	FRAMERATE_MAX_NODE_CONTENT;
 		static const std::string	TRAVEL_TIME_NODE_CONTENT;
+		static const std::string	DAMAGE_NODE_CONTENT;
 
 		ObjectPool();
 		~ObjectPool() {}

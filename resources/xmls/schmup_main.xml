@@ -25,14 +25,14 @@
       </animations>
       <shoots framerateMax="10">
         <shoot key="default">
-          <bullet travelTime="20">
+          <bullet travelTime="150" damage="1">
             <texture>bullet.png</texture>
             <deplacements speed="18">
               <direction x="0" y="-1"></direction>
             </deplacements>
             <animations>
               <animation key="default">
-                <framerate>5</framerate>
+                <framerateMax>7</framerateMax>
                 <loop>true</loop>
                 <rects>
                   <rect x="0" y="0" tileX="32" tileY="32"></rect>
@@ -54,10 +54,18 @@
         </deplacements>
         <animations>
           <animation key="default">
-            <framerate>5</framerate>
+            <framerateMax>5</framerateMax>
             <loop>true</loop>
             <rects>
               <rect x="129" y="175" tileX="80" tileY="98"></rect>
+            </rects>
+          </animation>
+          <animation key="death">
+            <framerateMax>20</framerateMax>
+            <rects>
+              <rect x="0" y="0" tileX="80" tileY="98"></rect>
+              <rect x="0" y="100" tileX="80" tileY="98"></rect>
+              <rect x="100" y="0" tileX="80" tileY="98"></rect>
             </rects>
           </animation>
         </animations>

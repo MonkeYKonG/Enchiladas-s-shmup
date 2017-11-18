@@ -23,6 +23,16 @@ void	my::Enemy::UpdateAnimation() throw (std::out_of_range)
 	}
 }
 
+void	my::Enemy::TakeDamage(unsigned damage) noexcept
+{
+	AliveObject::TakeDamage(damage);
+	if (!m_isAlive && AnimationExist(DEATH_ANIM_NAME))
+	{
+		m_onAnimation = true;
+		SetAnimIndex(DEATH_ANIM_NAME);
+	}
+}
+
 void my::Enemy::Update() throw(std::out_of_range)
 {
 	try
@@ -37,6 +47,12 @@ void my::Enemy::Update() throw(std::out_of_range)
 
 bool my::Enemy::IsFinish() const noexcept
 {
+	if (!m_isAlive)
+	{
+		if (AnimationExist(DEATH_ANIM_NAME))
+			return (!m_onAnimation);
+		return (true);
+	}
 	return m_isFinish;
 }
 

@@ -1,8 +1,9 @@
 #include "AliveObject.hpp"
-#include <string>
+
+const std::string my::AliveObject::DEATH_ANIM_NAME = "death";
 
 my::AliveObject::AliveObject()
-	: m_isAlive(true), m_HP(0), m_maxHP(0)
+	: m_isAlive(true), m_HP(1), m_maxHP(1)
 {}
 
 bool	my::AliveObject::IsAlive() const noexcept

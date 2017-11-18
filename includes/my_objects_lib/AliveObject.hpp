@@ -19,6 +19,8 @@ namespace my
 		virtual void TakeDamage(unsigned damage) noexcept;
 
 	protected:
+		static const std::string DEATH_ANIM_NAME;
+
 		AliveObject();
 
 		bool m_isAlive;

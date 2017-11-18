@@ -60,6 +60,7 @@ namespace	my
 	const std::string	ObjectPool::SPEED_NODE_CONTENT = "speed";
 	const std::string	ObjectPool::FRAMERATE_MAX_NODE_CONTENT = "framerateMax";
 	const std::string	ObjectPool::TRAVEL_TIME_NODE_CONTENT = "travelTime";
+	const std::string	ObjectPool::DAMAGE_NODE_CONTENT = "damage";
 
 	void ObjectPool::SetNodeDefaults(XMLNode::XMLNodePtr nodeNode, Node * node) throw(std::out_of_range, std::invalid_argument)
 	{
@@ -548,6 +549,7 @@ namespace	my
 		{
 			SetSpriteDefaults(bulletNode, newBullet.get());
 			newBullet->SetTravelTime(std::stoul(bulletNode->GetContent(TRAVEL_TIME_NODE_CONTENT).second));
+			newBullet->SetDamage(std::stoul(bulletNode->GetContent(DAMAGE_NODE_CONTENT).second));
 			newBullet->SetOnDeplacement(true);
 		}
 		catch (const std::out_of_range & e)

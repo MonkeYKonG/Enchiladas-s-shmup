@@ -224,7 +224,11 @@ void	my::SchmupScene::UpdateColisions() throw (std::out_of_range)
 			while (itEnemy != m_enemies.end())
 			{
 				if ((*itEnemy)->IsIntersect((*itShoot)->GetHitBox()))
-					itEnemy = m_enemies.erase(itEnemy);
+				{
+					(*itEnemy)->TakeDamage((*itShoot)->GetDamage());
+					(*itShoot)->TakeDamage(1);
+					break;
+				}
 				else
 					itEnemy++;
 			}
@@ -234,7 +238,10 @@ void	my::SchmupScene::UpdateColisions() throw (std::out_of_range)
 		while (itShoot != m_enemiesShoots.end())
 		{
 			if (m_player->IsIntersect((*itShoot)->GetHitBox()))
-				;
+			{
+				m_player->TakeDamage((*itShoot)->GetDamage());
+				(*itShoot)->TakeDamage(1);
+			}
 			itShoot++;
 		}
 	}

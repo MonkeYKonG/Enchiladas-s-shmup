@@ -14,6 +14,7 @@ namespace my
 		virtual ~Enemy() {}
 
 		virtual void Update() throw (std::out_of_range);
+		virtual void TakeDamage(unsigned damage) noexcept;
 
 		bool IsFinish() const noexcept;
 
