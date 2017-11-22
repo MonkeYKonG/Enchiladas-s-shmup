@@ -41,7 +41,7 @@ namespace	my
 	  }
   }
 
-  void	SpriteObject::Update() throw (std::invalid_argument)
+  void	SpriteObject::Update() throw (std::out_of_range)
   {
 	  Node::Update();
 	  try

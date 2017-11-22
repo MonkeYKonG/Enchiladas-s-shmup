@@ -24,7 +24,7 @@ namespace my {
 			move(m_direction * m_speed);
 	}
 
-	void	Node::Update()
+  void	Node::Update()// throw (std::invalid_argument)
 	{
 		UpdateMovement();
 	}

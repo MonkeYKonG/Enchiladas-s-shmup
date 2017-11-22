@@ -1,7 +1,3 @@
-#include "..\..\includes\my_objects_lib\Player.hpp"
-#include "..\..\includes\my_objects_lib\Player.hpp"
-#include "..\..\includes\my_objects_lib\Player.hpp"
-#include "..\..\includes\my_objects_lib\Player.hpp"
 #include "Player.hpp"
 
 my::Player::Player()

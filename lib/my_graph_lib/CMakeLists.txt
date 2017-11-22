@@ -14,7 +14,14 @@ add_library(my_graph_lib
   XMLParser.cpp
   MessagesException.cpp)
 
+if (MSVC)
 target_link_libraries(my_graph_lib
   sfml-graphics-d
   sfml-window-d
   sfml-system-d)
+else (MSVC)
+target_link_libraries(my_graph_lib
+  sfml-graphics
+  sfml-window
+  sfml-system)
+endif (MSVC)

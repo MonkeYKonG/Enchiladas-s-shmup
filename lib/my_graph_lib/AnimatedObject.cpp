@@ -97,7 +97,7 @@ namespace	my
 		}
 	}
 
-	void	AnimatedObject::SetAnimIndex(const std::string & key, int tileIndex)
+  void	AnimatedObject::SetAnimIndex(const std::string & key, int tileIndex) throw (std::out_of_range)
 	{
 		for (unsigned i = 0; i < m_animations.size(); ++i)
 			if (m_animations[i].key == key)

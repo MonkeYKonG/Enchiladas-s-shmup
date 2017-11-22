@@ -13,7 +13,7 @@ namespace	my
 	const char XMLParser::BEACON_OPERATION_DELIM_BEGIN[XMLParser::BEACON_OPERATION_DELIM_SIZE + 1] = "%(";
 	const char XMLParser::BEACON_OPERATION_DELIM_END[XMLParser::BEACON_OPERATION_DELIM_SIZE + 1] = ")%";
 	XMLParser::CONSTANTS XMLParser::XML_CONSTANTS = XMLParser::CONSTANTS();
-#ifdef __linix__
+#ifdef __linux__
 	const std::string XMLParser::XML_RESOURCES_PATH = "resources/xmls/";
 #elif _WIN32
 	const std::string XMLParser::XML_RESOURCES_PATH = "../../../resources/xmls/";
@@ -75,7 +75,7 @@ namespace	my
 		while (m_index < m_fileContent.size() && std::isspace(m_fileContent[m_index]))
 			m_index++;
 	}
-	
+
 	const std::string XMLParser::GetNextWord() throw (std::invalid_argument)
 	{
 		std::string nextWord;
@@ -164,7 +164,7 @@ namespace	my
 	void XMLParser::GetBeaconContent(std::string & name, XMLNode::ContentList & args) throw (std::invalid_argument)
 	{
 		unsigned beaconEnd;
-		
+
 		if (m_fileContent[m_index] != BEACON_BEGIN)
 			throw (std::invalid_argument("syntax error: invalid beacon opening"));
 		if ((beaconEnd = m_fileContent.find(BEACON_END, m_index)) == std::string::npos)
@@ -176,7 +176,7 @@ namespace	my
 			name = GetNextWord();
 			while (m_index < beaconEnd)
 				args.push_back(GetNextArg());
-		}	
+		}
 		catch (const std::invalid_argument & e)
 		{
 			throw (e);

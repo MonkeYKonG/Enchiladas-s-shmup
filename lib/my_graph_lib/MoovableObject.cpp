@@ -3,7 +3,7 @@
 namespace	my
 {
 	template <typename T>
-	sf::Vector2<T>	NormalizeVector<T>(const sf::Vector2<T> & vector)
+	sf::Vector2<T>	NormalizeVector(const sf::Vector2<T> & vector)
 	{
 		float length = sqrt((vector.x * vector.x) + (vector.y * vector.y));
 		if (length != 0)

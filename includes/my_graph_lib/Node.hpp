@@ -23,7 +23,7 @@ namespace my
 
 	virtual ~Node() noexcept {};
 
-	virtual void Update();
+    virtual void Update();// throw (std::invalid_argument);
 
 	NodeList		GetChilds() const noexcept;
 	bool		    IsVisible() const noexcept;

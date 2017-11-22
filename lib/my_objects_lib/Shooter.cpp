@@ -1,6 +1,3 @@
-#include "..\..\includes\my_objects_lib\Shooter.hpp"
-#include "..\..\includes\my_objects_lib\Shooter.hpp"
-#include "..\..\includes\my_objects_lib\Shooter.hpp"
 #include "Shooter.hpp"
 #include "ObjectPool.hpp"
 

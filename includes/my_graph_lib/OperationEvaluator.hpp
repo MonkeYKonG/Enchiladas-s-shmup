@@ -3,6 +3,7 @@
 #include <stdexcept>
 #include <vector>
 #include <cctype>
+#include <algorithm>
 
 namespace my
 {
@@ -11,7 +12,7 @@ namespace my
 	{
 	public:
 		static T ParseOperation(const std::string & operation) throw (std::invalid_argument);
-		
+
 	private:
 		struct Operation
 		{

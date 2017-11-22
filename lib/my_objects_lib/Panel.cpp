@@ -71,7 +71,7 @@ namespace my
 		m_spriteButtons = buttons;
 	}
 
-	void	Panel::AddSpriteButton(const Panel::SpriteButton & newButton) noexcept
+	void	Panel::AddSpriteButton(const Panel::PanelSpriteButton & newButton) noexcept
 	{
 		m_spriteButtons.push_back(newButton);
 	}

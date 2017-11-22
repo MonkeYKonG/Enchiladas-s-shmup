@@ -214,7 +214,7 @@ namespace	my
 		return (newVector);
 	}
 
-	AnimatedObject::Animation	ObjectPool::CreateAnimation(XMLNode::XMLNodePtr animationNode)
+  AnimatedObject::Animation	ObjectPool::CreateAnimation(XMLNode::XMLNodePtr animationNode) throw (std::out_of_range, std::invalid_argument)
 	{
 		XMLNode::XMLNodePtr childStk;
 		AnimatedObject::Animation newAnimation;
