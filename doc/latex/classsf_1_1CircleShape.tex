@@ -1,0 +1,183 @@
+\hypertarget{classsf_1_1CircleShape}{}\section{Référence de la classe sf\+:\+:Circle\+Shape}
+\label{classsf_1_1CircleShape}\index{sf\+::\+Circle\+Shape@{sf\+::\+Circle\+Shape}}
+
+
+Specialized shape representing a circle.  
+
+
+
+
+{\ttfamily \#include $<$Circle\+Shape.\+hpp$>$}
+
+Graphe d\textquotesingle{}héritage de sf\+:\+:Circle\+Shape\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classsf_1_1CircleShape}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsf_1_1CircleShape_aaebe705e7180cd55588eb19488af3af1}{Circle\+Shape} (float radius=0, std\+::size\+\_\+t point\+Count=30)
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+void \hyperlink{classsf_1_1CircleShape_a21cdf85fc2f201e10222a241af864be0}{set\+Radius} (float radius)
+\begin{DoxyCompactList}\small\item\em Set the radius of the circle. \end{DoxyCompactList}\item 
+float \hyperlink{classsf_1_1CircleShape_aa3dd5a1b5031486ce5b6f09d43674aa3}{get\+Radius} () const
+\begin{DoxyCompactList}\small\item\em Get the radius of the circle. \end{DoxyCompactList}\item 
+void \hyperlink{classsf_1_1CircleShape_a16590ee7bdf5c9f752275468a4997bed}{set\+Point\+Count} (std\+::size\+\_\+t count)
+\begin{DoxyCompactList}\small\item\em Set the number of points of the circle. \end{DoxyCompactList}\item 
+virtual std\+::size\+\_\+t \hyperlink{classsf_1_1CircleShape_a014d29ec11e8afa4dce50e7047d99601}{get\+Point\+Count} () const
+\begin{DoxyCompactList}\small\item\em Get the number of points of the circle. \end{DoxyCompactList}\item 
+virtual \hyperlink{classsf_1_1Vector2}{Vector2f} \hyperlink{classsf_1_1CircleShape_a2d7f9715502b960b92387102fddb8736}{get\+Point} (std\+::size\+\_\+t index) const
+\begin{DoxyCompactList}\small\item\em Get a point of the circle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Membres hérités additionnels}
+
+
+\subsection{Description détaillée}
+Specialized shape representing a circle. 
+
+This class inherits all the functions of \hyperlink{classsf_1_1Transformable}{sf\+::\+Transformable} (position, rotation, scale, bounds, ...) as well as the functions of \hyperlink{classsf_1_1Shape}{sf\+::\+Shape} (outline, color, texture, ...).
+
+Usage example\+: 
+\begin{DoxyCode}
+\hyperlink{classsf_1_1CircleShape}{sf::CircleShape} circle;
+circle.\hyperlink{classsf_1_1CircleShape_a21cdf85fc2f201e10222a241af864be0}{setRadius}(150);
+circle.\hyperlink{classsf_1_1Shape_a5978f41ee349ac3c52942996dcb184f7}{setOutlineColor}(\hyperlink{classsf_1_1Color_a127dbf55db9c07d0fa8f4bfcbb97594a}{sf::Color::Red});
+circle.\hyperlink{classsf_1_1Shape_a5ad336ad74fc1f567fce3b7e44cf87dc}{setOutlineThickness}(5);
+circle.\hyperlink{classsf_1_1Transformable_a4dbfb1a7c80688b0b4c477d706550208}{setPosition}(10, 20);
+...
+window.draw(circle);
+\end{DoxyCode}
+
+
+Since the graphics card can\textquotesingle{}t draw perfect circles, we have to fake them with multiple triangles connected to each other. The \char`\"{}points count\char`\"{} property of \hyperlink{classsf_1_1CircleShape}{sf\+::\+Circle\+Shape} defines how many of these triangles to use, and therefore defines the quality of the circle.
+
+The number of points can also be used for another purpose; with small numbers you can create any regular polygon shape\+: equilateral triangle, square, pentagon, hexagon, ...
+
+\begin{DoxySeeAlso}{Voir également}
+\hyperlink{classsf_1_1Shape}{sf\+::\+Shape}, \hyperlink{classsf_1_1RectangleShape}{sf\+::\+Rectangle\+Shape}, \hyperlink{classsf_1_1ConvexShape}{sf\+::\+Convex\+Shape} 
+\end{DoxySeeAlso}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classsf_1_1CircleShape_aaebe705e7180cd55588eb19488af3af1}\label{classsf_1_1CircleShape_aaebe705e7180cd55588eb19488af3af1}} 
+\index{sf\+::\+Circle\+Shape@{sf\+::\+Circle\+Shape}!Circle\+Shape@{Circle\+Shape}}
+\index{Circle\+Shape@{Circle\+Shape}!sf\+::\+Circle\+Shape@{sf\+::\+Circle\+Shape}}
+\subsubsection{\texorpdfstring{Circle\+Shape()}{CircleShape()}}
+{\footnotesize\ttfamily sf\+::\+Circle\+Shape\+::\+Circle\+Shape (\begin{DoxyParamCaption}\item[{float}]{radius = {\ttfamily 0},  }\item[{std\+::size\+\_\+t}]{point\+Count = {\ttfamily 30} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Default constructor. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em radius} & Radius of the circle \\
+\hline
+{\em point\+Count} & Number of points composing the circle \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classsf_1_1CircleShape_a2d7f9715502b960b92387102fddb8736}\label{classsf_1_1CircleShape_a2d7f9715502b960b92387102fddb8736}} 
+\index{sf\+::\+Circle\+Shape@{sf\+::\+Circle\+Shape}!get\+Point@{get\+Point}}
+\index{get\+Point@{get\+Point}!sf\+::\+Circle\+Shape@{sf\+::\+Circle\+Shape}}
+\subsubsection{\texorpdfstring{get\+Point()}{getPoint()}}
+{\footnotesize\ttfamily virtual \hyperlink{classsf_1_1Vector2}{Vector2f} sf\+::\+Circle\+Shape\+::get\+Point (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Get a point of the circle. 
+
+The returned point is in local coordinates, that is, the shape\textquotesingle{}s transforms (position, rotation, scale) are not taken into account. The result is undefined if {\itshape index} is out of the valid range.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em index} & Index of the point to get, in range \mbox{[}0 .. \hyperlink{classsf_1_1CircleShape_a014d29ec11e8afa4dce50e7047d99601}{get\+Point\+Count()} -\/ 1\mbox{]}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+index-\/th point of the shape 
+\end{DoxyReturn}
+
+
+Implémente \hyperlink{classsf_1_1Shape_a40e5d83713eb9f0c999944cf96458085}{sf\+::\+Shape}.
+
+\mbox{\Hypertarget{classsf_1_1CircleShape_a014d29ec11e8afa4dce50e7047d99601}\label{classsf_1_1CircleShape_a014d29ec11e8afa4dce50e7047d99601}} 
+\index{sf\+::\+Circle\+Shape@{sf\+::\+Circle\+Shape}!get\+Point\+Count@{get\+Point\+Count}}
+\index{get\+Point\+Count@{get\+Point\+Count}!sf\+::\+Circle\+Shape@{sf\+::\+Circle\+Shape}}
+\subsubsection{\texorpdfstring{get\+Point\+Count()}{getPointCount()}}
+{\footnotesize\ttfamily virtual std\+::size\+\_\+t sf\+::\+Circle\+Shape\+::get\+Point\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Get the number of points of the circle. 
+
+\begin{DoxyReturn}{Renvoie}
+Number of points of the circle
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{Voir également}
+\hyperlink{classsf_1_1CircleShape_a16590ee7bdf5c9f752275468a4997bed}{set\+Point\+Count} 
+\end{DoxySeeAlso}
+
+
+Implémente \hyperlink{classsf_1_1Shape_af988dd61a29803fc04d02198e44b5643}{sf\+::\+Shape}.
+
+\mbox{\Hypertarget{classsf_1_1CircleShape_aa3dd5a1b5031486ce5b6f09d43674aa3}\label{classsf_1_1CircleShape_aa3dd5a1b5031486ce5b6f09d43674aa3}} 
+\index{sf\+::\+Circle\+Shape@{sf\+::\+Circle\+Shape}!get\+Radius@{get\+Radius}}
+\index{get\+Radius@{get\+Radius}!sf\+::\+Circle\+Shape@{sf\+::\+Circle\+Shape}}
+\subsubsection{\texorpdfstring{get\+Radius()}{getRadius()}}
+{\footnotesize\ttfamily float sf\+::\+Circle\+Shape\+::get\+Radius (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the radius of the circle. 
+
+\begin{DoxyReturn}{Renvoie}
+Radius of the circle
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{Voir également}
+\hyperlink{classsf_1_1CircleShape_a21cdf85fc2f201e10222a241af864be0}{set\+Radius} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classsf_1_1CircleShape_a16590ee7bdf5c9f752275468a4997bed}\label{classsf_1_1CircleShape_a16590ee7bdf5c9f752275468a4997bed}} 
+\index{sf\+::\+Circle\+Shape@{sf\+::\+Circle\+Shape}!set\+Point\+Count@{set\+Point\+Count}}
+\index{set\+Point\+Count@{set\+Point\+Count}!sf\+::\+Circle\+Shape@{sf\+::\+Circle\+Shape}}
+\subsubsection{\texorpdfstring{set\+Point\+Count()}{setPointCount()}}
+{\footnotesize\ttfamily void sf\+::\+Circle\+Shape\+::set\+Point\+Count (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{count }\end{DoxyParamCaption})}
+
+
+
+Set the number of points of the circle. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em count} & New number of points of the circle\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Voir également}
+\hyperlink{classsf_1_1CircleShape_a014d29ec11e8afa4dce50e7047d99601}{get\+Point\+Count} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classsf_1_1CircleShape_a21cdf85fc2f201e10222a241af864be0}\label{classsf_1_1CircleShape_a21cdf85fc2f201e10222a241af864be0}} 
+\index{sf\+::\+Circle\+Shape@{sf\+::\+Circle\+Shape}!set\+Radius@{set\+Radius}}
+\index{set\+Radius@{set\+Radius}!sf\+::\+Circle\+Shape@{sf\+::\+Circle\+Shape}}
+\subsubsection{\texorpdfstring{set\+Radius()}{setRadius()}}
+{\footnotesize\ttfamily void sf\+::\+Circle\+Shape\+::set\+Radius (\begin{DoxyParamCaption}\item[{float}]{radius }\end{DoxyParamCaption})}
+
+
+
+Set the radius of the circle. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em radius} & New radius of the circle\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Voir également}
+\hyperlink{classsf_1_1CircleShape_aa3dd5a1b5031486ce5b6f09d43674aa3}{get\+Radius} 
+\end{DoxySeeAlso}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+includes/\+S\+F\+M\+L/\+Graphics/Circle\+Shape.\+hpp\end{DoxyCompactItemize}

@@ -1,0 +1,88 @@
+\hypertarget{classsf_1_1ThreadLocal}{}\section{Référence de la classe sf\+:\+:Thread\+Local}
+\label{classsf_1_1ThreadLocal}\index{sf\+::\+Thread\+Local@{sf\+::\+Thread\+Local}}
+
+
+Defines variables with thread-\/local storage.  
+
+
+
+
+{\ttfamily \#include $<$Thread\+Local.\+hpp$>$}
+
+Graphe d\textquotesingle{}héritage de sf\+:\+:Thread\+Local\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classsf_1_1ThreadLocal}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsf_1_1ThreadLocal_a44ea3c4be4eef118080275cbf4cf04cd}{Thread\+Local} (void $\ast$value=N\+U\+LL)
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsf_1_1ThreadLocal_acc612bddfd0f0507b1c5da8b3b8c75c2}\label{classsf_1_1ThreadLocal_acc612bddfd0f0507b1c5da8b3b8c75c2}} 
+\hyperlink{classsf_1_1ThreadLocal_acc612bddfd0f0507b1c5da8b3b8c75c2}{$\sim$\+Thread\+Local} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \hyperlink{classsf_1_1ThreadLocal_ab7e334c83d77644a8e67ee31c3230007}{set\+Value} (void $\ast$value)
+\begin{DoxyCompactList}\small\item\em Set the thread-\/specific value of the variable. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{classsf_1_1ThreadLocal_ad68823496eb065b4b695c3468fa869bc}{get\+Value} () const
+\begin{DoxyCompactList}\small\item\em Retrieve the thread-\/specific value of the variable. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Defines variables with thread-\/local storage. 
+
+This class manipulates void$\ast$ parameters and thus is not appropriate for strongly-\/typed variables. You should rather use the \hyperlink{classsf_1_1ThreadLocalPtr}{sf\+::\+Thread\+Local\+Ptr} template class. 
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classsf_1_1ThreadLocal_a44ea3c4be4eef118080275cbf4cf04cd}\label{classsf_1_1ThreadLocal_a44ea3c4be4eef118080275cbf4cf04cd}} 
+\index{sf\+::\+Thread\+Local@{sf\+::\+Thread\+Local}!Thread\+Local@{Thread\+Local}}
+\index{Thread\+Local@{Thread\+Local}!sf\+::\+Thread\+Local@{sf\+::\+Thread\+Local}}
+\subsubsection{\texorpdfstring{Thread\+Local()}{ThreadLocal()}}
+{\footnotesize\ttfamily sf\+::\+Thread\+Local\+::\+Thread\+Local (\begin{DoxyParamCaption}\item[{void $\ast$}]{value = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+
+
+Default constructor. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em value} & Optional value to initialize the variable \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classsf_1_1ThreadLocal_ad68823496eb065b4b695c3468fa869bc}\label{classsf_1_1ThreadLocal_ad68823496eb065b4b695c3468fa869bc}} 
+\index{sf\+::\+Thread\+Local@{sf\+::\+Thread\+Local}!get\+Value@{get\+Value}}
+\index{get\+Value@{get\+Value}!sf\+::\+Thread\+Local@{sf\+::\+Thread\+Local}}
+\subsubsection{\texorpdfstring{get\+Value()}{getValue()}}
+{\footnotesize\ttfamily void$\ast$ sf\+::\+Thread\+Local\+::get\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieve the thread-\/specific value of the variable. 
+
+\begin{DoxyReturn}{Renvoie}
+Value of the variable for the current thread 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classsf_1_1ThreadLocal_ab7e334c83d77644a8e67ee31c3230007}\label{classsf_1_1ThreadLocal_ab7e334c83d77644a8e67ee31c3230007}} 
+\index{sf\+::\+Thread\+Local@{sf\+::\+Thread\+Local}!set\+Value@{set\+Value}}
+\index{set\+Value@{set\+Value}!sf\+::\+Thread\+Local@{sf\+::\+Thread\+Local}}
+\subsubsection{\texorpdfstring{set\+Value()}{setValue()}}
+{\footnotesize\ttfamily void sf\+::\+Thread\+Local\+::set\+Value (\begin{DoxyParamCaption}\item[{void $\ast$}]{value }\end{DoxyParamCaption})}
+
+
+
+Set the thread-\/specific value of the variable. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em value} & Value of the variable for the current thread \\
+\hline
+\end{DoxyParams}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+includes/\+S\+F\+M\+L/\+System/Thread\+Local.\+hpp\end{DoxyCompactItemize}

@@ -1,0 +1,95 @@
+\hypertarget{classsf_1_1Clock}{}\section{Référence de la classe sf\+:\+:Clock}
+\label{classsf_1_1Clock}\index{sf\+::\+Clock@{sf\+::\+Clock}}
+
+
+Utility class that measures the elapsed time.  
+
+
+
+
+{\ttfamily \#include $<$Clock.\+hpp$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsf_1_1Clock_abbc959c7830ca7c3a4da133cb506d3fd}{Clock} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\hyperlink{classsf_1_1Time}{Time} \hyperlink{classsf_1_1Clock_abe889b42a65bcd8eefc16419645d08a7}{get\+Elapsed\+Time} () const
+\begin{DoxyCompactList}\small\item\em Get the elapsed time. \end{DoxyCompactList}\item 
+\hyperlink{classsf_1_1Time}{Time} \hyperlink{classsf_1_1Clock_a123e2627f2943e5ecaa1db0c7df3231b}{restart} ()
+\begin{DoxyCompactList}\small\item\em Restart the clock. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Utility class that measures the elapsed time. 
+
+\hyperlink{classsf_1_1Clock}{sf\+::\+Clock} is a lightweight class for measuring time.
+
+Its provides the most precise time that the underlying OS can achieve (generally microseconds or nanoseconds). It also ensures monotonicity, which means that the returned time can never go backward, even if the system time is changed.
+
+Usage example\+: 
+\begin{DoxyCode}
+\hyperlink{classsf_1_1Clock}{sf::Clock} clock;
+...
+Time time1 = clock.\hyperlink{classsf_1_1Clock_abe889b42a65bcd8eefc16419645d08a7}{getElapsedTime}();
+...
+\hyperlink{classsf_1_1Time_acba0cfbc49e3a09a22a8e079eb67a05c}{Time} time2 = clock.\hyperlink{classsf_1_1Clock_a123e2627f2943e5ecaa1db0c7df3231b}{restart}();
+\end{DoxyCode}
+
+
+The \hyperlink{classsf_1_1Time}{sf\+::\+Time} value returned by the clock can then be converted to a number of seconds, milliseconds or even microseconds.
+
+\begin{DoxySeeAlso}{Voir également}
+\hyperlink{classsf_1_1Time}{sf\+::\+Time} 
+\end{DoxySeeAlso}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classsf_1_1Clock_abbc959c7830ca7c3a4da133cb506d3fd}\label{classsf_1_1Clock_abbc959c7830ca7c3a4da133cb506d3fd}} 
+\index{sf\+::\+Clock@{sf\+::\+Clock}!Clock@{Clock}}
+\index{Clock@{Clock}!sf\+::\+Clock@{sf\+::\+Clock}}
+\subsubsection{\texorpdfstring{Clock()}{Clock()}}
+{\footnotesize\ttfamily sf\+::\+Clock\+::\+Clock (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor. 
+
+The clock starts automatically after being constructed. 
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classsf_1_1Clock_abe889b42a65bcd8eefc16419645d08a7}\label{classsf_1_1Clock_abe889b42a65bcd8eefc16419645d08a7}} 
+\index{sf\+::\+Clock@{sf\+::\+Clock}!get\+Elapsed\+Time@{get\+Elapsed\+Time}}
+\index{get\+Elapsed\+Time@{get\+Elapsed\+Time}!sf\+::\+Clock@{sf\+::\+Clock}}
+\subsubsection{\texorpdfstring{get\+Elapsed\+Time()}{getElapsedTime()}}
+{\footnotesize\ttfamily \hyperlink{classsf_1_1Time}{Time} sf\+::\+Clock\+::get\+Elapsed\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the elapsed time. 
+
+This function returns the time elapsed since the last call to \hyperlink{classsf_1_1Clock_a123e2627f2943e5ecaa1db0c7df3231b}{restart()} (or the construction of the instance if \hyperlink{classsf_1_1Clock_a123e2627f2943e5ecaa1db0c7df3231b}{restart()} has not been called).
+
+\begin{DoxyReturn}{Renvoie}
+\hyperlink{classsf_1_1Time}{Time} elapsed 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classsf_1_1Clock_a123e2627f2943e5ecaa1db0c7df3231b}\label{classsf_1_1Clock_a123e2627f2943e5ecaa1db0c7df3231b}} 
+\index{sf\+::\+Clock@{sf\+::\+Clock}!restart@{restart}}
+\index{restart@{restart}!sf\+::\+Clock@{sf\+::\+Clock}}
+\subsubsection{\texorpdfstring{restart()}{restart()}}
+{\footnotesize\ttfamily \hyperlink{classsf_1_1Time}{Time} sf\+::\+Clock\+::restart (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Restart the clock. 
+
+This function puts the time counter back to zero. It also returns the time elapsed since the clock was started.
+
+\begin{DoxyReturn}{Renvoie}
+\hyperlink{classsf_1_1Time}{Time} elapsed 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+includes/\+S\+F\+M\+L/\+System/Clock.\+hpp\end{DoxyCompactItemize}

@@ -1,0 +1,78 @@
+\hypertarget{classmy_1_1Border}{}\section{Référence de la classe my\+:\+:Border}
+\label{classmy_1_1Border}\index{my\+::\+Border@{my\+::\+Border}}
+Graphe d\textquotesingle{}héritage de my\+:\+:Border\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classmy_1_1Border}
+\end{center}
+\end{figure}
+\subsection*{Types publics}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmy_1_1Border_ac25a32ed037962d5513c63e60a510f8e}\label{classmy_1_1Border_ac25a32ed037962d5513c63e60a510f8e}} 
+typedef std\+::shared\+\_\+ptr$<$ \hyperlink{classmy_1_1Border}{Border} $>$ {\bfseries Border\+Ptr}
+\item 
+\mbox{\Hypertarget{classmy_1_1Border_a183b7d4c2bd05d33120eccd7b1c38680}\label{classmy_1_1Border_a183b7d4c2bd05d33120eccd7b1c38680}} 
+typedef Sprite\+Object\+::\+Sprite\+Object\+Ptr {\bfseries Tile}
+\item 
+\mbox{\Hypertarget{classmy_1_1Border_a71eaaf9ddced3cb6ca06df43d460cf80}\label{classmy_1_1Border_a71eaaf9ddced3cb6ca06df43d460cf80}} 
+typedef std\+::vector$<$ Tile $>$ {\bfseries Tile\+List}
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmy_1_1Border_acf58f88a4e6085ddd0f2c63dd5ea0ff5}\label{classmy_1_1Border_acf58f88a4e6085ddd0f2c63dd5ea0ff5}} 
+bool {\bfseries Is\+Intersect} (const sf\+::\+Vector2f \&point) const noexcept
+\item 
+\mbox{\Hypertarget{classmy_1_1Border_aa65c4ff4d89fef5edea53a594b32a8cc}\label{classmy_1_1Border_aa65c4ff4d89fef5edea53a594b32a8cc}} 
+bool {\bfseries Is\+Intersect} (const sf\+::\+Float\+Rect \&square) const noexcept
+\item 
+\mbox{\Hypertarget{classmy_1_1Border_aab075f5fda8f39ce5cb1fc7fc42cd0b4}\label{classmy_1_1Border_aab075f5fda8f39ce5cb1fc7fc42cd0b4}} 
+const sf\+::\+Float\+Rect {\bfseries Get\+Hit\+Box} () const noexcept
+\item 
+\mbox{\Hypertarget{classmy_1_1Border_ab897d683eb3f4e4484f0a23ed419a9e7}\label{classmy_1_1Border_ab897d683eb3f4e4484f0a23ed419a9e7}} 
+const std\+::string \& {\bfseries Get\+Texture\+Key} () const noexcept
+\item 
+\mbox{\Hypertarget{classmy_1_1Border_a7235f7cff623e59370b6a044b4cbb060}\label{classmy_1_1Border_a7235f7cff623e59370b6a044b4cbb060}} 
+const sf\+::\+Vector2u \& {\bfseries Get\+Size} () const noexcept
+\item 
+\mbox{\Hypertarget{classmy_1_1Border_aaaf6ddc65bc19ffb54f352df35c94090}\label{classmy_1_1Border_aaaf6ddc65bc19ffb54f352df35c94090}} 
+const sf\+::\+Vector2u \& {\bfseries Get\+Tile\+Size} () const noexcept
+\item 
+\mbox{\Hypertarget{classmy_1_1Border_a8da811b24ad62ebb53a9363567f607c7}\label{classmy_1_1Border_a8da811b24ad62ebb53a9363567f607c7}} 
+const sf\+::\+Int\+Rect \& {\bfseries Get\+Corner\+Subrect} () const noexcept
+\item 
+\mbox{\Hypertarget{classmy_1_1Border_ad8f5806d2521b3b5c1d7c03bd4b18958}\label{classmy_1_1Border_ad8f5806d2521b3b5c1d7c03bd4b18958}} 
+const sf\+::\+Int\+Rect \& {\bfseries Get\+Outline\+Subrect} () const noexcept
+\item 
+\mbox{\Hypertarget{classmy_1_1Border_a1d9d83ce552ad3a2fb90cfc496b5e885}\label{classmy_1_1Border_a1d9d83ce552ad3a2fb90cfc496b5e885}} 
+const Tile\+List \& {\bfseries Get\+Tiles} () const noexcept
+\item 
+\mbox{\Hypertarget{classmy_1_1Border_aa162c706bd04538df15c358618ec56e2}\label{classmy_1_1Border_aa162c706bd04538df15c358618ec56e2}} 
+void {\bfseries Set\+Texture\+Key} (const std\+::string \&texture\+Key) noexcept
+\item 
+\mbox{\Hypertarget{classmy_1_1Border_adc7560e9269a9de9f7f2a88b154e520d}\label{classmy_1_1Border_adc7560e9269a9de9f7f2a88b154e520d}} 
+void {\bfseries Set\+Size} (const sf\+::\+Vector2u \&size) noexcept
+\item 
+\mbox{\Hypertarget{classmy_1_1Border_a9b095f0dafa161744f6f8a113d4bc021}\label{classmy_1_1Border_a9b095f0dafa161744f6f8a113d4bc021}} 
+void {\bfseries Set\+Tile\+Size} (const sf\+::\+Vector2u \&tile\+Size) noexcept
+\item 
+\mbox{\Hypertarget{classmy_1_1Border_a8bd8d973b026bc4568e01d5345b4f2b3}\label{classmy_1_1Border_a8bd8d973b026bc4568e01d5345b4f2b3}} 
+void {\bfseries Set\+Corner\+Subrect} (const sf\+::\+Int\+Rect \&corner\+Subrect) noexcept
+\item 
+\mbox{\Hypertarget{classmy_1_1Border_a34fffa6602d617e7e5907a8a52f60583}\label{classmy_1_1Border_a34fffa6602d617e7e5907a8a52f60583}} 
+void {\bfseries Set\+Outline\+Subrect} (const sf\+::\+Int\+Rect \&outline\+Subrect) noexcept
+\item 
+\mbox{\Hypertarget{classmy_1_1Border_a18a8fac0b1abec5a98b74f9ec9d38464}\label{classmy_1_1Border_a18a8fac0b1abec5a98b74f9ec9d38464}} 
+void {\bfseries Initialize\+Childs} ()  throw (std\+::invalid\+\_\+argument)
+\item 
+\mbox{\Hypertarget{classmy_1_1Border_a02315dc4d26d3e31b68bb05c9759aa57}\label{classmy_1_1Border_a02315dc4d26d3e31b68bb05c9759aa57}} 
+void {\bfseries Update\+Tiles} () noexcept
+\end{DoxyCompactItemize}
+\subsection*{Membres hérités additionnels}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+includes/my\+\_\+objects\+\_\+lib/Border.\+hpp\item 
+lib/my\+\_\+objects\+\_\+lib/Border.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Schmup: Référence de la classe my::Shooter</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Schmup
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.14 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><b>my</b></li><li class="navelem"><a class="el" href="classmy_1_1Shooter.html">Shooter</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Types publics</a> &#124;
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pro-methods">Fonctions membres protégées</a> &#124;
+<a href="#pro-attribs">Attributs protégés</a> &#124;
+<a href="classmy_1_1Shooter-members.html">Liste de tous les membres</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence de la classe my::Shooter</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Graphe d'héritage de my::Shooter:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classmy_1_1Shooter.png" usemap="#my::Shooter_map" alt=""/>
+  <map id="my::Shooter_map" name="my::Shooter_map">
+<area href="classmy_1_1Enemy.html" alt="my::Enemy" shape="rect" coords="0,56,78,80"/>
+<area href="classmy_1_1Player.html" alt="my::Player" shape="rect" coords="88,56,166,80"/>
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Types publics</h2></td></tr>
+<tr class="memitem:a82aae5a56bed644b983bfb3f926950d2"><td class="memItemLeft" align="right" valign="top"><a id="a82aae5a56bed644b983bfb3f926950d2"></a>
+typedef std::shared_ptr&lt; <a class="el" href="classmy_1_1Shooter.html">Shooter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ShooterPtr</b></td></tr>
+<tr class="separator:a82aae5a56bed644b983bfb3f926950d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc320a69e79962464e86f701d2b728d1"><td class="memItemLeft" align="right" valign="top"><a id="adc320a69e79962464e86f701d2b728d1"></a>
+typedef std::vector&lt; Bullet::BulletPtr &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ShootList</b></td></tr>
+<tr class="separator:adc320a69e79962464e86f701d2b728d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2fe17c54adc480568a891fb04ce8242"><td class="memItemLeft" align="right" valign="top"><a id="ad2fe17c54adc480568a891fb04ce8242"></a>
+typedef std::map&lt; const std::string, XMLNode::XMLNodePtr &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ShootNodes</b></td></tr>
+<tr class="separator:ad2fe17c54adc480568a891fb04ce8242"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:a074f3f97399ae7f4b93d365cda93610c"><td class="memItemLeft" align="right" valign="top"><a id="a074f3f97399ae7f4b93d365cda93610c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>CanShoot</b> () const noexcept</td></tr>
+<tr class="separator:a074f3f97399ae7f4b93d365cda93610c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a829b2be6f57ce7d21ade456380168d86"><td class="memItemLeft" align="right" valign="top"><a id="a829b2be6f57ce7d21ade456380168d86"></a>
+const ShootList&#160;</td><td class="memItemRight" valign="bottom"><b>GetShootList</b> () const  throw (std::out_of_range, std::invalid_argument)</td></tr>
+<tr class="separator:a829b2be6f57ce7d21ade456380168d86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bd2cf898da70f9ab05e1b3d9a8f246f"><td class="memItemLeft" align="right" valign="top"><a id="a8bd2cf898da70f9ab05e1b3d9a8f246f"></a>
+const ShootNodes &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetShootNodes</b> () const noexcept</td></tr>
+<tr class="separator:a8bd2cf898da70f9ab05e1b3d9a8f246f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaeab68a3e46942098d351b7958afa04e"><td class="memItemLeft" align="right" valign="top"><a id="aaeab68a3e46942098d351b7958afa04e"></a>
+const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetShootKey</b> () const noexcept</td></tr>
+<tr class="separator:aaeab68a3e46942098d351b7958afa04e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8882679b9b128e2b0f9b036b584ac58"><td class="memItemLeft" align="right" valign="top"><a id="ab8882679b9b128e2b0f9b036b584ac58"></a>
+const unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>GetShootFramerateMax</b> () const noexcept</td></tr>
+<tr class="separator:ab8882679b9b128e2b0f9b036b584ac58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e8b4144be7d18ecd74cefff1d1ec696"><td class="memItemLeft" align="right" valign="top"><a id="a5e8b4144be7d18ecd74cefff1d1ec696"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetCanShoot</b> (bool canShoot) noexcept</td></tr>
+<tr class="separator:a5e8b4144be7d18ecd74cefff1d1ec696"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f99b7f7802dd20fec49e571cfcfb887"><td class="memItemLeft" align="right" valign="top"><a id="a2f99b7f7802dd20fec49e571cfcfb887"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetShootNodes</b> (const ShootNodes &amp;shootNodes) noexcept</td></tr>
+<tr class="separator:a2f99b7f7802dd20fec49e571cfcfb887"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b6302544a8010b4f379c353ed6bfbac"><td class="memItemLeft" align="right" valign="top"><a id="a2b6302544a8010b4f379c353ed6bfbac"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>AddShootNode</b> (const std::string &amp;str, XMLNode::XMLNodePtr newShootNode)  throw (std::invalid_argument)</td></tr>
+<tr class="separator:a2b6302544a8010b4f379c353ed6bfbac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe3aa39abd0c4131b811596dcffa45a6"><td class="memItemLeft" align="right" valign="top"><a id="afe3aa39abd0c4131b811596dcffa45a6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetShootKey</b> (const std::string &amp;key) noexcept</td></tr>
+<tr class="separator:afe3aa39abd0c4131b811596dcffa45a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada55bbd697ad01242a5cbb07b691b27d"><td class="memItemLeft" align="right" valign="top"><a id="ada55bbd697ad01242a5cbb07b691b27d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetShootFramerateMax</b> (unsigned shootFramerateMax) noexcept</td></tr>
+<tr class="separator:ada55bbd697ad01242a5cbb07b691b27d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Fonctions membres protégées</h2></td></tr>
+<tr class="memitem:a0e5a30cdfabf48052d2484c2e2ca6f6f"><td class="memItemLeft" align="right" valign="top"><a id="a0e5a30cdfabf48052d2484c2e2ca6f6f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> () noexcept</td></tr>
+<tr class="separator:a0e5a30cdfabf48052d2484c2e2ca6f6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Attributs protégés</h2></td></tr>
+<tr class="memitem:a829743ae534a86061d3359aa4466109c"><td class="memItemLeft" align="right" valign="top"><a id="a829743ae534a86061d3359aa4466109c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_canShoot</b></td></tr>
+<tr class="separator:a829743ae534a86061d3359aa4466109c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f28784709dcee6b6379a96ed02af6cc"><td class="memItemLeft" align="right" valign="top"><a id="a7f28784709dcee6b6379a96ed02af6cc"></a>
+ShootNodes&#160;</td><td class="memItemRight" valign="bottom"><b>m_shootNodes</b></td></tr>
+<tr class="separator:a7f28784709dcee6b6379a96ed02af6cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a772980b6cb2304b5b7f58b538f97ff0b"><td class="memItemLeft" align="right" valign="top"><a id="a772980b6cb2304b5b7f58b538f97ff0b"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>m_shootKey</b></td></tr>
+<tr class="separator:a772980b6cb2304b5b7f58b538f97ff0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abecd4ad91ecd7c2ae5a3f629078f4969"><td class="memItemLeft" align="right" valign="top"><a id="abecd4ad91ecd7c2ae5a3f629078f4969"></a>
+unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>m_shootFramerateMax</b></td></tr>
+<tr class="separator:abecd4ad91ecd7c2ae5a3f629078f4969"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
+<li>includes/my_objects_lib/<a class="el" href="Shooter_8hpp_source.html">Shooter.hpp</a></li>
+<li>lib/my_objects_lib/Shooter.cpp</li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

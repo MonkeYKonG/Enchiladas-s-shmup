@@ -1,0 +1,80 @@
+\hypertarget{classmy_1_1Shooter}{}\section{Référence de la classe my\+:\+:Shooter}
+\label{classmy_1_1Shooter}\index{my\+::\+Shooter@{my\+::\+Shooter}}
+Graphe d\textquotesingle{}héritage de my\+:\+:Shooter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmy_1_1Shooter}
+\end{center}
+\end{figure}
+\subsection*{Types publics}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmy_1_1Shooter_a82aae5a56bed644b983bfb3f926950d2}\label{classmy_1_1Shooter_a82aae5a56bed644b983bfb3f926950d2}} 
+typedef std\+::shared\+\_\+ptr$<$ \hyperlink{classmy_1_1Shooter}{Shooter} $>$ {\bfseries Shooter\+Ptr}
+\item 
+\mbox{\Hypertarget{classmy_1_1Shooter_adc320a69e79962464e86f701d2b728d1}\label{classmy_1_1Shooter_adc320a69e79962464e86f701d2b728d1}} 
+typedef std\+::vector$<$ Bullet\+::\+Bullet\+Ptr $>$ {\bfseries Shoot\+List}
+\item 
+\mbox{\Hypertarget{classmy_1_1Shooter_ad2fe17c54adc480568a891fb04ce8242}\label{classmy_1_1Shooter_ad2fe17c54adc480568a891fb04ce8242}} 
+typedef std\+::map$<$ const std\+::string, X\+M\+L\+Node\+::\+X\+M\+L\+Node\+Ptr $>$ {\bfseries Shoot\+Nodes}
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmy_1_1Shooter_a074f3f97399ae7f4b93d365cda93610c}\label{classmy_1_1Shooter_a074f3f97399ae7f4b93d365cda93610c}} 
+bool {\bfseries Can\+Shoot} () const noexcept
+\item 
+\mbox{\Hypertarget{classmy_1_1Shooter_a829b2be6f57ce7d21ade456380168d86}\label{classmy_1_1Shooter_a829b2be6f57ce7d21ade456380168d86}} 
+const Shoot\+List {\bfseries Get\+Shoot\+List} () const  throw (std\+::out\+\_\+of\+\_\+range, std\+::invalid\+\_\+argument)
+\item 
+\mbox{\Hypertarget{classmy_1_1Shooter_a8bd2cf898da70f9ab05e1b3d9a8f246f}\label{classmy_1_1Shooter_a8bd2cf898da70f9ab05e1b3d9a8f246f}} 
+const Shoot\+Nodes \& {\bfseries Get\+Shoot\+Nodes} () const noexcept
+\item 
+\mbox{\Hypertarget{classmy_1_1Shooter_aaeab68a3e46942098d351b7958afa04e}\label{classmy_1_1Shooter_aaeab68a3e46942098d351b7958afa04e}} 
+const std\+::string \& {\bfseries Get\+Shoot\+Key} () const noexcept
+\item 
+\mbox{\Hypertarget{classmy_1_1Shooter_ab8882679b9b128e2b0f9b036b584ac58}\label{classmy_1_1Shooter_ab8882679b9b128e2b0f9b036b584ac58}} 
+const unsigned {\bfseries Get\+Shoot\+Framerate\+Max} () const noexcept
+\item 
+\mbox{\Hypertarget{classmy_1_1Shooter_a5e8b4144be7d18ecd74cefff1d1ec696}\label{classmy_1_1Shooter_a5e8b4144be7d18ecd74cefff1d1ec696}} 
+void {\bfseries Set\+Can\+Shoot} (bool can\+Shoot) noexcept
+\item 
+\mbox{\Hypertarget{classmy_1_1Shooter_a2f99b7f7802dd20fec49e571cfcfb887}\label{classmy_1_1Shooter_a2f99b7f7802dd20fec49e571cfcfb887}} 
+void {\bfseries Set\+Shoot\+Nodes} (const Shoot\+Nodes \&shoot\+Nodes) noexcept
+\item 
+\mbox{\Hypertarget{classmy_1_1Shooter_a2b6302544a8010b4f379c353ed6bfbac}\label{classmy_1_1Shooter_a2b6302544a8010b4f379c353ed6bfbac}} 
+void {\bfseries Add\+Shoot\+Node} (const std\+::string \&str, X\+M\+L\+Node\+::\+X\+M\+L\+Node\+Ptr new\+Shoot\+Node)  throw (std\+::invalid\+\_\+argument)
+\item 
+\mbox{\Hypertarget{classmy_1_1Shooter_afe3aa39abd0c4131b811596dcffa45a6}\label{classmy_1_1Shooter_afe3aa39abd0c4131b811596dcffa45a6}} 
+void {\bfseries Set\+Shoot\+Key} (const std\+::string \&key) noexcept
+\item 
+\mbox{\Hypertarget{classmy_1_1Shooter_ada55bbd697ad01242a5cbb07b691b27d}\label{classmy_1_1Shooter_ada55bbd697ad01242a5cbb07b691b27d}} 
+void {\bfseries Set\+Shoot\+Framerate\+Max} (unsigned shoot\+Framerate\+Max) noexcept
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmy_1_1Shooter_a0e5a30cdfabf48052d2484c2e2ca6f6f}\label{classmy_1_1Shooter_a0e5a30cdfabf48052d2484c2e2ca6f6f}} 
+void {\bfseries Update} () noexcept
+\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmy_1_1Shooter_a829743ae534a86061d3359aa4466109c}\label{classmy_1_1Shooter_a829743ae534a86061d3359aa4466109c}} 
+bool {\bfseries m\+\_\+can\+Shoot}
+\item 
+\mbox{\Hypertarget{classmy_1_1Shooter_a7f28784709dcee6b6379a96ed02af6cc}\label{classmy_1_1Shooter_a7f28784709dcee6b6379a96ed02af6cc}} 
+Shoot\+Nodes {\bfseries m\+\_\+shoot\+Nodes}
+\item 
+\mbox{\Hypertarget{classmy_1_1Shooter_a772980b6cb2304b5b7f58b538f97ff0b}\label{classmy_1_1Shooter_a772980b6cb2304b5b7f58b538f97ff0b}} 
+std\+::string {\bfseries m\+\_\+shoot\+Key}
+\item 
+\mbox{\Hypertarget{classmy_1_1Shooter_abecd4ad91ecd7c2ae5a3f629078f4969}\label{classmy_1_1Shooter_abecd4ad91ecd7c2ae5a3f629078f4969}} 
+unsigned {\bfseries m\+\_\+shoot\+Framerate\+Max}
+\end{DoxyCompactItemize}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+includes/my\+\_\+objects\+\_\+lib/Shooter.\+hpp\item 
+lib/my\+\_\+objects\+\_\+lib/Shooter.\+cpp\end{DoxyCompactItemize}

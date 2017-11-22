@@ -1,0 +1,32 @@
+\hypertarget{classFileInputStream}{}\section{Référence de la classe File\+Input\+Stream}
+\label{classFileInputStream}\index{File\+Input\+Stream@{File\+Input\+Stream}}
+
+
+{\ttfamily \#include $<$File\+Input\+Stream.\+hpp$>$}
+
+
+
+\subsection{Description détaillée}
+This class is a specialization of Input\+Stream that reads from a file on disk.
+
+It wraps a file in the common Input\+Stream interface and therefore allows to use generic classes or functions that accept such a stream, with a file on disk as the data source.
+
+In addition to the virtual functions inherited from Input\+Stream, \hyperlink{classFileInputStream}{File\+Input\+Stream} adds a function to specify the file to open.
+
+S\+F\+ML resource classes can usually be loaded directly from a filename, so this class shouldn\textquotesingle{}t be useful to you unless you create your own algorithms that operate on a Input\+Stream.
+
+Usage example\+: 
+\begin{DoxyCode}
+\textcolor{keywordtype}{void} process(InputStream& stream);
+
+FileStream stream;
+\textcolor{keywordflow}{if} (stream.open(\textcolor{stringliteral}{"some\_file.dat"}))
+   process(stream);
+\end{DoxyCode}
+
+
+Input\+Stream, Memory\+Stream 
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+includes/\+S\+F\+M\+L/\+System/File\+Input\+Stream.\+hpp\end{DoxyCompactItemize}

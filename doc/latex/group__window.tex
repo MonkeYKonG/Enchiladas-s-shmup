@@ -1,0 +1,80 @@
+\hypertarget{group__window}{}\section{Window module}
+\label{group__window}\index{Window module@{Window module}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classsf_1_1Context}{sf\+::\+Context}
+\begin{DoxyCompactList}\small\item\em Class holding a valid drawing context. \end{DoxyCompactList}\item 
+class \hyperlink{structsf_1_1ContextSettings}{sf\+::\+Context\+Settings}
+\begin{DoxyCompactList}\small\item\em Structure defining the settings of the Open\+GL context attached to a window. \end{DoxyCompactList}\item 
+class \hyperlink{classsf_1_1Event}{sf\+::\+Event}
+\begin{DoxyCompactList}\small\item\em Defines a system event and its parameters. \end{DoxyCompactList}\item 
+class \hyperlink{classsf_1_1GlResource}{sf\+::\+Gl\+Resource}
+\begin{DoxyCompactList}\small\item\em Base class for classes that require an Open\+GL context. \end{DoxyCompactList}\item 
+class \hyperlink{classsf_1_1Joystick}{sf\+::\+Joystick}
+\begin{DoxyCompactList}\small\item\em Give access to the real-\/time state of the joysticks. \end{DoxyCompactList}\item 
+class \hyperlink{classsf_1_1Keyboard}{sf\+::\+Keyboard}
+\begin{DoxyCompactList}\small\item\em Give access to the real-\/time state of the keyboard. \end{DoxyCompactList}\item 
+class \hyperlink{classsf_1_1Mouse}{sf\+::\+Mouse}
+\begin{DoxyCompactList}\small\item\em Give access to the real-\/time state of the mouse. \end{DoxyCompactList}\item 
+class \hyperlink{classsf_1_1Sensor}{sf\+::\+Sensor}
+\begin{DoxyCompactList}\small\item\em Give access to the real-\/time state of the sensors. \end{DoxyCompactList}\item 
+class \hyperlink{classsf_1_1Touch}{sf\+::\+Touch}
+\begin{DoxyCompactList}\small\item\em Give access to the real-\/time state of the touches. \end{DoxyCompactList}\item 
+class \hyperlink{classsf_1_1VideoMode}{sf\+::\+Video\+Mode}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classsf_1_1VideoMode}{Video\+Mode} defines a video mode (width, height, bpp) \end{DoxyCompactList}\item 
+class \hyperlink{classsf_1_1Window}{sf\+::\+Window}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classsf_1_1Window}{Window} that serves as a target for Open\+GL rendering. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \newline
+\hyperlink{group__window_gga8d7a3b8425c907a2872cb57e32cea5b8a8c35a9c8507559e455387fc4a83ce422}{sf\+::\+Style\+::\+None} = 0, 
+\hyperlink{group__window_gga8d7a3b8425c907a2872cb57e32cea5b8ab4c8b32b05ed715928513787cb1e85b6}{sf\+::\+Style\+::\+Titlebar} = 1 $<$$<$ 0, 
+\hyperlink{group__window_gga8d7a3b8425c907a2872cb57e32cea5b8accff967648ebcd5db2007eff7352b50f}{sf\+::\+Style\+::\+Resize} = 1 $<$$<$ 1, 
+\hyperlink{group__window_gga8d7a3b8425c907a2872cb57e32cea5b8ae07a7d411d5acf28f4a9a4b76a3a9493}{sf\+::\+Style\+::\+Close} = 1 $<$$<$ 2, 
+\newline
+\hyperlink{group__window_gga8d7a3b8425c907a2872cb57e32cea5b8a6288ec86830245cf957e2d234f79f50d}{sf\+::\+Style\+::\+Fullscreen} = 1 $<$$<$ 3, 
+\hyperlink{group__window_gga8d7a3b8425c907a2872cb57e32cea5b8a5597cd420fc461807e4a201c92adea37}{sf\+::\+Style\+::\+Default} = Titlebar $\vert$ Resize $\vert$ Close
+ \}\begin{DoxyCompactList}\small\item\em Enumeration of the window styles. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Provides Open\+G\+L-\/based windows, and abstractions for events and input handling. 
+
+\subsection{Documentation du type de l\textquotesingle{}énumération}
+\mbox{\Hypertarget{group__window_ga8d7a3b8425c907a2872cb57e32cea5b8}\label{group__window_ga8d7a3b8425c907a2872cb57e32cea5b8}} 
+\subsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily anonymous enum}
+
+
+
+Enumeration of the window styles. 
+
+\begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{None@{None}!Window module@{Window module}}\index{Window module@{Window module}!None@{None}}}\mbox{\Hypertarget{group__window_gga8d7a3b8425c907a2872cb57e32cea5b8a8c35a9c8507559e455387fc4a83ce422}\label{group__window_gga8d7a3b8425c907a2872cb57e32cea5b8a8c35a9c8507559e455387fc4a83ce422}} 
+None&No border / title bar (this flag and all others are mutually exclusive) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Titlebar@{Titlebar}!Window module@{Window module}}\index{Window module@{Window module}!Titlebar@{Titlebar}}}\mbox{\Hypertarget{group__window_gga8d7a3b8425c907a2872cb57e32cea5b8ab4c8b32b05ed715928513787cb1e85b6}\label{group__window_gga8d7a3b8425c907a2872cb57e32cea5b8ab4c8b32b05ed715928513787cb1e85b6}} 
+Titlebar&Title bar + fixed border. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Resize@{Resize}!Window module@{Window module}}\index{Window module@{Window module}!Resize@{Resize}}}\mbox{\Hypertarget{group__window_gga8d7a3b8425c907a2872cb57e32cea5b8accff967648ebcd5db2007eff7352b50f}\label{group__window_gga8d7a3b8425c907a2872cb57e32cea5b8accff967648ebcd5db2007eff7352b50f}} 
+Resize&Title bar + resizable border + maximize button. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Close@{Close}!Window module@{Window module}}\index{Window module@{Window module}!Close@{Close}}}\mbox{\Hypertarget{group__window_gga8d7a3b8425c907a2872cb57e32cea5b8ae07a7d411d5acf28f4a9a4b76a3a9493}\label{group__window_gga8d7a3b8425c907a2872cb57e32cea5b8ae07a7d411d5acf28f4a9a4b76a3a9493}} 
+Close&Title bar + close button. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Fullscreen@{Fullscreen}!Window module@{Window module}}\index{Window module@{Window module}!Fullscreen@{Fullscreen}}}\mbox{\Hypertarget{group__window_gga8d7a3b8425c907a2872cb57e32cea5b8a6288ec86830245cf957e2d234f79f50d}\label{group__window_gga8d7a3b8425c907a2872cb57e32cea5b8a6288ec86830245cf957e2d234f79f50d}} 
+Fullscreen&Fullscreen mode (this flag and all others are mutually exclusive) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Default@{Default}!Window module@{Window module}}\index{Window module@{Window module}!Default@{Default}}}\mbox{\Hypertarget{group__window_gga8d7a3b8425c907a2872cb57e32cea5b8a5597cd420fc461807e4a201c92adea37}\label{group__window_gga8d7a3b8425c907a2872cb57e32cea5b8a5597cd420fc461807e4a201c92adea37}} 
+Default&Default window style. \\
+\hline
+
+\end{DoxyEnumFields}

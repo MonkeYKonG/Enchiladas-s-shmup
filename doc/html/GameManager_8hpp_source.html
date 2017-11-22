@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Schmup:  Fichier source de includes/my_graph_lib/GameManager.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Schmup
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.14 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_09e761304027c904456130627fd4dcf5.html">includes</a></li><li class="navelem"><a class="el" href="dir_4c9bbdd9103b620b7bc298fb219dbab1.html">my_graph_lib</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">GameManager.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;stdexcept&gt;</span></div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;list&gt;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;WindowBuffer.hh&quot;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;XMLNode.hpp&quot;</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace   </span><a class="code" href="namespacemy.html">my</a></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classmy_1_1GameManager.html">   14</a></span>&#160;    <span class="keyword">class   </span><a class="code" href="classmy_1_1GameManager.html">GameManager</a></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    {</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">public</span>:</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="classmy_1_1GameManager.html">GameManager</a>() noexcept {}</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordtype">void</span>            <a class="code" href="classmy_1_1GameManager.html#ae4f3327cd31637d91c8089a4b7457739">Loop</a>() <span class="keywordflow">throw</span> (std::out_of_range, std::invalid_argument);</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">protected</span>:</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span>    <a class="code" href="classmy_1_1GameManager.html#ab08492747a12e8eed0da29b22b9d84a4">InitializeWindow</a>(XMLNode::XMLNodePtr windowRoot) <span class="keywordflow">throw</span> (std::out_of_range, std::invalid_argument);</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span>    <a class="code" href="classmy_1_1GameManager.html#a4374c551a764c9cea7c0f0ee5e2871ea">InitializeScenes</a>(XMLNode::XMLNodePtr scenesRoot) <span class="keywordflow">throw</span> (std::out_of_range, std::invalid_argument) = 0;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span>    <a class="code" href="classmy_1_1GameManager.html#a1c6298ac18a158b2a59143aff1e7beff">Initialize</a>() <span class="keywordflow">throw</span> (std::out_of_range, std::invalid_argument);</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span>    <a class="code" href="classmy_1_1GameManager.html#afb2475a81919fd9f60bc6d4f3655e39d">Update</a>() <span class="keywordflow">throw</span> (std::exception);</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span>    <a class="code" href="classmy_1_1GameManager.html#a5df3d31f463a08dbd9b7447fa10d0fab">Draw</a>() noexcept;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div><div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classmy_1_1GameManager.html#a94d72e7dc8cd242d169c709d49092838">   56</a></span>&#160;      <a class="code" href="structmy_1_1WindowBuffer.html">WindowBuffer</a>  <a class="code" href="classmy_1_1GameManager.html#a94d72e7dc8cd242d169c709d49092838">m_window</a>;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">private</span>:</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> std::string    MAIN_XML_PATH;</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> std::string    SCREEN_NODE;</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> std::string    SCREEN_VIDEOMODE_NODE;</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> std::string    SCREEN_VIDEOMODE_WIDTH_NODE;</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> std::string    SCREEN_VIDEOMODE_HEIGHT_NODE;</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> std::string    SCREEN_VIDEOMODE_BPP_NODE;</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> std::string    SCREEN_TITLE_NODE;</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> std::string    SCENES_NODE;</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    };</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div><div class="ttc" id="classmy_1_1GameManager_html_a5df3d31f463a08dbd9b7447fa10d0fab"><div class="ttname"><a href="classmy_1_1GameManager.html#a5df3d31f463a08dbd9b7447fa10d0fab">my::GameManager::Draw</a></div><div class="ttdeci">virtual void Draw() noexcept</div><div class="ttdoc">Efface le contenue de la fenêtre, puis dessine et affiche la scene courante. </div><div class="ttdef"><b>Definition:</b> GameManager.cpp:88</div></div>
+<div class="ttc" id="structmy_1_1WindowBuffer_html"><div class="ttname"><a href="structmy_1_1WindowBuffer.html">my::WindowBuffer</a></div><div class="ttdoc">Fenêtre de rendu. Contient les différentes scènes du jeu. </div><div class="ttdef"><b>Definition:</b> WindowBuffer.hh:8</div></div>
+<div class="ttc" id="classmy_1_1GameManager_html_ae4f3327cd31637d91c8089a4b7457739"><div class="ttname"><a href="classmy_1_1GameManager.html#ae4f3327cd31637d91c8089a4b7457739">my::GameManager::Loop</a></div><div class="ttdeci">void Loop()</div><div class="ttdoc">Lance la boucle principal du jeu. </div><div class="ttdef"><b>Definition:</b> GameManager.cpp:96</div></div>
+<div class="ttc" id="classmy_1_1GameManager_html_afb2475a81919fd9f60bc6d4f3655e39d"><div class="ttname"><a href="classmy_1_1GameManager.html#afb2475a81919fd9f60bc6d4f3655e39d">my::GameManager::Update</a></div><div class="ttdeci">virtual void Update()</div><div class="ttdoc">Appel la fonction Update de la scene courant et interprette sa valeur de retour. </div><div class="ttdef"><b>Definition:</b> GameManager.cpp:65</div></div>
+<div class="ttc" id="classmy_1_1GameManager_html_a4374c551a764c9cea7c0f0ee5e2871ea"><div class="ttname"><a href="classmy_1_1GameManager.html#a4374c551a764c9cea7c0f0ee5e2871ea">my::GameManager::InitializeScenes</a></div><div class="ttdeci">virtual void InitializeScenes(XMLNode::XMLNodePtr scenesRoot)=0</div><div class="ttdoc">Initialise les différentes Scenes. </div></div>
+<div class="ttc" id="classmy_1_1GameManager_html_ab08492747a12e8eed0da29b22b9d84a4"><div class="ttname"><a href="classmy_1_1GameManager.html#ab08492747a12e8eed0da29b22b9d84a4">my::GameManager::InitializeWindow</a></div><div class="ttdeci">virtual void InitializeWindow(XMLNode::XMLNodePtr windowRoot)</div><div class="ttdoc">Initialise la fenêtre de rendu. </div><div class="ttdef"><b>Definition:</b> GameManager.cpp:18</div></div>
+<div class="ttc" id="classmy_1_1GameManager_html_a1c6298ac18a158b2a59143aff1e7beff"><div class="ttname"><a href="classmy_1_1GameManager.html#a1c6298ac18a158b2a59143aff1e7beff">my::GameManager::Initialize</a></div><div class="ttdeci">virtual void Initialize()</div><div class="ttdoc">Charge le fichier XML puis appel les différentes fonction d&amp;#39;initilisation. </div><div class="ttdef"><b>Definition:</b> GameManager.cpp:45</div></div>
+<div class="ttc" id="namespacemy_html"><div class="ttname"><a href="namespacemy.html">my</a></div><div class="ttdef"><b>Definition:</b> AnimatedObject.hpp:8</div></div>
+<div class="ttc" id="classmy_1_1GameManager_html"><div class="ttname"><a href="classmy_1_1GameManager.html">my::GameManager</a></div><div class="ttdoc">Class principal du jeux. </div><div class="ttdef"><b>Definition:</b> GameManager.hpp:14</div></div>
+<div class="ttc" id="classmy_1_1GameManager_html_a94d72e7dc8cd242d169c709d49092838"><div class="ttname"><a href="classmy_1_1GameManager.html#a94d72e7dc8cd242d169c709d49092838">my::GameManager::m_window</a></div><div class="ttdeci">WindowBuffer m_window</div><div class="ttdoc">La fenêtre de rendu. </div><div class="ttdef"><b>Definition:</b> GameManager.hpp:56</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

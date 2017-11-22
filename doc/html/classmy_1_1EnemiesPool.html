@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Schmup: Référence de la classe my::EnemiesPool</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Schmup
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.14 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><b>my</b></li><li class="navelem"><a class="el" href="classmy_1_1EnemiesPool.html">EnemiesPool</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Types publics</a> &#124;
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="classmy_1_1EnemiesPool-members.html">Liste de tous les membres</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence de la classe my::EnemiesPool</div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Types publics</h2></td></tr>
+<tr class="memitem:ae3f32bbf808d2bf78926b3d9833baa0b"><td class="memItemLeft" align="right" valign="top"><a id="ae3f32bbf808d2bf78926b3d9833baa0b"></a>
+typedef std::vector&lt; Enemy::EnemyPtr &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>EnemiesList</b></td></tr>
+<tr class="separator:ae3f32bbf808d2bf78926b3d9833baa0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a802897ecaf9a2be0342fe0c940d8b87d"><td class="memItemLeft" align="right" valign="top"><a id="a802897ecaf9a2be0342fe0c940d8b87d"></a>
+typedef std::vector&lt; XMLNode::XMLNodePtr &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>EnemiesNodeList</b></td></tr>
+<tr class="separator:a802897ecaf9a2be0342fe0c940d8b87d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:ac19b1fb3fa34c79ecd8a113f56838ef2"><td class="memItemLeft" align="right" valign="top"><a id="ac19b1fb3fa34c79ecd8a113f56838ef2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>InitializeStage</b> (XMLNode::XMLNodePtr stageNode)  throw (std::out_of_range, std::invalid_argument)</td></tr>
+<tr class="separator:ac19b1fb3fa34c79ecd8a113f56838ef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8014f3ffa9485b428ed2cc5b8cc656a6"><td class="memItemLeft" align="right" valign="top"><a id="a8014f3ffa9485b428ed2cc5b8cc656a6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>InitializeEnemies</b> (XMLNode::XMLNodePtr enemiesNode)  throw (std::out_of_range, std::invalid_argument)</td></tr>
+<tr class="separator:a8014f3ffa9485b428ed2cc5b8cc656a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb428383f257a2e10cc1e6b4cea42a26"><td class="memItemLeft" align="right" valign="top"><a id="afb428383f257a2e10cc1e6b4cea42a26"></a>
+const EnemiesList&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> (bool isClean)  throw (std::out_of_range, std::invalid_argument)</td></tr>
+<tr class="separator:afb428383f257a2e10cc1e6b4cea42a26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
+<li>includes/my_objects_lib/<a class="el" href="EnemiesPool_8hpp_source.html">EnemiesPool.hpp</a></li>
+<li>lib/my_objects_lib/EnemiesPool.cpp</li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

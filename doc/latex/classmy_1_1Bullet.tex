@@ -1,0 +1,77 @@
+\hypertarget{classmy_1_1Bullet}{}\section{Référence de la classe my\+:\+:Bullet}
+\label{classmy_1_1Bullet}\index{my\+::\+Bullet@{my\+::\+Bullet}}
+Graphe d\textquotesingle{}héritage de my\+:\+:Bullet\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classmy_1_1Bullet}
+\end{center}
+\end{figure}
+\subsection*{Types publics}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmy_1_1Bullet_a4b5c005e88ac1169b45ef54969763ddf}\label{classmy_1_1Bullet_a4b5c005e88ac1169b45ef54969763ddf}} 
+typedef std\+::shared\+\_\+ptr$<$ \hyperlink{classmy_1_1Bullet}{Bullet} $>$ {\bfseries Bullet\+Ptr}
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmy_1_1Bullet_a4d8f83b7d45b3a427ef622b30504c994}\label{classmy_1_1Bullet_a4d8f83b7d45b3a427ef622b30504c994}} 
+virtual void {\bfseries Update} ()  throw (std\+::out\+\_\+of\+\_\+range)
+\item 
+virtual void \hyperlink{classmy_1_1Bullet_add56b393dfba4c70de2713d4a3c917c3}{Take\+Damage} (unsigned damage) noexcept
+\begin{DoxyCompactList}\small\item\em Soustrait aux points de vie courant la valeur passé en argument. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classmy_1_1Bullet_ac09bef4306b861082d6faf51ffa196ec}\label{classmy_1_1Bullet_ac09bef4306b861082d6faf51ffa196ec}} 
+bool {\bfseries Is\+Finish} () const noexcept
+\item 
+\mbox{\Hypertarget{classmy_1_1Bullet_ae27237c0484100a583acb3c1368ac748}\label{classmy_1_1Bullet_ae27237c0484100a583acb3c1368ac748}} 
+unsigned {\bfseries Get\+Travel\+Time} () const noexcept
+\item 
+\mbox{\Hypertarget{classmy_1_1Bullet_aa892fbd61eb8400b1edc0510f520222f}\label{classmy_1_1Bullet_aa892fbd61eb8400b1edc0510f520222f}} 
+unsigned {\bfseries Get\+Damage} () const noexcept
+\item 
+\mbox{\Hypertarget{classmy_1_1Bullet_abce688ee87e4fc3127138ffa9188a176}\label{classmy_1_1Bullet_abce688ee87e4fc3127138ffa9188a176}} 
+void {\bfseries Set\+Travel\+Time} (unsigned travel\+Time) noexcept
+\item 
+\mbox{\Hypertarget{classmy_1_1Bullet_ae283ab2faf88aa846a59df9eb52b5c10}\label{classmy_1_1Bullet_ae283ab2faf88aa846a59df9eb52b5c10}} 
+void {\bfseries Set\+Damage} (unsigned damage) noexcept
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmy_1_1Bullet_a6cf422fe6c782a0455a21fa38b999464}\label{classmy_1_1Bullet_a6cf422fe6c782a0455a21fa38b999464}} 
+virtual void {\bfseries Update\+Animation} ()  throw (std\+::out\+\_\+of\+\_\+range)
+\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmy_1_1Bullet_ae24f81c42c087ec24378674c27f749a0}\label{classmy_1_1Bullet_ae24f81c42c087ec24378674c27f749a0}} 
+unsigned {\bfseries m\+\_\+travel\+Time}
+\item 
+\mbox{\Hypertarget{classmy_1_1Bullet_ab06dc2584a017781b2cf592d906c14da}\label{classmy_1_1Bullet_ab06dc2584a017781b2cf592d906c14da}} 
+unsigned {\bfseries m\+\_\+damage}
+\end{DoxyCompactItemize}
+\subsection*{Membres hérités additionnels}
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classmy_1_1Bullet_add56b393dfba4c70de2713d4a3c917c3}\label{classmy_1_1Bullet_add56b393dfba4c70de2713d4a3c917c3}} 
+\index{my\+::\+Bullet@{my\+::\+Bullet}!Take\+Damage@{Take\+Damage}}
+\index{Take\+Damage@{Take\+Damage}!my\+::\+Bullet@{my\+::\+Bullet}}
+\subsubsection{\texorpdfstring{Take\+Damage()}{TakeDamage()}}
+{\footnotesize\ttfamily void my\+::\+Bullet\+::\+Take\+Damage (\begin{DoxyParamCaption}\item[{unsigned}]{damage }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Soustrait aux points de vie courant la valeur passé en argument. 
+
+{\bfseries Arguments}~\newline
+ damage\+: Le nombre de dommage à subir. 
+
+Réimplémentée à partir de \hyperlink{classmy_1_1AliveObject_a4c13171af7b862e15bfd1737a75dab75}{my\+::\+Alive\+Object}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+includes/my\+\_\+objects\+\_\+lib/Bullet.\+hpp\item 
+lib/my\+\_\+objects\+\_\+lib/Bullet.\+cpp\end{DoxyCompactItemize}

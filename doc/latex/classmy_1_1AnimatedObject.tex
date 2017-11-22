@@ -1,0 +1,100 @@
+\hypertarget{classmy_1_1AnimatedObject}{}\section{Référence de la classe my\+:\+:Animated\+Object}
+\label{classmy_1_1AnimatedObject}\index{my\+::\+Animated\+Object@{my\+::\+Animated\+Object}}
+Graphe d\textquotesingle{}héritage de my\+:\+:Animated\+Object\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.564885cm]{classmy_1_1AnimatedObject}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structmy_1_1AnimatedObject_1_1Animation}{Animation}
+\end{DoxyCompactItemize}
+\subsection*{Types publics}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmy_1_1AnimatedObject_a15ca4fc03c83bb613ce972f422ab5ccd}\label{classmy_1_1AnimatedObject_a15ca4fc03c83bb613ce972f422ab5ccd}} 
+typedef std\+::shared\+\_\+ptr$<$ \hyperlink{classmy_1_1AnimatedObject}{Animated\+Object} $>$ {\bfseries Animated\+Object\+Ptr}
+\item 
+\mbox{\Hypertarget{classmy_1_1AnimatedObject_aae6a82042023277647171b52de887b85}\label{classmy_1_1AnimatedObject_aae6a82042023277647171b52de887b85}} 
+typedef std\+::vector$<$ \hyperlink{structmy_1_1AnimatedObject_1_1Animation}{Animation} $>$ {\bfseries Animations}
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmy_1_1AnimatedObject_a480119012567dd5f2012b61eaf6c8273}\label{classmy_1_1AnimatedObject_a480119012567dd5f2012b61eaf6c8273}} 
+bool {\bfseries Is\+On\+Animation} () const noexcept
+\item 
+\mbox{\Hypertarget{classmy_1_1AnimatedObject_a49756a252ea70f3113619f1666205794}\label{classmy_1_1AnimatedObject_a49756a252ea70f3113619f1666205794}} 
+bool {\bfseries Animation\+Exist} (const std\+::string \&key) const noexcept
+\item 
+\mbox{\Hypertarget{classmy_1_1AnimatedObject_a6aabe49b2c026eeb609c1a558141e241}\label{classmy_1_1AnimatedObject_a6aabe49b2c026eeb609c1a558141e241}} 
+const sf\+::\+Int\+Rect \& {\bfseries Get\+Curent\+Rect} () const  throw (std\+::out\+\_\+of\+\_\+range)
+\item 
+\mbox{\Hypertarget{classmy_1_1AnimatedObject_ab5a32b5d7b30e6ca594d824a8228b0df}\label{classmy_1_1AnimatedObject_ab5a32b5d7b30e6ca594d824a8228b0df}} 
+const \hyperlink{structmy_1_1AnimatedObject_1_1Animation}{Animation} \& {\bfseries Get\+Curent\+Animation} () const  throw (std\+::out\+\_\+of\+\_\+range)
+\item 
+\mbox{\Hypertarget{classmy_1_1AnimatedObject_a41aafdead3b867bd67ce633fb85ed9af}\label{classmy_1_1AnimatedObject_a41aafdead3b867bd67ce633fb85ed9af}} 
+const Animations \& {\bfseries Get\+Animations} () const noexcept
+\item 
+\mbox{\Hypertarget{classmy_1_1AnimatedObject_aa786264957518722eb2b847fa725e3b1}\label{classmy_1_1AnimatedObject_aa786264957518722eb2b847fa725e3b1}} 
+unsigned {\bfseries Get\+Cur\+Framerate} () const noexcept
+\item 
+\mbox{\Hypertarget{classmy_1_1AnimatedObject_a0e01eea3aec59eace02d377bcf3f528d}\label{classmy_1_1AnimatedObject_a0e01eea3aec59eace02d377bcf3f528d}} 
+void {\bfseries Set\+On\+Animation} (bool on\+Animation) noexcept
+\item 
+\mbox{\Hypertarget{classmy_1_1AnimatedObject_a528df17be1a66e7ead821c3a0de3609b}\label{classmy_1_1AnimatedObject_a528df17be1a66e7ead821c3a0de3609b}} 
+void {\bfseries Set\+Animations} (const Animations \&animations) noexcept
+\item 
+\mbox{\Hypertarget{classmy_1_1AnimatedObject_aa280439191dcecdb95ca210a5d0901da}\label{classmy_1_1AnimatedObject_aa280439191dcecdb95ca210a5d0901da}} 
+void {\bfseries Add\+Animation} (const \hyperlink{structmy_1_1AnimatedObject_1_1Animation}{Animation} \&animation) noexcept
+\item 
+\mbox{\Hypertarget{classmy_1_1AnimatedObject_a4efb6bb97d338e7008c84800ab7c3802}\label{classmy_1_1AnimatedObject_a4efb6bb97d338e7008c84800ab7c3802}} 
+void {\bfseries Set\+Anim\+Index} (int index, int tile\+Index=0)  throw (std\+::out\+\_\+of\+\_\+range)
+\item 
+\mbox{\Hypertarget{classmy_1_1AnimatedObject_ab48589255e1825b37c68b25522de2b94}\label{classmy_1_1AnimatedObject_ab48589255e1825b37c68b25522de2b94}} 
+void {\bfseries Set\+Anim\+Index} (const std\+::string \&key, int tile\+Index=0)  throw (std\+::out\+\_\+of\+\_\+range)
+\item 
+\mbox{\Hypertarget{classmy_1_1AnimatedObject_aa4e740cdea42f3531264a3b438d7482d}\label{classmy_1_1AnimatedObject_aa4e740cdea42f3531264a3b438d7482d}} 
+void {\bfseries Set\+Anim\+Tile\+Index} (int tile\+Index)  throw (std\+::out\+\_\+of\+\_\+range)
+\item 
+\mbox{\Hypertarget{classmy_1_1AnimatedObject_a6c79b593a1fec85a831ec94a38f94c83}\label{classmy_1_1AnimatedObject_a6c79b593a1fec85a831ec94a38f94c83}} 
+void {\bfseries Set\+Cur\+Frame\+Rate} (unsigned cur\+Framerate) noexcept
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmy_1_1AnimatedObject_a3191de9eb8f6cff2f5392638fa13cca3}\label{classmy_1_1AnimatedObject_a3191de9eb8f6cff2f5392638fa13cca3}} 
+virtual void {\bfseries Update\+Animation} ()  throw (std\+::out\+\_\+of\+\_\+range)
+\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmy_1_1AnimatedObject_adc14c5e8effd46c532ca02127ba1a189}\label{classmy_1_1AnimatedObject_adc14c5e8effd46c532ca02127ba1a189}} 
+bool {\bfseries m\+\_\+on\+Animation}
+\item 
+\mbox{\Hypertarget{classmy_1_1AnimatedObject_a553266e96f728842249f960687d094b9}\label{classmy_1_1AnimatedObject_a553266e96f728842249f960687d094b9}} 
+Animations {\bfseries m\+\_\+animations}
+\item 
+\mbox{\Hypertarget{classmy_1_1AnimatedObject_a0a660f4d34009beb751bb8d8d16652af}\label{classmy_1_1AnimatedObject_a0a660f4d34009beb751bb8d8d16652af}} 
+int {\bfseries m\+\_\+anim\+Index}
+\item 
+\mbox{\Hypertarget{classmy_1_1AnimatedObject_a1b115d7e8e1919079b669c87466f56a2}\label{classmy_1_1AnimatedObject_a1b115d7e8e1919079b669c87466f56a2}} 
+int {\bfseries m\+\_\+anim\+Tile\+Index}
+\item 
+\mbox{\Hypertarget{classmy_1_1AnimatedObject_a49fddef498a3975e4846cf093e83e41f}\label{classmy_1_1AnimatedObject_a49fddef498a3975e4846cf093e83e41f}} 
+unsigned {\bfseries m\+\_\+cur\+Framerate}
+\end{DoxyCompactItemize}
+\subsection*{Attributs protégés statiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmy_1_1AnimatedObject_a561669375b8ea9b5be6309c04be3056b}\label{classmy_1_1AnimatedObject_a561669375b8ea9b5be6309c04be3056b}} 
+static const std\+::string {\bfseries D\+E\+F\+A\+U\+L\+T\+\_\+\+A\+N\+I\+M\+\_\+\+N\+A\+ME} = \char`\"{}default\char`\"{}
+\end{DoxyCompactItemize}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+includes/my\+\_\+graph\+\_\+lib/Animated\+Object.\+hpp\item 
+lib/my\+\_\+graph\+\_\+lib/Animated\+Object.\+cpp\end{DoxyCompactItemize}

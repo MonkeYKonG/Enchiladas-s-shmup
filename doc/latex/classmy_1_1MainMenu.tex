@@ -1,0 +1,126 @@
+\hypertarget{classmy_1_1MainMenu}{}\section{Référence de la classe my\+:\+:Main\+Menu}
+\label{classmy_1_1MainMenu}\index{my\+::\+Main\+Menu@{my\+::\+Main\+Menu}}
+Graphe d\textquotesingle{}héritage de my\+:\+:Main\+Menu\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classmy_1_1MainMenu}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+virtual const \hyperlink{structmy_1_1SceneReturnValue}{Scene\+Return\+Value} \hyperlink{classmy_1_1MainMenu_ada39ad2f51014f08e4526056967daf47}{Update} (sf\+::\+Render\+Window \&window)  throw (std\+::exception)
+\begin{DoxyCompactList}\small\item\em Met à jour les différentes entités. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classmy_1_1MainMenu_a56e81061a8d8d9a0da77267bd38ec058}{Initialize} (X\+M\+L\+Node\+::\+X\+M\+L\+Node\+Ptr scene\+Root)  throw (std\+::out\+\_\+of\+\_\+range, std\+::invalid\+\_\+argument)
+\begin{DoxyCompactList}\small\item\em Initialise les entités. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classmy_1_1MainMenu_aace3282e435e32542dd3d6ee9bb76ea2}\label{classmy_1_1MainMenu_aace3282e435e32542dd3d6ee9bb76ea2}} 
+virtual void \hyperlink{classmy_1_1MainMenu_aace3282e435e32542dd3d6ee9bb76ea2}{Reset} ()  throw (std\+::out\+\_\+of\+\_\+range, std\+::invalid\+\_\+argument)
+\begin{DoxyCompactList}\small\item\em Replace les entités à leurs valeur de base. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Types protégés}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmy_1_1MainMenu_a102ed07102cbecf38cf0553175a1256c}\label{classmy_1_1MainMenu_a102ed07102cbecf38cf0553175a1256c}} 
+typedef void(Main\+Menu\+::$\ast$ {\bfseries Initialization\+Function}) (X\+M\+L\+Node\+::\+X\+M\+L\+Node\+Ptr)
+\item 
+\mbox{\Hypertarget{classmy_1_1MainMenu_a10e6c31633e05d88d7b7681fce10a397}\label{classmy_1_1MainMenu_a10e6c31633e05d88d7b7681fce10a397}} 
+typedef std\+::pair$<$ std\+::string, Initialization\+Function $>$ {\bfseries Init\+Function\+Pair}
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmy_1_1MainMenu_af378fdb76cb97944ee6b5501933ee669}\label{classmy_1_1MainMenu_af378fdb76cb97944ee6b5501933ee669}} 
+void \hyperlink{classmy_1_1MainMenu_af378fdb76cb97944ee6b5501933ee669}{draw} (sf\+::\+Render\+Target \&target, sf\+::\+Render\+States states) const noexcept
+\begin{DoxyCompactList}\small\item\em Dessine les entités. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classmy_1_1MainMenu_a72f1d70bd3785fda568a4eea63c5dafe}\label{classmy_1_1MainMenu_a72f1d70bd3785fda568a4eea63c5dafe}} 
+void {\bfseries Initialize\+Functions} () noexcept
+\item 
+\mbox{\Hypertarget{classmy_1_1MainMenu_a296884bc71735ca403dbf764393da846}\label{classmy_1_1MainMenu_a296884bc71735ca403dbf764393da846}} 
+void {\bfseries Initialize\+Cursor} (X\+M\+L\+Node\+::\+X\+M\+L\+Node\+Ptr cursor\+Node)  throw (std\+::out\+\_\+of\+\_\+range, std\+::invalid\+\_\+argument)
+\item 
+\mbox{\Hypertarget{classmy_1_1MainMenu_ac5788ee93769d1b77d613e5f3755c9ad}\label{classmy_1_1MainMenu_ac5788ee93769d1b77d613e5f3755c9ad}} 
+void {\bfseries Initialize\+Background} (X\+M\+L\+Node\+::\+X\+M\+L\+Node\+Ptr background\+Node)  throw (std\+::out\+\_\+of\+\_\+range, std\+::invalid\+\_\+argument)
+\item 
+\mbox{\Hypertarget{classmy_1_1MainMenu_abfe185e68ceb5392ec2e7a82036f6659}\label{classmy_1_1MainMenu_abfe185e68ceb5392ec2e7a82036f6659}} 
+void {\bfseries Initialize\+Panel} (X\+M\+L\+Node\+::\+X\+M\+L\+Node\+Ptr panel\+Node)  throw (std\+::out\+\_\+of\+\_\+range, std\+::invalid\+\_\+argument)
+\item 
+\mbox{\Hypertarget{classmy_1_1MainMenu_a783a7ca45c020dc4b4774f6c71a034e4}\label{classmy_1_1MainMenu_a783a7ca45c020dc4b4774f6c71a034e4}} 
+void {\bfseries Update\+Objects} (sf\+::\+Render\+Window \&window)  throw (std\+::out\+\_\+of\+\_\+range)
+\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmy_1_1MainMenu_a6353917fac209a9e2b373d0baf8e706d}\label{classmy_1_1MainMenu_a6353917fac209a9e2b373d0baf8e706d}} 
+Sprite\+Object\+::\+Sprite\+Object\+Ptr {\bfseries m\+\_\+background}
+\item 
+\mbox{\Hypertarget{classmy_1_1MainMenu_a7026ad1d5239747cafeb0311bd1be6c3}\label{classmy_1_1MainMenu_a7026ad1d5239747cafeb0311bd1be6c3}} 
+std\+::vector$<$ Panel\+::\+Panel\+Ptr $>$ {\bfseries m\+\_\+panels}
+\item 
+\mbox{\Hypertarget{classmy_1_1MainMenu_a7b4c388904d29dacaed752d24806af07}\label{classmy_1_1MainMenu_a7b4c388904d29dacaed752d24806af07}} 
+Cursor\+::\+Cursor\+Ptr {\bfseries m\+\_\+cursor}
+\item 
+\mbox{\Hypertarget{classmy_1_1MainMenu_a14fa5f4a1d39c3a395421d40ab5e70e1}\label{classmy_1_1MainMenu_a14fa5f4a1d39c3a395421d40ab5e70e1}} 
+X\+M\+L\+Node\+::\+X\+M\+L\+Node\+Ptr {\bfseries m\+\_\+root}
+\item 
+\mbox{\Hypertarget{classmy_1_1MainMenu_ac20c2eeca3ed98c03be2895ed97ffe2f}\label{classmy_1_1MainMenu_ac20c2eeca3ed98c03be2895ed97ffe2f}} 
+std\+::vector$<$ Init\+Function\+Pair $>$ {\bfseries m\+\_\+initialization\+Functions}
+\end{DoxyCompactItemize}
+\subsection*{Attributs protégés statiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmy_1_1MainMenu_a46b0174e3a1c0b4a1900c08a1466f6ee}\label{classmy_1_1MainMenu_a46b0174e3a1c0b4a1900c08a1466f6ee}} 
+static const std\+::string {\bfseries S\+C\+E\+N\+E\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+N\+O\+DE} = \char`\"{}cursor\char`\"{}
+\item 
+\mbox{\Hypertarget{classmy_1_1MainMenu_a2b1bd6d21170cf4add1664de523477fd}\label{classmy_1_1MainMenu_a2b1bd6d21170cf4add1664de523477fd}} 
+static const std\+::string {\bfseries S\+C\+E\+N\+E\+\_\+\+B\+A\+C\+K\+G\+R\+O\+U\+N\+D\+\_\+\+N\+O\+DE} = \char`\"{}background\char`\"{}
+\item 
+\mbox{\Hypertarget{classmy_1_1MainMenu_aec125c05b5d2f5d5b93a994d1d44b15b}\label{classmy_1_1MainMenu_aec125c05b5d2f5d5b93a994d1d44b15b}} 
+static const std\+::string {\bfseries S\+C\+E\+N\+E\+\_\+\+P\+A\+N\+E\+L\+\_\+\+N\+O\+DE} = \char`\"{}panel\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Membres hérités additionnels}
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classmy_1_1MainMenu_a56e81061a8d8d9a0da77267bd38ec058}\label{classmy_1_1MainMenu_a56e81061a8d8d9a0da77267bd38ec058}} 
+\index{my\+::\+Main\+Menu@{my\+::\+Main\+Menu}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!my\+::\+Main\+Menu@{my\+::\+Main\+Menu}}
+\subsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily void my\+::\+Main\+Menu\+::\+Initialize (\begin{DoxyParamCaption}\item[{X\+M\+L\+Node\+::\+X\+M\+L\+Node\+Ptr}]{scene\+Root }\end{DoxyParamCaption}) throw  std\+::out\+\_\+of\+\_\+range, std\+::invalid\+\_\+argument) \hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Initialise les entités. 
+
+{\bfseries Arguments}~\newline
+ scene\+Root\+: Noeud X\+ML contenant les informations sur la scène 
+
+Implémente \hyperlink{classmy_1_1Scene_ac9401c5ec0e8a740fa338324a7df67a6}{my\+::\+Scene}.
+
+
+
+Réimplémentée dans \hyperlink{classmy_1_1SchmupScene_ad1febbc7aaf1fc8b2eb4d02cdbf3f57a}{my\+::\+Schmup\+Scene}.
+
+\mbox{\Hypertarget{classmy_1_1MainMenu_ada39ad2f51014f08e4526056967daf47}\label{classmy_1_1MainMenu_ada39ad2f51014f08e4526056967daf47}} 
+\index{my\+::\+Main\+Menu@{my\+::\+Main\+Menu}!Update@{Update}}
+\index{Update@{Update}!my\+::\+Main\+Menu@{my\+::\+Main\+Menu}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily const \hyperlink{structmy_1_1SceneReturnValue}{Scene\+Return\+Value} my\+::\+Main\+Menu\+::\+Update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption}) throw  std\+::exception) \hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Met à jour les différentes entités. 
+
+{\bfseries Arguments}~\newline
+ window\+: La fenêtre de rendu actuellement utilisé. 
+
+Implémente \hyperlink{classmy_1_1Scene_ae9799de62a6daa9650e040f9f17c78df}{my\+::\+Scene}.
+
+
+
+Réimplémentée dans \hyperlink{classmy_1_1SchmupScene_ad07d5b2302f0a4250150d51fdcfa1c0b}{my\+::\+Schmup\+Scene}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+includes/my\+\_\+menu\+\_\+lib/Main\+Menu.\+hpp\item 
+lib/my\+\_\+menu\+\_\+lib/Main\+Menu.\+cpp\end{DoxyCompactItemize}

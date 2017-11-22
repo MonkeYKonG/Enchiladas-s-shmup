@@ -1,0 +1,655 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Schmup: Référence de la classe sf::Text</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Schmup
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.14 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><b>sf</b></li><li class="navelem"><a class="el" href="classsf_1_1Text.html">Text</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Types publics</a> &#124;
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="classsf_1_1Text-members.html">Liste de tous les membres</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence de la classe sf::Text<div class="ingroups"><a class="el" href="group__graphics.html">Graphics module</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Graphical text that can be drawn to a render target.  
+ <a href="classsf_1_1Text.html#details">Plus de détails...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Text_8hpp_source.html">Text.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Graphe d'héritage de sf::Text:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classsf_1_1Text.png" usemap="#sf::Text_map" alt=""/>
+  <map id="sf::Text_map" name="sf::Text_map">
+<area href="classsf_1_1Drawable.html" title="Abstract base class for objects that can be drawn to a render target. " alt="sf::Drawable" shape="rect" coords="0,0,109,24"/>
+<area href="classsf_1_1Transformable.html" title="Decomposed transform defined by a position, a rotation and a scale. " alt="sf::Transformable" shape="rect" coords="119,0,228,24"/>
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Types publics</h2></td></tr>
+<tr class="memitem:aa8add4aef484c6e6b20faff07452bd82"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Text.html#aa8add4aef484c6e6b20faff07452bd82">Style</a> { <br />
+&#160;&#160;<a class="el" href="classsf_1_1Text.html#aa8add4aef484c6e6b20faff07452bd82a2af9ae5e1cda126570f744448e0caa32">Regular</a> = 0, 
+<a class="el" href="classsf_1_1Text.html#aa8add4aef484c6e6b20faff07452bd82af1b47f98fb1e10509ba930a596987171">Bold</a> = 1 &lt;&lt; 0, 
+<a class="el" href="classsf_1_1Text.html#aa8add4aef484c6e6b20faff07452bd82aee249eb803848723c542c2062ebe69d8">Italic</a> = 1 &lt;&lt; 1, 
+<a class="el" href="classsf_1_1Text.html#aa8add4aef484c6e6b20faff07452bd82a664bd143f92b6e8c709d7f788e8b20df">Underlined</a> = 1 &lt;&lt; 2, 
+<br />
+&#160;&#160;<a class="el" href="classsf_1_1Text.html#aa8add4aef484c6e6b20faff07452bd82a9ed1f5bb154c21269e1190c5aa97d479">StrikeThrough</a> = 1 &lt;&lt; 3
+<br />
+ }<tr class="memdesc:aa8add4aef484c6e6b20faff07452bd82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumeration of the string drawing styles.  <a href="classsf_1_1Text.html#aa8add4aef484c6e6b20faff07452bd82">Plus de détails...</a><br /></td></tr>
+</td></tr>
+<tr class="separator:aa8add4aef484c6e6b20faff07452bd82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:aff7cab6a92e5948c9d1481cb2d87eb84"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Text.html#aff7cab6a92e5948c9d1481cb2d87eb84">Text</a> ()</td></tr>
+<tr class="memdesc:aff7cab6a92e5948c9d1481cb2d87eb84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#aff7cab6a92e5948c9d1481cb2d87eb84">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aff7cab6a92e5948c9d1481cb2d87eb84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a614019e0b5c0ed39a99d32483a51f2c5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Text.html#a614019e0b5c0ed39a99d32483a51f2c5">Text</a> (const <a class="el" href="classsf_1_1String.html">String</a> &amp;string, const <a class="el" href="classsf_1_1Font.html">Font</a> &amp;font, unsigned int characterSize=30)</td></tr>
+<tr class="memdesc:a614019e0b5c0ed39a99d32483a51f2c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the text from a string, font and size.  <a href="#a614019e0b5c0ed39a99d32483a51f2c5">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a614019e0b5c0ed39a99d32483a51f2c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d3b3359f286fd9503d1ced25b7b6c33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Text.html#a7d3b3359f286fd9503d1ced25b7b6c33">setString</a> (const <a class="el" href="classsf_1_1String.html">String</a> &amp;string)</td></tr>
+<tr class="memdesc:a7d3b3359f286fd9503d1ced25b7b6c33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the text's string.  <a href="#a7d3b3359f286fd9503d1ced25b7b6c33">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a7d3b3359f286fd9503d1ced25b7b6c33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2927805d1ae92d57f15034ea34756b81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Text.html#a2927805d1ae92d57f15034ea34756b81">setFont</a> (const <a class="el" href="classsf_1_1Font.html">Font</a> &amp;font)</td></tr>
+<tr class="memdesc:a2927805d1ae92d57f15034ea34756b81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the text's font.  <a href="#a2927805d1ae92d57f15034ea34756b81">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a2927805d1ae92d57f15034ea34756b81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae96f835fc1bff858f8a23c5b01eaaf7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Text.html#ae96f835fc1bff858f8a23c5b01eaaf7e">setCharacterSize</a> (unsigned int size)</td></tr>
+<tr class="memdesc:ae96f835fc1bff858f8a23c5b01eaaf7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the character size.  <a href="#ae96f835fc1bff858f8a23c5b01eaaf7e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae96f835fc1bff858f8a23c5b01eaaf7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad791702bc2d1b6590a1719aa60635edf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Text.html#ad791702bc2d1b6590a1719aa60635edf">setStyle</a> (Uint32 style)</td></tr>
+<tr class="memdesc:ad791702bc2d1b6590a1719aa60635edf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the text's style.  <a href="#ad791702bc2d1b6590a1719aa60635edf">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad791702bc2d1b6590a1719aa60635edf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd1742fca1adb6b0ea98357250ffb634"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Text.html#afd1742fca1adb6b0ea98357250ffb634">setColor</a> (const <a class="el" href="classsf_1_1Color.html">Color</a> &amp;color)</td></tr>
+<tr class="memdesc:afd1742fca1adb6b0ea98357250ffb634"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the global color of the text.  <a href="#afd1742fca1adb6b0ea98357250ffb634">Plus de détails...</a><br /></td></tr>
+<tr class="separator:afd1742fca1adb6b0ea98357250ffb634"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a084c275eb4bca835696af5f8f9c80ab3"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classsf_1_1String.html">String</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Text.html#a084c275eb4bca835696af5f8f9c80ab3">getString</a> () const</td></tr>
+<tr class="memdesc:a084c275eb4bca835696af5f8f9c80ab3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the text's string.  <a href="#a084c275eb4bca835696af5f8f9c80ab3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a084c275eb4bca835696af5f8f9c80ab3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47cd96d7b2c37b2f820e4d6e1bb83f96"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classsf_1_1Font.html">Font</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Text.html#a47cd96d7b2c37b2f820e4d6e1bb83f96">getFont</a> () const</td></tr>
+<tr class="memdesc:a47cd96d7b2c37b2f820e4d6e1bb83f96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the text's font.  <a href="#a47cd96d7b2c37b2f820e4d6e1bb83f96">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a47cd96d7b2c37b2f820e4d6e1bb83f96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46d1d7f1d513bb8d434e985a93ea5224"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Text.html#a46d1d7f1d513bb8d434e985a93ea5224">getCharacterSize</a> () const</td></tr>
+<tr class="memdesc:a46d1d7f1d513bb8d434e985a93ea5224"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the character size.  <a href="#a46d1d7f1d513bb8d434e985a93ea5224">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a46d1d7f1d513bb8d434e985a93ea5224"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0da79b0c057f4bb51592465a205c35d7"><td class="memItemLeft" align="right" valign="top">Uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Text.html#a0da79b0c057f4bb51592465a205c35d7">getStyle</a> () const</td></tr>
+<tr class="memdesc:a0da79b0c057f4bb51592465a205c35d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the text's style.  <a href="#a0da79b0c057f4bb51592465a205c35d7">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a0da79b0c057f4bb51592465a205c35d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4ca753f719c54692fd4d9284573a2c7"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classsf_1_1Color.html">Color</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Text.html#ae4ca753f719c54692fd4d9284573a2c7">getColor</a> () const</td></tr>
+<tr class="memdesc:ae4ca753f719c54692fd4d9284573a2c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the global color of the text.  <a href="#ae4ca753f719c54692fd4d9284573a2c7">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae4ca753f719c54692fd4d9284573a2c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e252d8dcae3eb61c6c962c0bc674b12"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsf_1_1Vector2.html">Vector2f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Text.html#a2e252d8dcae3eb61c6c962c0bc674b12">findCharacterPos</a> (std::size_t index) const</td></tr>
+<tr class="memdesc:a2e252d8dcae3eb61c6c962c0bc674b12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the position of the <em>index-th</em> character.  <a href="#a2e252d8dcae3eb61c6c962c0bc674b12">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a2e252d8dcae3eb61c6c962c0bc674b12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e6b3b298827f853b41165eee2cbbc66"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsf_1_1Rect.html">FloatRect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Text.html#a3e6b3b298827f853b41165eee2cbbc66">getLocalBounds</a> () const</td></tr>
+<tr class="memdesc:a3e6b3b298827f853b41165eee2cbbc66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the local bounding rectangle of the entity.  <a href="#a3e6b3b298827f853b41165eee2cbbc66">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a3e6b3b298827f853b41165eee2cbbc66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad33ed96ce9fbe99610f7f8b6874a16b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsf_1_1Rect.html">FloatRect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Text.html#ad33ed96ce9fbe99610f7f8b6874a16b4">getGlobalBounds</a> () const</td></tr>
+<tr class="memdesc:ad33ed96ce9fbe99610f7f8b6874a16b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the global bounding rectangle of the entity.  <a href="#ad33ed96ce9fbe99610f7f8b6874a16b4">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad33ed96ce9fbe99610f7f8b6874a16b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classsf_1_1Drawable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classsf_1_1Drawable')"><img src="closed.png" alt="-"/>&#160;Fonctions membres publiques hérités de <a class="el" href="classsf_1_1Drawable.html">sf::Drawable</a></td></tr>
+<tr class="memitem:a906002f2df7beb5edbddf5bbef96f120 inherit pub_methods_classsf_1_1Drawable"><td class="memItemLeft" align="right" valign="top"><a id="a906002f2df7beb5edbddf5bbef96f120"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Drawable.html#a906002f2df7beb5edbddf5bbef96f120">~Drawable</a> ()</td></tr>
+<tr class="memdesc:a906002f2df7beb5edbddf5bbef96f120 inherit pub_methods_classsf_1_1Drawable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor. <br /></td></tr>
+<tr class="separator:a906002f2df7beb5edbddf5bbef96f120 inherit pub_methods_classsf_1_1Drawable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classsf_1_1Transformable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classsf_1_1Transformable')"><img src="closed.png" alt="-"/>&#160;Fonctions membres publiques hérités de <a class="el" href="classsf_1_1Transformable.html">sf::Transformable</a></td></tr>
+<tr class="memitem:ae71710de0fef423121bab1c684954a2e inherit pub_methods_classsf_1_1Transformable"><td class="memItemLeft" align="right" valign="top"><a id="ae71710de0fef423121bab1c684954a2e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Transformable.html#ae71710de0fef423121bab1c684954a2e">Transformable</a> ()</td></tr>
+<tr class="memdesc:ae71710de0fef423121bab1c684954a2e inherit pub_methods_classsf_1_1Transformable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. <br /></td></tr>
+<tr class="separator:ae71710de0fef423121bab1c684954a2e inherit pub_methods_classsf_1_1Transformable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43253abcb863195a673c2a347a7425cc inherit pub_methods_classsf_1_1Transformable"><td class="memItemLeft" align="right" valign="top"><a id="a43253abcb863195a673c2a347a7425cc"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Transformable.html#a43253abcb863195a673c2a347a7425cc">~Transformable</a> ()</td></tr>
+<tr class="memdesc:a43253abcb863195a673c2a347a7425cc inherit pub_methods_classsf_1_1Transformable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor. <br /></td></tr>
+<tr class="separator:a43253abcb863195a673c2a347a7425cc inherit pub_methods_classsf_1_1Transformable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dbfb1a7c80688b0b4c477d706550208 inherit pub_methods_classsf_1_1Transformable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Transformable.html#a4dbfb1a7c80688b0b4c477d706550208">setPosition</a> (float x, float y)</td></tr>
+<tr class="memdesc:a4dbfb1a7c80688b0b4c477d706550208 inherit pub_methods_classsf_1_1Transformable"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the position of the object  <a href="classsf_1_1Transformable.html#a4dbfb1a7c80688b0b4c477d706550208">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4dbfb1a7c80688b0b4c477d706550208 inherit pub_methods_classsf_1_1Transformable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1a42209ce2b5d3f07b00f917bcd8015 inherit pub_methods_classsf_1_1Transformable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Transformable.html#af1a42209ce2b5d3f07b00f917bcd8015">setPosition</a> (const <a class="el" href="classsf_1_1Vector2.html">Vector2f</a> &amp;position)</td></tr>
+<tr class="memdesc:af1a42209ce2b5d3f07b00f917bcd8015 inherit pub_methods_classsf_1_1Transformable"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the position of the object  <a href="classsf_1_1Transformable.html#af1a42209ce2b5d3f07b00f917bcd8015">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af1a42209ce2b5d3f07b00f917bcd8015 inherit pub_methods_classsf_1_1Transformable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32baf2bf1a74699b03bf8c95030a38ed inherit pub_methods_classsf_1_1Transformable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Transformable.html#a32baf2bf1a74699b03bf8c95030a38ed">setRotation</a> (float angle)</td></tr>
+<tr class="memdesc:a32baf2bf1a74699b03bf8c95030a38ed inherit pub_methods_classsf_1_1Transformable"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the orientation of the object  <a href="classsf_1_1Transformable.html#a32baf2bf1a74699b03bf8c95030a38ed">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a32baf2bf1a74699b03bf8c95030a38ed inherit pub_methods_classsf_1_1Transformable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaec50b46b3f41b054763304d1e727471 inherit pub_methods_classsf_1_1Transformable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Transformable.html#aaec50b46b3f41b054763304d1e727471">setScale</a> (float factorX, float factorY)</td></tr>
+<tr class="memdesc:aaec50b46b3f41b054763304d1e727471 inherit pub_methods_classsf_1_1Transformable"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the scale factors of the object  <a href="classsf_1_1Transformable.html#aaec50b46b3f41b054763304d1e727471">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aaec50b46b3f41b054763304d1e727471 inherit pub_methods_classsf_1_1Transformable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c48a87f1626047e448f9c1a68ff167e inherit pub_methods_classsf_1_1Transformable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Transformable.html#a4c48a87f1626047e448f9c1a68ff167e">setScale</a> (const <a class="el" href="classsf_1_1Vector2.html">Vector2f</a> &amp;factors)</td></tr>
+<tr class="memdesc:a4c48a87f1626047e448f9c1a68ff167e inherit pub_methods_classsf_1_1Transformable"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the scale factors of the object  <a href="classsf_1_1Transformable.html#a4c48a87f1626047e448f9c1a68ff167e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4c48a87f1626047e448f9c1a68ff167e inherit pub_methods_classsf_1_1Transformable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56c67bd80aae8418d13fb96c034d25ec inherit pub_methods_classsf_1_1Transformable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Transformable.html#a56c67bd80aae8418d13fb96c034d25ec">setOrigin</a> (float x, float y)</td></tr>
+<tr class="memdesc:a56c67bd80aae8418d13fb96c034d25ec inherit pub_methods_classsf_1_1Transformable"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the local origin of the object  <a href="classsf_1_1Transformable.html#a56c67bd80aae8418d13fb96c034d25ec">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a56c67bd80aae8418d13fb96c034d25ec inherit pub_methods_classsf_1_1Transformable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa93a835ffbf3bee2098dfbbc695a7f05 inherit pub_methods_classsf_1_1Transformable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Transformable.html#aa93a835ffbf3bee2098dfbbc695a7f05">setOrigin</a> (const <a class="el" href="classsf_1_1Vector2.html">Vector2f</a> &amp;origin)</td></tr>
+<tr class="memdesc:aa93a835ffbf3bee2098dfbbc695a7f05 inherit pub_methods_classsf_1_1Transformable"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the local origin of the object  <a href="classsf_1_1Transformable.html#aa93a835ffbf3bee2098dfbbc695a7f05">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aa93a835ffbf3bee2098dfbbc695a7f05 inherit pub_methods_classsf_1_1Transformable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73f9739bc6e74db2cea154bc8e94ec46 inherit pub_methods_classsf_1_1Transformable"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classsf_1_1Vector2.html">Vector2f</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Transformable.html#a73f9739bc6e74db2cea154bc8e94ec46">getPosition</a> () const</td></tr>
+<tr class="memdesc:a73f9739bc6e74db2cea154bc8e94ec46 inherit pub_methods_classsf_1_1Transformable"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the position of the object  <a href="classsf_1_1Transformable.html#a73f9739bc6e74db2cea154bc8e94ec46">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a73f9739bc6e74db2cea154bc8e94ec46 inherit pub_methods_classsf_1_1Transformable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa00b5c5d4a06ac24a94dd72c56931d3a inherit pub_methods_classsf_1_1Transformable"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Transformable.html#aa00b5c5d4a06ac24a94dd72c56931d3a">getRotation</a> () const</td></tr>
+<tr class="memdesc:aa00b5c5d4a06ac24a94dd72c56931d3a inherit pub_methods_classsf_1_1Transformable"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the orientation of the object  <a href="classsf_1_1Transformable.html#aa00b5c5d4a06ac24a94dd72c56931d3a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aa00b5c5d4a06ac24a94dd72c56931d3a inherit pub_methods_classsf_1_1Transformable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73819fdea80ca8a06fad8a0067b4588c inherit pub_methods_classsf_1_1Transformable"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classsf_1_1Vector2.html">Vector2f</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Transformable.html#a73819fdea80ca8a06fad8a0067b4588c">getScale</a> () const</td></tr>
+<tr class="memdesc:a73819fdea80ca8a06fad8a0067b4588c inherit pub_methods_classsf_1_1Transformable"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the current scale of the object  <a href="classsf_1_1Transformable.html#a73819fdea80ca8a06fad8a0067b4588c">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a73819fdea80ca8a06fad8a0067b4588c inherit pub_methods_classsf_1_1Transformable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37ea3500afac234814a43ce809ef264e inherit pub_methods_classsf_1_1Transformable"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classsf_1_1Vector2.html">Vector2f</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Transformable.html#a37ea3500afac234814a43ce809ef264e">getOrigin</a> () const</td></tr>
+<tr class="memdesc:a37ea3500afac234814a43ce809ef264e inherit pub_methods_classsf_1_1Transformable"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the local origin of the object  <a href="classsf_1_1Transformable.html#a37ea3500afac234814a43ce809ef264e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a37ea3500afac234814a43ce809ef264e inherit pub_methods_classsf_1_1Transformable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86b461d6a941ad390c2ad8b6a4a20391 inherit pub_methods_classsf_1_1Transformable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Transformable.html#a86b461d6a941ad390c2ad8b6a4a20391">move</a> (float offsetX, float offsetY)</td></tr>
+<tr class="memdesc:a86b461d6a941ad390c2ad8b6a4a20391 inherit pub_methods_classsf_1_1Transformable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move the object by a given offset.  <a href="classsf_1_1Transformable.html#a86b461d6a941ad390c2ad8b6a4a20391">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a86b461d6a941ad390c2ad8b6a4a20391 inherit pub_methods_classsf_1_1Transformable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9ca691522f6ddc1a40406849b87c469 inherit pub_methods_classsf_1_1Transformable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Transformable.html#ab9ca691522f6ddc1a40406849b87c469">move</a> (const <a class="el" href="classsf_1_1Vector2.html">Vector2f</a> &amp;offset)</td></tr>
+<tr class="memdesc:ab9ca691522f6ddc1a40406849b87c469 inherit pub_methods_classsf_1_1Transformable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move the object by a given offset.  <a href="classsf_1_1Transformable.html#ab9ca691522f6ddc1a40406849b87c469">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ab9ca691522f6ddc1a40406849b87c469 inherit pub_methods_classsf_1_1Transformable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8a5ffddc0d93f238fee3bf8efe1ebda inherit pub_methods_classsf_1_1Transformable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Transformable.html#af8a5ffddc0d93f238fee3bf8efe1ebda">rotate</a> (float angle)</td></tr>
+<tr class="memdesc:af8a5ffddc0d93f238fee3bf8efe1ebda inherit pub_methods_classsf_1_1Transformable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate the object.  <a href="classsf_1_1Transformable.html#af8a5ffddc0d93f238fee3bf8efe1ebda">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af8a5ffddc0d93f238fee3bf8efe1ebda inherit pub_methods_classsf_1_1Transformable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3de0c6d8957f3cf318092f3f60656391 inherit pub_methods_classsf_1_1Transformable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Transformable.html#a3de0c6d8957f3cf318092f3f60656391">scale</a> (float factorX, float factorY)</td></tr>
+<tr class="memdesc:a3de0c6d8957f3cf318092f3f60656391 inherit pub_methods_classsf_1_1Transformable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scale the object.  <a href="classsf_1_1Transformable.html#a3de0c6d8957f3cf318092f3f60656391">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a3de0c6d8957f3cf318092f3f60656391 inherit pub_methods_classsf_1_1Transformable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adecaa6c69b1f27dd5194b067d96bb694 inherit pub_methods_classsf_1_1Transformable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Transformable.html#adecaa6c69b1f27dd5194b067d96bb694">scale</a> (const <a class="el" href="classsf_1_1Vector2.html">Vector2f</a> &amp;factor)</td></tr>
+<tr class="memdesc:adecaa6c69b1f27dd5194b067d96bb694 inherit pub_methods_classsf_1_1Transformable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scale the object.  <a href="classsf_1_1Transformable.html#adecaa6c69b1f27dd5194b067d96bb694">Plus de détails...</a><br /></td></tr>
+<tr class="separator:adecaa6c69b1f27dd5194b067d96bb694 inherit pub_methods_classsf_1_1Transformable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f7c3f0bab3f162b13613904fbdbb9ad inherit pub_methods_classsf_1_1Transformable"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classsf_1_1Transform.html">Transform</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Transformable.html#a7f7c3f0bab3f162b13613904fbdbb9ad">getTransform</a> () const</td></tr>
+<tr class="memdesc:a7f7c3f0bab3f162b13613904fbdbb9ad inherit pub_methods_classsf_1_1Transformable"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the combined transform of the object  <a href="classsf_1_1Transformable.html#a7f7c3f0bab3f162b13613904fbdbb9ad">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a7f7c3f0bab3f162b13613904fbdbb9ad inherit pub_methods_classsf_1_1Transformable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab18b25f51263252ff3811465eb7e9fb1 inherit pub_methods_classsf_1_1Transformable"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classsf_1_1Transform.html">Transform</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsf_1_1Transformable.html#ab18b25f51263252ff3811465eb7e9fb1">getInverseTransform</a> () const</td></tr>
+<tr class="memdesc:ab18b25f51263252ff3811465eb7e9fb1 inherit pub_methods_classsf_1_1Transformable"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the inverse of the combined transform of the object  <a href="classsf_1_1Transformable.html#ab18b25f51263252ff3811465eb7e9fb1">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ab18b25f51263252ff3811465eb7e9fb1 inherit pub_methods_classsf_1_1Transformable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Membres hérités additionnels</h2></td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Graphical text that can be drawn to a render target. </p>
+<p><a class="el" href="classsf_1_1Text.html" title="Graphical text that can be drawn to a render target. ">sf::Text</a> is a drawable class that allows to easily display some text with custom style and color on a render target.</p>
+<p>It inherits all the functions from <a class="el" href="classsf_1_1Transformable.html" title="Decomposed transform defined by a position, a rotation and a scale. ">sf::Transformable</a>: position, rotation, scale, origin. It also adds text-specific properties such as the font to use, the character size, the font style (bold, italic, underlined, strike through), the global color and the text to display of course. It also provides convenience functions to calculate the graphical size of the text, or to get the global position of a given character.</p>
+<p><a class="el" href="classsf_1_1Text.html" title="Graphical text that can be drawn to a render target. ">sf::Text</a> works in combination with the <a class="el" href="classsf_1_1Font.html" title="Class for loading and manipulating character fonts. ">sf::Font</a> class, which loads and provides the glyphs (visual characters) of a given font.</p>
+<p>The separation of <a class="el" href="classsf_1_1Font.html" title="Class for loading and manipulating character fonts. ">sf::Font</a> and <a class="el" href="classsf_1_1Text.html" title="Graphical text that can be drawn to a render target. ">sf::Text</a> allows more flexibility and better performances: indeed a <a class="el" href="classsf_1_1Font.html" title="Class for loading and manipulating character fonts. ">sf::Font</a> is a heavy resource, and any operation on it is slow (often too slow for real-time applications). On the other side, a <a class="el" href="classsf_1_1Text.html" title="Graphical text that can be drawn to a render target. ">sf::Text</a> is a lightweight object which can combine the glyphs data and metrics of a <a class="el" href="classsf_1_1Font.html" title="Class for loading and manipulating character fonts. ">sf::Font</a> to display any text on a render target.</p>
+<p>It is important to note that the <a class="el" href="classsf_1_1Text.html" title="Graphical text that can be drawn to a render target. ">sf::Text</a> instance doesn't copy the font that it uses, it only keeps a reference to it. Thus, a <a class="el" href="classsf_1_1Font.html" title="Class for loading and manipulating character fonts. ">sf::Font</a> must not be destructed while it is used by a <a class="el" href="classsf_1_1Text.html" title="Graphical text that can be drawn to a render target. ">sf::Text</a> (i.e. never write a function that uses a local <a class="el" href="classsf_1_1Font.html" title="Class for loading and manipulating character fonts. ">sf::Font</a> instance for creating a text).</p>
+<p>See also the note on coordinates and undistorted rendering in <a class="el" href="classsf_1_1Transformable.html" title="Decomposed transform defined by a position, a rotation and a scale. ">sf::Transformable</a>.</p>
+<p>Usage example: </p><div class="fragment"><div class="line"><span class="comment">// Declare and load a font</span></div><div class="line"><a class="code" href="classsf_1_1Font.html">sf::Font</a> font;</div><div class="line">font.<a class="code" href="classsf_1_1Font.html#ab020052ef4e01f6c749a85571c0f3fd1">loadFromFile</a>(<span class="stringliteral">&quot;arial.ttf&quot;</span>);</div><div class="line"></div><div class="line"><span class="comment">// Create a text</span></div><div class="line"><a class="code" href="classsf_1_1Text.html">sf::Text</a> text(<span class="stringliteral">&quot;hello&quot;</span>, font);</div><div class="line">text.<a class="code" href="classsf_1_1Text.html#ae96f835fc1bff858f8a23c5b01eaaf7e">setCharacterSize</a>(30);</div><div class="line">text.<a class="code" href="classsf_1_1Text.html#ad791702bc2d1b6590a1719aa60635edf">setStyle</a>(<a class="code" href="classsf_1_1Text.html#aa8add4aef484c6e6b20faff07452bd82af1b47f98fb1e10509ba930a596987171">sf::Text::Bold</a>);</div><div class="line">text.<a class="code" href="classsf_1_1Text.html#afd1742fca1adb6b0ea98357250ffb634">setColor</a>(<a class="code" href="classsf_1_1Color.html#a127dbf55db9c07d0fa8f4bfcbb97594a">sf::Color::Red</a>);</div><div class="line"></div><div class="line"><span class="comment">// Draw it</span></div><div class="line">window.draw(text);</div></div><!-- fragment --><dl class="section see"><dt>Voir également</dt><dd><a class="el" href="classsf_1_1Font.html" title="Class for loading and manipulating character fonts. ">sf::Font</a>, <a class="el" href="classsf_1_1Transformable.html" title="Decomposed transform defined by a position, a rotation and a scale. ">sf::Transformable</a> </dd></dl>
+</div><h2 class="groupheader">Documentation des énumérations membres</h2>
+<a id="aa8add4aef484c6e6b20faff07452bd82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8add4aef484c6e6b20faff07452bd82">&#9670;&nbsp;</a></span>Style</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classsf_1_1Text.html#aa8add4aef484c6e6b20faff07452bd82">sf::Text::Style</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enumeration of the string drawing styles. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="aa8add4aef484c6e6b20faff07452bd82a2af9ae5e1cda126570f744448e0caa32"></a>Regular&#160;</td><td class="fielddoc"><p>Regular characters, no style. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa8add4aef484c6e6b20faff07452bd82af1b47f98fb1e10509ba930a596987171"></a>Bold&#160;</td><td class="fielddoc"><p>Bold characters. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa8add4aef484c6e6b20faff07452bd82aee249eb803848723c542c2062ebe69d8"></a>Italic&#160;</td><td class="fielddoc"><p>Italic characters. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa8add4aef484c6e6b20faff07452bd82a664bd143f92b6e8c709d7f788e8b20df"></a>Underlined&#160;</td><td class="fielddoc"><p>Underlined characters. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa8add4aef484c6e6b20faff07452bd82a9ed1f5bb154c21269e1190c5aa97d479"></a>StrikeThrough&#160;</td><td class="fielddoc"><p>Strike through characters. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
+<a id="aff7cab6a92e5948c9d1481cb2d87eb84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff7cab6a92e5948c9d1481cb2d87eb84">&#9670;&nbsp;</a></span>Text() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::Text::Text </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Default constructor. </p>
+<p>Creates an empty text. </p>
+
+</div>
+</div>
+<a id="a614019e0b5c0ed39a99d32483a51f2c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a614019e0b5c0ed39a99d32483a51f2c5">&#9670;&nbsp;</a></span>Text() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::Text::Text </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsf_1_1String.html">String</a> &amp;&#160;</td>
+          <td class="paramname"><em>string</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsf_1_1Font.html">Font</a> &amp;&#160;</td>
+          <td class="paramname"><em>font</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>characterSize</em> = <code>30</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construct the text from a string, font and size. </p>
+<p>Note that if the used font is a bitmap font, it is not scalable, thus not all requested sizes will be available to use. This needs to be taken into consideration when setting the character size. If you need to display text of a certain size, make sure the corresponding bitmap font that supports that size is used.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td><a class="el" href="classsf_1_1Text.html" title="Graphical text that can be drawn to a render target. ">Text</a> assigned to the string </td></tr>
+    <tr><td class="paramname">font</td><td><a class="el" href="classsf_1_1Font.html" title="Class for loading and manipulating character fonts. ">Font</a> used to draw the string </td></tr>
+    <tr><td class="paramname">characterSize</td><td>Base size of characters, in pixels </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions membres</h2>
+<a id="a2e252d8dcae3eb61c6c962c0bc674b12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e252d8dcae3eb61c6c962c0bc674b12">&#9670;&nbsp;</a></span>findCharacterPos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsf_1_1Vector2.html">Vector2f</a> sf::Text::findCharacterPos </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the position of the <em>index-th</em> character. </p>
+<p>This function computes the visual position of a character from its index in the string. The returned position is in global coordinates (translation, rotation, scale and origin are applied). If <em>index</em> is out of range, the position of the end of the string is returned.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>Index of the character</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Position of the character </dd></dl>
+
+</div>
+</div>
+<a id="a46d1d7f1d513bb8d434e985a93ea5224"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46d1d7f1d513bb8d434e985a93ea5224">&#9670;&nbsp;</a></span>getCharacterSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int sf::Text::getCharacterSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the character size. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Size of the characters, in pixels</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="classsf_1_1Text.html#ae96f835fc1bff858f8a23c5b01eaaf7e" title="Set the character size. ">setCharacterSize</a> </dd></dl>
+
+</div>
+</div>
+<a id="ae4ca753f719c54692fd4d9284573a2c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4ca753f719c54692fd4d9284573a2c7">&#9670;&nbsp;</a></span>getColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classsf_1_1Color.html">Color</a>&amp; sf::Text::getColor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the global color of the text. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Global color of the text</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="classsf_1_1Text.html#afd1742fca1adb6b0ea98357250ffb634" title="Set the global color of the text. ">setColor</a> </dd></dl>
+
+</div>
+</div>
+<a id="a47cd96d7b2c37b2f820e4d6e1bb83f96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47cd96d7b2c37b2f820e4d6e1bb83f96">&#9670;&nbsp;</a></span>getFont()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classsf_1_1Font.html">Font</a>* sf::Text::getFont </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the text's font. </p>
+<p>If the text has no font attached, a NULL pointer is returned. The returned pointer is const, which means that you cannot modify the font when you get it from this function.</p>
+<dl class="section return"><dt>Renvoie</dt><dd>Pointer to the text's font</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="classsf_1_1Text.html#a2927805d1ae92d57f15034ea34756b81" title="Set the text&#39;s font. ">setFont</a> </dd></dl>
+
+</div>
+</div>
+<a id="ad33ed96ce9fbe99610f7f8b6874a16b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad33ed96ce9fbe99610f7f8b6874a16b4">&#9670;&nbsp;</a></span>getGlobalBounds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsf_1_1Rect.html">FloatRect</a> sf::Text::getGlobalBounds </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the global bounding rectangle of the entity. </p>
+<p>The returned rectangle is in global coordinates, which means that it takes into account the transformations (translation, rotation, scale, ...) that are applied to the entity. In other words, this function returns the bounds of the text in the global 2D world's coordinate system.</p>
+<dl class="section return"><dt>Renvoie</dt><dd>Global bounding rectangle of the entity </dd></dl>
+
+</div>
+</div>
+<a id="a3e6b3b298827f853b41165eee2cbbc66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e6b3b298827f853b41165eee2cbbc66">&#9670;&nbsp;</a></span>getLocalBounds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsf_1_1Rect.html">FloatRect</a> sf::Text::getLocalBounds </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the local bounding rectangle of the entity. </p>
+<p>The returned rectangle is in local coordinates, which means that it ignores the transformations (translation, rotation, scale, ...) that are applied to the entity. In other words, this function returns the bounds of the entity in the entity's coordinate system.</p>
+<dl class="section return"><dt>Renvoie</dt><dd>Local bounding rectangle of the entity </dd></dl>
+
+</div>
+</div>
+<a id="a084c275eb4bca835696af5f8f9c80ab3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a084c275eb4bca835696af5f8f9c80ab3">&#9670;&nbsp;</a></span>getString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classsf_1_1String.html">String</a>&amp; sf::Text::getString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the text's string. </p>
+<p>The returned string is a <a class="el" href="classsf_1_1String.html" title="Utility string class that automatically handles conversions between types and encodings. ">sf::String</a>, which can automatically be converted to standard string types. So, the following lines of code are all valid: </p><div class="fragment"><div class="line"><a class="code" href="classsf_1_1String.html">sf::String</a>   s1 = text.<a class="code" href="classsf_1_1Text.html#a084c275eb4bca835696af5f8f9c80ab3">getString</a>();</div><div class="line">std::string  s2 = text.<a class="code" href="classsf_1_1Text.html#a084c275eb4bca835696af5f8f9c80ab3">getString</a>();</div><div class="line">std::wstring s3 = text.<a class="code" href="classsf_1_1Text.html#a084c275eb4bca835696af5f8f9c80ab3">getString</a>();</div></div><!-- fragment --><dl class="section return"><dt>Renvoie</dt><dd><a class="el" href="classsf_1_1Text.html" title="Graphical text that can be drawn to a render target. ">Text</a>'s string</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="classsf_1_1Text.html#a7d3b3359f286fd9503d1ced25b7b6c33" title="Set the text&#39;s string. ">setString</a> </dd></dl>
+
+</div>
+</div>
+<a id="a0da79b0c057f4bb51592465a205c35d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0da79b0c057f4bb51592465a205c35d7">&#9670;&nbsp;</a></span>getStyle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint32 sf::Text::getStyle </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the text's style. </p>
+<dl class="section return"><dt>Renvoie</dt><dd><a class="el" href="classsf_1_1Text.html" title="Graphical text that can be drawn to a render target. ">Text</a>'s style</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="classsf_1_1Text.html#ad791702bc2d1b6590a1719aa60635edf" title="Set the text&#39;s style. ">setStyle</a> </dd></dl>
+
+</div>
+</div>
+<a id="ae96f835fc1bff858f8a23c5b01eaaf7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae96f835fc1bff858f8a23c5b01eaaf7e">&#9670;&nbsp;</a></span>setCharacterSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sf::Text::setCharacterSize </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>size</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the character size. </p>
+<p>The default size is 30.</p>
+<p>Note that if the used font is a bitmap font, it is not scalable, thus not all requested sizes will be available to use. This needs to be taken into consideration when setting the character size. If you need to display text of a certain size, make sure the corresponding bitmap font that supports that size is used.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>New character size, in pixels</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="classsf_1_1Text.html#a46d1d7f1d513bb8d434e985a93ea5224" title="Get the character size. ">getCharacterSize</a> </dd></dl>
+
+</div>
+</div>
+<a id="afd1742fca1adb6b0ea98357250ffb634"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd1742fca1adb6b0ea98357250ffb634">&#9670;&nbsp;</a></span>setColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sf::Text::setColor </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsf_1_1Color.html">Color</a> &amp;&#160;</td>
+          <td class="paramname"><em>color</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the global color of the text. </p>
+<p>By default, the text's color is opaque white.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">color</td><td>New color of the text</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="classsf_1_1Text.html#ae4ca753f719c54692fd4d9284573a2c7" title="Get the global color of the text. ">getColor</a> </dd></dl>
+
+</div>
+</div>
+<a id="a2927805d1ae92d57f15034ea34756b81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2927805d1ae92d57f15034ea34756b81">&#9670;&nbsp;</a></span>setFont()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sf::Text::setFont </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsf_1_1Font.html">Font</a> &amp;&#160;</td>
+          <td class="paramname"><em>font</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the text's font. </p>
+<p>The <em>font</em> argument refers to a font that must exist as long as the text uses it. Indeed, the text doesn't store its own copy of the font, but rather keeps a pointer to the one that you passed to this function. If the font is destroyed and the text tries to use it, the behavior is undefined.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">font</td><td>New font</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="classsf_1_1Text.html#a47cd96d7b2c37b2f820e4d6e1bb83f96" title="Get the text&#39;s font. ">getFont</a> </dd></dl>
+
+</div>
+</div>
+<a id="a7d3b3359f286fd9503d1ced25b7b6c33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d3b3359f286fd9503d1ced25b7b6c33">&#9670;&nbsp;</a></span>setString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sf::Text::setString </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsf_1_1String.html">String</a> &amp;&#160;</td>
+          <td class="paramname"><em>string</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the text's string. </p>
+<p>The <em>string</em> argument is a <a class="el" href="classsf_1_1String.html" title="Utility string class that automatically handles conversions between types and encodings. ">sf::String</a>, which can automatically be constructed from standard string types. So, the following calls are all valid: </p><div class="fragment"><div class="line">text.<a class="code" href="classsf_1_1Text.html#a7d3b3359f286fd9503d1ced25b7b6c33">setString</a>(<span class="stringliteral">&quot;hello&quot;</span>);</div><div class="line">text.<a class="code" href="classsf_1_1Text.html#a7d3b3359f286fd9503d1ced25b7b6c33">setString</a>(L<span class="stringliteral">&quot;hello&quot;</span>);</div><div class="line">text.<a class="code" href="classsf_1_1Text.html#a7d3b3359f286fd9503d1ced25b7b6c33">setString</a>(std::string(<span class="stringliteral">&quot;hello&quot;</span>));</div><div class="line">text.<a class="code" href="classsf_1_1Text.html#a7d3b3359f286fd9503d1ced25b7b6c33">setString</a>(std::wstring(L<span class="stringliteral">&quot;hello&quot;</span>));</div></div><!-- fragment --><p> A text's string is empty by default.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>New string</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="classsf_1_1Text.html#a084c275eb4bca835696af5f8f9c80ab3" title="Get the text&#39;s string. ">getString</a> </dd></dl>
+
+</div>
+</div>
+<a id="ad791702bc2d1b6590a1719aa60635edf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad791702bc2d1b6590a1719aa60635edf">&#9670;&nbsp;</a></span>setStyle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sf::Text::setStyle </td>
+          <td>(</td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>style</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the text's style. </p>
+<p>You can pass a combination of one or more styles, for example <a class="el" href="classsf_1_1Text.html#aa8add4aef484c6e6b20faff07452bd82af1b47f98fb1e10509ba930a596987171" title="Bold characters. ">sf::Text::Bold</a> | <a class="el" href="classsf_1_1Text.html#aa8add4aef484c6e6b20faff07452bd82aee249eb803848723c542c2062ebe69d8" title="Italic characters. ">sf::Text::Italic</a>. The default style is <a class="el" href="classsf_1_1Text.html#aa8add4aef484c6e6b20faff07452bd82a2af9ae5e1cda126570f744448e0caa32" title="Regular characters, no style. ">sf::Text::Regular</a>.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">style</td><td>New style</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="classsf_1_1Text.html#a0da79b0c057f4bb51592465a205c35d7" title="Get the text&#39;s style. ">getStyle</a> </dd></dl>
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir du fichier suivant :<ul>
+<li>includes/SFML/Graphics/<a class="el" href="Text_8hpp_source.html">Text.hpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

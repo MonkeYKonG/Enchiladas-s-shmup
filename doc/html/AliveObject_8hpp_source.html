@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Schmup:  Fichier source de includes/my_objects_lib/AliveObject.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Schmup
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.14 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_09e761304027c904456130627fd4dcf5.html">includes</a></li><li class="navelem"><a class="el" href="dir_578aefb177095536d2a3e00e3b045326.html">my_objects_lib</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">AliveObject.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;stdexcept&gt;</span></div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacemy.html">my</a></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classmy_1_1AliveObject.html">   11</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classmy_1_1AliveObject.html">AliveObject</a></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    {</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">public</span>:</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="classmy_1_1AliveObject.html">AliveObject</a>() {}</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classmy_1_1AliveObject.html#ae3d7fb84f66db19cd49e238405590d40">IsAlive</a>() <span class="keyword">const</span> noexcept;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">unsigned</span> <a class="code" href="classmy_1_1AliveObject.html#ad5c35dbc2ccd74c9edd73fb19b89e6bb">GetCurHP</a>() <span class="keyword">const</span> noexcept;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordtype">unsigned</span> <a class="code" href="classmy_1_1AliveObject.html#a4537ba5f7d099b5ae2bd59b6db93a76b">GetMaxHP</a>() <span class="keyword">const</span> noexcept;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classmy_1_1AliveObject.html#ae3cf3e26f9fc6b497d8b659621d3ffa8">SetCurHP</a>(<span class="keywordtype">unsigned</span> curHP) <span class="keywordflow">throw</span> (std::invalid_argument);</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classmy_1_1AliveObject.html#aea104f1424ccb0e2ebca84bd0fba3029">SetMaxHP</a>(<span class="keywordtype">unsigned</span> maxHP) noexcept;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classmy_1_1AliveObject.html#a4c13171af7b862e15bfd1737a75dab75">TakeDamage</a>(<span class="keywordtype">unsigned</span> damage) noexcept;</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">protected</span>:</div><div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="classmy_1_1AliveObject.html#aa6ebb3bdd0c42782c37f6a42f4744381">   63</a></span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> std::string <a class="code" href="classmy_1_1AliveObject.html#aa6ebb3bdd0c42782c37f6a42f4744381">DEATH_ANIM_NAME</a>;</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <a class="code" href="classmy_1_1AliveObject.html">AliveObject</a>();</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div><div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="classmy_1_1AliveObject.html#afbeb3d5cebdf6133f3dcace7eea2dff6">   68</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classmy_1_1AliveObject.html#afbeb3d5cebdf6133f3dcace7eea2dff6">m_isAlive</a>;</div><div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classmy_1_1AliveObject.html#a3659debec3ec999e88aa7bdd7ff09fd5">   70</a></span>&#160;        <span class="keywordtype">unsigned</span> <a class="code" href="classmy_1_1AliveObject.html#a3659debec3ec999e88aa7bdd7ff09fd5">m_HP</a>;</div><div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classmy_1_1AliveObject.html#a7c7f74ed8358b08e580462b0d458dd35">   72</a></span>&#160;        <span class="keywordtype">unsigned</span> <a class="code" href="classmy_1_1AliveObject.html#a7c7f74ed8358b08e580462b0d458dd35">m_maxHP</a>;</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    };</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div><div class="ttc" id="classmy_1_1AliveObject_html_ae3d7fb84f66db19cd49e238405590d40"><div class="ttname"><a href="classmy_1_1AliveObject.html#ae3d7fb84f66db19cd49e238405590d40">my::AliveObject::IsAlive</a></div><div class="ttdeci">bool IsAlive() const noexcept</div><div class="ttdoc">Détermine l&amp;#39;état de l&amp;#39;objet (vivatn ou mort). </div><div class="ttdef"><b>Definition:</b> AliveObject.cpp:9</div></div>
+<div class="ttc" id="classmy_1_1AliveObject_html_ae3cf3e26f9fc6b497d8b659621d3ffa8"><div class="ttname"><a href="classmy_1_1AliveObject.html#ae3cf3e26f9fc6b497d8b659621d3ffa8">my::AliveObject::SetCurHP</a></div><div class="ttdeci">void SetCurHP(unsigned curHP)</div><div class="ttdoc">Change le nombre de points de vie courants. </div><div class="ttdef"><b>Definition:</b> AliveObject.cpp:24</div></div>
+<div class="ttc" id="classmy_1_1AliveObject_html_a3659debec3ec999e88aa7bdd7ff09fd5"><div class="ttname"><a href="classmy_1_1AliveObject.html#a3659debec3ec999e88aa7bdd7ff09fd5">my::AliveObject::m_HP</a></div><div class="ttdeci">unsigned m_HP</div><div class="ttdoc">Nombre de points de vie courant. </div><div class="ttdef"><b>Definition:</b> AliveObject.hpp:70</div></div>
+<div class="ttc" id="classmy_1_1AliveObject_html_ad5c35dbc2ccd74c9edd73fb19b89e6bb"><div class="ttname"><a href="classmy_1_1AliveObject.html#ad5c35dbc2ccd74c9edd73fb19b89e6bb">my::AliveObject::GetCurHP</a></div><div class="ttdeci">unsigned GetCurHP() const noexcept</div><div class="ttdoc">Retourne le nonbre de points de vie courants. </div><div class="ttdef"><b>Definition:</b> AliveObject.cpp:14</div></div>
+<div class="ttc" id="classmy_1_1AliveObject_html_aea104f1424ccb0e2ebca84bd0fba3029"><div class="ttname"><a href="classmy_1_1AliveObject.html#aea104f1424ccb0e2ebca84bd0fba3029">my::AliveObject::SetMaxHP</a></div><div class="ttdeci">void SetMaxHP(unsigned maxHP) noexcept</div><div class="ttdoc">Change le nombre de points de vie maximum. </div><div class="ttdef"><b>Definition:</b> AliveObject.cpp:38</div></div>
+<div class="ttc" id="classmy_1_1AliveObject_html_a4c13171af7b862e15bfd1737a75dab75"><div class="ttname"><a href="classmy_1_1AliveObject.html#a4c13171af7b862e15bfd1737a75dab75">my::AliveObject::TakeDamage</a></div><div class="ttdeci">virtual void TakeDamage(unsigned damage) noexcept</div><div class="ttdoc">Soustrait aux points de vie courant la valeur passé en argument. </div><div class="ttdef"><b>Definition:</b> AliveObject.cpp:43</div></div>
+<div class="ttc" id="classmy_1_1AliveObject_html"><div class="ttname"><a href="classmy_1_1AliveObject.html">my::AliveObject</a></div><div class="ttdoc">Class représentant un object dit &quot;vivant&quot;. </div><div class="ttdef"><b>Definition:</b> AliveObject.hpp:11</div></div>
+<div class="ttc" id="classmy_1_1AliveObject_html_aa6ebb3bdd0c42782c37f6a42f4744381"><div class="ttname"><a href="classmy_1_1AliveObject.html#aa6ebb3bdd0c42782c37f6a42f4744381">my::AliveObject::DEATH_ANIM_NAME</a></div><div class="ttdeci">static const std::string DEATH_ANIM_NAME</div><div class="ttdoc">Index de l&amp;#39;animation de mort. </div><div class="ttdef"><b>Definition:</b> AliveObject.hpp:63</div></div>
+<div class="ttc" id="namespacemy_html"><div class="ttname"><a href="namespacemy.html">my</a></div><div class="ttdef"><b>Definition:</b> AnimatedObject.hpp:8</div></div>
+<div class="ttc" id="classmy_1_1AliveObject_html_a4537ba5f7d099b5ae2bd59b6db93a76b"><div class="ttname"><a href="classmy_1_1AliveObject.html#a4537ba5f7d099b5ae2bd59b6db93a76b">my::AliveObject::GetMaxHP</a></div><div class="ttdeci">unsigned GetMaxHP() const noexcept</div><div class="ttdoc">Retourne le nombre de points de vie maximum. </div><div class="ttdef"><b>Definition:</b> AliveObject.cpp:19</div></div>
+<div class="ttc" id="classmy_1_1AliveObject_html_afbeb3d5cebdf6133f3dcace7eea2dff6"><div class="ttname"><a href="classmy_1_1AliveObject.html#afbeb3d5cebdf6133f3dcace7eea2dff6">my::AliveObject::m_isAlive</a></div><div class="ttdeci">bool m_isAlive</div><div class="ttdoc">Booléen déterminant si l&amp;#39;objet est &quot;vivant&quot; ou &quot;mort&quot;. </div><div class="ttdef"><b>Definition:</b> AliveObject.hpp:68</div></div>
+<div class="ttc" id="classmy_1_1AliveObject_html_a7c7f74ed8358b08e580462b0d458dd35"><div class="ttname"><a href="classmy_1_1AliveObject.html#a7c7f74ed8358b08e580462b0d458dd35">my::AliveObject::m_maxHP</a></div><div class="ttdeci">unsigned m_maxHP</div><div class="ttdoc">Nombre de points de vie maximum. </div><div class="ttdef"><b>Definition:</b> AliveObject.hpp:72</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

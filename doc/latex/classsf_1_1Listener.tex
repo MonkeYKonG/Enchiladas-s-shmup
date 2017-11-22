@@ -1,0 +1,282 @@
+\hypertarget{classsf_1_1Listener}{}\section{Référence de la classe sf\+:\+:Listener}
+\label{classsf_1_1Listener}\index{sf\+::\+Listener@{sf\+::\+Listener}}
+
+
+The audio listener is the point in the scene from where all the sounds are heard.  
+
+
+
+
+{\ttfamily \#include $<$Listener.\+hpp$>$}
+
+\subsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classsf_1_1Listener_a803a24a1fc04620cacc9f88c6fbc0e3a}{set\+Global\+Volume} (float volume)
+\begin{DoxyCompactList}\small\item\em Change the global volume of all the sounds and musics. \end{DoxyCompactList}\item 
+static float \hyperlink{classsf_1_1Listener_a137ea535799bdf70be6ec969673d4d33}{get\+Global\+Volume} ()
+\begin{DoxyCompactList}\small\item\em Get the current value of the global volume. \end{DoxyCompactList}\item 
+static void \hyperlink{classsf_1_1Listener_a5bc2d8d18ea2d8f339d23cbf17678564}{set\+Position} (float x, float y, float z)
+\begin{DoxyCompactList}\small\item\em Set the position of the listener in the scene. \end{DoxyCompactList}\item 
+static void \hyperlink{classsf_1_1Listener_a28a27d85cfbf8065c535c39176898fcb}{set\+Position} (const \hyperlink{classsf_1_1Vector3}{Vector3f} \&position)
+\begin{DoxyCompactList}\small\item\em Set the position of the listener in the scene. \end{DoxyCompactList}\item 
+static \hyperlink{classsf_1_1Vector3}{Vector3f} \hyperlink{classsf_1_1Listener_acd7ee65bc948ca38e1c669aa12340c54}{get\+Position} ()
+\begin{DoxyCompactList}\small\item\em Get the current position of the listener in the scene. \end{DoxyCompactList}\item 
+static void \hyperlink{classsf_1_1Listener_ae479dc15513c6557984d26e32d06d06e}{set\+Direction} (float x, float y, float z)
+\begin{DoxyCompactList}\small\item\em Set the forward vector of the listener in the scene. \end{DoxyCompactList}\item 
+static void \hyperlink{classsf_1_1Listener_a1d99d9457c6ddad93449ecb4f504c2bf}{set\+Direction} (const \hyperlink{classsf_1_1Vector3}{Vector3f} \&direction)
+\begin{DoxyCompactList}\small\item\em Set the forward vector of the listener in the scene. \end{DoxyCompactList}\item 
+static \hyperlink{classsf_1_1Vector3}{Vector3f} \hyperlink{classsf_1_1Listener_a54e91baba51d4431474f53ff7f9309f9}{get\+Direction} ()
+\begin{DoxyCompactList}\small\item\em Get the current forward vector of the listener in the scene. \end{DoxyCompactList}\item 
+static void \hyperlink{classsf_1_1Listener_a0ea9b3083a994b2b90253543bc4e3ad6}{set\+Up\+Vector} (float x, float y, float z)
+\begin{DoxyCompactList}\small\item\em Set the upward vector of the listener in the scene. \end{DoxyCompactList}\item 
+static void \hyperlink{classsf_1_1Listener_a281e8cd44d3411d891b5e83b0cb6b9d4}{set\+Up\+Vector} (const \hyperlink{classsf_1_1Vector3}{Vector3f} \&up\+Vector)
+\begin{DoxyCompactList}\small\item\em Set the upward vector of the listener in the scene. \end{DoxyCompactList}\item 
+static \hyperlink{classsf_1_1Vector3}{Vector3f} \hyperlink{classsf_1_1Listener_ae1427dd7e9b425b0c23b7b766bd6c6e6}{get\+Up\+Vector} ()
+\begin{DoxyCompactList}\small\item\em Get the current upward vector of the listener in the scene. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+The audio listener is the point in the scene from where all the sounds are heard. 
+
+The audio listener defines the global properties of the audio environment, it defines where and how sounds and musics are heard. If \hyperlink{classsf_1_1View}{sf\+::\+View} is the eyes of the user, then \hyperlink{classsf_1_1Listener}{sf\+::\+Listener} is his ears (by the way, they are often linked together -- same position, orientation, etc.).
+
+\hyperlink{classsf_1_1Listener}{sf\+::\+Listener} is a simple interface, which allows to setup the listener in the 3D audio environment (position, direction and up vector), and to adjust the global volume.
+
+Because the listener is unique in the scene, \hyperlink{classsf_1_1Listener}{sf\+::\+Listener} only contains static functions and doesn\textquotesingle{}t have to be instantiated.
+
+Usage example\+: 
+\begin{DoxyCode}
+\textcolor{comment}{// Move the listener to the position (1, 0, -5)}
+\hyperlink{classsf_1_1Listener_a5bc2d8d18ea2d8f339d23cbf17678564}{sf::Listener::setPosition}(1, 0, -5);
+
+\textcolor{comment}{// Make it face the right axis (1, 0, 0)}
+\hyperlink{classsf_1_1Listener_ae479dc15513c6557984d26e32d06d06e}{sf::Listener::setDirection}(1, 0, 0);
+
+\textcolor{comment}{// Reduce the global volume}
+\hyperlink{classsf_1_1Listener_a803a24a1fc04620cacc9f88c6fbc0e3a}{sf::Listener::setGlobalVolume}(50);
+\end{DoxyCode}
+ 
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classsf_1_1Listener_a54e91baba51d4431474f53ff7f9309f9}\label{classsf_1_1Listener_a54e91baba51d4431474f53ff7f9309f9}} 
+\index{sf\+::\+Listener@{sf\+::\+Listener}!get\+Direction@{get\+Direction}}
+\index{get\+Direction@{get\+Direction}!sf\+::\+Listener@{sf\+::\+Listener}}
+\subsubsection{\texorpdfstring{get\+Direction()}{getDirection()}}
+{\footnotesize\ttfamily static \hyperlink{classsf_1_1Vector3}{Vector3f} sf\+::\+Listener\+::get\+Direction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get the current forward vector of the listener in the scene. 
+
+\begin{DoxyReturn}{Renvoie}
+\hyperlink{classsf_1_1Listener}{Listener}\textquotesingle{}s forward vector (not normalized)
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{Voir également}
+\hyperlink{classsf_1_1Listener_ae479dc15513c6557984d26e32d06d06e}{set\+Direction} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classsf_1_1Listener_a137ea535799bdf70be6ec969673d4d33}\label{classsf_1_1Listener_a137ea535799bdf70be6ec969673d4d33}} 
+\index{sf\+::\+Listener@{sf\+::\+Listener}!get\+Global\+Volume@{get\+Global\+Volume}}
+\index{get\+Global\+Volume@{get\+Global\+Volume}!sf\+::\+Listener@{sf\+::\+Listener}}
+\subsubsection{\texorpdfstring{get\+Global\+Volume()}{getGlobalVolume()}}
+{\footnotesize\ttfamily static float sf\+::\+Listener\+::get\+Global\+Volume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get the current value of the global volume. 
+
+\begin{DoxyReturn}{Renvoie}
+Current global volume, in the range \mbox{[}0, 100\mbox{]}
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{Voir également}
+\hyperlink{classsf_1_1Listener_a803a24a1fc04620cacc9f88c6fbc0e3a}{set\+Global\+Volume} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classsf_1_1Listener_acd7ee65bc948ca38e1c669aa12340c54}\label{classsf_1_1Listener_acd7ee65bc948ca38e1c669aa12340c54}} 
+\index{sf\+::\+Listener@{sf\+::\+Listener}!get\+Position@{get\+Position}}
+\index{get\+Position@{get\+Position}!sf\+::\+Listener@{sf\+::\+Listener}}
+\subsubsection{\texorpdfstring{get\+Position()}{getPosition()}}
+{\footnotesize\ttfamily static \hyperlink{classsf_1_1Vector3}{Vector3f} sf\+::\+Listener\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get the current position of the listener in the scene. 
+
+\begin{DoxyReturn}{Renvoie}
+\hyperlink{classsf_1_1Listener}{Listener}\textquotesingle{}s position
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{Voir également}
+\hyperlink{classsf_1_1Listener_a5bc2d8d18ea2d8f339d23cbf17678564}{set\+Position} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classsf_1_1Listener_ae1427dd7e9b425b0c23b7b766bd6c6e6}\label{classsf_1_1Listener_ae1427dd7e9b425b0c23b7b766bd6c6e6}} 
+\index{sf\+::\+Listener@{sf\+::\+Listener}!get\+Up\+Vector@{get\+Up\+Vector}}
+\index{get\+Up\+Vector@{get\+Up\+Vector}!sf\+::\+Listener@{sf\+::\+Listener}}
+\subsubsection{\texorpdfstring{get\+Up\+Vector()}{getUpVector()}}
+{\footnotesize\ttfamily static \hyperlink{classsf_1_1Vector3}{Vector3f} sf\+::\+Listener\+::get\+Up\+Vector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get the current upward vector of the listener in the scene. 
+
+\begin{DoxyReturn}{Renvoie}
+\hyperlink{classsf_1_1Listener}{Listener}\textquotesingle{}s upward vector (not normalized)
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{Voir également}
+\hyperlink{classsf_1_1Listener_a0ea9b3083a994b2b90253543bc4e3ad6}{set\+Up\+Vector} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classsf_1_1Listener_ae479dc15513c6557984d26e32d06d06e}\label{classsf_1_1Listener_ae479dc15513c6557984d26e32d06d06e}} 
+\index{sf\+::\+Listener@{sf\+::\+Listener}!set\+Direction@{set\+Direction}}
+\index{set\+Direction@{set\+Direction}!sf\+::\+Listener@{sf\+::\+Listener}}
+\subsubsection{\texorpdfstring{set\+Direction()}{setDirection()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static void sf\+::\+Listener\+::set\+Direction (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Set the forward vector of the listener in the scene. 
+
+The direction (also called \char`\"{}at vector\char`\"{}) is the vector pointing forward from the listener\textquotesingle{}s perspective. Together with the up vector, it defines the 3D orientation of the listener in the scene. The direction vector doesn\textquotesingle{}t have to be normalized. The default listener\textquotesingle{}s direction is (0, 0, -\/1).
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & X coordinate of the listener\textquotesingle{}s direction \\
+\hline
+{\em y} & Y coordinate of the listener\textquotesingle{}s direction \\
+\hline
+{\em z} & Z coordinate of the listener\textquotesingle{}s direction\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Voir également}
+\hyperlink{classsf_1_1Listener_a54e91baba51d4431474f53ff7f9309f9}{get\+Direction}, \hyperlink{classsf_1_1Listener_a0ea9b3083a994b2b90253543bc4e3ad6}{set\+Up\+Vector}, \hyperlink{classsf_1_1Listener_a5bc2d8d18ea2d8f339d23cbf17678564}{set\+Position} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classsf_1_1Listener_a1d99d9457c6ddad93449ecb4f504c2bf}\label{classsf_1_1Listener_a1d99d9457c6ddad93449ecb4f504c2bf}} 
+\index{sf\+::\+Listener@{sf\+::\+Listener}!set\+Direction@{set\+Direction}}
+\index{set\+Direction@{set\+Direction}!sf\+::\+Listener@{sf\+::\+Listener}}
+\subsubsection{\texorpdfstring{set\+Direction()}{setDirection()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void sf\+::\+Listener\+::set\+Direction (\begin{DoxyParamCaption}\item[{const \hyperlink{classsf_1_1Vector3}{Vector3f} \&}]{direction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Set the forward vector of the listener in the scene. 
+
+The direction (also called \char`\"{}at vector\char`\"{}) is the vector pointing forward from the listener\textquotesingle{}s perspective. Together with the up vector, it defines the 3D orientation of the listener in the scene. The direction vector doesn\textquotesingle{}t have to be normalized. The default listener\textquotesingle{}s direction is (0, 0, -\/1).
+
+
+\begin{DoxyParams}{Paramètres}
+{\em direction} & New listener\textquotesingle{}s direction\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Voir également}
+\hyperlink{classsf_1_1Listener_a54e91baba51d4431474f53ff7f9309f9}{get\+Direction}, \hyperlink{classsf_1_1Listener_a0ea9b3083a994b2b90253543bc4e3ad6}{set\+Up\+Vector}, \hyperlink{classsf_1_1Listener_a5bc2d8d18ea2d8f339d23cbf17678564}{set\+Position} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classsf_1_1Listener_a803a24a1fc04620cacc9f88c6fbc0e3a}\label{classsf_1_1Listener_a803a24a1fc04620cacc9f88c6fbc0e3a}} 
+\index{sf\+::\+Listener@{sf\+::\+Listener}!set\+Global\+Volume@{set\+Global\+Volume}}
+\index{set\+Global\+Volume@{set\+Global\+Volume}!sf\+::\+Listener@{sf\+::\+Listener}}
+\subsubsection{\texorpdfstring{set\+Global\+Volume()}{setGlobalVolume()}}
+{\footnotesize\ttfamily static void sf\+::\+Listener\+::set\+Global\+Volume (\begin{DoxyParamCaption}\item[{float}]{volume }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Change the global volume of all the sounds and musics. 
+
+The volume is a number between 0 and 100; it is combined with the individual volume of each sound / music. The default value for the volume is 100 (maximum).
+
+
+\begin{DoxyParams}{Paramètres}
+{\em volume} & New global volume, in the range \mbox{[}0, 100\mbox{]}\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Voir également}
+\hyperlink{classsf_1_1Listener_a137ea535799bdf70be6ec969673d4d33}{get\+Global\+Volume} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classsf_1_1Listener_a5bc2d8d18ea2d8f339d23cbf17678564}\label{classsf_1_1Listener_a5bc2d8d18ea2d8f339d23cbf17678564}} 
+\index{sf\+::\+Listener@{sf\+::\+Listener}!set\+Position@{set\+Position}}
+\index{set\+Position@{set\+Position}!sf\+::\+Listener@{sf\+::\+Listener}}
+\subsubsection{\texorpdfstring{set\+Position()}{setPosition()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static void sf\+::\+Listener\+::set\+Position (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Set the position of the listener in the scene. 
+
+The default listener\textquotesingle{}s position is (0, 0, 0).
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & X coordinate of the listener\textquotesingle{}s position \\
+\hline
+{\em y} & Y coordinate of the listener\textquotesingle{}s position \\
+\hline
+{\em z} & Z coordinate of the listener\textquotesingle{}s position\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Voir également}
+\hyperlink{classsf_1_1Listener_acd7ee65bc948ca38e1c669aa12340c54}{get\+Position}, \hyperlink{classsf_1_1Listener_ae479dc15513c6557984d26e32d06d06e}{set\+Direction} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classsf_1_1Listener_a28a27d85cfbf8065c535c39176898fcb}\label{classsf_1_1Listener_a28a27d85cfbf8065c535c39176898fcb}} 
+\index{sf\+::\+Listener@{sf\+::\+Listener}!set\+Position@{set\+Position}}
+\index{set\+Position@{set\+Position}!sf\+::\+Listener@{sf\+::\+Listener}}
+\subsubsection{\texorpdfstring{set\+Position()}{setPosition()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void sf\+::\+Listener\+::set\+Position (\begin{DoxyParamCaption}\item[{const \hyperlink{classsf_1_1Vector3}{Vector3f} \&}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Set the position of the listener in the scene. 
+
+The default listener\textquotesingle{}s position is (0, 0, 0).
+
+
+\begin{DoxyParams}{Paramètres}
+{\em position} & New listener\textquotesingle{}s position\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Voir également}
+\hyperlink{classsf_1_1Listener_acd7ee65bc948ca38e1c669aa12340c54}{get\+Position}, \hyperlink{classsf_1_1Listener_ae479dc15513c6557984d26e32d06d06e}{set\+Direction} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classsf_1_1Listener_a0ea9b3083a994b2b90253543bc4e3ad6}\label{classsf_1_1Listener_a0ea9b3083a994b2b90253543bc4e3ad6}} 
+\index{sf\+::\+Listener@{sf\+::\+Listener}!set\+Up\+Vector@{set\+Up\+Vector}}
+\index{set\+Up\+Vector@{set\+Up\+Vector}!sf\+::\+Listener@{sf\+::\+Listener}}
+\subsubsection{\texorpdfstring{set\+Up\+Vector()}{setUpVector()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static void sf\+::\+Listener\+::set\+Up\+Vector (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Set the upward vector of the listener in the scene. 
+
+The up vector is the vector that points upward from the listener\textquotesingle{}s perspective. Together with the direction, it defines the 3D orientation of the listener in the scene. The up vector doesn\textquotesingle{}t have to be normalized. The default listener\textquotesingle{}s up vector is (0, 1, 0). It is usually not necessary to change it, especially in 2D scenarios.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & X coordinate of the listener\textquotesingle{}s up vector \\
+\hline
+{\em y} & Y coordinate of the listener\textquotesingle{}s up vector \\
+\hline
+{\em z} & Z coordinate of the listener\textquotesingle{}s up vector\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Voir également}
+\hyperlink{classsf_1_1Listener_ae1427dd7e9b425b0c23b7b766bd6c6e6}{get\+Up\+Vector}, \hyperlink{classsf_1_1Listener_ae479dc15513c6557984d26e32d06d06e}{set\+Direction}, \hyperlink{classsf_1_1Listener_a5bc2d8d18ea2d8f339d23cbf17678564}{set\+Position} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classsf_1_1Listener_a281e8cd44d3411d891b5e83b0cb6b9d4}\label{classsf_1_1Listener_a281e8cd44d3411d891b5e83b0cb6b9d4}} 
+\index{sf\+::\+Listener@{sf\+::\+Listener}!set\+Up\+Vector@{set\+Up\+Vector}}
+\index{set\+Up\+Vector@{set\+Up\+Vector}!sf\+::\+Listener@{sf\+::\+Listener}}
+\subsubsection{\texorpdfstring{set\+Up\+Vector()}{setUpVector()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void sf\+::\+Listener\+::set\+Up\+Vector (\begin{DoxyParamCaption}\item[{const \hyperlink{classsf_1_1Vector3}{Vector3f} \&}]{up\+Vector }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Set the upward vector of the listener in the scene. 
+
+The up vector is the vector that points upward from the listener\textquotesingle{}s perspective. Together with the direction, it defines the 3D orientation of the listener in the scene. The up vector doesn\textquotesingle{}t have to be normalized. The default listener\textquotesingle{}s up vector is (0, 1, 0). It is usually not necessary to change it, especially in 2D scenarios.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em up\+Vector} & New listener\textquotesingle{}s up vector\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Voir également}
+\hyperlink{classsf_1_1Listener_ae1427dd7e9b425b0c23b7b766bd6c6e6}{get\+Up\+Vector}, \hyperlink{classsf_1_1Listener_ae479dc15513c6557984d26e32d06d06e}{set\+Direction}, \hyperlink{classsf_1_1Listener_a5bc2d8d18ea2d8f339d23cbf17678564}{set\+Position} 
+\end{DoxySeeAlso}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+includes/\+S\+F\+M\+L/\+Audio/Listener.\+hpp\end{DoxyCompactItemize}

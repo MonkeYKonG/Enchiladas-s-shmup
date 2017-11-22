@@ -1,0 +1,137 @@
+\hypertarget{classmy_1_1AliveObject}{}\section{Référence de la classe my\+:\+:Alive\+Object}
+\label{classmy_1_1AliveObject}\index{my\+::\+Alive\+Object@{my\+::\+Alive\+Object}}
+
+
+Class représentant un object dit \char`\"{}vivant\char`\"{}.  
+
+
+
+
+{\ttfamily \#include $<$Alive\+Object.\+hpp$>$}
+
+Graphe d\textquotesingle{}héritage de my\+:\+:Alive\+Object\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmy_1_1AliveObject}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classmy_1_1AliveObject_ae3d7fb84f66db19cd49e238405590d40}{Is\+Alive} () const noexcept
+\begin{DoxyCompactList}\small\item\em Détermine l\textquotesingle{}état de l\textquotesingle{}objet (vivatn ou mort). \end{DoxyCompactList}\item 
+unsigned \hyperlink{classmy_1_1AliveObject_ad5c35dbc2ccd74c9edd73fb19b89e6bb}{Get\+Cur\+HP} () const noexcept
+\begin{DoxyCompactList}\small\item\em Retourne le nonbre de points de vie courants. \end{DoxyCompactList}\item 
+unsigned \hyperlink{classmy_1_1AliveObject_a4537ba5f7d099b5ae2bd59b6db93a76b}{Get\+Max\+HP} () const noexcept
+\begin{DoxyCompactList}\small\item\em Retourne le nombre de points de vie maximum. \end{DoxyCompactList}\item 
+void \hyperlink{classmy_1_1AliveObject_ae3cf3e26f9fc6b497d8b659621d3ffa8}{Set\+Cur\+HP} (unsigned cur\+HP)  throw (std\+::invalid\+\_\+argument)
+\begin{DoxyCompactList}\small\item\em Change le nombre de points de vie courants. \end{DoxyCompactList}\item 
+void \hyperlink{classmy_1_1AliveObject_aea104f1424ccb0e2ebca84bd0fba3029}{Set\+Max\+HP} (unsigned max\+HP) noexcept
+\begin{DoxyCompactList}\small\item\em Change le nombre de points de vie maximum. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classmy_1_1AliveObject_a4c13171af7b862e15bfd1737a75dab75}{Take\+Damage} (unsigned damage) noexcept
+\begin{DoxyCompactList}\small\item\em Soustrait aux points de vie courant la valeur passé en argument. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmy_1_1AliveObject_afbeb3d5cebdf6133f3dcace7eea2dff6}\label{classmy_1_1AliveObject_afbeb3d5cebdf6133f3dcace7eea2dff6}} 
+bool \hyperlink{classmy_1_1AliveObject_afbeb3d5cebdf6133f3dcace7eea2dff6}{m\+\_\+is\+Alive}
+\begin{DoxyCompactList}\small\item\em Booléen déterminant si l\textquotesingle{}objet est \char`\"{}vivant\char`\"{} ou \char`\"{}mort\char`\"{}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classmy_1_1AliveObject_a3659debec3ec999e88aa7bdd7ff09fd5}\label{classmy_1_1AliveObject_a3659debec3ec999e88aa7bdd7ff09fd5}} 
+unsigned \hyperlink{classmy_1_1AliveObject_a3659debec3ec999e88aa7bdd7ff09fd5}{m\+\_\+\+HP}
+\begin{DoxyCompactList}\small\item\em Nombre de points de vie courant. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classmy_1_1AliveObject_a7c7f74ed8358b08e580462b0d458dd35}\label{classmy_1_1AliveObject_a7c7f74ed8358b08e580462b0d458dd35}} 
+unsigned \hyperlink{classmy_1_1AliveObject_a7c7f74ed8358b08e580462b0d458dd35}{m\+\_\+max\+HP}
+\begin{DoxyCompactList}\small\item\em Nombre de points de vie maximum. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs protégés statiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmy_1_1AliveObject_aa6ebb3bdd0c42782c37f6a42f4744381}\label{classmy_1_1AliveObject_aa6ebb3bdd0c42782c37f6a42f4744381}} 
+static const std\+::string \hyperlink{classmy_1_1AliveObject_aa6ebb3bdd0c42782c37f6a42f4744381}{D\+E\+A\+T\+H\+\_\+\+A\+N\+I\+M\+\_\+\+N\+A\+ME} = \char`\"{}death\char`\"{}
+\begin{DoxyCompactList}\small\item\em Index de l\textquotesingle{}animation de mort. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Class représentant un object dit \char`\"{}vivant\char`\"{}. 
+
+Un object \char`\"{}vivant\char`\"{} possède un nombre de point de vie maximum et courant, lorsque ces points de vie tombent à 0, l\textquotesingle{}objet est considéré comme \char`\"{}mort\char`\"{} 
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classmy_1_1AliveObject_ad5c35dbc2ccd74c9edd73fb19b89e6bb}\label{classmy_1_1AliveObject_ad5c35dbc2ccd74c9edd73fb19b89e6bb}} 
+\index{my\+::\+Alive\+Object@{my\+::\+Alive\+Object}!Get\+Cur\+HP@{Get\+Cur\+HP}}
+\index{Get\+Cur\+HP@{Get\+Cur\+HP}!my\+::\+Alive\+Object@{my\+::\+Alive\+Object}}
+\subsubsection{\texorpdfstring{Get\+Cur\+H\+P()}{GetCurHP()}}
+{\footnotesize\ttfamily unsigned my\+::\+Alive\+Object\+::\+Get\+Cur\+HP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Retourne le nonbre de points de vie courants. 
+
+{\bfseries Valeur de retour}~\newline
+ Retourne le nombre de points de vie courant dans un entier non-\/signé. \mbox{\Hypertarget{classmy_1_1AliveObject_a4537ba5f7d099b5ae2bd59b6db93a76b}\label{classmy_1_1AliveObject_a4537ba5f7d099b5ae2bd59b6db93a76b}} 
+\index{my\+::\+Alive\+Object@{my\+::\+Alive\+Object}!Get\+Max\+HP@{Get\+Max\+HP}}
+\index{Get\+Max\+HP@{Get\+Max\+HP}!my\+::\+Alive\+Object@{my\+::\+Alive\+Object}}
+\subsubsection{\texorpdfstring{Get\+Max\+H\+P()}{GetMaxHP()}}
+{\footnotesize\ttfamily unsigned my\+::\+Alive\+Object\+::\+Get\+Max\+HP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Retourne le nombre de points de vie maximum. 
+
+{\bfseries Valeur de retour}~\newline
+ Retourne le nombre de points de vie maximum dans un entier non-\/signé. \mbox{\Hypertarget{classmy_1_1AliveObject_ae3d7fb84f66db19cd49e238405590d40}\label{classmy_1_1AliveObject_ae3d7fb84f66db19cd49e238405590d40}} 
+\index{my\+::\+Alive\+Object@{my\+::\+Alive\+Object}!Is\+Alive@{Is\+Alive}}
+\index{Is\+Alive@{Is\+Alive}!my\+::\+Alive\+Object@{my\+::\+Alive\+Object}}
+\subsubsection{\texorpdfstring{Is\+Alive()}{IsAlive()}}
+{\footnotesize\ttfamily bool my\+::\+Alive\+Object\+::\+Is\+Alive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Détermine l\textquotesingle{}état de l\textquotesingle{}objet (vivatn ou mort). 
+
+{\bfseries Valeur de retour}~\newline
+ La fonction retourne {\bfseries vrais} si l\textquotesingle{}objet est vivant, {\bfseries faux} sinon. \mbox{\Hypertarget{classmy_1_1AliveObject_ae3cf3e26f9fc6b497d8b659621d3ffa8}\label{classmy_1_1AliveObject_ae3cf3e26f9fc6b497d8b659621d3ffa8}} 
+\index{my\+::\+Alive\+Object@{my\+::\+Alive\+Object}!Set\+Cur\+HP@{Set\+Cur\+HP}}
+\index{Set\+Cur\+HP@{Set\+Cur\+HP}!my\+::\+Alive\+Object@{my\+::\+Alive\+Object}}
+\subsubsection{\texorpdfstring{Set\+Cur\+H\+P()}{SetCurHP()}}
+{\footnotesize\ttfamily void my\+::\+Alive\+Object\+::\+Set\+Cur\+HP (\begin{DoxyParamCaption}\item[{unsigned}]{cur\+HP }\end{DoxyParamCaption}) throw  std\+::invalid\+\_\+argument) }
+
+
+
+Change le nombre de points de vie courants. 
+
+{\bfseries Arguments}~\newline
+ cur\+HP\+: Le nouveau nombre de points de vie de l\textquotesingle{}objet. ~\newline
+~\newline
+ {\bfseries Exception}~\newline
+ std\+::invalid\+\_\+argument\+: Le nombre de points de vie est supérieur au maximum. \mbox{\Hypertarget{classmy_1_1AliveObject_aea104f1424ccb0e2ebca84bd0fba3029}\label{classmy_1_1AliveObject_aea104f1424ccb0e2ebca84bd0fba3029}} 
+\index{my\+::\+Alive\+Object@{my\+::\+Alive\+Object}!Set\+Max\+HP@{Set\+Max\+HP}}
+\index{Set\+Max\+HP@{Set\+Max\+HP}!my\+::\+Alive\+Object@{my\+::\+Alive\+Object}}
+\subsubsection{\texorpdfstring{Set\+Max\+H\+P()}{SetMaxHP()}}
+{\footnotesize\ttfamily void my\+::\+Alive\+Object\+::\+Set\+Max\+HP (\begin{DoxyParamCaption}\item[{unsigned}]{max\+HP }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Change le nombre de points de vie maximum. 
+
+{\bfseries Arguments}~\newline
+ max\+HP\+: Le nouveau nombre de points de vie maximum. \mbox{\Hypertarget{classmy_1_1AliveObject_a4c13171af7b862e15bfd1737a75dab75}\label{classmy_1_1AliveObject_a4c13171af7b862e15bfd1737a75dab75}} 
+\index{my\+::\+Alive\+Object@{my\+::\+Alive\+Object}!Take\+Damage@{Take\+Damage}}
+\index{Take\+Damage@{Take\+Damage}!my\+::\+Alive\+Object@{my\+::\+Alive\+Object}}
+\subsubsection{\texorpdfstring{Take\+Damage()}{TakeDamage()}}
+{\footnotesize\ttfamily void my\+::\+Alive\+Object\+::\+Take\+Damage (\begin{DoxyParamCaption}\item[{unsigned}]{damage }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Soustrait aux points de vie courant la valeur passé en argument. 
+
+{\bfseries Arguments}~\newline
+ damage\+: Le nombre de dommage à subir. 
+
+Réimplémentée dans \hyperlink{classmy_1_1Bullet_add56b393dfba4c70de2713d4a3c917c3}{my\+::\+Bullet}, et \hyperlink{classmy_1_1Enemy_a38251585de243212ad04d5bbc2843f50}{my\+::\+Enemy}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+includes/my\+\_\+objects\+\_\+lib/Alive\+Object.\+hpp\item 
+lib/my\+\_\+objects\+\_\+lib/Alive\+Object.\+cpp\end{DoxyCompactItemize}

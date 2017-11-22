@@ -1,0 +1,119 @@
+\hypertarget{classsf_1_1Touch}{}\section{Référence de la classe sf\+:\+:Touch}
+\label{classsf_1_1Touch}\index{sf\+::\+Touch@{sf\+::\+Touch}}
+
+
+Give access to the real-\/time state of the touches.  
+
+
+
+
+{\ttfamily \#include $<$Touch.\+hpp$>$}
+
+\subsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static bool \hyperlink{classsf_1_1Touch_a2f85297123ea4e401d02c346e50d48a3}{is\+Down} (unsigned int finger)
+\begin{DoxyCompactList}\small\item\em Check if a touch event is currently down. \end{DoxyCompactList}\item 
+static \hyperlink{classsf_1_1Vector2}{Vector2i} \hyperlink{classsf_1_1Touch_af1b7035be709091c7475075e43e2bc23}{get\+Position} (unsigned int finger)
+\begin{DoxyCompactList}\small\item\em Get the current position of a touch in desktop coordinates. \end{DoxyCompactList}\item 
+static \hyperlink{classsf_1_1Vector2}{Vector2i} \hyperlink{classsf_1_1Touch_a372acaba3c7ac70fca4614c16ac4a1bb}{get\+Position} (unsigned int finger, const \hyperlink{classsf_1_1Window}{Window} \&relative\+To)
+\begin{DoxyCompactList}\small\item\em Get the current position of a touch in window coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Give access to the real-\/time state of the touches. 
+
+\hyperlink{classsf_1_1Touch}{sf\+::\+Touch} provides an interface to the state of the touches. It only contains static functions, so it\textquotesingle{}s not meant to be instantiated.
+
+This class allows users to query the touches state at any time and directly, without having to deal with a window and its events. Compared to the Touch\+Began, Touch\+Moved and Touch\+Ended events, \hyperlink{classsf_1_1Touch}{sf\+::\+Touch} can retrieve the state of the touches at any time (you don\textquotesingle{}t need to store and update a boolean on your side in order to know if a touch is down), and you always get the real state of the touches, even if they happen when your window is out of focus and no event is triggered.
+
+The get\+Position function can be used to retrieve the current position of a touch. There are two versions\+: one that operates in global coordinates (relative to the desktop) and one that operates in window coordinates (relative to a specific window).
+
+Touches are identified by an index (the \char`\"{}finger\char`\"{}), so that in multi-\/touch events, individual touches can be tracked correctly. As long as a finger touches the screen, it will keep the same index even if other fingers start or stop touching the screen in the meantime. As a consequence, active touch indices may not always be sequential (i.\+e. touch number 0 may be released while touch number 1 is still down).
+
+Usage example\+: 
+\begin{DoxyCode}
+\textcolor{keywordflow}{if} (\hyperlink{classsf_1_1Touch_a2f85297123ea4e401d02c346e50d48a3}{sf::Touch::isDown}(0))
+\{
+    \textcolor{comment}{// touch 0 is down}
+\}
+
+\textcolor{comment}{// get global position of touch 1}
+\hyperlink{classsf_1_1Vector2}{sf::Vector2i} globalPos = \hyperlink{classsf_1_1Touch_af1b7035be709091c7475075e43e2bc23}{sf::Touch::getPosition}(1);
+
+\textcolor{comment}{// get position of touch 1 relative to a window}
+\hyperlink{classsf_1_1Vector2}{sf::Vector2i} relativePos = \hyperlink{classsf_1_1Touch_af1b7035be709091c7475075e43e2bc23}{sf::Touch::getPosition}(1, window);
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{Voir également}
+\hyperlink{classsf_1_1Joystick}{sf\+::\+Joystick}, \hyperlink{classsf_1_1Keyboard}{sf\+::\+Keyboard}, \hyperlink{classsf_1_1Mouse}{sf\+::\+Mouse} 
+\end{DoxySeeAlso}
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classsf_1_1Touch_af1b7035be709091c7475075e43e2bc23}\label{classsf_1_1Touch_af1b7035be709091c7475075e43e2bc23}} 
+\index{sf\+::\+Touch@{sf\+::\+Touch}!get\+Position@{get\+Position}}
+\index{get\+Position@{get\+Position}!sf\+::\+Touch@{sf\+::\+Touch}}
+\subsubsection{\texorpdfstring{get\+Position()}{getPosition()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static \hyperlink{classsf_1_1Vector2}{Vector2i} sf\+::\+Touch\+::get\+Position (\begin{DoxyParamCaption}\item[{unsigned int}]{finger }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get the current position of a touch in desktop coordinates. 
+
+This function returns the current touch position in global (desktop) coordinates.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em finger} & Finger index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Current position of {\itshape finger}, or undefined if it\textquotesingle{}s not down 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classsf_1_1Touch_a372acaba3c7ac70fca4614c16ac4a1bb}\label{classsf_1_1Touch_a372acaba3c7ac70fca4614c16ac4a1bb}} 
+\index{sf\+::\+Touch@{sf\+::\+Touch}!get\+Position@{get\+Position}}
+\index{get\+Position@{get\+Position}!sf\+::\+Touch@{sf\+::\+Touch}}
+\subsubsection{\texorpdfstring{get\+Position()}{getPosition()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static \hyperlink{classsf_1_1Vector2}{Vector2i} sf\+::\+Touch\+::get\+Position (\begin{DoxyParamCaption}\item[{unsigned int}]{finger,  }\item[{const \hyperlink{classsf_1_1Window}{Window} \&}]{relative\+To }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get the current position of a touch in window coordinates. 
+
+This function returns the current touch position in global (desktop) coordinates.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em finger} & Finger index \\
+\hline
+{\em relative\+To} & Reference window\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Current position of {\itshape finger}, or undefined if it\textquotesingle{}s not down 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classsf_1_1Touch_a2f85297123ea4e401d02c346e50d48a3}\label{classsf_1_1Touch_a2f85297123ea4e401d02c346e50d48a3}} 
+\index{sf\+::\+Touch@{sf\+::\+Touch}!is\+Down@{is\+Down}}
+\index{is\+Down@{is\+Down}!sf\+::\+Touch@{sf\+::\+Touch}}
+\subsubsection{\texorpdfstring{is\+Down()}{isDown()}}
+{\footnotesize\ttfamily static bool sf\+::\+Touch\+::is\+Down (\begin{DoxyParamCaption}\item[{unsigned int}]{finger }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Check if a touch event is currently down. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em finger} & Finger index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+True if {\itshape finger} is currently touching the screen, false otherwise 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+includes/\+S\+F\+M\+L/\+Window/Touch.\+hpp\end{DoxyCompactItemize}

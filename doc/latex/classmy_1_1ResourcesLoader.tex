@@ -1,0 +1,79 @@
+\hypertarget{classmy_1_1ResourcesLoader}{}\section{Référence de la classe my\+:\+:Resources\+Loader}
+\label{classmy_1_1ResourcesLoader}\index{my\+::\+Resources\+Loader@{my\+::\+Resources\+Loader}}
+
+
+Class permettant de charger et stoker les ressources du jeu en utilisant un identifiant de type string.  
+
+
+
+
+{\ttfamily \#include $<$Resources\+Loader.\+hpp$>$}
+
+\subsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static const sf\+::\+Texture \& \hyperlink{classmy_1_1ResourcesLoader_a99c16ed7b9c9772e6181fd79b7417d87}{Get\+Texture} (const std\+::string \&id)  throw (std\+::invalid\+\_\+argument)
+\begin{DoxyCompactList}\small\item\em Retourne une référence sur la texture demandé. \end{DoxyCompactList}\item 
+static void \hyperlink{classmy_1_1ResourcesLoader_a546e03595e3740faed2223ed4b8f1fc2}{Unload\+Texture} (const std\+::string \&id)
+\begin{DoxyCompactList}\small\item\em Décharge une texture. \end{DoxyCompactList}\item 
+static const sf\+::\+Font \& \hyperlink{classmy_1_1ResourcesLoader_a3fd370dcde54accc2dfb22772c6370b6}{Get\+Font} (const std\+::string \&id)  throw (std\+::invalid\+\_\+argument)
+\begin{DoxyCompactList}\small\item\em Retourne une référence sur la police demandé. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Class permettant de charger et stoker les ressources du jeu en utilisant un identifiant de type string. 
+
+Les resources ne sont chargés que lorsqu\textquotesingle{}elle sont appelés pour la première fois. 
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classmy_1_1ResourcesLoader_a3fd370dcde54accc2dfb22772c6370b6}\label{classmy_1_1ResourcesLoader_a3fd370dcde54accc2dfb22772c6370b6}} 
+\index{my\+::\+Resources\+Loader@{my\+::\+Resources\+Loader}!Get\+Font@{Get\+Font}}
+\index{Get\+Font@{Get\+Font}!my\+::\+Resources\+Loader@{my\+::\+Resources\+Loader}}
+\subsubsection{\texorpdfstring{Get\+Font()}{GetFont()}}
+{\footnotesize\ttfamily const sf\+::\+Font \& my\+::\+Resources\+Loader\+::\+Get\+Font (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{id }\end{DoxyParamCaption}) throw  std\+::invalid\+\_\+argument) \hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Retourne une référence sur la police demandé. 
+
+{\bfseries Arguments}~\newline
+ id\+: Chaine de caractère correspondant à l\textquotesingle{}identifiant de la police. ~\newline
+~\newline
+ {\bfseries Valeur de retour}~\newline
+ Retourne une référence constante sur une police. ~\newline
+~\newline
+ {\bfseries Exception}~\newline
+ std\+::invadlid\+\_\+argument\+: La police demandé n\textquotesingle{}existe pas. \mbox{\Hypertarget{classmy_1_1ResourcesLoader_a99c16ed7b9c9772e6181fd79b7417d87}\label{classmy_1_1ResourcesLoader_a99c16ed7b9c9772e6181fd79b7417d87}} 
+\index{my\+::\+Resources\+Loader@{my\+::\+Resources\+Loader}!Get\+Texture@{Get\+Texture}}
+\index{Get\+Texture@{Get\+Texture}!my\+::\+Resources\+Loader@{my\+::\+Resources\+Loader}}
+\subsubsection{\texorpdfstring{Get\+Texture()}{GetTexture()}}
+{\footnotesize\ttfamily const sf\+::\+Texture \& my\+::\+Resources\+Loader\+::\+Get\+Texture (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{id }\end{DoxyParamCaption}) throw  std\+::invalid\+\_\+argument) \hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Retourne une référence sur la texture demandé. 
+
+{\bfseries Arguments}~\newline
+ id\+: Chaine de caractère correspondant à l\textquotesingle{}identifiant de la texture. ~\newline
+~\newline
+ {\bfseries Valeur de retour}~\newline
+ Retourne une référence constante sur une texture. ~\newline
+~\newline
+ {\bfseries Exception}~\newline
+ std\+::invalid\+\_\+argument\+: La texture demandé n\textquotesingle{}existe pas. \mbox{\Hypertarget{classmy_1_1ResourcesLoader_a546e03595e3740faed2223ed4b8f1fc2}\label{classmy_1_1ResourcesLoader_a546e03595e3740faed2223ed4b8f1fc2}} 
+\index{my\+::\+Resources\+Loader@{my\+::\+Resources\+Loader}!Unload\+Texture@{Unload\+Texture}}
+\index{Unload\+Texture@{Unload\+Texture}!my\+::\+Resources\+Loader@{my\+::\+Resources\+Loader}}
+\subsubsection{\texorpdfstring{Unload\+Texture()}{UnloadTexture()}}
+{\footnotesize\ttfamily void my\+::\+Resources\+Loader\+::\+Unload\+Texture (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Décharge une texture. 
+
+{\bfseries Arguments}~\newline
+ id\+: Chaine de caractère corrsespondant à l\textquotesingle{}identifiant de la texture. 
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+includes/my\+\_\+graph\+\_\+lib/Resources\+Loader.\+hpp\item 
+lib/my\+\_\+graph\+\_\+lib/Resources\+Loader.\+cpp\end{DoxyCompactItemize}
