@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['initialize',['Initialize',['../classmy_1_1GameManager.html#a1c6298ac18a158b2a59143aff1e7beff',1,'my::GameManager::Initialize()'],['../classmy_1_1Scene.html#ac9401c5ec0e8a740fa338324a7df67a6',1,'my::Scene::Initialize()'],['../classmy_1_1MainMenu.html#a56e81061a8d8d9a0da77267bd38ec058',1,'my::MainMenu::Initialize()'],['../classmy_1_1SchmupScene.html#ad1febbc7aaf1fc8b2eb4d02cdbf3f57a',1,'my::SchmupScene::Initialize()']]],
-  ['initializescenes',['InitializeScenes',['../classmy_1_1GameManager.html#a4374c551a764c9cea7c0f0ee5e2871ea',1,'my::GameManager']]],
-  ['initializewindow',['InitializeWindow',['../classmy_1_1GameManager.html#ab08492747a12e8eed0da29b22b9d84a4',1,'my::GameManager']]],
-  ['isalive',['IsAlive',['../classmy_1_1AliveObject.html#ae3d7fb84f66db19cd49e238405590d40',1,'my::AliveObject']]]
+  ['draw',['draw',['../classmy_1_1Node.html#a71ddeab220702a1329e436d890ba5c19',1,'my::Node::draw()'],['../classmy_1_1Scene.html#a1e3c785189d466d509f864e70303cbe1',1,'my::Scene::draw()'],['../classmy_1_1SpriteObject.html#a6dbc79fd834894570763f975c5de7920',1,'my::SpriteObject::draw()'],['../classmy_1_1TextObject.html#aaa3cb42fe369ae9c6f8d1f4e495b3d7b',1,'my::TextObject::draw()'],['../classmy_1_1MainMenu.html#af378fdb76cb97944ee6b5501933ee669',1,'my::MainMenu::draw()'],['../classmy_1_1SchmupScene.html#ac31669b2ef8cded3274eb06338812b11',1,'my::SchmupScene::draw()'],['../classmy_1_1GameManager.html#a5df3d31f463a08dbd9b7447fa10d0fab',1,'my::GameManager::Draw()']]]
 ];

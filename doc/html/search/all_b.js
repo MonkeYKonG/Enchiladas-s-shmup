@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['panel',['Panel',['../classmy_1_1Panel.html',1,'my']]],
-  ['player',['Player',['../classmy_1_1Player.html',1,'my']]],
-  ['pollevents',['PollEvents',['../classmy_1_1Scene.html#a8e291c764cc4ca5c86c7ff803a7c40c8',1,'my::Scene']]]
+  ['newsceneindex',['newSceneIndex',['../structmy_1_1SceneReturnValue.html#a1b84c148614e916787461194da79c37c',1,'my::SceneReturnValue']]],
+  ['node',['Node',['../classmy_1_1Node.html',1,'my']]]
 ];

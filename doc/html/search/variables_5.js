@@ -1,5 +1,27 @@
 var searchData=
 [
-  ['g',['g',['../classsf_1_1Color.html#a591daf9c3c55dea830c76c962d6ba1a5',1,'sf::Color']]],
-  ['green',['Green',['../classsf_1_1Color.html#a95629b30de8c6856aa7d3afed12eb865',1,'sf::Color']]]
+  ['m_5fanimations',['m_animations',['../classmy_1_1AnimatedObject.html#a553266e96f728842249f960687d094b9',1,'my::AnimatedObject']]],
+  ['m_5fanimindex',['m_animIndex',['../classmy_1_1AnimatedObject.html#a0a660f4d34009beb751bb8d8d16652af',1,'my::AnimatedObject']]],
+  ['m_5fanimtileindex',['m_animTileIndex',['../classmy_1_1AnimatedObject.html#a1b115d7e8e1919079b669c87466f56a2',1,'my::AnimatedObject']]],
+  ['m_5fcanmove',['m_canMove',['../classmy_1_1MoovableObject.html#aa8457f2cbc937965ddd9c577560ea75c',1,'my::MoovableObject']]],
+  ['m_5fchilds',['m_childs',['../classmy_1_1Node.html#a4b1e064d05cefffda0ce6bae3193f4d0',1,'my::Node']]],
+  ['m_5fcurframerate',['m_curFramerate',['../classmy_1_1AnimatedObject.html#a49fddef498a3975e4846cf093e83e41f',1,'my::AnimatedObject']]],
+  ['m_5fdeplacementrate',['m_deplacementRate',['../classmy_1_1MoovableObject.html#a4a02ffbb4f66d72f39f2106281e4f3a7',1,'my::MoovableObject']]],
+  ['m_5fdeplacementrepetition',['m_deplacementRepetition',['../classmy_1_1MoovableObject.html#a5f5ead094141e29bf7f0251a0b780059',1,'my::MoovableObject']]],
+  ['m_5fdirection',['m_direction',['../classmy_1_1MoovableObject.html#a93dfa01e2a5b853bd28edfd2b5f72b5f',1,'my::MoovableObject']]],
+  ['m_5fevents',['m_events',['../classmy_1_1Scene.html#a9f30fe8f2e3a54a0ae79bd5b34a13469',1,'my::Scene']]],
+  ['m_5fframerate',['m_frameRate',['../classmy_1_1MoovableObject.html#a9ef9e4b79fae2447d36518155f6b8e54',1,'my::MoovableObject']]],
+  ['m_5fhp',['m_HP',['../classmy_1_1AliveObject.html#a3659debec3ec999e88aa7bdd7ff09fd5',1,'my::AliveObject']]],
+  ['m_5fisalive',['m_isAlive',['../classmy_1_1AliveObject.html#afbeb3d5cebdf6133f3dcace7eea2dff6',1,'my::AliveObject']]],
+  ['m_5fmaxhp',['m_maxHP',['../classmy_1_1AliveObject.html#a7c7f74ed8358b08e580462b0d458dd35',1,'my::AliveObject']]],
+  ['m_5fonanimation',['m_onAnimation',['../classmy_1_1AnimatedObject.html#adc14c5e8effd46c532ca02127ba1a189',1,'my::AnimatedObject']]],
+  ['m_5fondeplacement',['m_onDeplacement',['../classmy_1_1MoovableObject.html#a56364bb6ed487aefb33b12ea4ce4ae4f',1,'my::MoovableObject']]],
+  ['m_5frepetitionmax',['m_repetitionMax',['../classmy_1_1MoovableObject.html#a264d9d3a9c16fd1435c6b48bca23b7a8',1,'my::MoovableObject']]],
+  ['m_5fspeed',['m_speed',['../classmy_1_1MoovableObject.html#a290ccefafadf9a0ca24db7a0a91bdc46',1,'my::MoovableObject']]],
+  ['m_5fsprite',['m_sprite',['../classmy_1_1SpriteObject.html#aede108105767fe39028727a225a24105',1,'my::SpriteObject']]],
+  ['m_5ftarget',['m_target',['../classmy_1_1MoovableObject.html#a6402bb1ad6cfa59483d9eb70f4ad1aab',1,'my::MoovableObject']]],
+  ['m_5ftext',['m_text',['../classmy_1_1TextObject.html#aa00d09e7bbea62c94333d54ef500e11d',1,'my::TextObject']]],
+  ['m_5fvisible',['m_visible',['../classmy_1_1Node.html#a1d55e20d5b5ab37c5e8b3c0b84af011f',1,'my::Node']]],
+  ['m_5fwindow',['m_window',['../classmy_1_1GameManager.html#a94d72e7dc8cd242d169c709d49092838',1,'my::GameManager']]],
+  ['mooving_5fanim_5fname',['MOOVING_ANIM_NAME',['../classmy_1_1Node.html#a80d18cd003826c77e7c2ef769dd7dc3a',1,'my::Node']]]
 ];

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['family',['family',['../structsf_1_1Font_1_1Info.html#a008413b4b6cf621eb92668a11098a519',1,'sf::Font::Info']]],
-  ['finger',['finger',['../structsf_1_1Event_1_1TouchEvent.html#a9a79fe86bf9ac3c16ec7326f96feb61a',1,'sf::Event::TouchEvent']]]
+  ['loop',['loop',['../structmy_1_1AnimatedObject_1_1Animation.html#a37d8637ca7e02b062a48b35795f23d85',1,'my::AnimatedObject::Animation']]]
 ];

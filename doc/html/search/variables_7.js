@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['identity',['Identity',['../classsf_1_1Transform.html#aa4eb1eecbcb9979d76e2543b337fdb13',1,'sf::Transform']]],
-  ['invalidpos',['InvalidPos',['../classsf_1_1String.html#abaadecaf12a6b41c54d725c75fd28527',1,'sf::String']]]
+  ['rects',['rects',['../structmy_1_1AnimatedObject_1_1Animation.html#a303859b9ae4ab314a9b90b90dca55139',1,'my::AnimatedObject::Animation']]]
 ];

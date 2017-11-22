@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['setcurhp',['SetCurHP',['../classmy_1_1AliveObject.html#ae3cf3e26f9fc6b497d8b659621d3ffa8',1,'my::AliveObject']]],
-  ['setmaxhp',['SetMaxHP',['../classmy_1_1AliveObject.html#aea104f1424ccb0e2ebca84bd0fba3029',1,'my::AliveObject']]]
+  ['parseoperation',['ParseOperation',['../classmy_1_1OperationEvaluator.html#aa9bb54881bfe3734ae5e4da71d013a6e',1,'my::OperationEvaluator']]],
+  ['pollevents',['PollEvents',['../classmy_1_1Scene.html#a8e291c764cc4ca5c86c7ff803a7c40c8',1,'my::Scene']]]
 ];

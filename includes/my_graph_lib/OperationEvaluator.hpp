@@ -7,10 +7,12 @@
 
 namespace my
 {
+	//! Class capable de parser une chaine de caratère pour evaluer un opération.
 	template <typename T>
 	class OperationEvaluator
 	{
 	public:
+		//! Retourne la valeur de l'opération passé en paramètre dans le type du template.
 		static T ParseOperation(const std::string & operation) throw (std::invalid_argument);
 
 	private:

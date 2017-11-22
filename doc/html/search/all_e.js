@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['takedamage',['TakeDamage',['../classmy_1_1AliveObject.html#a4c13171af7b862e15bfd1737a75dab75',1,'my::AliveObject::TakeDamage()'],['../classmy_1_1Bullet.html#add56b393dfba4c70de2713d4a3c917c3',1,'my::Bullet::TakeDamage()'],['../classmy_1_1Enemy.html#a38251585de243212ad04d5bbc2843f50',1,'my::Enemy::TakeDamage()']]],
-  ['textobject',['TextObject',['../classmy_1_1TextObject.html',1,'my']]]
+  ['rects',['rects',['../structmy_1_1AnimatedObject_1_1Animation.html#a303859b9ae4ab314a9b90b90dca55139',1,'my::AnimatedObject::Animation']]],
+  ['reset',['Reset',['../classmy_1_1Scene.html#a0077c85b889247ef70d5b4b595bbfa76',1,'my::Scene::Reset()'],['../classmy_1_1MainMenu.html#aace3282e435e32542dd3d6ee9bb76ea2',1,'my::MainMenu::Reset()'],['../classmy_1_1SchmupScene.html#afe90a166e047830a86a0e7b331085d20',1,'my::SchmupScene::Reset()']]],
+  ['resetdeplacement',['ResetDeplacement',['../classmy_1_1MoovableObject.html#a4302b691f78b37b7c316085ed45f7ac9',1,'my::MoovableObject']]],
+  ['resourcesloader',['ResourcesLoader',['../classmy_1_1ResourcesLoader.html',1,'my']]]
 ];

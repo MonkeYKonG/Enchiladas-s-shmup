@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Schmup: RÃ©fÃ©rence de la classe my::MoovableObject</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -29,7 +29,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- GÃ©nÃ©rÃ© par Doxygen 1.8.14 -->
+<!-- GÃ©nÃ©rÃ© par Doxygen 1.8.13 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </script>
@@ -72,17 +72,22 @@ $(function() {
 <div class="title">RÃ©fÃ©rence de la classe my::MoovableObject</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Class permettant à un objet de se déplacer.  
+ <a href="classmy_1_1MoovableObject.html#details">Plus de dÃ©tails...</a></p>
+
+<p><code>#include &lt;<a class="el" href="MoovableObject_8hpp_source.html">MoovableObject.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Graphe d'hÃ©ritage de my::MoovableObject:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classmy_1_1MoovableObject.png" usemap="#my::MoovableObject_map" alt=""/>
   <map id="my::MoovableObject_map" name="my::MoovableObject_map">
-<area href="classmy_1_1Node.html" alt="my::Node" shape="rect" coords="205,56,332,80"/>
+<area href="classmy_1_1Node.html" title="Class mère des entité dessinable. " alt="my::Node" shape="rect" coords="205,56,332,80"/>
 <area href="classmy_1_1Border.html" alt="my::Border" shape="rect" coords="0,112,127,136"/>
 <area href="classmy_1_1Panel.html" alt="my::Panel" shape="rect" coords="137,112,264,136"/>
-<area href="classmy_1_1SpriteObject.html" alt="my::SpriteObject" shape="rect" coords="274,112,401,136"/>
-<area href="classmy_1_1TextObject.html" alt="my::TextObject" shape="rect" coords="411,112,538,136"/>
+<area href="classmy_1_1SpriteObject.html" title="Class contenant un sf::sprite et les fonction pour le transformer et l&#39;afficher. " alt="my::SpriteObject" shape="rect" coords="274,112,401,136"/>
+<area href="classmy_1_1TextObject.html" title="Class contenant un sf::text et toutes les fonction pour le tranformé. " alt="my::TextObject" shape="rect" coords="411,112,538,136"/>
 <area href="classmy_1_1Bullet.html" alt="my::Bullet" shape="rect" coords="0,168,127,192"/>
 <area href="classmy_1_1Cursor.html" alt="my::Cursor" shape="rect" coords="137,168,264,192"/>
 <area href="classmy_1_1Enemy.html" alt="my::Enemy" shape="rect" coords="274,168,401,192"/>
@@ -100,99 +105,337 @@ typedef std::shared_ptr&lt; <a class="el" href="classmy_1_1MoovableObject.html">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:a4302b691f78b37b7c316085ed45f7ac9"><td class="memItemLeft" align="right" valign="top"><a id="a4302b691f78b37b7c316085ed45f7ac9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ResetDeplacement</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1MoovableObject.html#a4302b691f78b37b7c316085ed45f7ac9">ResetDeplacement</a> ()</td></tr>
+<tr class="memdesc:a4302b691f78b37b7c316085ed45f7ac9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Passe les attributs de répétition des déplacements à leurs valeurs par défauts. <br /></td></tr>
 <tr class="separator:a4302b691f78b37b7c316085ed45f7ac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5df53e0f738ed579d60fd177d1a5d536"><td class="memItemLeft" align="right" valign="top"><a id="a5df53e0f738ed579d60fd177d1a5d536"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ClearDeplacement</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1MoovableObject.html#a5df53e0f738ed579d60fd177d1a5d536">ClearDeplacement</a> ()</td></tr>
+<tr class="memdesc:a5df53e0f738ed579d60fd177d1a5d536"><td class="mdescLeft">&#160;</td><td class="mdescRight">Passe les attributs de déplacements à leurs valeurs par défauts et appel ResetDeplacement. <br /></td></tr>
 <tr class="separator:a5df53e0f738ed579d60fd177d1a5d536"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3d84238f50e6a0fb50b8e91c55a9f23"><td class="memItemLeft" align="right" valign="top"><a id="ad3d84238f50e6a0fb50b8e91c55a9f23"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsOnDeplacement</b> () const noexcept</td></tr>
+<tr class="memitem:ad3d84238f50e6a0fb50b8e91c55a9f23"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1MoovableObject.html#ad3d84238f50e6a0fb50b8e91c55a9f23">IsOnDeplacement</a> () const noexcept</td></tr>
+<tr class="memdesc:ad3d84238f50e6a0fb50b8e91c55a9f23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détermine si l'objet se déplace.  <a href="#ad3d84238f50e6a0fb50b8e91c55a9f23">Plus de dÃ©tails...</a><br /></td></tr>
 <tr class="separator:ad3d84238f50e6a0fb50b8e91c55a9f23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa74659c36cf79efa1e8ef68485e0b240"><td class="memItemLeft" align="right" valign="top"><a id="aa74659c36cf79efa1e8ef68485e0b240"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>CanMove</b> () const noexcept</td></tr>
+<tr class="memitem:aa74659c36cf79efa1e8ef68485e0b240"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1MoovableObject.html#aa74659c36cf79efa1e8ef68485e0b240">CanMove</a> () const noexcept</td></tr>
+<tr class="memdesc:aa74659c36cf79efa1e8ef68485e0b240"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détermine si l'objet peux modifier sa position pendant cette frame.  <a href="#aa74659c36cf79efa1e8ef68485e0b240">Plus de dÃ©tails...</a><br /></td></tr>
 <tr class="separator:aa74659c36cf79efa1e8ef68485e0b240"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0da6d199a21b7bd02b744e73f0ba9db2"><td class="memItemLeft" align="right" valign="top"><a id="a0da6d199a21b7bd02b744e73f0ba9db2"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>GetSpeed</b> () const noexcept</td></tr>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1MoovableObject.html#a0da6d199a21b7bd02b744e73f0ba9db2">GetSpeed</a> () const noexcept</td></tr>
+<tr class="memdesc:a0da6d199a21b7bd02b744e73f0ba9db2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la vitesse de l'objet. <br /></td></tr>
 <tr class="separator:a0da6d199a21b7bd02b744e73f0ba9db2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29752f95b08d211af58337468cfa00ac"><td class="memItemLeft" align="right" valign="top"><a id="a29752f95b08d211af58337468cfa00ac"></a>
-const sf::Vector2f &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetDirection</b> () const noexcept</td></tr>
+const sf::Vector2f &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1MoovableObject.html#a29752f95b08d211af58337468cfa00ac">GetDirection</a> () const noexcept</td></tr>
+<tr class="memdesc:a29752f95b08d211af58337468cfa00ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne un vecteur correspondant à la direction actuel de l'objet. <br /></td></tr>
 <tr class="separator:a29752f95b08d211af58337468cfa00ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38ed98b7521553a560426dd9ca19c1b0"><td class="memItemLeft" align="right" valign="top"><a id="a38ed98b7521553a560426dd9ca19c1b0"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>GetFrameRate</b> () const noexcept</td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1MoovableObject.html#a38ed98b7521553a560426dd9ca19c1b0">GetFrameRate</a> () const noexcept</td></tr>
+<tr class="memdesc:a38ed98b7521553a560426dd9ca19c1b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne l'index de la frame actuel. <br /></td></tr>
 <tr class="separator:a38ed98b7521553a560426dd9ca19c1b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a1c2fa789043425bc0aa5d276788a89"><td class="memItemLeft" align="right" valign="top"><a id="a4a1c2fa789043425bc0aa5d276788a89"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>GetDeplacememtRate</b> () const noexcept</td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1MoovableObject.html#a4a1c2fa789043425bc0aa5d276788a89">GetDeplacememtRate</a> () const noexcept</td></tr>
+<tr class="memdesc:a4a1c2fa789043425bc0aa5d276788a89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne le nombre de frame séparrant deux modification de position. <br /></td></tr>
 <tr class="separator:a4a1c2fa789043425bc0aa5d276788a89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abfad2bb10fec55f3a2d1e3f371ce6259"><td class="memItemLeft" align="right" valign="top"><a id="abfad2bb10fec55f3a2d1e3f371ce6259"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>GetDeplacementRepetition</b> () const noexcept</td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1MoovableObject.html#abfad2bb10fec55f3a2d1e3f371ce6259">GetDeplacementRepetition</a> () const noexcept</td></tr>
+<tr class="memdesc:abfad2bb10fec55f3a2d1e3f371ce6259"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne le nombre de modification de position qui ont eut lieu. <br /></td></tr>
 <tr class="separator:abfad2bb10fec55f3a2d1e3f371ce6259"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad248f892b458765604e3f9832a60c146"><td class="memItemLeft" align="right" valign="top"><a id="ad248f892b458765604e3f9832a60c146"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>GetRepetitionMax</b> () const noexcept</td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1MoovableObject.html#ad248f892b458765604e3f9832a60c146">GetRepetitionMax</a> () const noexcept</td></tr>
+<tr class="memdesc:ad248f892b458765604e3f9832a60c146"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne le nombre de modification de position à effectués. <br /></td></tr>
 <tr class="separator:ad248f892b458765604e3f9832a60c146"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa968bbaf7ab53cd586f1608c578bebf0"><td class="memItemLeft" align="right" valign="top"><a id="aa968bbaf7ab53cd586f1608c578bebf0"></a>
-sf::Vector2f *&#160;</td><td class="memItemRight" valign="bottom"><b>GetTarget</b> () const noexcept</td></tr>
+<tr class="memitem:aa968bbaf7ab53cd586f1608c578bebf0"><td class="memItemLeft" align="right" valign="top">sf::Vector2f *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1MoovableObject.html#aa968bbaf7ab53cd586f1608c578bebf0">GetTarget</a> () const noexcept</td></tr>
+<tr class="memdesc:aa968bbaf7ab53cd586f1608c578bebf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne un pointeur sur la position de la cible de l'objet.  <a href="#aa968bbaf7ab53cd586f1608c578bebf0">Plus de dÃ©tails...</a><br /></td></tr>
 <tr class="separator:aa968bbaf7ab53cd586f1608c578bebf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab16c059fa42967679b4f6a3608c0cc70"><td class="memItemLeft" align="right" valign="top"><a id="ab16c059fa42967679b4f6a3608c0cc70"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetOnDeplacement</b> (bool onDeplacement) noexcept</td></tr>
+<tr class="memitem:ab16c059fa42967679b4f6a3608c0cc70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1MoovableObject.html#ab16c059fa42967679b4f6a3608c0cc70">SetOnDeplacement</a> (bool onDeplacement) noexcept</td></tr>
+<tr class="memdesc:ab16c059fa42967679b4f6a3608c0cc70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changer la valeur de déplacement de l'objet.  <a href="#ab16c059fa42967679b4f6a3608c0cc70">Plus de dÃ©tails...</a><br /></td></tr>
 <tr class="separator:ab16c059fa42967679b4f6a3608c0cc70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88156d7514b00250efe0dacae22c1081"><td class="memItemLeft" align="right" valign="top"><a id="a88156d7514b00250efe0dacae22c1081"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetSpeed</b> (float speed) noexcept</td></tr>
+<tr class="memitem:a88156d7514b00250efe0dacae22c1081"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1MoovableObject.html#a88156d7514b00250efe0dacae22c1081">SetSpeed</a> (float speed) noexcept</td></tr>
+<tr class="memdesc:a88156d7514b00250efe0dacae22c1081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changer la vitesse du déplacement de l'objet.  <a href="#a88156d7514b00250efe0dacae22c1081">Plus de dÃ©tails...</a><br /></td></tr>
 <tr class="separator:a88156d7514b00250efe0dacae22c1081"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a715e0bc98cd76d55b349cc7b3576b2a2"><td class="memItemLeft" align="right" valign="top"><a id="a715e0bc98cd76d55b349cc7b3576b2a2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetDirection</b> (const sf::Vector2f &amp;direction) noexcept</td></tr>
+<tr class="memitem:a715e0bc98cd76d55b349cc7b3576b2a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1MoovableObject.html#a715e0bc98cd76d55b349cc7b3576b2a2">SetDirection</a> (const sf::Vector2f &amp;direction) noexcept</td></tr>
+<tr class="memdesc:a715e0bc98cd76d55b349cc7b3576b2a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changer la direction du déplacement de l'objet.  <a href="#a715e0bc98cd76d55b349cc7b3576b2a2">Plus de dÃ©tails...</a><br /></td></tr>
 <tr class="separator:a715e0bc98cd76d55b349cc7b3576b2a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab321cbf7f36daf3cbcc7d64c8ffd76d6"><td class="memItemLeft" align="right" valign="top"><a id="ab321cbf7f36daf3cbcc7d64c8ffd76d6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetFrameRate</b> (int frameRate) noexcept</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1MoovableObject.html#ab321cbf7f36daf3cbcc7d64c8ffd76d6">SetFrameRate</a> (int frameRate) noexcept</td></tr>
+<tr class="memdesc:ab321cbf7f36daf3cbcc7d64c8ffd76d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change l'index de frame courante. <br /></td></tr>
 <tr class="separator:ab321cbf7f36daf3cbcc7d64c8ffd76d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaded98ee5e816f3625f7c8131e39e379"><td class="memItemLeft" align="right" valign="top"><a id="aaded98ee5e816f3625f7c8131e39e379"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetDeplacementRate</b> (int deplacementRate) noexcept</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1MoovableObject.html#aaded98ee5e816f3625f7c8131e39e379">SetDeplacementRate</a> (int deplacementRate) noexcept</td></tr>
+<tr class="memdesc:aaded98ee5e816f3625f7c8131e39e379"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change le nombre de frame séparant deux déplacement. <br /></td></tr>
 <tr class="separator:aaded98ee5e816f3625f7c8131e39e379"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b57191d3cdbe81551a5947af184ca40"><td class="memItemLeft" align="right" valign="top"><a id="a7b57191d3cdbe81551a5947af184ca40"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetDeplacementRepetition</b> (int deplacementRepetition) noexcept</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1MoovableObject.html#a7b57191d3cdbe81551a5947af184ca40">SetDeplacementRepetition</a> (int deplacementRepetition) noexcept</td></tr>
+<tr class="memdesc:a7b57191d3cdbe81551a5947af184ca40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change l'index de répétition de déplacement. <br /></td></tr>
 <tr class="separator:a7b57191d3cdbe81551a5947af184ca40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50f93ff5d9816b85275e2a65874ac7e9"><td class="memItemLeft" align="right" valign="top"><a id="a50f93ff5d9816b85275e2a65874ac7e9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetRepetitionMax</b> (int repetitionMax) noexcept</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1MoovableObject.html#a50f93ff5d9816b85275e2a65874ac7e9">SetRepetitionMax</a> (int repetitionMax) noexcept</td></tr>
+<tr class="memdesc:a50f93ff5d9816b85275e2a65874ac7e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change le nombre de répétition du déplacement. <br /></td></tr>
 <tr class="separator:a50f93ff5d9816b85275e2a65874ac7e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85beb58fdd3f22e3a110cc1ef15f58e2"><td class="memItemLeft" align="right" valign="top"><a id="a85beb58fdd3f22e3a110cc1ef15f58e2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetTarget</b> (sf::Vector2f *target) noexcept</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1MoovableObject.html#a85beb58fdd3f22e3a110cc1ef15f58e2">SetTarget</a> (sf::Vector2f *target) noexcept</td></tr>
+<tr class="memdesc:a85beb58fdd3f22e3a110cc1ef15f58e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change la cible de l'objet. <br /></td></tr>
 <tr class="separator:a85beb58fdd3f22e3a110cc1ef15f58e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Fonctions membres protÃ©gÃ©es</h2></td></tr>
-<tr class="memitem:a805a7e19ec70558728f0467a9e05651a"><td class="memItemLeft" align="right" valign="top"><a id="a805a7e19ec70558728f0467a9e05651a"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateMovement</b> ()</td></tr>
+<tr class="memitem:a805a7e19ec70558728f0467a9e05651a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1MoovableObject.html#a805a7e19ec70558728f0467a9e05651a">UpdateMovement</a> ()</td></tr>
+<tr class="memdesc:a805a7e19ec70558728f0467a9e05651a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour le déplacement de l'objet.  <a href="#a805a7e19ec70558728f0467a9e05651a">Plus de dÃ©tails...</a><br /></td></tr>
 <tr class="separator:a805a7e19ec70558728f0467a9e05651a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Attributs protÃ©gÃ©s</h2></td></tr>
 <tr class="memitem:a56364bb6ed487aefb33b12ea4ce4ae4f"><td class="memItemLeft" align="right" valign="top"><a id="a56364bb6ed487aefb33b12ea4ce4ae4f"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_onDeplacement</b></td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1MoovableObject.html#a56364bb6ed487aefb33b12ea4ce4ae4f">m_onDeplacement</a></td></tr>
+<tr class="memdesc:a56364bb6ed487aefb33b12ea4ce4ae4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Autorisation de l'objet à se déplacer. <br /></td></tr>
 <tr class="separator:a56364bb6ed487aefb33b12ea4ce4ae4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8457f2cbc937965ddd9c577560ea75c"><td class="memItemLeft" align="right" valign="top"><a id="aa8457f2cbc937965ddd9c577560ea75c"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_canMove</b></td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1MoovableObject.html#aa8457f2cbc937965ddd9c577560ea75c">m_canMove</a></td></tr>
+<tr class="memdesc:aa8457f2cbc937965ddd9c577560ea75c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Autorisation de l'objet a modifier sa position. <br /></td></tr>
 <tr class="separator:aa8457f2cbc937965ddd9c577560ea75c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a290ccefafadf9a0ca24db7a0a91bdc46"><td class="memItemLeft" align="right" valign="top"><a id="a290ccefafadf9a0ca24db7a0a91bdc46"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>m_speed</b></td></tr>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1MoovableObject.html#a290ccefafadf9a0ca24db7a0a91bdc46">m_speed</a></td></tr>
+<tr class="memdesc:a290ccefafadf9a0ca24db7a0a91bdc46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vitesse de l'objet. <br /></td></tr>
 <tr class="separator:a290ccefafadf9a0ca24db7a0a91bdc46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93dfa01e2a5b853bd28edfd2b5f72b5f"><td class="memItemLeft" align="right" valign="top"><a id="a93dfa01e2a5b853bd28edfd2b5f72b5f"></a>
-sf::Vector2f&#160;</td><td class="memItemRight" valign="bottom"><b>m_direction</b></td></tr>
+sf::Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1MoovableObject.html#a93dfa01e2a5b853bd28edfd2b5f72b5f">m_direction</a></td></tr>
+<tr class="memdesc:a93dfa01e2a5b853bd28edfd2b5f72b5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direction du déplacement. <br /></td></tr>
 <tr class="separator:a93dfa01e2a5b853bd28edfd2b5f72b5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ef9e4b79fae2447d36518155f6b8e54"><td class="memItemLeft" align="right" valign="top"><a id="a9ef9e4b79fae2447d36518155f6b8e54"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>m_frameRate</b></td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1MoovableObject.html#a9ef9e4b79fae2447d36518155f6b8e54">m_frameRate</a></td></tr>
+<tr class="memdesc:a9ef9e4b79fae2447d36518155f6b8e54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index de la frame courante séparant deux modification de position. <br /></td></tr>
 <tr class="separator:a9ef9e4b79fae2447d36518155f6b8e54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a02ffbb4f66d72f39f2106281e4f3a7"><td class="memItemLeft" align="right" valign="top"><a id="a4a02ffbb4f66d72f39f2106281e4f3a7"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>m_deplacementRate</b></td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1MoovableObject.html#a4a02ffbb4f66d72f39f2106281e4f3a7">m_deplacementRate</a></td></tr>
+<tr class="memdesc:a4a02ffbb4f66d72f39f2106281e4f3a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nombre de frame séparant deux modification de position. <br /></td></tr>
 <tr class="separator:a4a02ffbb4f66d72f39f2106281e4f3a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f5ead094141e29bf7f0251a0b780059"><td class="memItemLeft" align="right" valign="top"><a id="a5f5ead094141e29bf7f0251a0b780059"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>m_deplacementRepetition</b></td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1MoovableObject.html#a5f5ead094141e29bf7f0251a0b780059">m_deplacementRepetition</a></td></tr>
+<tr class="memdesc:a5f5ead094141e29bf7f0251a0b780059"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index du nombre de répétition de modification de position. <br /></td></tr>
 <tr class="separator:a5f5ead094141e29bf7f0251a0b780059"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a264d9d3a9c16fd1435c6b48bca23b7a8"><td class="memItemLeft" align="right" valign="top"><a id="a264d9d3a9c16fd1435c6b48bca23b7a8"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>m_repetitionMax</b></td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1MoovableObject.html#a264d9d3a9c16fd1435c6b48bca23b7a8">m_repetitionMax</a></td></tr>
+<tr class="memdesc:a264d9d3a9c16fd1435c6b48bca23b7a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nombre de répétition maximum de modification de position. <br /></td></tr>
 <tr class="separator:a264d9d3a9c16fd1435c6b48bca23b7a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6402bb1ad6cfa59483d9eb70f4ad1aab"><td class="memItemLeft" align="right" valign="top"><a id="a6402bb1ad6cfa59483d9eb70f4ad1aab"></a>
-sf::Vector2f *&#160;</td><td class="memItemRight" valign="bottom"><b>m_target</b></td></tr>
+sf::Vector2f *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1MoovableObject.html#a6402bb1ad6cfa59483d9eb70f4ad1aab">m_target</a></td></tr>
+<tr class="memdesc:a6402bb1ad6cfa59483d9eb70f4ad1aab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cible de l'objet. <br /></td></tr>
 <tr class="separator:a6402bb1ad6cfa59483d9eb70f4ad1aab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Description dÃ©taillÃ©e</h2>
+<div class="textblock"><p>Class permettant à un objet de se déplacer. </p>
+<p>Cette class fournis aux object qui en héritent des fonctions et attributs permettants de se déplacer dans la fenêtre. <br />
+<br />
+ La fonction UpdateDeplacement doit être appelé à chaque tours de boucle.<br />
+ Pour déplacer l'objet, m_onDeplacement doit être true.<br />
+ <a class="el" href="classmy_1_1MoovableObject.html" title="Class permettant à un objet de se déplacer. ">MoovableObject</a> ne possède pas directement sa position, elle ne permet que de contenir des attributs de déplacements et de déterminer à l'aide de m_canMove si l'objet peux modifier sa position.<br />
+ Si le nombre de déplacements maximum est différents de -1, l'objet repassera ses compteurs à zéro et m_onDeplacement à false. </p>
+</div><h2 class="groupheader">Documentation des fonctions membres</h2>
+<a id="aa74659c36cf79efa1e8ef68485e0b240"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa74659c36cf79efa1e8ef68485e0b240">&#9670;&nbsp;</a></span>CanMove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool my::MoovableObject::CanMove </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Détermine si l'objet peux modifier sa position pendant cette frame. </p>
+<p><b>Valeur de retour</b><br />
+ Retourne true si l'objet peux modifier sa position pendant cette frame, false sinon. </p>
+
+</div>
+</div>
+<a id="aa968bbaf7ab53cd586f1608c578bebf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa968bbaf7ab53cd586f1608c578bebf0">&#9670;&nbsp;</a></span>GetTarget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::Vector2f * my::MoovableObject::GetTarget </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne un pointeur sur la position de la cible de l'objet. </p>
+<p><b>Valeur de retour</b><br />
+ Si l'objet à une cible retourne un pointeur sur la position de la cible de l'objet, NULL sinon </p>
+
+</div>
+</div>
+<a id="ad3d84238f50e6a0fb50b8e91c55a9f23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3d84238f50e6a0fb50b8e91c55a9f23">&#9670;&nbsp;</a></span>IsOnDeplacement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool my::MoovableObject::IsOnDeplacement </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Détermine si l'objet se déplace. </p>
+<p><b>Valeur de retour</b><br />
+ Retourne true si l'objet se déplace, false sinon. </p>
+
+</div>
+</div>
+<a id="a715e0bc98cd76d55b349cc7b3576b2a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a715e0bc98cd76d55b349cc7b3576b2a2">&#9670;&nbsp;</a></span>SetDirection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void my::MoovableObject::SetDirection </td>
+          <td>(</td>
+          <td class="paramtype">const sf::Vector2f &amp;&#160;</td>
+          <td class="paramname"><em>direction</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Changer la direction du déplacement de l'objet. </p>
+<p><b>Arguments</b><br />
+ direction: Nouvelle direction de l'objet. </p>
+
+</div>
+</div>
+<a id="ab16c059fa42967679b4f6a3608c0cc70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab16c059fa42967679b4f6a3608c0cc70">&#9670;&nbsp;</a></span>SetOnDeplacement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void my::MoovableObject::SetOnDeplacement </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>onDeplacement</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Changer la valeur de déplacement de l'objet. </p>
+<p><b>Arguments</b><br />
+ onDeplacement: valeur de déplacement de l'objet. </p>
+
+</div>
+</div>
+<a id="a88156d7514b00250efe0dacae22c1081"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88156d7514b00250efe0dacae22c1081">&#9670;&nbsp;</a></span>SetSpeed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void my::MoovableObject::SetSpeed </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>speed</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Changer la vitesse du déplacement de l'objet. </p>
+<p><b>Arguments</b><br />
+ speed: Nouvelle vitesse de l'objet </p>
+
+</div>
+</div>
+<a id="a805a7e19ec70558728f0467a9e05651a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a805a7e19ec70558728f0467a9e05651a">&#9670;&nbsp;</a></span>UpdateMovement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void my::MoovableObject::UpdateMovement </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Met à jour le déplacement de l'objet. </p>
+<p>Cette fonction met à jour les compteurs de frame. Et les remets à zéro lorsqu'ils attègnent leurs maximum. Si le nombre de répétition maximum est atteint, appel la fonction ResetDeplacement. </p>
+
+<p>RÃ©implÃ©mentÃ©e dans <a class="el" href="classmy_1_1Node.html#a70cf326c23afe568d5f450c0217258c0">my::Node</a>, et <a class="el" href="classmy_1_1Player.html#a43697ac9c9c7186f19f729c7112cc7b4">my::Player</a>.</p>
+
+</div>
+</div>
 <hr/>La documentation de cette classe a Ã©tÃ© gÃ©nÃ©rÃ©e Ã  partir des fichiers suivants :<ul>
 <li>includes/my_graph_lib/<a class="el" href="MoovableObject_8hpp_source.html">MoovableObject.hpp</a></li>
 <li>lib/my_graph_lib/MoovableObject.cpp</li>
@@ -202,7 +445,7 @@ sf::Vector2f *&#160;</td><td class="memItemRight" valign="bottom"><b>m_target</b
 <hr class="footer"/><address class="footer"><small>
 GÃ©nÃ©rÃ© par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.14
+</a> 1.8.13
 </small></address>
 </body>
 </html>

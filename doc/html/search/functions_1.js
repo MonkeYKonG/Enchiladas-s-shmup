@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['getcurhp',['GetCurHP',['../classmy_1_1AliveObject.html#ad5c35dbc2ccd74c9edd73fb19b89e6bb',1,'my::AliveObject']]],
-  ['getfont',['GetFont',['../classmy_1_1ResourcesLoader.html#a3fd370dcde54accc2dfb22772c6370b6',1,'my::ResourcesLoader']]],
-  ['getmaxhp',['GetMaxHP',['../classmy_1_1AliveObject.html#a4537ba5f7d099b5ae2bd59b6db93a76b',1,'my::AliveObject']]],
-  ['gettexture',['GetTexture',['../classmy_1_1ResourcesLoader.html#a99c16ed7b9c9772e6181fd79b7417d87',1,'my::ResourcesLoader']]]
+  ['canmove',['CanMove',['../classmy_1_1MoovableObject.html#aa74659c36cf79efa1e8ef68485e0b240',1,'my::MoovableObject']]],
+  ['childexist',['ChildExist',['../classmy_1_1XMLNode.html#af9796ae48e9b501b49cb6465f2345a09',1,'my::XMLNode']]],
+  ['cleardeplacement',['ClearDeplacement',['../classmy_1_1MoovableObject.html#a5df53e0f738ed579d60fd177d1a5d536',1,'my::MoovableObject']]],
+  ['contentexist',['ContentExist',['../classmy_1_1XMLNode.html#a388fe80598af8a552a19d28d91e197b3',1,'my::XMLNode']]],
+  ['create',['create',['../classmy_1_1XMLNode.html#a19d4fb15b7120b70e6a1ab83314611f6',1,'my::XMLNode::create() noexcept'],['../classmy_1_1XMLNode.html#adf5cf5a818a30464c82d506a6732ea96',1,'my::XMLNode::create(const std::string &amp;name, const ContentList &amp;contents) noexcept']]]
 ];

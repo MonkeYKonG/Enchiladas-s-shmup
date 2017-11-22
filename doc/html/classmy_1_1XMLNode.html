@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Schmup: RÃ©fÃ©rence de la classe my::XMLNode</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -29,7 +29,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- GÃ©nÃ©rÃ© par Doxygen 1.8.14 -->
+<!-- GÃ©nÃ©rÃ© par Doxygen 1.8.13 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </script>
@@ -71,6 +71,11 @@ $(function() {
 <div class="title">RÃ©fÃ©rence de la classe my::XMLNode</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Noeud d'un fichier XML. Correcpond à une balise et sont contenue.  
+ <a href="classmy_1_1XMLNode.html#details">Plus de dÃ©tails...</a></p>
+
+<p><code>#include &lt;<a class="el" href="XMLNode_8hpp_source.html">XMLNode.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Types publics</h2></td></tr>
@@ -90,60 +95,249 @@ typedef std::shared_ptr&lt; <a class="el" href="classmy_1_1XMLNode.html">XMLNode
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:ade94859a6e39c1e82a83ba17fe6e9040"><td class="memItemLeft" align="right" valign="top"><a id="ade94859a6e39c1e82a83ba17fe6e9040"></a>
-const NodeList &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetChilds</b> () const noexcept</td></tr>
+const NodeList &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1XMLNode.html#ade94859a6e39c1e82a83ba17fe6e9040">GetChilds</a> () const noexcept</td></tr>
+<tr class="memdesc:ade94859a6e39c1e82a83ba17fe6e9040"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la liste des noeuds enfants. <br /></td></tr>
 <tr class="separator:ade94859a6e39c1e82a83ba17fe6e9040"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a726e86d6b2d893cf98854b2c18d5dbd5"><td class="memItemLeft" align="right" valign="top"><a id="a726e86d6b2d893cf98854b2c18d5dbd5"></a>
-XMLNodePtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetChild</b> (int index) const  throw (std::out_of_range)</td></tr>
+<tr class="memitem:a726e86d6b2d893cf98854b2c18d5dbd5"><td class="memItemLeft" align="right" valign="top">XMLNodePtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1XMLNode.html#a726e86d6b2d893cf98854b2c18d5dbd5">GetChild</a> (int index) const  throw (std::out_of_range)</td></tr>
+<tr class="memdesc:a726e86d6b2d893cf98854b2c18d5dbd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne l'enfant stocker à l'emplacement demandé.  <a href="#a726e86d6b2d893cf98854b2c18d5dbd5">Plus de dÃ©tails...</a><br /></td></tr>
 <tr class="separator:a726e86d6b2d893cf98854b2c18d5dbd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e4e52f86a22d66ac713bad4f7be8441"><td class="memItemLeft" align="right" valign="top"><a id="a6e4e52f86a22d66ac713bad4f7be8441"></a>
-XMLNodePtr&#160;</td><td class="memItemRight" valign="bottom"><b>GetChild</b> (const std::string &amp;key) const  throw (std::out_of_range)</td></tr>
+<tr class="memitem:a6e4e52f86a22d66ac713bad4f7be8441"><td class="memItemLeft" align="right" valign="top">XMLNodePtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1XMLNode.html#a6e4e52f86a22d66ac713bad4f7be8441">GetChild</a> (const std::string &amp;key) const  throw (std::out_of_range)</td></tr>
+<tr class="memdesc:a6e4e52f86a22d66ac713bad4f7be8441"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne l'enfant ayant pour nom la chaine passé en argument.  <a href="#a6e4e52f86a22d66ac713bad4f7be8441">Plus de dÃ©tails...</a><br /></td></tr>
 <tr class="separator:a6e4e52f86a22d66ac713bad4f7be8441"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9796ae48e9b501b49cb6465f2345a09"><td class="memItemLeft" align="right" valign="top"><a id="af9796ae48e9b501b49cb6465f2345a09"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>ChildExist</b> (const std::string &amp;key) const noexcept</td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1XMLNode.html#af9796ae48e9b501b49cb6465f2345a09">ChildExist</a> (const std::string &amp;key) const noexcept</td></tr>
+<tr class="memdesc:af9796ae48e9b501b49cb6465f2345a09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détermine si un des enfant à pour nom la chaine passé en argument. <br /></td></tr>
 <tr class="separator:af9796ae48e9b501b49cb6465f2345a09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6607973f3b38f691783db131b48fb620"><td class="memItemLeft" align="right" valign="top"><a id="a6607973f3b38f691783db131b48fb620"></a>
-const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetName</b> () const noexcept</td></tr>
+const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1XMLNode.html#a6607973f3b38f691783db131b48fb620">GetName</a> () const noexcept</td></tr>
+<tr class="memdesc:a6607973f3b38f691783db131b48fb620"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne le nom du noeud. <br /></td></tr>
 <tr class="separator:a6607973f3b38f691783db131b48fb620"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae416de0db54eedd113518c7aa7c0ab4e"><td class="memItemLeft" align="right" valign="top"><a id="ae416de0db54eedd113518c7aa7c0ab4e"></a>
-const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetValue</b> () const noexcept</td></tr>
+const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1XMLNode.html#ae416de0db54eedd113518c7aa7c0ab4e">GetValue</a> () const noexcept</td></tr>
+<tr class="memdesc:ae416de0db54eedd113518c7aa7c0ab4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">retourne la valeur du noeud. <br /></td></tr>
 <tr class="separator:ae416de0db54eedd113518c7aa7c0ab4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f82f05c3eda5d0819415697dbdf708a"><td class="memItemLeft" align="right" valign="top"><a id="a4f82f05c3eda5d0819415697dbdf708a"></a>
-const ContentList &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetContents</b> () const noexcept</td></tr>
+const ContentList &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1XMLNode.html#a4f82f05c3eda5d0819415697dbdf708a">GetContents</a> () const noexcept</td></tr>
+<tr class="memdesc:a4f82f05c3eda5d0819415697dbdf708a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne le tableau d'attributs du noeud. <br /></td></tr>
 <tr class="separator:a4f82f05c3eda5d0819415697dbdf708a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a06e4643c4761c9be7b48c52f0f8578"><td class="memItemLeft" align="right" valign="top"><a id="a1a06e4643c4761c9be7b48c52f0f8578"></a>
-const NodeContent &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetContent</b> (const std::string &amp;key) const  throw (std::out_of_range)</td></tr>
+<tr class="memitem:a1a06e4643c4761c9be7b48c52f0f8578"><td class="memItemLeft" align="right" valign="top">const NodeContent &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1XMLNode.html#a1a06e4643c4761c9be7b48c52f0f8578">GetContent</a> (const std::string &amp;key) const  throw (std::out_of_range)</td></tr>
+<tr class="memdesc:a1a06e4643c4761c9be7b48c52f0f8578"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne l'attribut ayant pour clé la chaine passé en argument.  <a href="#a1a06e4643c4761c9be7b48c52f0f8578">Plus de dÃ©tails...</a><br /></td></tr>
 <tr class="separator:a1a06e4643c4761c9be7b48c52f0f8578"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a388fe80598af8a552a19d28d91e197b3"><td class="memItemLeft" align="right" valign="top"><a id="a388fe80598af8a552a19d28d91e197b3"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>ContentExist</b> (const std::string &amp;key) const noexcept</td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1XMLNode.html#a388fe80598af8a552a19d28d91e197b3">ContentExist</a> (const std::string &amp;key) const noexcept</td></tr>
+<tr class="memdesc:a388fe80598af8a552a19d28d91e197b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détermine si un attribut du noeud a pour clé la chaine passé en argument. <br /></td></tr>
 <tr class="separator:a388fe80598af8a552a19d28d91e197b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8972a7ae739ea8c7a175e213d1e557b6"><td class="memItemLeft" align="right" valign="top"><a id="a8972a7ae739ea8c7a175e213d1e557b6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>AddChild</b> (XMLNodePtr newChild)  throw (std::invalid_argument)</td></tr>
+<tr class="memitem:a8972a7ae739ea8c7a175e213d1e557b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1XMLNode.html#a8972a7ae739ea8c7a175e213d1e557b6">AddChild</a> (XMLNodePtr newChild)  throw (std::invalid_argument)</td></tr>
+<tr class="memdesc:a8972a7ae739ea8c7a175e213d1e557b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute un nouveau noeaud à la liste d'enfants.  <a href="#a8972a7ae739ea8c7a175e213d1e557b6">Plus de dÃ©tails...</a><br /></td></tr>
 <tr class="separator:a8972a7ae739ea8c7a175e213d1e557b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d8c7ca736572bdbe6f41168355b7d21"><td class="memItemLeft" align="right" valign="top"><a id="a7d8c7ca736572bdbe6f41168355b7d21"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetName</b> (const std::string &amp;name) noexcept</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1XMLNode.html#a7d8c7ca736572bdbe6f41168355b7d21">SetName</a> (const std::string &amp;name) noexcept</td></tr>
+<tr class="memdesc:a7d8c7ca736572bdbe6f41168355b7d21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change le nom deu noeud. <br /></td></tr>
 <tr class="separator:a7d8c7ca736572bdbe6f41168355b7d21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a691c0a7d8a79a1d77feab41e301302ee"><td class="memItemLeft" align="right" valign="top"><a id="a691c0a7d8a79a1d77feab41e301302ee"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetValue</b> (const std::string &amp;value) noexcept</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1XMLNode.html#a691c0a7d8a79a1d77feab41e301302ee">SetValue</a> (const std::string &amp;value) noexcept</td></tr>
+<tr class="memdesc:a691c0a7d8a79a1d77feab41e301302ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change la valeur du noeud. <br /></td></tr>
 <tr class="separator:a691c0a7d8a79a1d77feab41e301302ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d2476e452605c51c389b71de41d7b89"><td class="memItemLeft" align="right" valign="top"><a id="a7d2476e452605c51c389b71de41d7b89"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>AddAttribute</b> (const NodeContent &amp;attribute) noexcept</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1XMLNode.html#a7d2476e452605c51c389b71de41d7b89">AddAttribute</a> (const NodeContent &amp;attribute) noexcept</td></tr>
+<tr class="memdesc:a7d2476e452605c51c389b71de41d7b89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute un attribut au tableau d'attributs du noeud. <br /></td></tr>
 <tr class="separator:a7d2476e452605c51c389b71de41d7b89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96ea71f07c1b7e64a79a2b9b3ae79604"><td class="memItemLeft" align="right" valign="top"><a id="a96ea71f07c1b7e64a79a2b9b3ae79604"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>AddAttributes</b> (const ContentList &amp;contents) noexcept</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1XMLNode.html#a96ea71f07c1b7e64a79a2b9b3ae79604">AddAttributes</a> (const ContentList &amp;contents) noexcept</td></tr>
+<tr class="memdesc:a96ea71f07c1b7e64a79a2b9b3ae79604"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute un tableau d'attribut à la suite du tableau d'attribut du noeud. <br /></td></tr>
 <tr class="separator:a96ea71f07c1b7e64a79a2b9b3ae79604"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e7c83cdf473df3d1df3988410b1e6b5"><td class="memItemLeft" align="right" valign="top"><a id="a4e7c83cdf473df3d1df3988410b1e6b5"></a>
-const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ToString</b> () const noexcept</td></tr>
+const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1XMLNode.html#a4e7c83cdf473df3d1df3988410b1e6b5">ToString</a> () const noexcept</td></tr>
+<tr class="memdesc:a4e7c83cdf473df3d1df3988410b1e6b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne une chaine contenant le code XML du noeud. <br /></td></tr>
 <tr class="separator:a4e7c83cdf473df3d1df3988410b1e6b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Fonctions membres publiques statiques</h2></td></tr>
 <tr class="memitem:a19d4fb15b7120b70e6a1ab83314611f6"><td class="memItemLeft" align="right" valign="top"><a id="a19d4fb15b7120b70e6a1ab83314611f6"></a>
-static XMLNodePtr&#160;</td><td class="memItemRight" valign="bottom"><b>create</b> () noexcept</td></tr>
+static XMLNodePtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1XMLNode.html#a19d4fb15b7120b70e6a1ab83314611f6">create</a> () noexcept</td></tr>
+<tr class="memdesc:a19d4fb15b7120b70e6a1ab83314611f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer un nouveau noeud. <br /></td></tr>
 <tr class="separator:a19d4fb15b7120b70e6a1ab83314611f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf5cf5a818a30464c82d506a6732ea96"><td class="memItemLeft" align="right" valign="top"><a id="adf5cf5a818a30464c82d506a6732ea96"></a>
-static XMLNodePtr&#160;</td><td class="memItemRight" valign="bottom"><b>create</b> (const std::string &amp;name, const ContentList &amp;contents) noexcept</td></tr>
+<tr class="memitem:adf5cf5a818a30464c82d506a6732ea96"><td class="memItemLeft" align="right" valign="top">static XMLNodePtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_1_1XMLNode.html#adf5cf5a818a30464c82d506a6732ea96">create</a> (const std::string &amp;name, const ContentList &amp;contents) noexcept</td></tr>
+<tr class="memdesc:adf5cf5a818a30464c82d506a6732ea96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer un nouveau noeud.  <a href="#adf5cf5a818a30464c82d506a6732ea96">Plus de dÃ©tails...</a><br /></td></tr>
 <tr class="separator:adf5cf5a818a30464c82d506a6732ea96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Description dÃ©taillÃ©e</h2>
+<div class="textblock"><p>Noeud d'un fichier XML. Correcpond à une balise et sont contenue. </p>
+</div><h2 class="groupheader">Documentation des fonctions membres</h2>
+<a id="a8972a7ae739ea8c7a175e213d1e557b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8972a7ae739ea8c7a175e213d1e557b6">&#9670;&nbsp;</a></span>AddChild()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void my::XMLNode::AddChild </td>
+          <td>(</td>
+          <td class="paramtype">XMLNode::XMLNodePtr&#160;</td>
+          <td class="paramname"><em>newChild</em></td><td>)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td align="right">throw </td><td>(</td><td colspan="2">std::invalid_argument</td>
+        </tr>
+        <tr>
+          <td align="right"></td><td>)</td><td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajoute un nouveau noeaud à la liste d'enfants. </p>
+<p><b>Arguments</b><br />
+ newChild: Pointeur sur le noeud à ajouter. <br />
+<br />
+ <b>Exception</b><br />
+ std::invalid_argument: le noeud est un pointeur NULL. </p>
+
+</div>
+</div>
+<a id="adf5cf5a818a30464c82d506a6732ea96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf5cf5a818a30464c82d506a6732ea96">&#9670;&nbsp;</a></span>create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">XMLNode::XMLNodePtr my::XMLNode::create </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ContentList &amp;&#160;</td>
+          <td class="paramname"><em>contents</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Créer un nouveau noeud. </p>
+<p><b>Arguments</b><br />
+ name: le nom du noeud.<br />
+ contents: liste des attributs du noeud. </p>
+
+</div>
+</div>
+<a id="a726e86d6b2d893cf98854b2c18d5dbd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a726e86d6b2d893cf98854b2c18d5dbd5">&#9670;&nbsp;</a></span>GetChild() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">XMLNode::XMLNodePtr my::XMLNode::GetChild </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+        <tr>
+          <td align="right">throw </td><td>(</td><td colspan="2">std::out_of_range</td>
+        </tr>
+        <tr>
+          <td align="right"></td><td>)</td><td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retourne l'enfant stocker à l'emplacement demandé. </p>
+<p><b>Arguments</b><br />
+ index: Index de l'enfant recherché. <br />
+<br />
+ <b>Valeur de retour</b><br />
+ Retourne un pointeur sur l'enfant. <br />
+<br />
+ <b>Exception</b><br />
+ std::out_of_range: L'index passé en argument n'existe pas. </p>
+
+</div>
+</div>
+<a id="a6e4e52f86a22d66ac713bad4f7be8441"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e4e52f86a22d66ac713bad4f7be8441">&#9670;&nbsp;</a></span>GetChild() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">XMLNode::XMLNodePtr my::XMLNode::GetChild </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+        <tr>
+          <td align="right">throw </td><td>(</td><td colspan="2">std::out_of_range</td>
+        </tr>
+        <tr>
+          <td align="right"></td><td>)</td><td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retourne l'enfant ayant pour nom la chaine passé en argument. </p>
+<p><b>Arguments</b><br />
+ key: Le nom de l'enfant recherché. <br />
+<br />
+ <b>Valeur de retour</b><br />
+ Retorune l'enfant ayant pour nom key. <br />
+<br />
+ <b>Exception</b><br />
+ std::out_of_range: L'enfant recherché n'existe pas. </p>
+
+</div>
+</div>
+<a id="a1a06e4643c4761c9be7b48c52f0f8578"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a06e4643c4761c9be7b48c52f0f8578">&#9670;&nbsp;</a></span>GetContent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const XMLNode::NodeContent &amp; my::XMLNode::GetContent </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+        <tr>
+          <td align="right">throw </td><td>(</td><td colspan="2">std::out_of_range</td>
+        </tr>
+        <tr>
+          <td align="right"></td><td>)</td><td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retourne l'attribut ayant pour clé la chaine passé en argument. </p>
+<p><b>Arguments</b><br />
+ key: nom de l'attribut recherché. <br />
+<br />
+ <b>Valeur de retour</b><br />
+ Retourne l'attribut recherché. <br />
+<br />
+ <b>Exception</b><br />
+ std::out_of_range: L'Attribut recherché n'existe pas. </p>
+
+</div>
+</div>
 <hr/>La documentation de cette classe a Ã©tÃ© gÃ©nÃ©rÃ©e Ã  partir des fichiers suivants :<ul>
 <li>includes/my_graph_lib/<a class="el" href="XMLNode_8hpp_source.html">XMLNode.hpp</a></li>
 <li>lib/my_graph_lib/XMLNode.cpp</li>
@@ -153,7 +347,7 @@ static XMLNodePtr&#160;</td><td class="memItemRight" valign="bottom"><b>create</
 <hr class="footer"/><address class="footer"><small>
 GÃ©nÃ©rÃ© par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.14
+</a> 1.8.13
 </small></address>
 </body>
 </html>

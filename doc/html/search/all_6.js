@@ -1,7 +1,28 @@
 var searchData=
 [
-  ['initialize',['Initialize',['../classmy_1_1GameManager.html#a1c6298ac18a158b2a59143aff1e7beff',1,'my::GameManager::Initialize()'],['../classmy_1_1Scene.html#ac9401c5ec0e8a740fa338324a7df67a6',1,'my::Scene::Initialize()'],['../classmy_1_1MainMenu.html#a56e81061a8d8d9a0da77267bd38ec058',1,'my::MainMenu::Initialize()'],['../classmy_1_1SchmupScene.html#ad1febbc7aaf1fc8b2eb4d02cdbf3f57a',1,'my::SchmupScene::Initialize()']]],
-  ['initializescenes',['InitializeScenes',['../classmy_1_1GameManager.html#a4374c551a764c9cea7c0f0ee5e2871ea',1,'my::GameManager']]],
-  ['initializewindow',['InitializeWindow',['../classmy_1_1GameManager.html#ab08492747a12e8eed0da29b22b9d84a4',1,'my::GameManager']]],
-  ['isalive',['IsAlive',['../classmy_1_1AliveObject.html#ae3d7fb84f66db19cd49e238405590d40',1,'my::AliveObject']]]
+  ['gamemanager',['GameManager',['../classmy_1_1GameManager.html',1,'my']]],
+  ['getanimations',['GetAnimations',['../classmy_1_1AnimatedObject.html#a41aafdead3b867bd67ce633fb85ed9af',1,'my::AnimatedObject']]],
+  ['getchild',['GetChild',['../classmy_1_1XMLNode.html#a726e86d6b2d893cf98854b2c18d5dbd5',1,'my::XMLNode::GetChild(int index) const'],['../classmy_1_1XMLNode.html#a6e4e52f86a22d66ac713bad4f7be8441',1,'my::XMLNode::GetChild(const std::string &amp;key) const']]],
+  ['getchilds',['GetChilds',['../classmy_1_1Node.html#aa57a107fbe9dae93903ea5799ffe8712',1,'my::Node::GetChilds()'],['../classmy_1_1XMLNode.html#ade94859a6e39c1e82a83ba17fe6e9040',1,'my::XMLNode::GetChilds()']]],
+  ['getcontent',['GetContent',['../classmy_1_1XMLNode.html#a1a06e4643c4761c9be7b48c52f0f8578',1,'my::XMLNode']]],
+  ['getcontents',['GetContents',['../classmy_1_1XMLNode.html#a4f82f05c3eda5d0819415697dbdf708a',1,'my::XMLNode']]],
+  ['getcurentanimation',['GetCurentAnimation',['../classmy_1_1AnimatedObject.html#ab5a32b5d7b30e6ca594d824a8228b0df',1,'my::AnimatedObject']]],
+  ['getcurentrect',['GetCurentRect',['../classmy_1_1AnimatedObject.html#a6aabe49b2c026eeb609c1a558141e241',1,'my::AnimatedObject']]],
+  ['getcurframerate',['GetCurFramerate',['../classmy_1_1AnimatedObject.html#aa786264957518722eb2b847fa725e3b1',1,'my::AnimatedObject']]],
+  ['getcurhp',['GetCurHP',['../classmy_1_1AliveObject.html#ad5c35dbc2ccd74c9edd73fb19b89e6bb',1,'my::AliveObject']]],
+  ['getdeplacememtrate',['GetDeplacememtRate',['../classmy_1_1MoovableObject.html#a4a1c2fa789043425bc0aa5d276788a89',1,'my::MoovableObject']]],
+  ['getdeplacementrepetition',['GetDeplacementRepetition',['../classmy_1_1MoovableObject.html#abfad2bb10fec55f3a2d1e3f371ce6259',1,'my::MoovableObject']]],
+  ['getdirection',['GetDirection',['../classmy_1_1MoovableObject.html#a29752f95b08d211af58337468cfa00ac',1,'my::MoovableObject']]],
+  ['getfont',['GetFont',['../classmy_1_1ResourcesLoader.html#a3fd370dcde54accc2dfb22772c6370b6',1,'my::ResourcesLoader']]],
+  ['getframerate',['GetFrameRate',['../classmy_1_1MoovableObject.html#a38ed98b7521553a560426dd9ca19c1b0',1,'my::MoovableObject']]],
+  ['gethitbox',['GetHitBox',['../classmy_1_1Node.html#aed8cff06c09cf7fd8a1bd38212572930',1,'my::Node::GetHitBox()'],['../classmy_1_1SpriteObject.html#aa41083f207f9ef3e3bcfef14a959c492',1,'my::SpriteObject::GetHitBox()'],['../classmy_1_1TextObject.html#aa297b3eab77e5a331eec8c7d641804b3',1,'my::TextObject::GetHitBox()'],['../classmy_1_1Border.html#aab075f5fda8f39ce5cb1fc7fc42cd0b4',1,'my::Border::GetHitBox()'],['../classmy_1_1Panel.html#a38b845449682c439accb6b43c8cbb11c',1,'my::Panel::GetHitBox()']]],
+  ['getmaxhp',['GetMaxHP',['../classmy_1_1AliveObject.html#a4537ba5f7d099b5ae2bd59b6db93a76b',1,'my::AliveObject']]],
+  ['getname',['GetName',['../classmy_1_1XMLNode.html#a6607973f3b38f691783db131b48fb620',1,'my::XMLNode']]],
+  ['getrepetitionmax',['GetRepetitionMax',['../classmy_1_1MoovableObject.html#ad248f892b458765604e3f9832a60c146',1,'my::MoovableObject']]],
+  ['getspeed',['GetSpeed',['../classmy_1_1MoovableObject.html#a0da6d199a21b7bd02b744e73f0ba9db2',1,'my::MoovableObject']]],
+  ['getsprite',['GetSprite',['../classmy_1_1SpriteObject.html#a3ce90b6e8a95d73ba346c2b993a74dec',1,'my::SpriteObject']]],
+  ['gettarget',['GetTarget',['../classmy_1_1MoovableObject.html#aa968bbaf7ab53cd586f1608c578bebf0',1,'my::MoovableObject']]],
+  ['gettext',['GetText',['../classmy_1_1TextObject.html#aa57b37a35c4b47f52532c36b1de7016b',1,'my::TextObject']]],
+  ['gettexture',['GetTexture',['../classmy_1_1ResourcesLoader.html#a99c16ed7b9c9772e6181fd79b7417d87',1,'my::ResourcesLoader']]],
+  ['getvalue',['GetValue',['../classmy_1_1XMLNode.html#ae416de0db54eedd113518c7aa7c0ab4e',1,'my::XMLNode']]]
 ];
