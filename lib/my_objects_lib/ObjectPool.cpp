@@ -73,7 +73,7 @@ namespace	my
 		try
 		{
 			if (nodeNode->ContentExist(X_NODE_CONTENT) && nodeNode->ContentExist(Y_NODE_CONTENT))
-				node->setPosition(std::stoul(nodeNode->GetContent(X_NODE_CONTENT).second), std::stoul(nodeNode->GetContent(Y_NODE_CONTENT).second));
+				node->setPosition(std::stol(nodeNode->GetContent(X_NODE_CONTENT).second), std::stol(nodeNode->GetContent(Y_NODE_CONTENT).second));
 			if (nodeNode->ChildExist(OBJECT_DEPLACEMENTS_NODE_NAME))
 			{
 				childStk = nodeNode->GetChild(OBJECT_DEPLACEMENTS_NODE_NAME);

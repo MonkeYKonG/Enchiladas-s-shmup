@@ -1,5 +1,5 @@
 #include "ScenePool.hpp"
-#include "my_menu_lib/MainMenu.hpp"
+#include "SchmupMainMenu.hpp"
 #include "my_menu_lib/SchmupScene.hpp"
 
 namespace	my
@@ -16,7 +16,7 @@ namespace	my
 
 		Scene::ScenePtr ScenePool::CreateMainMenu()
 		{
-			return (Scene::ScenePtr(new MainMenu()));
+			return (Scene::ScenePtr(new SchmupMainMenu()));
 		}
 
 		Scene::ScenePtr my::schmup::ScenePool::CreateSchmup()

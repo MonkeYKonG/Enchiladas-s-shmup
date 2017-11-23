@@ -13,6 +13,8 @@ namespace my
 		virtual ~SpriteButton();
 
 		virtual void Update(const sf::Vector2f & mousePos) throw (std::out_of_range);
+		bool IsMouseOvered() const noexcept;
+		bool IsClicked() const noexcept;
 
 	protected:
 		static const std::string	ON_CLICK_ANIM_NAME;

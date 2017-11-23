@@ -1,4 +1,5 @@
 #include "SpriteButton.hpp"
+#include "my_graph_lib/InputsManager.hpp"
 
 const std::string	my::SpriteButton::ON_CLICK_ANIM_NAME = "on_click";
 const std::string	my::SpriteButton::ON_MOUSE_OVER_ANIM_NAME = "on_mouse_over";
@@ -73,4 +74,14 @@ void my::SpriteButton::UpdateAnimation() throw(std::out_of_range)
 	{
 		throw (e);
 	}
+}
+
+bool my::SpriteButton::IsMouseOvered() const noexcept
+{
+	return (m_isMouseOvered);
+}
+
+bool my::SpriteButton::IsClicked() const noexcept
+{
+	return (m_isClicked);
 }

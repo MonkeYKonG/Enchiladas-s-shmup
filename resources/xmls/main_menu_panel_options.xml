@@ -1,7 +1,6 @@
-<?mainMenuPanel borderTileX="32" BorderTileY="32" ?>
 <panel x="%($(window.width)$ / 2)%" y="%($(window.height)$ / 2)%">
   <title>
-    <text>Salut les gens</text>
+    <text>Options</text>
     <font>Default</font>
     <color red="12" green="178" blue="16"></color>
   </title>
@@ -14,7 +13,7 @@
     <outline x="64" y="0"></outline>
   </border>
   <buttons>
-    <button class="sprite">
+    <button class="sprite" x="0" y="-150">
       <texture>button.png</texture>
       <animations>
         <animation key="default">
@@ -39,10 +38,6 @@
           </rects>
         </animation>
       </animations>
-    </button>
-    <button class="text">
-      <text>bouton de test</text>
-      <font>Default</font>
     </button>
   </buttons>
 </panel>

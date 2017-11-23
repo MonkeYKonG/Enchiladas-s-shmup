@@ -17,12 +17,7 @@ namespace	my
 
   const sf::FloatRect SpriteObject::GetHitBox() const noexcept
   {
-	  sf::FloatRect hitBox;
-
-	  hitBox = m_sprite.getGlobalBounds();
-	  hitBox.left = getPosition().x;
-	  hitBox.top = getPosition().y;
-	  return (hitBox);
+	  return (m_sprite.getGlobalBounds());
   }
 
   void		SpriteObject::UpdateAnimation() throw (std::out_of_range)
