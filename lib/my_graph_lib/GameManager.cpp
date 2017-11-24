@@ -1,6 +1,7 @@
 #include "GameManager.hpp"
 #include "MessagesException.hpp"
 #include "XMLParser.hpp"
+#include "InputsManager.hpp"
 #include "my_menu_lib/MainMenu.hpp"
 #include <iostream>
 
@@ -100,6 +101,7 @@ namespace	my
 			Initialize();
 			while(m_window.isOpen())
 			{
+				InputsManager::ClearInputs();
 				Update();
 				Draw();
 			}

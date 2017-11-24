@@ -47,7 +47,7 @@ namespace my
 			const SceneReturnValue UpdateMainPanel();
 			const SceneReturnValue UpdatePlayPanel();
 			const SceneReturnValue UpdateOptionPanel();
-			void UpdatePanels() throw (std::out_of_range);
+			const SceneReturnValue UpdatePanels() throw (std::out_of_range);
 
 			unsigned m_curPanel;
 			unsigned m_curButtonClicked;

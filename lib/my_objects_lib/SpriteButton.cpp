@@ -47,7 +47,7 @@ void	my::SpriteButton::UpdateMouse(const sf::Vector2f & mousePos)
 	if (IsIntersect(mousePos))
 	{
 		m_isMouseOvered = true;
-		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+		if (InputsManager::IsButtonPressed(sf::Mouse::Left))
 			m_isClicked = true;
 	}
 }

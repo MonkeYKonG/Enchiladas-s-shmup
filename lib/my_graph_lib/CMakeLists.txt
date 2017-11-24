@@ -2,6 +2,7 @@ include_directories(${schmup_SOURCE_DIR}/includes)
 include_directories(${schmup_SOURCE_DIR}/includes/my_graph_lib)
 
 add_library(my_graph_lib
+  InputsManager.cpp
   Node.cpp
   SpriteObject.cpp
   TextObject.cpp

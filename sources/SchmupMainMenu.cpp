@@ -39,7 +39,7 @@ const my::SceneReturnValue my::schmup::SchmupMainMenu::UpdateMainPanel()
 	panelButtons = m_panels[m_curPanel]->GetSpriteButtons();
 	for (unsigned i = 0; i < panelButtons.size(); ++i)
 	{
-		if (panelButtons[i]->IsMouseOvered() && InputsManager<sf::Mouse::Button>::IsPressedOne(sf::Mouse::Left))
+		if (panelButtons[i]->IsMouseOvered() && InputsManager::IsButtonReleasedOne(sf::Mouse::Left))
 		{
 			switch (i)
 			{
@@ -68,7 +68,7 @@ const my::SceneReturnValue my::schmup::SchmupMainMenu::UpdatePlayPanel()
 	panelButtons = m_panels[m_curPanel]->GetSpriteButtons();
 	for (unsigned i = 0; i < panelButtons.size(); ++i)
 	{
-		if (panelButtons[i]->IsMouseOvered() && InputsManager<sf::Mouse::Button>::IsPressedOne(sf::Mouse::Left))
+		if (panelButtons[i]->IsMouseOvered() && InputsManager::IsButtonReleasedOne(sf::Mouse::Left))
 		{
 			switch (i)
 			{
@@ -97,7 +97,7 @@ const my::SceneReturnValue my::schmup::SchmupMainMenu::UpdateOptionPanel()
 	panelButtons = m_panels[m_curPanel]->GetSpriteButtons();
 	for (unsigned i = 0; i < panelButtons.size(); ++i)
 	{
-		if (panelButtons[i]->IsMouseOvered() && InputsManager<sf::Mouse::Button>::IsPressedOne(sf::Mouse::Left))
+		if (panelButtons[i]->IsMouseOvered() && InputsManager::IsButtonReleasedOne(sf::Mouse::Left))
 		{
 			switch (i)
 			{
@@ -110,11 +110,11 @@ const my::SceneReturnValue my::schmup::SchmupMainMenu::UpdateOptionPanel()
 	return SceneReturnValue();
 }
 
-void	my::schmup::SchmupMainMenu::UpdatePanels() throw (std::out_of_range)
+const my::SceneReturnValue	my::schmup::SchmupMainMenu::UpdatePanels() throw (std::out_of_range)
 {
 	try
 	{
-		(this->*m_panelfunctions.at(m_curPanel))();
+		return ((this->*m_panelfunctions.at(m_curPanel))());
 	}
 	catch (const std::out_of_range & e)
 	{
@@ -131,7 +131,7 @@ const my::SceneReturnValue my::schmup::SchmupMainMenu::Update(sf::RenderWindow &
 		returnValue = MainMenu::Update(window);
 		if (returnValue.value == STATE_RETURN::CLOSE)
 			return (returnValue);
-		UpdatePanels();
+		returnValue = UpdatePanels();
 	}
 	catch (const std::exception & e)
 	{
