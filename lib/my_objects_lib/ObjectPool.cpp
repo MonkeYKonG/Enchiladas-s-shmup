@@ -463,6 +463,8 @@ namespace	my
 		try
 		{
 			SetSpriteDefaults(spriteButtonNode, newSpriteButton.get());
+			if (spriteButtonNode->ChildExist(PANEL_TITLE_NODE_NAME))
+				newSpriteButton->SetText(CreateText(spriteButtonNode->GetChild(PANEL_TITLE_NODE_NAME)));
 		}
 		catch (const std::out_of_range & e)
 		{

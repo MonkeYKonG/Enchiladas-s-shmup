@@ -85,3 +85,24 @@ bool my::SpriteButton::IsClicked() const noexcept
 {
 	return (m_isClicked);
 }
+
+my::TextObject::TextObjectPtr my::SpriteButton::GetText() const noexcept
+{
+	return (m_text);
+}
+
+void my::SpriteButton::SetText(TextObject::TextObjectPtr newText) noexcept
+{
+	m_text = newText;
+	m_text->SetOrigin(m_text->GetText().getGlobalBounds().width / 2, m_text->GetText().getGlobalBounds().height / 2);
+}
+
+void my::SpriteButton::draw(sf::RenderTarget & target, sf::RenderStates states) const noexcept
+{
+	if (!m_visible)
+		return;
+	SpriteObject::draw(target, states);
+	states.transform *= getTransform();
+	if (m_text)
+		target.draw(*m_text, states);
+}
