@@ -336,7 +336,11 @@ namespace	my
 		XMLParser parser(fs, fileName);
 
 		if (!fs)
-			throw (std::invalid_argument(MessagesException::FileNotFound("XMLParser::Load(const std::string & fileName)", fileName)));
+		{
+			fs.open(fileName);
+			if (!fs)
+				throw (std::invalid_argument(MessagesException::FileNotFound("XMLParser::Load(const std::string & fileName)", fileName)));
+		}
 		try
 		{
 			return (parser.Parse());
