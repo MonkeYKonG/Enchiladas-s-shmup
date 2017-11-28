@@ -132,4 +132,23 @@ namespace	my
 		str += lineBegin + "</" + m_name + ">";
 		return (str);
 	}
+
+	void XMLNode::SetAttribute(unsigned index, const NodeContent & attribute) throw(std::out_of_range)
+	{
+		try
+		{
+			if (index >= m_contents.size())
+				throw (std::out_of_range("invalid index."));
+			m_contents[index] = attribute;
+		}
+		catch (const std::out_of_range & e)
+		{
+			throw (std::invalid_argument("MXLNode: SetAttribute: " + std::string(e.what())));
+		}
+	}
+}
+
+void my::XMLNode::SetAttributes(const ContentList & contents) noexcept
+{
+	m_contents = contents;
 }

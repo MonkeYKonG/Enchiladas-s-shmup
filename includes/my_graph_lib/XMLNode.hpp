@@ -96,6 +96,10 @@ namespace my
 		void AddAttributes(const ContentList & contents) noexcept;
 		//! Retourne une chaine contenant le code XML du noeud.
 		const std::string ToString() const noexcept;
+		//! Modifie la valeur d'un attribut
+		void SetAttribute(unsigned index, const NodeContent & attribute) throw (std::out_of_range);
+		//! Remplace le tableau d'attribut par celui passer en arguments
+		void SetAttributes(const ContentList & contents) noexcept;
 		
 	private:
 		XMLNode() noexcept;
