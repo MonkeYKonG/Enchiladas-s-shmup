@@ -11,6 +11,11 @@ my::SpriteButton::SpriteButton()
 my::SpriteButton::~SpriteButton()
 {}
 
+const sf::FloatRect my::SpriteButton::GetHitBox() const noexcept
+{
+	return (m_sprite.getGlobalBounds());
+}
+
 void my::SpriteButton::Update(const sf::Vector2f & mousePos) throw(std::out_of_range)
 {
 	sf::Vector2f transformedMousePos;

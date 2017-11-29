@@ -13,6 +13,8 @@ namespace my
 		SpriteButton();
 		virtual ~SpriteButton();
 
+		virtual const sf::FloatRect GetHitBox() const noexcept;
+
 		virtual void Update(const sf::Vector2f & mousePos) throw (std::out_of_range);
 		bool IsMouseOvered() const noexcept;
 		bool IsClicked() const noexcept;

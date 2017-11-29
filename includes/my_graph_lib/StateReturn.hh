@@ -7,6 +7,7 @@ namespace	my
 		CLOSE = -2,
 		ERROR = -1,
 		NOTHING = 0,
-		MENU = 1
+		MENU = 1,
+		GAME = 2
 	};
 }

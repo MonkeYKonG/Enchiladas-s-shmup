@@ -31,7 +31,7 @@ namespace	my
 			windowName = windowRoot->GetChild(SCREEN_TITLE_NODE)->GetValue();
 			m_window.create(vm, windowName);
 			m_window.setFramerateLimit(60);
-			m_window.curScene = 0;
+			m_window.curScene = 1;
 		}
 		catch (const std::out_of_range & e)
 		{
@@ -74,9 +74,21 @@ namespace	my
 			case CLOSE:
 				m_window.close();
 				break;
-
-			default:
+				
+			case NOTHING:
 				break;
+
+			case MENU:
+				m_window.curScene = MENU_NDX;
+				break;
+
+			case GAME:
+				m_window.curScene = GAME_NDX;
+				break;
+
+			case ERROR:
+			default:
+				throw (std::invalid_argument("Invalid SceneReturnValue"));
 			}
 		}
 		catch (const std::exception &e)

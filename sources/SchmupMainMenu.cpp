@@ -73,8 +73,8 @@ const my::SceneReturnValue my::schmup::SchmupMainMenu::UpdatePlayPanel()
 			switch (i)
 			{
 			case SINGLE_PLAYER:
-				ChangeCurrentPanel(PLAY_PANEL);
-				break;
+				returnValue.value = STATE_RETURN::GAME;
+				return (returnValue);
 
 			case MULTI_PLAYER:
 				ChangeCurrentPanel(PLAY_PANEL);

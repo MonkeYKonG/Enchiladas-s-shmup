@@ -66,5 +66,8 @@ namespace	my
 		static const std::string	SCREEN_TITLE_NODE;
 
 		static const std::string	SCENES_NODE;
+
+		static const unsigned		MENU_NDX = 0;
+		static const unsigned		GAME_NDX = 1;
 	};
 }
