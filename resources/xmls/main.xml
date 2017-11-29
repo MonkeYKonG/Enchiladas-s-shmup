@@ -2,7 +2,7 @@
 <window>
 	<% screen.xml %>
 	<scenes>
-    <% schmup_main.xml %>
     <% main_menu.xml %>
+    <% schmup_main.xml %>
 	</scenes>
 </window>

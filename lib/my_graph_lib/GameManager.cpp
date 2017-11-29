@@ -31,7 +31,7 @@ namespace	my
 			windowName = windowRoot->GetChild(SCREEN_TITLE_NODE)->GetValue();
 			m_window.create(vm, windowName);
 			m_window.setFramerateLimit(60);
-			m_window.curScene = 1;
+			m_window.curScene = MENU_NDX;
 		}
 		catch (const std::out_of_range & e)
 		{
