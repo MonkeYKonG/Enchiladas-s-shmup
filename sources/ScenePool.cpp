@@ -1,6 +1,6 @@
 #include "ScenePool.hpp"
 #include "SchmupMainMenu.hpp"
-#include "my_menu_lib/SchmupScene.hpp"
+#include "SchmupMainGame.hpp"
 
 namespace	my
 {
@@ -21,7 +21,7 @@ namespace	my
 
 		Scene::ScenePtr my::schmup::ScenePool::CreateSchmup()
 		{
-			return (Scene::ScenePtr(new SchmupScene()));
+			return (Scene::ScenePtr(new SchmupMainGame()));
 		}
 
 		Scene::ScenePtr	ScenePool::CreateScene(const std::string & className)
