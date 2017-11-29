@@ -15,9 +15,13 @@ namespace my
 			ShipModule();
 			virtual ~ShipModule();
 
+			const sf::Vector2i GetShipPosition() const noexcept;
+			void SetShipPosition(const sf::Vector2i & shipPosition) noexcept;
+
 		protected:
 			unsigned m_regenFramerate;
 			unsigned m_regenCurFramerate;
+			sf::Vector2i m_shipPosition;
 		};
 	}
 }

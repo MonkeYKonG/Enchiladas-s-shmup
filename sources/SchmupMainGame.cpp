@@ -1,8 +1,20 @@
 #include "SchmupMainGame.hpp"
+#include "my_graph_lib/ResourcesLoader.hpp"
+#include "SchmupPool.hpp"
 
 my::schmup::SchmupMainGame::SchmupMainGame()
 	: m_gameState(CRAFTING)
 {
+}
+
+void my::schmup::SchmupMainGame::Initialize(XMLNode::XMLNodePtr sceneRoot) throw (std::out_of_range, std::invalid_argument)
+{
+	ShipModule::ShipModulePtr newModule;
+
+	m_ship.setPosition(200, 200);
+	newModule = ShipModule::ShipModulePtr(new ShipModule());
+	newModule->SetTexture(ResourcesLoader::GetTexture("panel_border.png"));
+	m_ship.AddModule(newModule);
 }
 
 const my::SceneReturnValue my::schmup::SchmupMainGame::Update(sf::RenderWindow & window) throw(std::exception)
@@ -18,7 +30,6 @@ const my::SceneReturnValue my::schmup::SchmupMainGame::Update(sf::RenderWindow &
 
 		case my::schmup::SchmupMainGame::CRAFTING:
 			returnValue = MainMenu::Update(window);
-			m_player->Update();
 			break;
 
 		default:
@@ -54,5 +65,5 @@ void my::schmup::SchmupMainGame::drawCrafting(sf::RenderTarget & target, sf::Ren
 	MainMenu::draw(target, states);
 	states.transform *= getTransform();
 
-	target.draw(*m_player, states);
+	target.draw(m_ship);
 }

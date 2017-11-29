@@ -1,0 +1,9 @@
+<ship>
+  <stats>
+    
+  </stats>
+  <modules>
+    <module type="wall" x="0" y="0">
+    </module>
+  </modules>
+</ship>

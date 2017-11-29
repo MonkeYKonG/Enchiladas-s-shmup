@@ -5,6 +5,7 @@ link_directories("E:/EPITECH/lib/SFML-2.3.2/lib")
 link_directories("C:/Users/Alexis/Desktop/Lib/SFML-2.3.2/lib")
 
 add_executable(schmup
+	SchmupPool.cpp
 	ShipModule.cpp
 	Ship.cpp
 	SchmupMainGame.cpp
