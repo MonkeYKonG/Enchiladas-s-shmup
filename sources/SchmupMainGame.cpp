@@ -3,7 +3,7 @@
 #include "SchmupPool.hpp"
 
 my::schmup::SchmupMainGame::SchmupMainGame()
-	: m_gameState(CRAFTING)
+	: m_gameState(PLAY)
 {
 }
 
@@ -15,6 +15,7 @@ void my::schmup::SchmupMainGame::Initialize(XMLNode::XMLNodePtr sceneRoot) throw
 	newModule = ShipModule::ShipModulePtr(new ShipModule());
 	newModule->SetTexture(ResourcesLoader::GetTexture("panel_border.png"));
 	m_ship.AddModule(newModule);
+	SchmupScene::Initialize(sceneRoot);
 }
 
 const my::SceneReturnValue my::schmup::SchmupMainGame::Update(sf::RenderWindow & window) throw(std::exception)
@@ -66,4 +67,9 @@ void my::schmup::SchmupMainGame::drawCrafting(sf::RenderTarget & target, sf::Ren
 	states.transform *= getTransform();
 
 	target.draw(m_ship);
+}
+
+void my::schmup::SchmupMainGame::InitializeStage() {
+	m_player->setPosition(200, 500);
+	// remettre les cooldown et scores a zero
 }

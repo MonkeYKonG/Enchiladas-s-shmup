@@ -25,6 +25,8 @@ namespace my
 			virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const noexcept;
 			void drawCrafting(sf::RenderTarget & target, sf::RenderStates states) const noexcept;
 
+			void InitializeStage() noexcept;
+
 			Ship m_ship;
 
 			GAME_SATES m_gameState;

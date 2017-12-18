@@ -3,7 +3,7 @@
   <background x="%($(window.width)$ / 2)%" y="%($(window.height)$ / 2)%">
     <texture>schmup_background.jpg</texture>
   </background>
-    <player>
+    <player x="%($(window.width)$ / 2)%" y="%(3 * $(window.height)$ / 4)%">
       <texture>player.png</texture>
       <inputsDeplacement>
         <input input="Up" direction="UP"></input>

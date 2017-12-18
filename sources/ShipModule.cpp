@@ -6,3 +6,8 @@ my::schmup::ShipModule::ShipModule()
 
 my::schmup::ShipModule::~ShipModule()
 {}
+
+void my::schmup::ShipModule::SetShipPosition(const sf::Vector2i & shipPosition) noexcept
+{
+	m_shipPosition = shipPosition;
+}
