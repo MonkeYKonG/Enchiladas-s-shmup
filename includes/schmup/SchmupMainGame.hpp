@@ -1,7 +1,6 @@
 #pragma once
 
 #include "my_menu_lib/SchmupScene.hpp"
-#include "Ship.hpp"
 
 namespace my
 {

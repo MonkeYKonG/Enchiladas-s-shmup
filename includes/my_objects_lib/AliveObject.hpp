@@ -1,6 +1,7 @@
 #pragma once
 
 #include <stdexcept>
+#include "StatsContainer.hpp"
 
 namespace my
 {
@@ -8,7 +9,7 @@ namespace my
   /*!
     Un object "vivant" possède un nombre de point de vie maximum et courant, lorsque ces points de vie tombent à 0, l'objet est considéré comme "mort"
   */
-	class AliveObject
+	class AliveObject : public StatsContainer
 	{
 	public:
 		virtual ~AliveObject() {}

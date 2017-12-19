@@ -1,7 +1,6 @@
 #include "SchmupMainGame.hpp"
 #include "my_graph_lib/ResourcesLoader.hpp"
 #include "my_graph_lib/InputsManager.hpp"
-#include "SchmupPool.hpp"
 
 const std::string my::schmup::SchmupMainGame::MAIN_NODE_NAME = "main";
 const std::string my::schmup::SchmupMainGame::PLAY_NODE_NAME = "play";
@@ -47,6 +46,7 @@ void my::schmup::SchmupMainGame::Reset() throw (std::out_of_range, std::invalid_
 		mousePos = sf::Vector2i(m_cursor->getPosition());
 	m_root = m_gameRoot;
 	SchmupScene::Reset();
+	InputsManager::ClearInputs();
 	Update(sf::Vector2i(mousePos));
 }
 
@@ -164,6 +164,7 @@ const my::SceneReturnValue my::schmup::SchmupMainGame::UpdateSelectStage(const s
 const my::SceneReturnValue my::schmup::SchmupMainGame::Update(const sf::Vector2i & mousePos) throw(std::exception)
 {
 	SceneReturnValue returnValue;
+
 	try
 	{
 		switch (m_gameState)
