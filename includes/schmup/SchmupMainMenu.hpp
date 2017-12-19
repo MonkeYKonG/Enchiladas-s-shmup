@@ -12,7 +12,7 @@ namespace my
 			SchmupMainMenu();
 			~SchmupMainMenu();
 
-			const SceneReturnValue	Update(sf::RenderWindow & window) throw (std::exception);
+			const SceneReturnValue	Update(const sf::Vector2i & mousePos) throw (std::exception);
 			void Initialize(XMLNode::XMLNodePtr sceneRoot) throw (std::out_of_range, std::invalid_argument);
 			void Reset() throw (std::out_of_range, std::invalid_argument);
 

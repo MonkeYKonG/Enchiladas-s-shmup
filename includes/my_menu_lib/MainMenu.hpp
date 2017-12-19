@@ -14,7 +14,7 @@ namespace	my
 		MainMenu();
 		virtual ~MainMenu() {}
 
-		virtual const SceneReturnValue	Update(sf::RenderWindow & window) throw (std::exception);
+		virtual const SceneReturnValue	Update(const sf::Vector2i & mousePos) throw (std::exception);
 		virtual void Initialize(XMLNode::XMLNodePtr sceneRoot) throw (std::out_of_range, std::invalid_argument);
 		virtual void Reset() throw (std::out_of_range, std::invalid_argument);
 
@@ -33,7 +33,7 @@ namespace	my
 		void InitializeBackground(XMLNode::XMLNodePtr backgroundNode) throw (std::out_of_range, std::invalid_argument);
 		void InitializePanel(XMLNode::XMLNodePtr panelNode) throw (std::out_of_range, std::invalid_argument);
 
-		void UpdateObjects(sf::RenderWindow & window) throw (std::out_of_range);
+		void UpdateObjects(const sf::Vector2i & mousePos) throw (std::out_of_range);
 
 		SpriteObject::SpriteObjectPtr m_background;
 		std::vector<Panel::PanelPtr> m_panels;

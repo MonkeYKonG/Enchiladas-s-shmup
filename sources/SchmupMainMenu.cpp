@@ -122,13 +122,13 @@ const my::SceneReturnValue	my::schmup::SchmupMainMenu::UpdatePanels() throw (std
 	}
 }
 
-const my::SceneReturnValue my::schmup::SchmupMainMenu::Update(sf::RenderWindow & window) throw (std::exception)
+const my::SceneReturnValue my::schmup::SchmupMainMenu::Update(const sf::Vector2i & mousePos) throw (std::exception)
 {
 	SceneReturnValue returnValue;
 
 	try
 	{
-		returnValue = MainMenu::Update(window);
+		returnValue = MainMenu::Update(mousePos);
 		if (returnValue.value == STATE_RETURN::CLOSE)
 			return (returnValue);
 		returnValue = UpdatePanels();
@@ -169,6 +169,7 @@ void my::schmup::SchmupMainMenu::Reset() throw (std::out_of_range, std::invalid_
 	try
 	{
 		MainMenu::Reset();
+		m_curPanel = MAIN_PANEL;
 	}
 	catch (const std::out_of_range & e)
 	{

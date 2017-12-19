@@ -12,7 +12,7 @@ namespace my
 		SchmupScene();
 		virtual ~SchmupScene() {}
 
-		virtual const SceneReturnValue Update(sf::RenderWindow & window) throw (std::exception);
+		virtual const SceneReturnValue Update(const sf::Vector2i & mousePos) throw (std::exception);
 		virtual void Initialize(XMLNode::XMLNodePtr sceneRoot) throw (std::out_of_range, std::invalid_argument);
 		virtual void Reset() throw(std::out_of_range, std::invalid_argument);
 

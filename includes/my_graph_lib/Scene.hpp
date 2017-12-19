@@ -16,12 +16,19 @@ namespace	my
 
 		virtual ~Scene() noexcept {}
 
+		//! Vide la liste des évenements puis récupère les nouveaux évenements de la fenêtre
+		/*!
+		<b>Arguments</b><br/>
+		window: La fenêtre de rendu actuellement utilisé
+		*/
+		void PollEvents(sf::RenderWindow & window) noexcept;
+
 	  //! Met à jour les différentes entités
 	  /*!
 	    <b>Arguments</b><br/>
 	    window: La fenêtre de rendu actuellement utilisé.
 	  */
-		virtual const SceneReturnValue Update(sf::RenderWindow & window) throw (std::exception) = 0;
+		virtual const SceneReturnValue Update(const sf::Vector2i & mousePos) throw (std::exception) = 0;
 
 	  //! Initialise les entités.
 	  /*!
@@ -36,13 +43,6 @@ namespace	my
 	protected:
 	  //! Dessine les entités
 		virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const = 0;
-
-	  //! Vide la liste des évenements puis récupère les nouveaux évenements de la fenêtre
-	  /*!
-	    <b>Arguments</b><br/>
-	    window: La fenêtre de rendu actuellement utilisé
-	  */
-		void PollEvents(sf::RenderWindow & window) noexcept;
 
 	  //! Tableau d'évenements.
 		std::vector<sf::Event>	m_events;

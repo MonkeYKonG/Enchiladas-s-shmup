@@ -8,13 +8,13 @@ const std::string my::SchmupScene::SCENE_ENEMIES_NODE = "enemies";
 my::SchmupScene::SchmupScene()
 {}
 
-const my::SceneReturnValue my::SchmupScene::Update(sf::RenderWindow & window) throw(std::exception)
+const my::SceneReturnValue my::SchmupScene::Update(const sf::Vector2i & mousePos) throw(std::exception)
 {
 	SceneReturnValue returnValue;
 
 	try
 	{
-		returnValue = MainMenu::Update(window);
+		returnValue = MainMenu::Update(mousePos);
 		if (returnValue.value == STATE_RETURN::CLOSE)
 			return (returnValue);
 		UpdateObjects();

@@ -50,8 +50,10 @@ namespace	my
 		try
 		{
 			initRoot = XMLParser::Load(MAIN_XML_PATH);
-			InitializeWindow(initRoot->GetChild(SCREEN_NODE));
-			InitializeScenes(initRoot->GetChild(SCENES_NODE));
+			m_screenNode = initRoot->GetChild(SCREEN_NODE);
+			m_scenesNode = initRoot->GetChild(SCENES_NODE);
+			InitializeWindow(m_screenNode);
+			InitializeScenes(m_scenesNode);
 		}
 		catch (const std::out_of_range & e)
 		{
@@ -69,7 +71,8 @@ namespace	my
 		{
 			if (m_window.scenes.empty())
 				throw (std::invalid_argument("scenes not initialized"));
-			switch (m_window.scenes[m_window.curScene]->Update(m_window).value)
+			m_window.scenes[m_window.curScene]->PollEvents(m_window);
+			switch (m_window.scenes[m_window.curScene]->Update(sf::Mouse::getPosition(m_window)).value)
 			{
 			case CLOSE:
 				m_window.close();
@@ -80,10 +83,14 @@ namespace	my
 
 			case MENU:
 				m_window.curScene = MENU_NDX;
+				m_window.scenes[m_window.curScene]->Reset();
+				Update();
 				break;
 
 			case GAME:
 				m_window.curScene = GAME_NDX;
+				m_window.scenes[m_window.curScene]->Reset();
+				Update();
 				break;
 
 			case ERROR:

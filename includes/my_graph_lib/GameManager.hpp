@@ -69,5 +69,8 @@ namespace	my
 
 		static const unsigned		MENU_NDX = 0;
 		static const unsigned		GAME_NDX = 1;
+
+		XMLNode::XMLNodePtr			m_screenNode;
+		XMLNode::XMLNodePtr			m_scenesNode;
 	};
 }

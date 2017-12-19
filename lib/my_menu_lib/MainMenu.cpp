@@ -14,9 +14,9 @@ namespace	my
 		InitializeFunctions();
 	}
 
-	void	MainMenu::UpdateObjects(sf::RenderWindow & window) throw (std::out_of_range)
+	void	MainMenu::UpdateObjects(const sf::Vector2i & mPos) throw (std::out_of_range)
 	{
-		sf::Vector2f	mousePos(sf::Mouse::getPosition(window));
+		sf::Vector2f	mousePos(mPos);
 
 		mousePos = getTransform().getInverse().transformPoint(mousePos);
 		try
@@ -34,29 +34,26 @@ namespace	my
 		}
 	}
 
-	const SceneReturnValue	MainMenu::Update(sf::RenderWindow & window) throw (std::exception)
+	const SceneReturnValue	MainMenu::Update(const sf::Vector2i & mousePos) throw (std::exception)
 	{
 		SceneReturnValue returnValue;
 
-		PollEvents(window);
 		for (unsigned i = 0; i < m_events.size(); ++i)
 		{
 			if (m_events[i].type == sf::Event::Closed)
 			{
-				window.close();
 				returnValue.value = CLOSE;
 				return (returnValue);
 			}
 			else if (m_events[i].type == sf::Event::KeyPressed && m_events[i].key.code == sf::Keyboard::Escape)
 			{
-				window.close();
 				returnValue.value = CLOSE;
 				return (returnValue);	
 			}
 		}
 		try
 		{
-			UpdateObjects(window);
+			UpdateObjects(mousePos);
 		}
 		catch (const std::exception & e)
 		{
@@ -162,6 +159,8 @@ namespace	my
 	void	MainMenu::Reset() throw (std::out_of_range, std::invalid_argument)
 	{
 		m_background = 0;
+		m_panels.clear();
+		m_cursor = 0;
 		try
 		{
 			Initialize(m_root);
