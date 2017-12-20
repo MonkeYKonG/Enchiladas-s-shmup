@@ -60,3 +60,8 @@ void my::Enemy::SetIsFinish(bool isFinish) noexcept
 {
 	m_isFinish = isFinish;
 }
+
+unsigned my::Enemy::ComputeBulletDamage(Bullet::BulletPtr bullet) const noexcept
+{
+	return (bullet->GetDamage() * m_atk);
+}

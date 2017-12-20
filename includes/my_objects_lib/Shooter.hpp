@@ -32,6 +32,7 @@ namespace my
 		virtual ~Shooter() {}
 
 		void Update() noexcept;
+		virtual unsigned ComputeBulletDamage(Bullet::BulletPtr bullet) const = 0;
 
 		bool m_canShoot;
 		ShootNodes m_shootNodes;

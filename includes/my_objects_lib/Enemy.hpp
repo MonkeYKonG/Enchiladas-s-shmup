@@ -22,6 +22,7 @@ namespace my
 
 	protected:
 		virtual void UpdateAnimation() throw (std::out_of_range);
+		virtual unsigned ComputeBulletDamage(Bullet::BulletPtr bullet) const noexcept;
 
 		bool m_isFinish;
 	};

@@ -45,7 +45,7 @@ void	my::AliveObject::TakeDamage(unsigned damage) noexcept
 	if (damage > m_HP)
 		m_HP = 0;
 	else
-		m_HP -= damage;
+		m_HP -= (damage / (m_def + 1));
 	if (m_HP == 0)
 		m_isAlive = false;
 }

@@ -20,13 +20,16 @@ const my::Shooter::ShootList my::Shooter::GetShootList() const throw (std::out_o
 {
 	ShootList shootList;
 	XMLNode::XMLNodePtr curNode;
+	Bullet::BulletPtr newBullet;
 
 	try
 	{
 		curNode = m_shootNodes.at(m_shootKey);
 		for (unsigned i = 0; i < curNode->GetChilds().size(); ++i)
 		{
-			shootList.push_back(ObjectPool::CreateBullet(curNode->GetChilds()[i]));
+			newBullet = ObjectPool::CreateBullet(curNode->GetChilds()[i]);
+			newBullet->SetDamage(ComputeBulletDamage(newBullet));
+			shootList.push_back(newBullet);
 		}
 	}
 	catch (const std::out_of_range & e)

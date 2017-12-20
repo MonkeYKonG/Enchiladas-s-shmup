@@ -95,3 +95,8 @@ void my::Player::CheckForInput() noexcept
 			SetCanShoot(true);
 		}
 }
+
+unsigned my::Player::ComputeBulletDamage(Bullet::BulletPtr bullet) const noexcept
+{
+	return (bullet->GetDamage() * m_atk);
+}

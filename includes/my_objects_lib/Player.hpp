@@ -34,6 +34,7 @@ namespace my
 		virtual void UpdateMovement() noexcept;
 		virtual void UpdateAnimation() throw (std::out_of_range);
 		virtual void CheckForInput() noexcept;
+		virtual unsigned ComputeBulletDamage(Bullet::BulletPtr bullet) const noexcept;
 
 		InputsDeplacementList	m_inputsDeplacement;
 		bool m_curentDeplacement[CUR_DEPL_SIZE];

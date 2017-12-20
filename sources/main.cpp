@@ -14,6 +14,7 @@
 int main(void) {
 	my::schmup::SchmupGameManager gm;
 
+	srand(time(0));
 	try
 	{
 		gm.Loop();

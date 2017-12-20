@@ -13,7 +13,7 @@ namespace my
 		void		SetAtk(unsigned atk) noexcept;
 		void		SetDef(unsigned def) noexcept;
 
-	private:
+	protected:
 		unsigned m_atk;
 		unsigned m_def;
 	};
