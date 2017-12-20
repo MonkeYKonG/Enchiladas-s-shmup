@@ -24,6 +24,7 @@ namespace my
 		void InitializePlayer(XMLNode::XMLNodePtr playerNode) throw (std::out_of_range, std::invalid_argument);
 		void InitializeEnemiesPoolStage(XMLNode::XMLNodePtr stagesNode) throw (std::out_of_range, std::invalid_argument);
 		void InitializeEnemiesPoolEnemies(XMLNode::XMLNodePtr enemiesNode) throw (std::out_of_range, std::invalid_argument);
+
 		virtual void UpdatePlayer() throw (std::exception);
 		virtual void UpdateEnemiesPool() throw (std::out_of_range, std::invalid_argument);
 		virtual void UpdateEnemies() throw (std::exception);

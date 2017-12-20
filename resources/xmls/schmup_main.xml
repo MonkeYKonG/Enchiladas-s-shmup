@@ -337,45 +337,6 @@
   <play>
     <background x="%($(window.width)$ / 2)%" y="%($(window.height)$ / 2)%">
       <texture>schmup_background.jpg</texture>
-    </background> 
-    <enemies>
-      <testEnemy>
-        <texture>player.png</texture>
-        <deplacements speed="1">
-          <direction x="-1" y="0"></direction>
-        </deplacements>
-        <animations>
-          <animation key="default">
-            <framerateMax>5</framerateMax>
-            <loop>true</loop>
-            <rects>
-              <rect x="129" y="175" tileX="80" tileY="98"></rect>
-            </rects>
-          </animation>
-          <animation key="death">
-            <framerateMax>20</framerateMax>
-            <rects>
-              <rect x="0" y="0" tileX="80" tileY="98"></rect>
-              <rect x="0" y="100" tileX="80" tileY="98"></rect>
-              <rect x="100" y="0" tileX="80" tileY="98"></rect>
-            </rects>
-          </animation>
-        </animations>
-      </testEnemy>
-    </enemies>
-    <stages>
-      <stage1>
-        <wave needClean="true" timeToBegin="60">
-          <testEnemy x="300" y="300"></testEnemy>
-          <testEnemy x="600" y="300"></testEnemy>
-          <testEnemy x="300" y="600"></testEnemy>
-        </wave>
-        <wave needClean="false" timeToBegin="60">
-          <testEnemy x="300" y="300"></testEnemy>
-          <testEnemy x="600" y="300"></testEnemy>
-          <testEnemy x="300" y="600"></testEnemy>
-        </wave>
-      </stage1>
-    </stages>
+    </background>
   </play>
 </scene>

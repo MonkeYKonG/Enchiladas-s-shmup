@@ -18,6 +18,7 @@ namespace my
 		void InitializeEnemies(XMLNode::XMLNodePtr enemiesNode) throw (std::out_of_range, std::invalid_argument);
 
 		const EnemiesList Update(bool isClean) throw (std::out_of_range, std::invalid_argument);
+		bool IsWavesClear() const noexcept;
 
 	private:
 		struct EnemiesWave

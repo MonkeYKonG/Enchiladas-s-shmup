@@ -1,0 +1,25 @@
+<enemies>
+  <testEnemy>
+    <texture>player.png</texture>
+    <deplacements speed="1">
+      <direction x="-1" y="0"></direction>
+    </deplacements>
+    <animations>
+      <animation key="default">
+        <framerateMax>5</framerateMax>
+        <loop>true</loop>
+        <rects>
+          <rect x="129" y="175" tileX="80" tileY="98"></rect>
+        </rects>
+      </animation>
+      <animation key="death">
+        <framerateMax>20</framerateMax>
+        <rects>
+          <rect x="0" y="0" tileX="80" tileY="98"></rect>
+          <rect x="0" y="100" tileX="80" tileY="98"></rect>
+          <rect x="100" y="0" tileX="80" tileY="98"></rect>
+        </rects>
+      </animation>
+    </animations>
+  </testEnemy>
+</enemies>

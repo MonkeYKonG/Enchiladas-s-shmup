@@ -57,8 +57,12 @@ namespace my
 			void drawCrafting(sf::RenderTarget & target, sf::RenderStates states) const noexcept;
 			void drawSelectStage(sf::RenderTarget & target, sf::RenderStates states) const noexcept;
 
-			void InitializeStage() noexcept;
+			void ClearStageScreen() noexcept;
+
+			void InitializeStage(unsigned levelIndex) throw (std::out_of_range, std::invalid_argument);
 			void InitializePlayer() throw (std::out_of_range, std::invalid_argument);
+
+			XMLNode::XMLNodePtr GenerateStage(XMLNode::XMLNodePtr paternNode) throw (std::out_of_range, std::invalid_argument);
 
 			int m_saveSlot;
 			GAME_STATES m_gameState;

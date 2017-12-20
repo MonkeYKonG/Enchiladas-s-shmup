@@ -53,6 +53,8 @@ void my::EnemiesPool::InitializeEnemies(XMLNode::XMLNodePtr enemiesNode) throw (
 {
 	if (!enemiesNode)
 		throw (std::invalid_argument("EnemiesPool: InitializeEnemies: null node"));
+	if (enemiesNode->GetChilds().empty())
+		throw (std::invalid_argument("EnemiesPool: InitializeEnemies: empty node"));
 	try
 	{
 		m_enemiesNode = enemiesNode;
@@ -74,7 +76,7 @@ const my::EnemiesPool::EnemiesList my::EnemiesPool::Update(bool isClean) throw (
 
 	try
 	{
-		if (m_curWave >= m_waves.size())
+		if (IsWavesClear())
 			return (enemiesList);
 		if ((m_waves[m_curWave].needCleaning && isClean) || !m_waves[m_curWave].needCleaning)
 		{
@@ -102,4 +104,9 @@ const my::EnemiesPool::EnemiesList my::EnemiesPool::Update(bool isClean) throw (
 		throw (e);
 	}
 	return (enemiesList);
+}
+
+bool my::EnemiesPool::IsWavesClear() const noexcept
+{
+	return (m_curWave >= m_waves.size());
 }

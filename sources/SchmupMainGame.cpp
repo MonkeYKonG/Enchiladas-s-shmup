@@ -102,6 +102,12 @@ const my::SceneReturnValue my::schmup::SchmupMainGame::UpdateMain(const sf::Vect
 
 const my::SceneReturnValue my::schmup::SchmupMainGame::UpdatePlay(const sf::Vector2i & mousePos) throw (std::exception)
 {
+	if (m_enemies.empty() && m_enemiesPool.IsWavesClear())
+	{
+		m_gameState = GAME_STATES::MAIN;
+		Reset();
+		return (SceneReturnValue());
+	}
 	return (SchmupScene::Update(mousePos));
 }
 
@@ -171,6 +177,7 @@ const my::SceneReturnValue my::schmup::SchmupMainGame::UpdateSelectStage(const s
 				else
 				{
 					m_gameState = GAME_STATES::PLAY;
+					InitializeStage(i);
 					Reset();
 				}
 			}
@@ -266,10 +273,35 @@ void my::schmup::SchmupMainGame::drawSelectStage(sf::RenderTarget & target, sf::
 	states.transform *= getTransform();
 }
 
-void my::schmup::SchmupMainGame::InitializeStage() noexcept
+void my::schmup::SchmupMainGame::ClearStageScreen() noexcept
 {
-	m_player->setPosition(200, 500);
-	// remettre les cooldown et scores a zero
+	m_enemies.clear();
+	m_enemiesShoots.clear();
+	m_playerShoots.clear();
+}
+
+void my::schmup::SchmupMainGame::InitializeStage(unsigned levelIndex) throw (std::out_of_range, std::invalid_argument)
+{
+	XMLNode::XMLNodePtr paternNode;
+	XMLNode::XMLNodePtr enemiesNode;
+
+	try
+	{
+		ClearStageScreen();
+		m_player->setPosition(200, 500); // Utiliser le fichier de conf du niveau pour ca
+		paternNode = XMLParser::Load("level_" + std::to_string(levelIndex) + ".xml");
+		enemiesNode = XMLParser::Load("level_" + std::to_string(levelIndex) + "_enemies.xml");
+		m_enemiesPool.InitializeEnemies(enemiesNode);
+		m_enemiesPool.InitializeStage(GenerateStage(paternNode));
+	}
+	catch (const std::out_of_range & e)
+	{
+		throw (e);
+	}
+	catch (const std::invalid_argument & e)
+	{
+		throw (e);
+	}
 }
 
 void my::schmup::SchmupMainGame::InitializePlayer() throw (std::out_of_range, std::invalid_argument)
@@ -287,4 +319,28 @@ void my::schmup::SchmupMainGame::InitializePlayer() throw (std::out_of_range, st
 	{
 		throw (std::invalid_argument("SchmupMainGame: InitializePlayer: " + std::string(e.what())));
 	}
+}
+
+my::XMLNode::XMLNodePtr my::schmup::SchmupMainGame::GenerateStage(XMLNode::XMLNodePtr paternNode) throw (std::out_of_range, std::invalid_argument)
+{
+	XMLNode::XMLNodePtr generatedStage;
+
+	try
+	{
+		generatedStage = XMLNode::create();
+		generatedStage->SetName("stage");
+		for (unsigned i = 0; i < 15; ++i)
+		{
+			generatedStage->AddChild(paternNode->GetChilds()[rand() % paternNode->GetChilds().size()]);
+		}
+	}
+	catch (const std::out_of_range & e)
+	{
+		throw (std::out_of_range("SchmupMainGame: GenerateStage: " + std::string(e.what())));
+	}
+	catch (const std::invalid_argument & e)
+	{
+		throw (std::invalid_argument("SchmupMainGame: GenerateStage: " + std::string(e.what())));
+	}
+	return (generatedStage);
 }
