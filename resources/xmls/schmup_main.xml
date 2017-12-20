@@ -114,7 +114,7 @@
   </main>
   <crafting>
     <% cursor.xml %>
-      <panel x="%($(window.width)$ / 2)%" y="%($(window.height)$ / 2)%">
+    <panel x="%($(window.width)$ / 2)%" y="%($(window.height)$ / 2)%">
       <title>
         <text>Ameliorer</text>
         <font>Default</font>
@@ -223,6 +223,33 @@
           </animations>
         </button>
       </buttons>
+    </panel>
+    <panel x="%($(window.width)$ / 6)%" y="%($(window.height)$ / 2)%">
+      <title>
+        <text>Caracteristiques</text>
+        <font>Default</font>
+        <color red="255" green="255" blue="255"></color>
+      </title>
+      <background>
+        <texture>panel_background.png</texture>
+      </background>
+      <border width="544" height="704" tileX="32" tileY="32">
+        <texture>panel_border.png</texture>
+        <corner x="0" y="0"></corner>
+        <outline x="64" y="0"></outline>
+      </border>
+      <texts>
+        <textItem x="-200" y="-150">
+          <text>Atk: </text>
+          <font>Default</font>
+          <color red="255" green="255" blue="255"></color>
+        </textItem>
+        <textItem x="-200" y="0">
+          <text>Def: </text>
+          <font>Default</font>
+          <color red="255" green="255" blue="255"></color>
+        </textItem>
+      </texts>
     </panel>
   </crafting>
   <selectStage>

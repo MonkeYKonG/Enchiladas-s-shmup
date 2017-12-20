@@ -44,6 +44,7 @@ namespace	my
 		static const std::string	PANEL_TITLE_NODE_NAME;
 		static const std::string	PANEL_BORDER_NODE_NAME;
 		static const std::string	PANEL_BUTTONS_NODE_NAME;
+		static const std::string	PANEL_TEXTS_NODE_NAME;
 		static const std::string	PANEL_SPRITE_BUTTONS_NODE_CONTENT_VALUE;
 		static const std::string	PANEL_TEXT_BUTTONS_NODE_CONTENT_VALUE;
 

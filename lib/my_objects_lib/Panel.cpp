@@ -48,6 +48,11 @@ namespace my
 		return (m_textButtons);
 	}
 
+	const Panel::TextList &Panel::GetTexts() const noexcept
+	{
+		return (m_texts);
+	}
+
 	void	Panel::SetBackground(SpriteObject::SpriteObjectPtr background) noexcept
 	{
 		m_background = background;
@@ -87,6 +92,19 @@ namespace my
 	{
 		m_textButtons.push_back(newButton);
 		newButton->SetOrigin(newButton->GetText().getGlobalBounds().width / 2, newButton->GetText().getGlobalBounds().height / 2);
+	}
+
+	void	Panel::SetTexts(const Panel::TextList & texts) noexcept
+	{
+		m_texts.clear();
+		for (unsigned i = 0; i < texts.size(); ++i)
+			AddText(texts[i]);
+	}
+
+	void	Panel::AddText(const TextObject::TextObjectPtr & newText) noexcept
+	{
+		m_texts.push_back(newText);
+		newText->SetOrigin(0, newText->GetText().getGlobalBounds().height / 2);
 	}
 
 	void	Panel::UpdateBackground() noexcept
@@ -155,5 +173,7 @@ namespace my
 			target.draw(*m_spriteButtons[i], states);
 		for (unsigned i = 0; i < m_textButtons.size(); ++i)
 			target.draw(*m_textButtons[i], states);
+		for (unsigned i = 0; i < m_texts.size(); ++i)
+			target.draw(*m_texts[i], states);
 	}
 }

@@ -17,6 +17,7 @@ namespace	my
 	const std::string 	ObjectPool::PANEL_TITLE_NODE_NAME = "title";
 	const std::string 	ObjectPool::PANEL_BORDER_NODE_NAME = "border";
 	const std::string 	ObjectPool::PANEL_BUTTONS_NODE_NAME = "buttons";
+	const std::string 	ObjectPool::PANEL_TEXTS_NODE_NAME = "texts";
 	const std::string 	ObjectPool::PANEL_SPRITE_BUTTONS_NODE_CONTENT_VALUE = "sprite";
 	const std::string 	ObjectPool::PANEL_TEXT_BUTTONS_NODE_CONTENT_VALUE = "text";
 
@@ -348,6 +349,7 @@ namespace	my
 			 	newText->SetColor(ObjectPool::CreateColor(textNode->GetChild(TEXT_COLOR_NODE_NAME)));
 			if (textNode->ChildExist(TEXT_CHARSIZE_NODE_NAME))
 				newText->SetSize(std::stoul(textNode->GetChild(TEXT_CHARSIZE_NODE_NAME)->GetValue()));
+			SetNodeDefaults(textNode, newText.get());
 		}
 		catch (const std::out_of_range & e)
 		{
@@ -414,6 +416,12 @@ namespace	my
 					else if (childStk->GetChilds()[i]->GetContent(CLASS_NODE_CONTENT).second == PANEL_TEXT_BUTTONS_NODE_CONTENT_VALUE)
 						newPanel->AddTextButton(CreateText(childStk->GetChilds()[i]));
 				}
+			}
+			if (panelNode->ChildExist(PANEL_TEXTS_NODE_NAME))
+			{
+				childStk = panelNode->GetChild(PANEL_TEXTS_NODE_NAME);
+				for (unsigned i = 0; i < childStk->GetChilds().size(); ++i)
+					newPanel->AddText(CreateText(childStk->GetChilds()[i]));
 			}
 			if (panelNode->ContentExist(X_NODE_CONTENT) && panelNode->ContentExist(Y_NODE_CONTENT))
 			 	newPanel->setPosition(std::stoul(panelNode->GetContent(X_NODE_CONTENT).second), std::stoul(panelNode->GetContent(Y_NODE_CONTENT).second));

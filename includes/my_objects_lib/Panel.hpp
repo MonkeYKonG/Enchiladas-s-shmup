@@ -15,6 +15,7 @@ namespace	my
 		typedef TextObject::TextObjectPtr TextButton;
 		typedef std::vector<PanelSpriteButton> SpriteButtons;
 		typedef std::vector<TextButton> TextButtons;
+		typedef std::vector<TextObject::TextObjectPtr> TextList;
 
 		Panel();
 		~Panel();
@@ -28,6 +29,7 @@ namespace	my
 		TextObject::TextObjectPtr GetTitle() const noexcept;
 		const SpriteButtons &GetSpriteButtons() const noexcept;
 		const TextButtons &GetTextButtons() const noexcept;
+		const TextList &GetTexts() const noexcept;
 		void SetBackground(SpriteObject::SpriteObjectPtr background) noexcept;
 		void SetBorder(Border::BorderPtr border) noexcept;
 		void SetTitle(TextObject::TextObjectPtr title) noexcept;
@@ -35,6 +37,8 @@ namespace	my
 		void AddSpriteButton(const PanelSpriteButton & newButton) noexcept;
 		void SetTextButtons(const TextButtons & buttons) noexcept;
 		void AddTextButton(const TextButton & newButton) noexcept;
+		void SetTexts(const TextList & texts) noexcept;
+		void AddText(const TextObject::TextObjectPtr & newText) noexcept;
 
 		void Update(const sf::Vector2f & mousePos) noexcept;
 
@@ -52,5 +56,6 @@ namespace	my
 		TextObject::TextObjectPtr m_title;
 		SpriteButtons	m_spriteButtons;
 		TextButtons		m_textButtons;
+		TextList		m_texts;
 	};
 }
