@@ -62,6 +62,10 @@ namespace	my
 	const std::string	ObjectPool::FRAMERATE_MAX_NODE_CONTENT = "framerateMax";
 	const std::string	ObjectPool::TRAVEL_TIME_NODE_CONTENT = "travelTime";
 	const std::string	ObjectPool::DAMAGE_NODE_CONTENT = "damage";
+	const std::string	ObjectPool::MAX_HP_NODE_CONTENT = "maxHP";
+	const std::string	ObjectPool::HP_NODE_CONTENT = "HP";
+	const std::string	ObjectPool::ATK_NODE_CONTENT = "atk";
+	const std::string	ObjectPool::DEF_NODE_CONTENT = "def";
 
 	void ObjectPool::SetNodeDefaults(XMLNode::XMLNodePtr nodeNode, Node * node) throw(std::out_of_range, std::invalid_argument)
 	{
@@ -135,6 +139,57 @@ namespace	my
 				shooter->SetShootFramerateMax(std::stoul(shooterNode->GetContent(FRAMERATE_MAX_NODE_CONTENT).second));
 			for (unsigned i = 0; i < shooterNode->GetChilds().size(); ++i)
 				shooter->AddShootNode(shooterNode->GetChilds()[i]->GetContent(KEY_NODE_CONTENT).second, shooterNode->GetChilds()[i]);
+		}
+		catch (const std::out_of_range & e)
+		{
+			throw (e);
+		}
+		catch (const std::invalid_argument & e)
+		{
+			throw (e);
+		}
+	}
+
+	void ObjectPool::SetStatsContainerDefaults(XMLNode::XMLNodePtr statsContainerNode, StatsContainer * statsContainer) throw (std::out_of_range, std::invalid_argument)
+	{
+		if (!statsContainer)
+			throw (std::invalid_argument("ObjectPool: SetStatsContainerDefaults: null alive object"));
+		if (!statsContainer)
+			throw (std::invalid_argument("ObjectPool: SetStatsContainerDefaults: null node"));
+		try
+		{
+			if (statsContainerNode->ContentExist(ATK_NODE_CONTENT))
+				statsContainer->SetAtk(std::stoul(statsContainerNode->GetContent(ATK_NODE_CONTENT).second));
+			if (statsContainerNode->ContentExist(DEF_NODE_CONTENT))
+				statsContainer->SetDef(std::stoul(statsContainerNode->GetContent(DEF_NODE_CONTENT).second));
+		}
+		catch (const std::out_of_range & e)
+		{
+			throw (e);
+		}
+		catch (const std::invalid_argument & e)
+		{
+			throw (e);
+		}
+	}
+
+	void		ObjectPool::SetAliveObjectDefaults(XMLNode::XMLNodePtr aliveObjectNode, AliveObject * aliveObject) throw (std::out_of_range, std::invalid_argument)
+	{
+		if (!aliveObject)
+			throw (std::invalid_argument("ObjectPool: SetAliveObjectDefaults: null alive object"));
+		if (!aliveObject)
+			throw (std::invalid_argument("ObjectPool: SetAliveObjectDefaults: null node"));
+		try
+		{
+			if (aliveObjectNode->ContentExist(MAX_HP_NODE_CONTENT))
+			{
+				aliveObject->SetMaxHP(std::stoul(aliveObjectNode->GetContent(MAX_HP_NODE_CONTENT).second));
+				if (aliveObjectNode->ContentExist(HP_NODE_CONTENT))
+					aliveObject->SetCurHP(std::stoul(aliveObjectNode->GetContent(HP_NODE_CONTENT).second));
+				else
+					aliveObject->SetCurHP(aliveObject->GetMaxHP());
+			}
+			SetStatsContainerDefaults(aliveObjectNode, aliveObject);
 		}
 		catch (const std::out_of_range & e)
 		{
@@ -494,6 +549,7 @@ namespace	my
 		try
 		{
 			SetSpriteDefaults(playerNode, newPlayer.get());
+			SetAliveObjectDefaults(playerNode, newPlayer.get());
 			if (playerNode->ChildExist(PLAYER_INPUTS_DEPLACEMENT_NODE_NAME))
 			{
 				childStk = playerNode->GetChild(PLAYER_INPUTS_DEPLACEMENT_NODE_NAME);
@@ -507,9 +563,7 @@ namespace	my
 					newPlayer->AddInputShoot(CreateInputShoot(childStk->GetChilds()[i]));
 			}
 			if (playerNode->ChildExist(OBJECT_SHOOTS_NODE_NAME))
-			{
 				SetShooterDefaults(playerNode->GetChild(OBJECT_SHOOTS_NODE_NAME), newPlayer.get());
-			}
 		}
 		catch (const std::out_of_range & e)
 		{
@@ -532,6 +586,7 @@ namespace	my
 		try
 		{
 			SetSpriteDefaults(enemyNode, newEnemy.get());
+			SetAliveObjectDefaults(enemyNode, newEnemy.get());
 			if (enemyNode->ChildExist(OBJECT_SHOOTS_NODE_NAME))
 			{
 				SetShooterDefaults(enemyNode->GetChild(OBJECT_SHOOTS_NODE_NAME), newEnemy.get());

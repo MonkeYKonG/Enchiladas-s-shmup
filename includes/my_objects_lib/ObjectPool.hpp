@@ -89,6 +89,10 @@ namespace	my
 		static const std::string	FRAMERATE_MAX_NODE_CONTENT;
 		static const std::string	TRAVEL_TIME_NODE_CONTENT;
 		static const std::string	DAMAGE_NODE_CONTENT;
+		static const std::string	MAX_HP_NODE_CONTENT;
+		static const std::string	HP_NODE_CONTENT;
+		static const std::string	ATK_NODE_CONTENT;
+		static const std::string	DEF_NODE_CONTENT;
 
 		ObjectPool();
 		~ObjectPool() {}
@@ -99,6 +103,8 @@ namespace	my
 		static void SetNodeDefaults(XMLNode::XMLNodePtr nodeNode, Node * node) throw (std::out_of_range, std::invalid_argument);
 		static void SetSpriteDefaults(XMLNode::XMLNodePtr spriteNode, SpriteObject * sprite) throw (std::out_of_range, std::invalid_argument);
 		static void SetShooterDefaults(XMLNode::XMLNodePtr shooterNode, Shooter * shooter) throw (std::out_of_range, std::invalid_argument);
+		static void SetAliveObjectDefaults(XMLNode::XMLNodePtr aliveObjectNode, AliveObject * aliveObject) throw (std::out_of_range, std::invalid_argument);
+		static void SetStatsContainerDefaults(XMLNode::XMLNodePtr statsContainerNode, StatsContainer * statsContainer) throw (std::out_of_range, std::invalid_argument);
 
 		static bool CreateBoolean(XMLNode::XMLNodePtr boolNode) throw (std::out_of_range, std::invalid_argument);
 		static sf::Color CreateColor(XMLNode::XMLNodePtr colorNode) throw (std::out_of_range, std::invalid_argument);

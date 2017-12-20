@@ -46,6 +46,8 @@ namespace my
 			static const std::string SELECT_STAGE_NODE_NAME;
 			static const std::string NODE_NAMES[GAME_STATES::GAME_STATES_COUNT];
 
+			virtual void TriggerEnemyIsDamaged(Shooter::ShootList::iterator & bulletIt, EnemiesPool::EnemiesList::iterator &enemyIt) noexcept;
+
 			const SceneReturnValue UpdateMain(const sf::Vector2i & mousePos) throw (std::exception);
 			const SceneReturnValue UpdatePlay(const sf::Vector2i & mousePos) throw (std::exception);
 			const SceneReturnValue UpdateCrafting(const sf::Vector2i & mousePos) throw (std::exception);
@@ -61,10 +63,13 @@ namespace my
 
 			void InitializeStage(unsigned levelIndex) throw (std::out_of_range, std::invalid_argument);
 			void InitializePlayer() throw (std::out_of_range, std::invalid_argument);
+			void InitializeGameValues() throw (std::out_of_range, std::invalid_argument);
 
 			XMLNode::XMLNodePtr GenerateStage(XMLNode::XMLNodePtr paternNode) throw (std::out_of_range, std::invalid_argument);
 
 			int m_saveSlot;
+			unsigned m_score;
+			unsigned m_maxScore;
 			GAME_STATES m_gameState;
 			XMLNode::XMLNodePtr	m_nodes[GAME_STATES::GAME_STATES_COUNT];
 			XMLNode::XMLNodePtr m_gameRoot;

@@ -17,7 +17,7 @@ const std::string my::schmup::SchmupMainGame::NODE_NAMES[my::schmup::SchmupMainG
 };
 
 my::schmup::SchmupMainGame::SchmupMainGame()
-	: m_saveSlot(-1), m_gameState(MAIN)
+	: m_saveSlot(-1), m_score(0), m_maxScore(0), m_gameState(MAIN)
 {
 }
 
@@ -46,6 +46,7 @@ void	my::schmup::SchmupMainGame::LoadSavingData(int slot) throw (std::out_of_ran
 		throw (std::invalid_argument("SchmupMainGame: LoadSavingData: invalid slot: " + std::to_string(slot)));
 	m_saveSlot = slot;
 	InitializePlayer();
+	InitializeGameValues();
 }
 
 void my::schmup::SchmupMainGame::Reset() throw (std::out_of_range, std::invalid_argument)
@@ -60,10 +61,20 @@ void my::schmup::SchmupMainGame::Reset() throw (std::out_of_range, std::invalid_
 	Update(sf::Vector2i(mousePos));
 }
 
+void my::schmup::SchmupMainGame::TriggerEnemyIsDamaged(Shooter::ShootList::iterator & bulletIt, EnemiesPool::EnemiesList::iterator & enemyIt) noexcept
+{
+	if (!(*enemyIt)->IsAlive())
+		return;
+	SchmupScene::TriggerEnemyIsDamaged(bulletIt, enemyIt);
+	if (!(*enemyIt)->IsAlive())
+		m_score += 1;
+}
+
 const my::SceneReturnValue my::schmup::SchmupMainGame::UpdateMain(const sf::Vector2i & mousePos) throw (std::exception)
 {
 	SceneReturnValue returnValue;
-	Panel::SpriteButtons panelButtons;
+	Panel::SpriteButtons panelButtons;	
+	Panel::TextList panelTexts;
 
 	try
 	{
@@ -80,19 +91,25 @@ const my::SceneReturnValue my::schmup::SchmupMainGame::UpdateMain(const sf::Vect
 				case MAIN_BUTTONS::PLAY_BTN:
 					m_gameState = GAME_STATES::SELECT_STAGE;
 					Reset();
-					break;
+					return (returnValue);
 
 				case MAIN_BUTTONS::UPDATE_BTN:
 					m_gameState = GAME_STATES::CRAFTING;
 					Reset();
-					break;
+					return (returnValue);
 
 				case MAIN_BUTTONS::MAIN_MENU_BTN:
 					returnValue.value = STATE_RETURN::MENU;
+					return (returnValue);
+						
+				default:
 					break;
 				}
 			}
 		}
+		panelTexts = m_panels[1]->GetTexts();
+		panelTexts[0]->SetText("Score: " + std::to_string(m_score));
+		panelTexts[1]->SetText("Meilleur: " + std::to_string(m_maxScore));
 	}
 	catch (const std::exception & e) {
 		throw (e);
@@ -102,12 +119,19 @@ const my::SceneReturnValue my::schmup::SchmupMainGame::UpdateMain(const sf::Vect
 
 const my::SceneReturnValue my::schmup::SchmupMainGame::UpdatePlay(const sf::Vector2i & mousePos) throw (std::exception)
 {
+	Panel::TextList panelTexts;
+
 	if (m_enemies.empty() && m_enemiesPool.IsWavesClear())
 	{
+		if (m_score > m_maxScore)
+			m_maxScore = m_score;
 		m_gameState = GAME_STATES::MAIN;
 		Reset();
 		return (SceneReturnValue());
 	}
+	panelTexts = m_panels[0]->GetTexts();
+	panelTexts[0]->SetText("Score: " + std::to_string(m_score));
+	panelTexts[1]->SetText("Meilleur: " + std::to_string(m_maxScore));
 	return (SchmupScene::Update(mousePos));
 }
 
@@ -145,8 +169,8 @@ const my::SceneReturnValue my::schmup::SchmupMainGame::UpdateCrafting(const sf::
 			}
 		}
 		panelTexts = m_panels[1]->GetTexts();
-		panelTexts[0]->SetText(panelTexts[0]->GetText().getString().substring(0, 4) + " " + std::to_string(m_player->GetAtk()));
-		panelTexts[1]->SetText(panelTexts[1]->GetText().getString().substring(0, 4) + " " + std::to_string(m_player->GetDef()));
+		panelTexts[0]->SetText("Atk: " + std::to_string(m_player->GetAtk()));
+		panelTexts[1]->SetText("Def: " + std::to_string(m_player->GetDef()));
 	}
 	catch (const std::exception & e) {
 		throw (e);
@@ -278,6 +302,7 @@ void my::schmup::SchmupMainGame::ClearStageScreen() noexcept
 	m_enemies.clear();
 	m_enemiesShoots.clear();
 	m_playerShoots.clear();
+	m_score = 0;
 }
 
 void my::schmup::SchmupMainGame::InitializeStage(unsigned levelIndex) throw (std::out_of_range, std::invalid_argument)
@@ -321,6 +346,12 @@ void my::schmup::SchmupMainGame::InitializePlayer() throw (std::out_of_range, st
 	}
 }
 
+void my::schmup::SchmupMainGame::InitializeGameValues() throw (std::out_of_range, std::invalid_argument)
+{
+	m_score = 0;
+	m_maxScore = 0;
+}
+
 my::XMLNode::XMLNodePtr my::schmup::SchmupMainGame::GenerateStage(XMLNode::XMLNodePtr paternNode) throw (std::out_of_range, std::invalid_argument)
 {
 	XMLNode::XMLNodePtr generatedStage;
@@ -329,7 +360,7 @@ my::XMLNode::XMLNodePtr my::schmup::SchmupMainGame::GenerateStage(XMLNode::XMLNo
 	{
 		generatedStage = XMLNode::create();
 		generatedStage->SetName("stage");
-		for (unsigned i = 0; i < 15; ++i)
+		for (unsigned i = 0; i < 1; ++i)
 		{
 			generatedStage->AddChild(paternNode->GetChilds()[rand() % paternNode->GetChilds().size()]);
 		}
