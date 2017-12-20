@@ -1,6 +1,8 @@
 #include "SchmupMainGame.hpp"
 #include "my_graph_lib/ResourcesLoader.hpp"
 #include "my_graph_lib/InputsManager.hpp"
+#include "my_graph_lib/XMLParser.hpp"
+#include "my_objects_lib/ObjectPool.hpp"
 
 const std::string my::schmup::SchmupMainGame::MAIN_NODE_NAME = "main";
 const std::string my::schmup::SchmupMainGame::PLAY_NODE_NAME = "play";
@@ -15,7 +17,7 @@ const std::string my::schmup::SchmupMainGame::NODE_NAMES[my::schmup::SchmupMainG
 };
 
 my::schmup::SchmupMainGame::SchmupMainGame()
-	: m_gameState(MAIN)
+	: m_saveSlot(-1), m_gameState(MAIN)
 {
 }
 
@@ -26,6 +28,7 @@ void my::schmup::SchmupMainGame::Initialize(XMLNode::XMLNodePtr sceneRoot) throw
 		m_gameRoot = sceneRoot;
 		for (int i = 0; i < GAME_STATES::GAME_STATES_COUNT; ++i)
 			m_nodes[i] = sceneRoot->GetChild(NODE_NAMES[i]);
+		SchmupScene::Initialize(m_nodes[m_gameState]);
 	}
 	catch (const std::out_of_range & e)
 	{
@@ -35,7 +38,14 @@ void my::schmup::SchmupMainGame::Initialize(XMLNode::XMLNodePtr sceneRoot) throw
 	{
 		throw (std::invalid_argument("SchmupMainGame: Initialize: " + std::string(e.what())));
 	}
-	SchmupScene::Initialize(m_nodes[m_gameState]);
+}
+
+void	my::schmup::SchmupMainGame::LoadSavingData(int slot) throw (std::out_of_range, std::invalid_argument)
+{
+	if (slot < 0)
+		throw (std::invalid_argument("SchmupMainGame: LoadSavingData: invalid slot: " + std::to_string(slot)));
+	m_saveSlot = slot;
+	InitializePlayer();
 }
 
 void my::schmup::SchmupMainGame::Reset() throw (std::out_of_range, std::invalid_argument)
@@ -99,6 +109,7 @@ const my::SceneReturnValue my::schmup::SchmupMainGame::UpdateCrafting(const sf::
 {
 	SceneReturnValue returnValue;
 	Panel::SpriteButtons panelButtons;
+	Panel::TextList panelTexts;
 
 	try
 	{
@@ -113,18 +124,23 @@ const my::SceneReturnValue my::schmup::SchmupMainGame::UpdateCrafting(const sf::
 				switch (i)
 				{
 				case CRAFTING_BUTTONS::MORE_ATK_BTN:
+					m_player->SetAtk(m_player->GetAtk() + 1);
 					break;
 
 				case CRAFTING_BUTTONS::MORE_DEF_BTN:
+					m_player->SetDef(m_player->GetDef() + 1);
 					break;
 
 				case CRAFTING_BUTTONS::CRAFTING_BACK_BTN:
 					m_gameState = GAME_STATES::MAIN;
 					Reset();
-					break;
+					return (returnValue);
 				}
 			}
 		}
+		panelTexts = m_panels[1]->GetTexts();
+		panelTexts[0]->SetText(panelTexts[0]->GetText().getString().substring(0, 4) + " " + std::to_string(m_player->GetAtk()));
+		panelTexts[1]->SetText(panelTexts[1]->GetText().getString().substring(0, 4) + " " + std::to_string(m_player->GetDef()));
 	}
 	catch (const std::exception & e) {
 		throw (e);
@@ -150,6 +166,11 @@ const my::SceneReturnValue my::schmup::SchmupMainGame::UpdateSelectStage(const s
 				if (i == 0)
 				{
 					m_gameState = GAME_STATES::MAIN;
+					Reset();
+				}
+				else
+				{
+					m_gameState = GAME_STATES::PLAY;
 					Reset();
 				}
 			}
@@ -249,4 +270,21 @@ void my::schmup::SchmupMainGame::InitializeStage() noexcept
 {
 	m_player->setPosition(200, 500);
 	// remettre les cooldown et scores a zero
+}
+
+void my::schmup::SchmupMainGame::InitializePlayer() throw (std::out_of_range, std::invalid_argument)
+{
+	try
+	{
+		m_playerNode = XMLParser::Load("default_player.xml");
+		m_player = ObjectPool::CreatePlayer(m_playerNode);
+	}
+	catch (std::out_of_range & e)
+	{
+		throw (std::out_of_range("SchmupMainGame: InitializePlayer: " + std::string(e.what())));
+	}
+	catch (std::invalid_argument & e)
+	{
+		throw (std::invalid_argument("SchmupMainGame: InitializePlayer: " + std::string(e.what())));
+	}
 }

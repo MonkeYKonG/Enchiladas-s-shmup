@@ -1,0 +1,43 @@
+<player x="%($(window.width)$ / 2)%" y="%(3 * $(window.height)$ / 4)%">
+  <texture>player.png</texture>
+  <inputsDeplacement>
+    <input input="Up" direction="UP"></input>
+    <input input="Down" direction="DOWN"></input>
+    <input input="Left" direction="LEFT"></input>
+    <input input="Right" direction="RIGHT"></input>
+  </inputsDeplacement>
+  <inputsShoot>
+    <input input="Space" key="default"></input>
+  </inputsShoot>
+  <deplacements speed="12">
+  </deplacements>
+  <animations>
+    <animation key="default">
+      <rects>
+        <rect x="129" y="175" tileX="80" tileY="98"></rect>
+      </rects>
+    </animation>
+  </animations>
+  <shoots framerateMax="10">
+    <shoot key="default">
+      <bullet travelTime="150" damage="1">
+        <texture>bullet.png</texture>
+        <deplacements speed="18">
+          <direction x="0" y="-1"></direction>
+        </deplacements>
+        <animations>
+          <animation key="default">
+            <framerateMax>7</framerateMax>
+            <loop>true</loop>
+            <rects>
+              <rect x="0" y="0" tileX="32" tileY="32"></rect>
+              <rect x="32" y="0" tileX="32" tileY="32"></rect>
+              <rect x="64" y="0" tileX="32" tileY="32"></rect>
+              <rect x="96" y="0" tileX="32" tileY="32"></rect>
+            </rects>
+          </animation>
+        </animations>
+      </bullet>
+    </shoot>
+  </shoots>
+</player>

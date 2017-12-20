@@ -12,8 +12,10 @@ namespace my
 			SchmupMainGame();
 
 			virtual void Initialize(XMLNode::XMLNodePtr sceneRoot) throw (std::out_of_range, std::invalid_argument);
+			virtual void LoadSavingData(int slot = -1) throw (std::out_of_range, std::invalid_argument);
 			virtual void Reset() throw (std::out_of_range, std::invalid_argument);
 			virtual const SceneReturnValue Update(const sf::Vector2i & mousePos) throw (std::exception);
+
 		private:
 			enum GAME_STATES
 			{
@@ -56,11 +58,13 @@ namespace my
 			void drawSelectStage(sf::RenderTarget & target, sf::RenderStates states) const noexcept;
 
 			void InitializeStage() noexcept;
+			void InitializePlayer() throw (std::out_of_range, std::invalid_argument);
 
+			int m_saveSlot;
 			GAME_STATES m_gameState;
 			XMLNode::XMLNodePtr	m_nodes[GAME_STATES::GAME_STATES_COUNT];
 			XMLNode::XMLNodePtr m_gameRoot;
-
+			XMLNode::XMLNodePtr m_playerNode;
 		};
 	}
 }

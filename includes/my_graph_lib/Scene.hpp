@@ -37,6 +37,13 @@ namespace	my
 	  */
 		virtual void Initialize(XMLNode::XMLNodePtr sceneRoot) throw (std::out_of_range, std::invalid_argument) = 0;
 
+		//! Charge des donnees sauvegardees.
+		/*!
+			<b>Arguments</b><br/>
+			slot: L'index du fichier de sauvegarde.
+		*/
+		virtual void LoadSavingData(int slot = -1) throw (std::out_of_range, std::invalid_argument) {}
+
 	  //! Replace les entités à leurs valeur de base
 		virtual void Reset() throw(std::out_of_range, std::invalid_argument) = 0;
 

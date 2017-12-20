@@ -115,15 +115,18 @@ void	my::SchmupScene::InitializeEnemiesPoolEnemies(XMLNode::XMLNodePtr enemiesNo
 	}
 }
 
-void	my::SchmupScene::UpdateEnemiesPool() throw (std::out_of_range)
+void	my::SchmupScene::UpdateEnemiesPool() throw (std::out_of_range, std::invalid_argument)
 {
 	EnemiesPool::EnemiesList newEnemies;
 
 	try
 	{
-		newEnemies = m_enemiesPool.Update(m_enemies.empty());
-		for (unsigned i = 0; i < newEnemies.size(); ++i)
-			m_enemies.push_back(newEnemies[i]);
+		newEnemies = GeneratingEnemiesList();
+		AddingNewEnemies(newEnemies);
+	}
+	catch (const std::out_of_range & e)
+	{
+		throw (e);
 	}
 	catch (const std::invalid_argument & e)
 	{
@@ -131,34 +134,24 @@ void	my::SchmupScene::UpdateEnemiesPool() throw (std::out_of_range)
 	}
 }
 
-void	my::SchmupScene::UpdatePlayer() throw (std::out_of_range)
+void	my::SchmupScene::UpdatePlayer() throw (std::exception)
 {
-	Shooter::ShootList newShoots;
-
 	try
 	{
 		if (m_player)
 		{
-			m_player->Update();
+			UpdatingPlayer();
 			if (m_player->CanShoot())
-			{
-				newShoots = m_player->GetShootList();
-				for (unsigned i = 0; i < newShoots.size(); ++i)
-				{
-					newShoots[i]->setPosition(m_player->getPosition());
-					m_playerShoots.push_back(newShoots[i]);
-				}
-				m_player->SetCanShoot(false);
-			}
+				TriggerPlayerShooting();
 		}
 	}
-	catch (const std::out_of_range & e)
+	catch (const std::exception & e)
 	{
 		throw (e);
 	}
 }
 
-void	my::SchmupScene::UpdateEnemies() throw (std::out_of_range)
+void	my::SchmupScene::UpdateEnemies() throw (std::exception)
 {
 	EnemiesPool::EnemiesList::iterator it;
 	try
@@ -166,14 +159,14 @@ void	my::SchmupScene::UpdateEnemies() throw (std::out_of_range)
 		it = m_enemies.begin();
 		while (it != m_enemies.end())
 		{
-			(*it)->Update();
+			UpdatingEnemy(it);
 			if ((*it)->IsFinish())
-				it = m_enemies.erase(it);
+				TriggerRemoveEnemy(it);
 			else
 				it++;
 		}
 	}
-	catch (const std::out_of_range & e)
+	catch (const std::exception & e)
 	{
 		throw (e);
 	}
@@ -188,18 +181,18 @@ void	my::SchmupScene::UpdateShoots() throw (std::out_of_range)
 		it = m_playerShoots.begin();
 		while (it != m_playerShoots.end())
 		{
-			(*it)->Update();
+			UpdatingPlayerBullet(it);
 			if ((*it)->IsFinish())
-				it = m_playerShoots.erase(it);
+				TriggerRemovePlayerBullet(it);
 			else
 				it++;
 		}
 		it = m_enemiesShoots.begin();
 		while (it != m_enemiesShoots.end())
 		{
-			(*it)->Update();
+			UpdatingEnemiesBullet(it);
 			if ((*it)->IsFinish())
-				it = m_enemiesShoots.erase(it);
+				TriggerRemoveEnemiesBullet(it);
 			else
 				it++;
 		}
@@ -225,8 +218,7 @@ void	my::SchmupScene::UpdateColisions() throw (std::out_of_range)
 			{
 				if ((*itEnemy)->IsIntersect((*itShoot)->GetHitBox()))
 				{
-					(*itEnemy)->TakeDamage((*itShoot)->GetDamage());
-					(*itShoot)->TakeDamage(1);
+					TriggerEnemyIsDamaged(itShoot, itEnemy);
 					break;
 				}
 				else
@@ -238,10 +230,7 @@ void	my::SchmupScene::UpdateColisions() throw (std::out_of_range)
 		while (itShoot != m_enemiesShoots.end())
 		{
 			if (m_player->IsIntersect((*itShoot)->GetHitBox()))
-			{
-				m_player->TakeDamage((*itShoot)->GetDamage());
-				(*itShoot)->TakeDamage(1);
-			}
+				TriggerPlayerIsDamaged(itShoot);
 			itShoot++;
 		}
 	}
@@ -251,7 +240,7 @@ void	my::SchmupScene::UpdateColisions() throw (std::out_of_range)
 	}
 }
 
-void	my::SchmupScene::UpdateObjects() throw (std::out_of_range)
+void	my::SchmupScene::UpdateObjects() throw (std::exception)
 {
 	try
 	{
@@ -261,7 +250,7 @@ void	my::SchmupScene::UpdateObjects() throw (std::out_of_range)
 		UpdateShoots();
 		UpdateColisions();
 	}
-	catch (const std::out_of_range & e)
+	catch (const std::exception & e)
 	{
 		throw (e);
 	}
@@ -279,4 +268,143 @@ void my::SchmupScene::draw(sf::RenderTarget & target, sf::RenderStates states) c
 		target.draw(*m_playerShoots[i], states);
 	for (unsigned i = 0; i < m_enemiesShoots.size(); ++i)
 		target.draw(*m_enemiesShoots[i], states);
+}
+
+const my::EnemiesPool::EnemiesList my::SchmupScene::GeneratingEnemiesList() throw (std::out_of_range, std::invalid_argument)
+{
+	return(m_enemiesPool.Update(m_enemies.empty()));
+}
+
+void my::SchmupScene::AddingNewEnemies(const EnemiesPool::EnemiesList & newEnemies) noexcept
+{
+	for (unsigned i = 0; i < newEnemies.size(); ++i)
+		AddingNewEnemy(newEnemies[i]);
+}
+
+void my::SchmupScene::AddingNewEnemy(Enemy::EnemyPtr newEnemy) noexcept
+{
+	m_enemies.push_back(newEnemy);
+}
+
+void my::SchmupScene::UpdatingPlayer() throw (std::exception)
+{
+	m_player->Update();
+}
+
+void my::SchmupScene::TriggerPlayerShooting() throw (std::out_of_range, std::invalid_argument)
+{
+	Shooter::ShootList newShoots;
+
+	try
+	{
+		newShoots = GeneratingPlayerBullets();
+		AddingNewPlayerBullets(newShoots);
+		m_player->SetCanShoot(false);
+	}
+	catch (const std::out_of_range & e)
+	{
+		throw (e);
+	}
+	catch (const std::invalid_argument & e)
+	{
+		throw (e);
+	}
+}
+
+const my::Shooter::ShootList my::SchmupScene::GeneratingPlayerBullets() throw (std::out_of_range, std::invalid_argument)
+{
+	try
+	{
+		return (m_player->GetShootList());
+	}
+	catch (const std::out_of_range & e)
+	{
+		throw (e);
+	}
+	catch (const std::invalid_argument & e)
+	{
+		throw (e);
+	}
+}
+
+void my::SchmupScene::AddingNewPlayerBullets(Shooter::ShootList & newBullets) noexcept
+{
+	for (unsigned i = 0; i < newBullets.size(); ++i)
+	{
+		PreparingPlayerBuller(newBullets[i]);
+		AddingPlayerBullet(newBullets[i]);
+	}
+}
+
+void my::SchmupScene::PreparingPlayerBuller(Bullet::BulletPtr newBullet) noexcept
+{
+	newBullet->setPosition(m_player->getPosition());
+}
+
+void my::SchmupScene::AddingPlayerBullet(Bullet::BulletPtr newBullet) noexcept
+{
+	m_playerShoots.push_back(newBullet);
+}
+
+void my::SchmupScene::UpdatingEnemy(EnemiesPool::EnemiesList::iterator & enemyIt) throw (std::exception)
+{
+	try
+	{
+		(*enemyIt)->Update();
+	}
+	catch (const std::exception & e)
+	{
+		throw (e);
+	}
+}
+
+void my::SchmupScene::TriggerRemoveEnemy(EnemiesPool::EnemiesList::iterator & enemyIt) noexcept
+{
+	enemyIt = m_enemies.erase(enemyIt);
+}
+
+void my::SchmupScene::UpdatingPlayerBullet(Shooter::ShootList::iterator & bulletIt) throw (std::exception)
+{
+	try
+	{
+		(*bulletIt)->Update();
+	}
+	catch (const std::exception & e)
+	{
+		throw (e);
+	}
+}
+
+void my::SchmupScene::TriggerRemovePlayerBullet(Shooter::ShootList::iterator & bulletIt) noexcept
+{
+	bulletIt = m_playerShoots.erase(bulletIt);
+}
+
+void my::SchmupScene::UpdatingEnemiesBullet(Shooter::ShootList::iterator & bulletIt) throw (std::exception)
+{
+	try
+	{
+		(*bulletIt)->Update();
+	}
+	catch (const std::exception & e)
+	{
+		throw (e);
+	}
+}
+
+void my::SchmupScene::TriggerRemoveEnemiesBullet(Shooter::ShootList::iterator & bulletIt) noexcept
+{
+	bulletIt = m_enemiesShoots.erase(bulletIt);
+}
+
+void my::SchmupScene::TriggerEnemyIsDamaged(Shooter::ShootList::iterator & bulletIt, EnemiesPool::EnemiesList::iterator & enemyIt) noexcept
+{
+	(*enemyIt)->TakeDamage((*bulletIt)->GetDamage());
+	(*bulletIt)->TakeDamage(1);
+}
+
+void my::SchmupScene::TriggerPlayerIsDamaged(Shooter::ShootList::iterator & bulletIt) noexcept
+{
+	m_player->TakeDamage((*bulletIt)->GetDamage());
+	(*bulletIt)->TakeDamage(1);
 }

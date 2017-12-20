@@ -89,6 +89,7 @@ namespace	my
 
 			case GAME:
 				m_window.curScene = GAME_NDX;
+				m_window.scenes[m_window.curScene]->LoadSavingData(0);
 				m_window.scenes[m_window.curScene]->Reset();
 				Update();
 				break;
