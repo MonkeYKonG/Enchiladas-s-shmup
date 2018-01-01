@@ -266,13 +266,23 @@
         <outline x="64" y="0"></outline>
       </border>
       <texts>
-        <textItem x="-200" y="-150">
+        <textItem x="-200" y="50">
           <text>Atk: </text>
           <font>Default</font>
           <color red="255" green="255" blue="255"></color>
         </textItem>
-        <textItem x="-200" y="0">
+        <textItem x="-200" y="100">
           <text>Def: </text>
+          <font>Default</font>
+          <color red="255" green="255" blue="255"></color>
+        </textItem>
+        <textItem x="-200" y="-200">
+          <text>Lvl: </text>
+          <font>Default</font>
+          <color red="255" green="255" blue="255"></color>
+        </textItem>
+        <textItem x="-200" y="-150">
+          <text>Exp: </text>
           <font>Default</font>
           <color red="255" green="255" blue="255"></color>
         </textItem>
@@ -365,12 +375,7 @@
     <background x="%($(window.width)$ / 2)%" y="%($(window.height)$ / 2)%">
       <texture>schmup_background.jpg</texture>
     </background>
-    <panel x="%($(window.width)$ / 2)%" y="%($(window.height)$ / 10)%">
-      <border width="1600" height="160" tileX="32" tileY="32">
-        <texture>panel_border.png</texture>
-        <corner x="0" y="0"></corner>
-        <outline x="64" y="0"></outline>
-      </border>
+    <panel x="%($(window.width)$ / 2)%" y="32">
       <texts>
         <textItem x="-700" y="0">
           <text>Score:</text>

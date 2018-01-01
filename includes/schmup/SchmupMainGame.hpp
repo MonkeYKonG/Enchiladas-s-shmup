@@ -70,6 +70,9 @@ namespace my
 			int m_saveSlot;
 			unsigned m_score;
 			unsigned m_maxScore;
+			unsigned m_playerLevel;
+			unsigned m_playerCurExp;
+			unsigned m_playerLevelUpExp;
 			GAME_STATES m_gameState;
 			XMLNode::XMLNodePtr	m_nodes[GAME_STATES::GAME_STATES_COUNT];
 			XMLNode::XMLNodePtr m_gameRoot;

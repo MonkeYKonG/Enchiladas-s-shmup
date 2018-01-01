@@ -17,7 +17,7 @@ const std::string my::schmup::SchmupMainGame::NODE_NAMES[my::schmup::SchmupMainG
 };
 
 my::schmup::SchmupMainGame::SchmupMainGame()
-	: m_saveSlot(-1), m_score(0), m_maxScore(0), m_gameState(MAIN)
+	: m_saveSlot(-1), m_score(0), m_maxScore(0), m_playerLevel(1), m_playerCurExp(0), m_playerLevelUpExp(10), m_gameState(MAIN)
 {
 }
 
@@ -171,6 +171,8 @@ const my::SceneReturnValue my::schmup::SchmupMainGame::UpdateCrafting(const sf::
 		panelTexts = m_panels[1]->GetTexts();
 		panelTexts[0]->SetText("Atk: " + std::to_string(m_player->GetAtk()));
 		panelTexts[1]->SetText("Def: " + std::to_string(m_player->GetDef()));
+		panelTexts[2]->SetText("Lvl: " + std::to_string(m_playerLevel));
+		panelTexts[3]->SetText("Exp: " + std::to_string(m_playerCurExp) + " / " + std::to_string(m_playerLevelUpExp));
 	}
 	catch (const std::exception & e) {
 		throw (e);
