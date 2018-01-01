@@ -66,6 +66,8 @@ namespace my
 			void InitializeGameValues() throw (std::out_of_range, std::invalid_argument);
 
 			XMLNode::XMLNodePtr GenerateStage(XMLNode::XMLNodePtr paternNode) throw (std::out_of_range, std::invalid_argument);
+			bool AddExperience(unsigned exp) noexcept;
+			void AddLevel() noexcept;
 
 			int m_saveSlot;
 			unsigned m_score;

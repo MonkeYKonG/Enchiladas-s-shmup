@@ -67,7 +67,10 @@ void my::schmup::SchmupMainGame::TriggerEnemyIsDamaged(Shooter::ShootList::itera
 		return;
 	SchmupScene::TriggerEnemyIsDamaged(bulletIt, enemyIt);
 	if (!(*enemyIt)->IsAlive())
+	{
 		m_score += 1;
+		AddExperience(1);
+	}
 }
 
 const my::SceneReturnValue my::schmup::SchmupMainGame::UpdateMain(const sf::Vector2i & mousePos) throw (std::exception)
@@ -376,4 +379,21 @@ my::XMLNode::XMLNodePtr my::schmup::SchmupMainGame::GenerateStage(XMLNode::XMLNo
 		throw (std::invalid_argument("SchmupMainGame: GenerateStage: " + std::string(e.what())));
 	}
 	return (generatedStage);
+}
+
+bool my::schmup::SchmupMainGame::AddExperience(unsigned exp) noexcept
+{
+	bool isLevelUp;
+
+	m_playerCurExp += exp;
+	isLevelUp = m_playerCurExp >= m_playerLevelUpExp;
+	while (m_playerCurExp >= m_playerLevelUpExp)
+		AddLevel();
+	return (isLevelUp);
+}
+
+void my::schmup::SchmupMainGame::AddLevel() noexcept
+{
+	m_playerLevel++;
+	m_playerCurExp -= m_playerLevelUpExp;
 }
