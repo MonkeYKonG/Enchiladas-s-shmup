@@ -53,6 +53,16 @@ namespace my
 		return (m_texts);
 	}
 
+	const Panel::SpriteList &Panel::GetSprites() const noexcept
+	{
+		return (m_sprites);
+	}
+
+	const Panel::ProgressBarList &Panel::GetProgressBars() const noexcept
+	{
+		return (m_progressBars);
+	}
+
 	void	Panel::SetBackground(SpriteObject::SpriteObjectPtr background) noexcept
 	{
 		m_background = background;
@@ -107,6 +117,31 @@ namespace my
 		newText->SetOrigin(0, newText->GetText().getGlobalBounds().height / 2);
 	}
 
+	void	Panel::SetSprites(const SpriteList & sprites) noexcept
+	{
+		m_sprites.clear();
+		for (unsigned i = 0; i < sprites.size(); ++i)
+			AddSprite(sprites[i]);
+	}
+
+	void	Panel::AddSprite(const SpriteObject::SpriteObjectPtr & newSprite) noexcept
+	{
+		m_sprites.push_back(newSprite);
+		newSprite->SetOrigin(newSprite->GetHitBox().width / 2, newSprite->GetHitBox().height / 2);
+	}
+
+	void	Panel::SetProgressBars(const ProgressBarList & progressBars) noexcept
+	{
+		m_progressBars.clear();
+		for (unsigned i = 0; i < progressBars.size(); ++i)
+			AddProgressBars(progressBars[i]);
+	}
+
+	void	Panel::AddProgressBars(const ProgressBar::ProgressBarPtr & newProgressBar) noexcept
+	{
+		m_progressBars.push_back(newProgressBar);
+	}
+
 	void	Panel::UpdateBackground() noexcept
 	{
 		if (!m_background)
@@ -146,6 +181,18 @@ namespace my
 		UpdateTextButtons(mousePos);
 	}
 
+	void	Panel::UpdateSprites() noexcept
+	{
+		for (unsigned i = 0; i < m_sprites.size(); ++i)
+			m_sprites[i]->Update();
+	}
+
+	void	Panel::UpdateProgressBars() noexcept
+	{
+		for (unsigned i = 0; i < m_progressBars.size(); ++i)
+			m_progressBars[i]->Update();
+	}
+
 	void	Panel::Update(const sf::Vector2f & mousePos) noexcept
 	{
 		sf::Vector2f tranfromedMousePos;
@@ -155,6 +202,8 @@ namespace my
 		UpdateBorder();
 		UpdateTitle();
 		UpdateButtons(tranfromedMousePos);
+		UpdateSprites();
+		UpdateProgressBars();
 	}
 
 	void	Panel::draw(sf::RenderTarget & target, sf::RenderStates states) const noexcept
@@ -175,5 +224,9 @@ namespace my
 			target.draw(*m_textButtons[i], states);
 		for (unsigned i = 0; i < m_texts.size(); ++i)
 			target.draw(*m_texts[i], states);
+		for (unsigned i = 0; i < m_sprites.size(); ++i)
+			target.draw(*m_sprites[i], states);
+		for (unsigned i = 0; i < m_progressBars.size(); ++i)
+			target.draw(*m_progressBars[i], states);
 	}
 }

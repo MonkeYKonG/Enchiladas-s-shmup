@@ -1,6 +1,7 @@
 #pragma once
 
 #include "my_menu_lib/SchmupScene.hpp"
+#include "my_objects_lib/ProgressBar.hpp"
 
 namespace my
 {

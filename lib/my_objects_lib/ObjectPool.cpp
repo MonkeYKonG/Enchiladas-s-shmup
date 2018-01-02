@@ -7,7 +7,7 @@ namespace	my
 	ObjectPool::KeysMap ObjectPool::keysMap = ObjectPool::KeysMap();
 	ObjectPool::DirectionsMap ObjectPool::directionsMap = ObjectPool::DirectionsMap();
 
-	const std::string	ObjectPool::SPRITE_BACKGROUND_CLASS_NAME = "background";
+	const std::string	ObjectPool::SPRITE_BACKGROUND_CLASS_NAME = "background";;
 	const ObjectPool::CreateSpriteFunctionsIndexs ObjectPool::CREATE_SPRITE_INDEXS[ObjectPool::SPRITE_OBJECT_CLASS_NBR] =
 	{
 		ObjectPool::CreateSpriteFunctionsIndexs(ObjectPool::SPRITE_BACKGROUND_CLASS_NAME, &ObjectPool::CreateBackground)
@@ -18,6 +18,8 @@ namespace	my
 	const std::string 	ObjectPool::PANEL_BORDER_NODE_NAME = "border";
 	const std::string 	ObjectPool::PANEL_BUTTONS_NODE_NAME = "buttons";
 	const std::string 	ObjectPool::PANEL_TEXTS_NODE_NAME = "texts";
+	const std::string 	ObjectPool::PANEL_SPRITES_NODE_NAME = "sprites";
+	const std::string 	ObjectPool::PANEL_PROGRESS_BARS_NODE_NAME = "progressBars";
 	const std::string 	ObjectPool::PANEL_SPRITE_BUTTONS_NODE_CONTENT_VALUE = "sprite";
 	const std::string 	ObjectPool::PANEL_TEXT_BUTTONS_NODE_CONTENT_VALUE = "text";
 
@@ -478,6 +480,18 @@ namespace	my
 				for (unsigned i = 0; i < childStk->GetChilds().size(); ++i)
 					newPanel->AddText(CreateText(childStk->GetChilds()[i]));
 			}
+			if (panelNode->ChildExist(PANEL_SPRITES_NODE_NAME))
+			{
+				childStk = panelNode->GetChild(PANEL_SPRITES_NODE_NAME);
+				for (unsigned i = 0; i < childStk->GetChilds().size(); ++i)
+					newPanel->AddSprite(CreateSprite(childStk->GetChilds()[i]));
+			}
+			if (panelNode->ChildExist(PANEL_PROGRESS_BARS_NODE_NAME))
+			{
+				childStk = panelNode->GetChild(PANEL_PROGRESS_BARS_NODE_NAME);
+				for (unsigned i = 0; i < childStk->GetChilds().size(); ++i)
+					newPanel->AddProgressBars(CreateProgressBar(childStk->GetChilds()[i]));
+			}
 			if (panelNode->ContentExist(X_NODE_CONTENT) && panelNode->ContentExist(Y_NODE_CONTENT))
 			 	newPanel->setPosition(std::stoul(panelNode->GetContent(X_NODE_CONTENT).second), std::stoul(panelNode->GetContent(Y_NODE_CONTENT).second));
 		}
@@ -626,6 +640,28 @@ namespace	my
 			throw (e);
 		}
 		return (newBullet);
+	}
+
+	ProgressBar::ProgressBarPtr ObjectPool::CreateProgressBar(XMLNode::XMLNodePtr progressBarNode) throw (std::out_of_range, std::invalid_argument)
+	{
+		ProgressBar::ProgressBarPtr newProgressBar;
+
+		if (!progressBarNode)
+			throw (std::invalid_argument("ObjectPool: CreateProgressBar: null node"));
+		newProgressBar = ProgressBar::ProgressBarPtr(new ProgressBar());
+		try
+		{
+			SetSpriteDefaults(progressBarNode, newProgressBar.get());
+		}
+		catch (const std::out_of_range & e)
+		{
+			throw (e);
+		}
+		catch (const std::invalid_argument & e)
+		{
+			throw (e);
+		}
+		return (newProgressBar);
 	}
 
 	void ObjectPool::InitializeKeysMap() noexcept

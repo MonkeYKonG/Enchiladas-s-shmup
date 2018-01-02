@@ -388,6 +388,11 @@
           <color red="255" green="255" blue="255"></color>
         </textItem>
       </texts>
+      <progressBars>
+        <progressBar x="0" y="0">
+          <texture>button.png</texture>
+        </progressBar>
+      </progressBars>
     </panel>
   </play>
 </scene>

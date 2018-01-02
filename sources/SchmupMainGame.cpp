@@ -213,6 +213,10 @@ const my::SceneReturnValue my::schmup::SchmupMainGame::UpdateSelectStage(const s
 					m_gameState = GAME_STATES::PLAY;
 					InitializeStage(i);
 					Reset();
+					m_panels[0]->GetProgressBars()[0]->SetBackgroundTexture(ResourcesLoader::GetTexture("button.png"));
+					m_panels[0]->GetProgressBars()[0]->SetCurValue(&m_playerCurExp);
+					m_panels[0]->GetProgressBars()[0]->SetMaxValue(&m_playerLevelUpExp);
+					m_panels[0]->GetProgressBars()[0]->SetBackgroundSize(sf::IntRect(20, 20, 100, 20));
 				}
 			}
 		}

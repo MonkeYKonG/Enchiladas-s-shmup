@@ -7,6 +7,7 @@
 #include "SpriteButton.hpp"
 #include "Player.hpp"
 #include "Enemy.hpp"
+#include "ProgressBar.hpp"
 
 namespace	my
 {
@@ -22,6 +23,7 @@ namespace	my
 		static Player::PlayerPtr CreatePlayer(XMLNode::XMLNodePtr playerNode) throw (std::out_of_range, std::invalid_argument);
 		static Enemy::EnemyPtr CreateEnemy(XMLNode::XMLNodePtr enemyNode) throw (std::out_of_range, std::invalid_argument);
 		static Bullet::BulletPtr CreateBullet(XMLNode::XMLNodePtr bulletNode) throw (std::out_of_range, std::invalid_argument);
+		static ProgressBar::ProgressBarPtr CreateProgressBar(XMLNode::XMLNodePtr progressBarNode) throw (std::out_of_range, std::invalid_argument);
 
 		static sf::Keyboard::Key StrToInput(const std::string & str) throw (std::invalid_argument);
 		static Direction StrToDirection(const std::string & str) throw (std::invalid_argument);
@@ -45,6 +47,8 @@ namespace	my
 		static const std::string	PANEL_BORDER_NODE_NAME;
 		static const std::string	PANEL_BUTTONS_NODE_NAME;
 		static const std::string	PANEL_TEXTS_NODE_NAME;
+		static const std::string	PANEL_SPRITES_NODE_NAME;
+		static const std::string	PANEL_PROGRESS_BARS_NODE_NAME;
 		static const std::string	PANEL_SPRITE_BUTTONS_NODE_CONTENT_VALUE;
 		static const std::string	PANEL_TEXT_BUTTONS_NODE_CONTENT_VALUE;
 
@@ -93,6 +97,8 @@ namespace	my
 		static const std::string	HP_NODE_CONTENT;
 		static const std::string	ATK_NODE_CONTENT;
 		static const std::string	DEF_NODE_CONTENT;
+		static const std::string	CUR_VALUE_NODE_CONTENT;
+		static const std::string	MAX_VALUE_NODE_CONTENT;
 
 		ObjectPool();
 		~ObjectPool() {}

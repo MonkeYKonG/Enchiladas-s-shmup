@@ -4,6 +4,7 @@
 #include "my_graph_lib/TextObject.hpp"
 #include "Border.hpp"
 #include "SpriteButton.hpp"
+#include "ProgressBar.hpp"
 
 namespace	my
 {
@@ -16,6 +17,8 @@ namespace	my
 		typedef std::vector<PanelSpriteButton> SpriteButtons;
 		typedef std::vector<TextButton> TextButtons;
 		typedef std::vector<TextObject::TextObjectPtr> TextList;
+		typedef std::vector<SpriteObject::SpriteObjectPtr> SpriteList;
+		typedef std::vector<ProgressBar::ProgressBarPtr> ProgressBarList;
 
 		Panel();
 		~Panel();
@@ -30,6 +33,8 @@ namespace	my
 		const SpriteButtons &GetSpriteButtons() const noexcept;
 		const TextButtons &GetTextButtons() const noexcept;
 		const TextList &GetTexts() const noexcept;
+		const SpriteList &GetSprites() const noexcept;
+		const ProgressBarList &GetProgressBars() const noexcept;
 		void SetBackground(SpriteObject::SpriteObjectPtr background) noexcept;
 		void SetBorder(Border::BorderPtr border) noexcept;
 		void SetTitle(TextObject::TextObjectPtr title) noexcept;
@@ -39,6 +44,10 @@ namespace	my
 		void AddTextButton(const TextButton & newButton) noexcept;
 		void SetTexts(const TextList & texts) noexcept;
 		void AddText(const TextObject::TextObjectPtr & newText) noexcept;
+		void SetSprites(const SpriteList & sprites) noexcept;
+		void AddSprite(const SpriteObject::SpriteObjectPtr & newSprite) noexcept;
+		void SetProgressBars(const ProgressBarList & progressBars) noexcept;
+		void AddProgressBars(const ProgressBar::ProgressBarPtr & newProgressBar) noexcept;
 
 		void Update(const sf::Vector2f & mousePos) noexcept;
 
@@ -50,6 +59,8 @@ namespace	my
 		void UpdateButtons(const sf::Vector2f & mousePos) noexcept;
 		void UpdateSpriteButtons(const sf::Vector2f & mousePos) noexcept;
 		void UpdateTextButtons(const sf::Vector2f & mousePos) noexcept;
+		void UpdateSprites() noexcept;
+		void UpdateProgressBars() noexcept;
 
 		SpriteObject::SpriteObjectPtr m_background;
 		Border::BorderPtr m_border;
@@ -57,5 +68,7 @@ namespace	my
 		SpriteButtons	m_spriteButtons;
 		TextButtons		m_textButtons;
 		TextList		m_texts;
+		SpriteList		m_sprites;
+		ProgressBarList m_progressBars;
 	};
 }
