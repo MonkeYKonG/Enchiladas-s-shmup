@@ -21,7 +21,6 @@ void my::EnemiesPool::InitializeStage(XMLNode::XMLNodePtr stageNode) throw (std:
 		{
 			m_waves.push_back(EnemiesWave());
 			childStk = stageNode->GetChilds()[i];
-			std::cout << childStk->GetName() << std::endl;
 			if (childStk->ContentExist("needClean"))
 			{
 				if (childStk->GetContent("needClean").second == "true")

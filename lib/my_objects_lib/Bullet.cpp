@@ -71,6 +71,7 @@ void my::Bullet::UpdateAnimation() throw(std::out_of_range)
 			m_onAnimation = true;
 		}
 		SpriteObject::UpdateAnimation();
+		setOrigin(GetCurentRect().height / 2, GetCurentRect().width / 2);
 	}
 	catch (const std::out_of_range & e)
 	{

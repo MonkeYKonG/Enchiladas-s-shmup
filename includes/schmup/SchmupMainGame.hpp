@@ -47,7 +47,7 @@ namespace my
 			static const std::string NODE_NAMES[GAME_STATES::GAME_STATES_COUNT];
 
 			virtual void TriggerEnemyIsDamaged(Shooter::ShootList::iterator & bulletIt, EnemiesPool::EnemiesList::iterator &enemyIt) noexcept;
-			virtual const my::Shooter::ShootList GeneratingPlayerBullets() throw (std::out_of_range, std::invalid_argument);
+			virtual void PreparingPlayerBuller(Bullet::BulletPtr newBullet) noexcept;
 
 			const SceneReturnValue UpdateMain(const sf::Vector2i & mousePos) throw (std::exception);
 			const SceneReturnValue UpdatePlay(const sf::Vector2i & mousePos) throw (std::exception);

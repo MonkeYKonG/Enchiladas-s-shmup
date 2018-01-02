@@ -4,6 +4,8 @@
 #include "my_graph_lib/XMLParser.hpp"
 #include "my_objects_lib/ObjectPool.hpp"
 
+#include <iostream>
+
 const std::string my::schmup::SchmupMainGame::MAIN_NODE_NAME = "main";
 const std::string my::schmup::SchmupMainGame::PLAY_NODE_NAME = "play";
 const std::string my::schmup::SchmupMainGame::CRAFTING_NODE_NAME = "crafting";
@@ -483,7 +485,12 @@ bool my::schmup::SchmupMainGame::IsOutOfBottomLimit(Node::NodePtr node) const no
 	return (nodeRect.top + nodeRect.height > 1050);
 }
 
-const my::Shooter::ShootList my::schmup::SchmupMainGame::GeneratingPlayerBullets() throw(std::out_of_range, std::invalid_argument)
+void my::schmup::SchmupMainGame::PreparingPlayerBuller(Bullet::BulletPtr newBullet) noexcept
 {
-	return my::Shooter::ShootList();
+	sf::FloatRect playerBox;
+	sf::FloatRect bulletBox;
+
+	playerBox = m_player->GetHitBox();
+	bulletBox = newBullet->GetHitBox();
+	newBullet->setPosition(playerBox.left + playerBox.width, playerBox.top + playerBox.height / 2);
 }
