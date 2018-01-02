@@ -3,13 +3,13 @@
   <inputsDeplacement>
     <input input="Up" direction="UP"></input>
     <input input="Down" direction="DOWN"></input>
-    <input input="Left" direction="LEFT"></input>
-    <input input="Right" direction="RIGHT"></input>
+    <input input="Left" direction="UP"></input>
+    <input input="Right" direction="DOWN"></input>
   </inputsDeplacement>
   <inputsShoot>
     <input input="Space" key="default"></input>
   </inputsShoot>
-  <deplacements speed="12">
+  <deplacements speed="15">
   </deplacements>
   <animations>
     <animation key="default">
@@ -20,14 +20,14 @@
   </animations>
   <shoots framerateMax="10">
     <shoot key="default">
-      <bullet travelTime="150" damage="1">
+      <bullet travelTime="600" damage="1">
         <texture>bullet.png</texture>
         <deplacements speed="18">
-          <direction x="0" y="-1"></direction>
+          <direction x="1" y="0"></direction>
         </deplacements>
         <animations>
           <animation key="default">
-            <framerateMax>7</framerateMax>
+            <framerateMax>10</framerateMax>
             <loop>true</loop>
             <rects>
               <rect x="0" y="0" tileX="32" tileY="32"></rect>

@@ -123,6 +123,7 @@ const my::SceneReturnValue my::schmup::SchmupMainGame::UpdateMain(const sf::Vect
 const my::SceneReturnValue my::schmup::SchmupMainGame::UpdatePlay(const sf::Vector2i & mousePos) throw (std::exception)
 {
 	Panel::TextList panelTexts;
+	SceneReturnValue returnValue;
 
 	if (m_enemies.empty() && m_enemiesPool.IsWavesClear())
 	{
@@ -135,7 +136,9 @@ const my::SceneReturnValue my::schmup::SchmupMainGame::UpdatePlay(const sf::Vect
 	panelTexts = m_panels[0]->GetTexts();
 	panelTexts[0]->SetText("Score: " + std::to_string(m_score));
 	panelTexts[1]->SetText("Meilleur: " + std::to_string(m_maxScore));
-	return (SchmupScene::Update(mousePos));
+	returnValue = SchmupScene::Update(mousePos);
+	UpdateLimitPosition();
+	return (returnValue);
 }
 
 const my::SceneReturnValue my::schmup::SchmupMainGame::UpdateCrafting(const sf::Vector2i & mousePos) throw (std::exception)
@@ -365,7 +368,7 @@ my::XMLNode::XMLNodePtr my::schmup::SchmupMainGame::GenerateStage(XMLNode::XMLNo
 	{
 		generatedStage = XMLNode::create();
 		generatedStage->SetName("stage");
-		for (unsigned i = 0; i < 1; ++i)
+		for (unsigned i = 0; i < 30; ++i)
 		{
 			generatedStage->AddChild(paternNode->GetChilds()[rand() % paternNode->GetChilds().size()]);
 		}
@@ -396,4 +399,91 @@ void my::schmup::SchmupMainGame::AddLevel() noexcept
 {
 	m_playerLevel++;
 	m_playerCurExp -= m_playerLevelUpExp;
+}
+
+void my::schmup::SchmupMainGame::UpdateLimitPosition() noexcept
+{
+	CorrectPlayerPosition();
+	UnloadUnlimitEnemies();
+	UnloadUnlimitShoots();
+}
+
+void my::schmup::SchmupMainGame::CorrectPlayerPosition() noexcept
+{
+	if (IsOutOfTopLimit(m_player))
+		m_player->setPosition(m_player->getPosition().x, 0);
+	else if (IsOutOfBottomLimit(m_player))
+		m_player->setPosition(m_player->getPosition().x, 1050 - m_player->GetHitBox().height);
+}
+
+void my::schmup::SchmupMainGame::UnloadUnlimitEnemies() noexcept
+{
+	EnemiesPool::EnemiesList::iterator it;
+
+	it = m_enemies.begin();
+	while (it != m_enemies.end())
+	{
+		if (IsOutOfLeftLimit(*it) || IsOutOfTopLimit(*it) || IsOutOfBottomLimit(*it))
+			it = m_enemies.erase(it);
+		else
+			it++;
+	}
+}
+
+void my::schmup::SchmupMainGame::UnloadUnlimitShoots() noexcept
+{
+	Shooter::ShootList::iterator it;
+
+	it = m_enemiesShoots.begin();
+	while (it != m_enemiesShoots.end())
+	{
+		if (IsOutOfLimit(*it))
+			it = m_enemiesShoots.erase(it);
+		else
+			it++;
+	}
+	it = m_playerShoots.begin();
+	while (it != m_playerShoots.end())
+	{
+		if (IsOutOfLimit(*it))
+			it = m_playerShoots.erase(it);
+		else
+			it++;
+	}
+}
+
+bool my::schmup::SchmupMainGame::IsOutOfLimit(Node::NodePtr node) const noexcept
+{
+	return (IsOutOfLeftLimit(node) || IsOutOfRightLimit(node) || IsOutOfTopLimit(node) || IsOutOfBottomLimit(node));
+}
+
+bool my::schmup::SchmupMainGame::IsOutOfLeftLimit(Node::NodePtr node) const noexcept
+{
+	return (node->GetHitBox().left < 0);
+}
+
+bool my::schmup::SchmupMainGame::IsOutOfRightLimit(Node::NodePtr node) const noexcept
+{
+	sf::FloatRect nodeRect;
+	
+	nodeRect = node->GetHitBox();
+	return (nodeRect.left + nodeRect.width > 1680);
+}
+
+bool my::schmup::SchmupMainGame::IsOutOfTopLimit(Node::NodePtr node) const noexcept
+{
+	return (node->GetHitBox().top < 0);
+}
+
+bool my::schmup::SchmupMainGame::IsOutOfBottomLimit(Node::NodePtr node) const noexcept
+{
+	sf::FloatRect nodeRect;
+
+	nodeRect = node->GetHitBox();
+	return (nodeRect.top + nodeRect.height > 1050);
+}
+
+const my::Shooter::ShootList my::schmup::SchmupMainGame::GeneratingPlayerBullets() throw(std::out_of_range, std::invalid_argument)
+{
+	return my::Shooter::ShootList();
 }

@@ -1,12 +1,18 @@
 <stage1>
   <wave needClean="true" timeToBegin="60">
-    <testEnemy x="300" y="300"></testEnemy>
-    <testEnemy x="600" y="300"></testEnemy>
-    <testEnemy x="300" y="600"></testEnemy>
+    <testEnemy x="$(window.width)$ + 100" y="300"></testEnemy>
+    <testEnemy x="$(window.width)$ + 100" y="600"></testEnemy>
   </wave>
   <wave needClean="false" timeToBegin="60">
-    <testEnemy x="300" y="300"></testEnemy>
-    <testEnemy x="600" y="300"></testEnemy>
-    <testEnemy x="300" y="600"></testEnemy>
+    <testEnemy x="$(window.width)$ + 100" y="300"></testEnemy>
+    <testEnemy x="$(window.width)$ + 100" y="600"></testEnemy>
+  </wave>
+  <wave needClean="false" timeToBegin="60">
+    <testEnemy x="$(window.width)$ + 100" y="100"></testEnemy>
+    <testEnemy x="$(window.width)$ + 100" y="800"></testEnemy>
+  </wave>
+  <wave needClean="false" timeToBegin="60">
+    <testEnemy x="$(window.width)$ + 100" y="400"></testEnemy>
+    <testEnemy x="$(window.width)$ + 100" y="500"></testEnemy>
   </wave>
 </stage1>

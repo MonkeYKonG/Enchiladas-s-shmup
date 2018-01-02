@@ -15,7 +15,7 @@ namespace my
 			virtual void LoadSavingData(int slot = -1) throw (std::out_of_range, std::invalid_argument);
 			virtual void Reset() throw (std::out_of_range, std::invalid_argument);
 			virtual const SceneReturnValue Update(const sf::Vector2i & mousePos) throw (std::exception);
-
+			
 		private:
 			enum GAME_STATES
 			{
@@ -47,6 +47,7 @@ namespace my
 			static const std::string NODE_NAMES[GAME_STATES::GAME_STATES_COUNT];
 
 			virtual void TriggerEnemyIsDamaged(Shooter::ShootList::iterator & bulletIt, EnemiesPool::EnemiesList::iterator &enemyIt) noexcept;
+			virtual const my::Shooter::ShootList GeneratingPlayerBullets() throw (std::out_of_range, std::invalid_argument);
 
 			const SceneReturnValue UpdateMain(const sf::Vector2i & mousePos) throw (std::exception);
 			const SceneReturnValue UpdatePlay(const sf::Vector2i & mousePos) throw (std::exception);
@@ -68,6 +69,17 @@ namespace my
 			XMLNode::XMLNodePtr GenerateStage(XMLNode::XMLNodePtr paternNode) throw (std::out_of_range, std::invalid_argument);
 			bool AddExperience(unsigned exp) noexcept;
 			void AddLevel() noexcept;
+
+			void UpdateLimitPosition() noexcept;
+			void CorrectPlayerPosition() noexcept;
+			void UnloadUnlimitEnemies() noexcept;
+			void UnloadUnlimitShoots() noexcept;
+			
+			bool IsOutOfLimit(Node::NodePtr node) const noexcept;
+			bool IsOutOfLeftLimit(Node::NodePtr node) const noexcept;
+			bool IsOutOfRightLimit(Node::NodePtr node) const noexcept;
+			bool IsOutOfTopLimit(Node::NodePtr node) const noexcept;
+			bool IsOutOfBottomLimit(Node::NodePtr node) const noexcept;
 
 			int m_saveSlot;
 			unsigned m_score;
