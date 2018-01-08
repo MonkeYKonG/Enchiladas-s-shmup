@@ -66,6 +66,9 @@ namespace my
 			void InitializeStage(unsigned levelIndex) throw (std::out_of_range, std::invalid_argument);
 			void InitializePlayer() throw (std::out_of_range, std::invalid_argument);
 			void InitializeGameValues() throw (std::out_of_range, std::invalid_argument);
+			
+			void ParseGameValuesNode() throw(std::out_of_range, std::invalid_argument);
+			void SaveGame() throw (std::out_of_range, std::invalid_argument);
 
 			XMLNode::XMLNodePtr GenerateStage(XMLNode::XMLNodePtr paternNode) throw (std::out_of_range, std::invalid_argument);
 			bool AddExperience(unsigned exp) noexcept;
@@ -92,6 +95,7 @@ namespace my
 			XMLNode::XMLNodePtr	m_nodes[GAME_STATES::GAME_STATES_COUNT];
 			XMLNode::XMLNodePtr m_gameRoot;
 			XMLNode::XMLNodePtr m_playerNode;
+			XMLNode::XMLNodePtr m_gameValuesNode;
 		};
 	}
 }

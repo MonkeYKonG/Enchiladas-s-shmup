@@ -3,7 +3,7 @@
 #include "my_graph_lib/InputsManager.hpp"
 #include "my_graph_lib/XMLParser.hpp"
 #include "my_objects_lib/ObjectPool.hpp"
-
+#include <fstream>
 #include <iostream>
 
 const std::string my::schmup::SchmupMainGame::MAIN_NODE_NAME = "main";
@@ -116,7 +116,8 @@ const my::SceneReturnValue my::schmup::SchmupMainGame::UpdateMain(const sf::Vect
 		panelTexts[0]->SetText("Score: " + std::to_string(m_score));
 		panelTexts[1]->SetText("Meilleur: " + std::to_string(m_maxScore));
 	}
-	catch (const std::exception & e) {
+	catch (const std::exception & e) 
+	{
 		throw (e);
 	}
 	return (returnValue);
@@ -130,8 +131,12 @@ const my::SceneReturnValue my::schmup::SchmupMainGame::UpdatePlay(const sf::Vect
 	if (m_enemies.empty() && m_enemiesPool.IsWavesClear())
 	{
 		if (m_score > m_maxScore)
+		{
 			m_maxScore = m_score;
+			m_gameValuesNode->GetChild("score")->SetAttribute(XMLNode::NodeContent("max", std::to_string(m_maxScore)));
+		}
 		m_gameState = GAME_STATES::MAIN;
+		SaveGame();
 		Reset();
 		return (SceneReturnValue());
 	}
@@ -347,7 +352,10 @@ void my::schmup::SchmupMainGame::InitializePlayer() throw (std::out_of_range, st
 {
 	try
 	{
-		m_playerNode = XMLParser::Load("default_player.xml");
+		if (!m_saveSlot)
+			m_playerNode = XMLParser::Load("player_default.xml");
+		else
+			m_playerNode = XMLParser::Load("player_" + std::to_string(m_saveSlot) + ".xml");
 		m_player = ObjectPool::CreatePlayer(m_playerNode);
 	}
 	catch (std::out_of_range & e)
@@ -362,8 +370,77 @@ void my::schmup::SchmupMainGame::InitializePlayer() throw (std::out_of_range, st
 
 void my::schmup::SchmupMainGame::InitializeGameValues() throw (std::out_of_range, std::invalid_argument)
 {
-	m_score = 0;
-	m_maxScore = 0;
+	try
+	{
+		if (!m_saveSlot)
+			m_gameValuesNode = XMLParser::Load("game_values_default.xml");
+		else
+			m_gameValuesNode = XMLParser::Load("game_values_" + std::to_string(m_saveSlot) + ".xml");
+		ParseGameValuesNode();
+	}
+	catch (std::out_of_range & e)
+	{
+		throw (std::out_of_range("SchmupMainGame: InitializeGameValues: " + std::string(e.what())));
+	}
+	catch (std::invalid_argument & e)
+	{
+		throw (std::invalid_argument("SchmupMainGame: InitializeGameValues: " + std::string(e.what())));
+	}
+}
+
+void my::schmup::SchmupMainGame::ParseGameValuesNode() throw(std::out_of_range, std::invalid_argument)
+{
+	XMLNode::XMLNodePtr childStk;
+
+	try
+	{
+		if (!m_gameValuesNode)
+			throw (std::invalid_argument("null node"));
+		childStk = m_gameValuesNode->GetChild("score");
+		m_maxScore = std::stoul(childStk->GetContent("max").second);
+		childStk = m_gameValuesNode->GetChild("level");
+		m_playerLevel = std::stoul(childStk->GetContent("cur").second);
+		m_playerCurExp = std::stoul(childStk->GetContent("exp").second);
+		m_playerLevelUpExp = std::stoul(childStk->GetContent("lvlUpExp").second);
+	}
+	catch (std::out_of_range & e)
+	{
+		throw (std::out_of_range("SchmupMainGame: ParseGameValuesNode: " + std::string(e.what())));
+	}
+	catch (std::invalid_argument & e)
+	{
+		throw (std::invalid_argument("SchmupMainGame: ParseGameValuesNode: " + std::string(e.what())));
+	}
+}
+
+void my::schmup::SchmupMainGame::SaveGame() throw (std::out_of_range, std::invalid_argument)
+{
+#ifdef __linux__
+	std::string fileName = "resources/xmls/game_values_";
+#elif _WIN32
+	std::string fileName = "../../../resources/xmls/game_values_";
+#endif
+	std::ofstream ofs;
+
+	try
+	{
+		if (!m_saveSlot)
+			fileName += "default.xml";
+		else
+			fileName += std::to_string(m_saveSlot) + ".xml";
+		ofs.open(fileName);
+		if (!ofs)
+			throw (std::invalid_argument("can't open file: " + fileName));
+		ofs << m_gameValuesNode->ToString();
+	}
+	catch (std::out_of_range & e)
+	{
+		throw (std::out_of_range("SchmupMainGame: SaveGame: " + std::string(e.what())));
+	}
+	catch (std::invalid_argument & e)
+	{
+		throw (std::invalid_argument("SchmupMainGame: SaveGame: " + std::string(e.what())));
+	}
 }
 
 my::XMLNode::XMLNodePtr my::schmup::SchmupMainGame::GenerateStage(XMLNode::XMLNodePtr paternNode) throw (std::out_of_range, std::invalid_argument)
@@ -374,7 +451,7 @@ my::XMLNode::XMLNodePtr my::schmup::SchmupMainGame::GenerateStage(XMLNode::XMLNo
 	{
 		generatedStage = XMLNode::create();
 		generatedStage->SetName("stage");
-		for (unsigned i = 0; i < 30; ++i)
+		for (unsigned i = 0; i < 3; ++i)
 		{
 			generatedStage->AddChild(paternNode->GetChilds()[rand() % paternNode->GetChilds().size()]);
 		}
@@ -398,6 +475,7 @@ bool my::schmup::SchmupMainGame::AddExperience(unsigned exp) noexcept
 	isLevelUp = m_playerCurExp >= m_playerLevelUpExp;
 	while (m_playerCurExp >= m_playerLevelUpExp)
 		AddLevel();
+	m_gameValuesNode->GetChild("level")->SetAttribute(XMLNode::NodeContent("exp", std::to_string(m_playerCurExp)));
 	return (isLevelUp);
 }
 
@@ -405,6 +483,8 @@ void my::schmup::SchmupMainGame::AddLevel() noexcept
 {
 	m_playerLevel++;
 	m_playerCurExp -= m_playerLevelUpExp;
+	m_gameValuesNode->GetChild("level")->SetAttribute(XMLNode::NodeContent("cur", std::to_string(m_playerLevel)));
+	m_gameValuesNode->GetChild("level")->SetAttribute(XMLNode::NodeContent("lvlUpExp", std::to_string(m_playerLevelUpExp)));
 }
 
 void my::schmup::SchmupMainGame::UpdateLimitPosition() noexcept

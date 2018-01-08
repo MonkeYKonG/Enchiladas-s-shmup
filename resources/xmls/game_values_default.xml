@@ -1,0 +1,6 @@
+<gameValues>
+ <score max="10">
+ </score>
+ <level cur="3" exp="7" lvlUpExp="10">
+ </level>
+</gameValues>

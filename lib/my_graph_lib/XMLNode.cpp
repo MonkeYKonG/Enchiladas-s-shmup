@@ -133,13 +133,22 @@ namespace	my
 		return (str);
 	}
 
-	void XMLNode::SetAttribute(unsigned index, const NodeContent & attribute) throw(std::out_of_range)
+	void XMLNode::SetAttribute(const NodeContent & attribute) throw(std::out_of_range)
 	{
+		unsigned i = 0;
 		try
 		{
-			if (index >= m_contents.size())
-				throw (std::out_of_range("invalid index."));
-			m_contents[index] = attribute;
+			while (i < m_contents.size())
+			{
+				if (m_contents[i].first == attribute.first)
+				{
+					m_contents[i] = attribute;
+					break;
+				}
+				i++;
+			}
+			if (i >= m_contents.size())
+				throw (std::out_of_range("invalid key."));
 		}
 		catch (const std::out_of_range & e)
 		{
